@@ -4457,14 +4457,14 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       const _component_I18nLink = _sfc_main$6;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: [{ active: unref(menuStatus) }, "global-menu is-white"]
-      }, _attrs))} data-v-6d0051bc><div class="clip" data-v-6d0051bc><div class="glow" data-v-6d0051bc></div><div class="menu-header" data-v-6d0051bc>`);
+      }, _attrs))} data-v-b9210da3><div class="clip" data-v-b9210da3><div class="glow" data-v-b9210da3></div><div class="menu-header" data-v-b9210da3>`);
       _push(ssrRenderComponent(_component_Logo, {
         link: false,
         class: "menu-header__logo"
       }, null, _parent));
-      _push(`<button class="menu-header__close" data-v-6d0051bc><span data-v-6d0051bc></span><span data-v-6d0051bc></span></button></div><div class="menu-body" data-v-6d0051bc><span class="menu-body__line tablet-hidden mobile-hidden" data-v-6d0051bc></span><div class="menu-body__left" data-v-6d0051bc><nav class="menus" data-v-6d0051bc><ul data-v-6d0051bc><!--[-->`);
+      _push(`<button class="menu-header__close" data-v-b9210da3><span data-v-b9210da3></span><span data-v-b9210da3></span></button></div><div class="menu-body" data-v-b9210da3><span class="menu-body__line tablet-hidden mobile-hidden" data-v-b9210da3></span><div class="menu-body__left" data-v-b9210da3><nav class="menus" data-v-b9210da3><ul data-v-b9210da3><!--[-->`);
       ssrRenderList(unref(menuList), (item, index) => {
-        _push(`<li data-v-6d0051bc>`);
+        _push(`<li data-v-b9210da3>`);
         _push(ssrRenderComponent(_component_I18nLink, {
           to: item.href
         }, {
@@ -4481,11 +4481,11 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
         }, _parent));
         _push(`</li>`);
       });
-      _push(`<!--]--></ul></nav><div class="social-links" data-v-6d0051bc><!--[-->`);
+      _push(`<!--]--></ul></nav><div class="social-links" data-v-b9210da3><!--[-->`);
       ssrRenderList(unref(socialItems), (item, index) => {
-        _push(`<a${ssrRenderAttr("href", item.href)} target="_blank" data-v-6d0051bc><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))(item.icon))} data-v-6d0051bc></a>`);
+        _push(`<a${ssrRenderAttr("href", item.href)} target="_blank" data-v-b9210da3><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))(item.icon))} data-v-b9210da3></a>`);
       });
-      _push(`<!--]--></div></div><div class="menu-body__right tablet-hidden mobile-hidden" data-v-6d0051bc><div class="contact-info" data-v-6d0051bc><div class="emails" data-v-6d0051bc><div class="subtitle" data-v-6d0051bc>${ssrInterpolate(unref(globalMenuText).getInTouch[unref(locale)])}</div><div class="content" data-v-6d0051bc><p data-v-6d0051bc>Eugenia Cheng: eugenia@episodefilms.com</p><p data-v-6d0051bc>Deep Yeh: deep@episodefilms.com</p><p data-v-6d0051bc>Patty Tsai: patty@episodefilms.com</p></div></div><div class="office" data-v-6d0051bc><div class="subtitle" data-v-6d0051bc>${ssrInterpolate(unref(globalMenuText).office[unref(locale)])}</div><div class="address" data-v-6d0051bc><p data-v-6d0051bc>1F, No. 8, Lane 13, Linyi Street, Zhong Zheng District, Taipei City, Taiwan 100</p><p data-v-6d0051bc>Rm2702, No. 1, Sinan Rd. Huangpu district. Shanghai, Shanghai 200025</p></div><div class="phone" data-v-6d0051bc><p data-v-6d0051bc>TEL: +886 2 6613-0680</p><p data-v-6d0051bc>FAX: +886 2 2322-2366</p></div></div></div></div></div></div></div>`);
+      _push(`<!--]--></div></div><div class="menu-body__right tablet-hidden mobile-hidden" data-v-b9210da3><div class="contact-info" data-v-b9210da3><div class="emails" data-v-b9210da3><div class="subtitle" data-v-b9210da3>${ssrInterpolate(unref(globalMenuText).getInTouch[unref(locale)])}</div><div class="content" data-v-b9210da3><p data-v-b9210da3>Eugenia Cheng: eugenia@episodefilms.com</p><p data-v-b9210da3>Deep Yeh: deep@episodefilms.com</p><p data-v-b9210da3>Patty Tsai: patty@episodefilms.com</p></div></div><div class="office" data-v-b9210da3><div class="subtitle" data-v-b9210da3>${ssrInterpolate(unref(globalMenuText).office[unref(locale)])}</div><div class="address" data-v-b9210da3><p data-v-b9210da3>1F, No. 8, Lane 13, Linyi Street, Zhong Zheng District, Taipei City, Taiwan 100</p><p data-v-b9210da3>Rm2702, No. 1, Sinan Rd. Huangpu district. Shanghai, Shanghai 200025</p></div><div class="phone" data-v-b9210da3><p data-v-b9210da3>TEL: +886 2 6613-0680</p><p data-v-b9210da3>FAX: +886 2 2322-2366</p></div></div></div></div></div></div></div>`);
     };
   }
 });
@@ -4495,7 +4495,7 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/GlobalMenu.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-6d0051bc"]]);
+const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-b9210da3"]]);
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "MenuToggle",
   __ssrInlineRender: true,
@@ -4646,4 +4646,4 @@ function useHttpPost(key, url, options = {}) {
 }
 
 export { __nuxt_component_0 as _, __nuxt_component_3 as a, useSocial as b, useAssets as c, _sfc_main$6 as d, useHttpPost as u };
-//# sourceMappingURL=useHttp-d4b068f5.mjs.map
+//# sourceMappingURL=useHttp-f4d5d11f.mjs.map

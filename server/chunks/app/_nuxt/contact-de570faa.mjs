@@ -1,4 +1,4 @@
-import { b as useSocial, u as useHttpPost, c as useAssets, _ as __nuxt_component_0, a as __nuxt_component_3 } from './useHttp-d4b068f5.mjs';
+import { b as useSocial, u as useHttpPost, c as useAssets, _ as __nuxt_component_0, a as __nuxt_component_3 } from './useHttp-f4d5d11f.mjs';
 import { useSSRContext, defineComponent, withAsyncContext, reactive, ref, mergeProps, unref } from 'vue';
 import { u as useHead, a as useI18n } from '../server.mjs';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrInterpolate, ssrRenderClass, ssrRenderAttr } from 'vue/server-renderer';
@@ -135,4 +135,4 @@ _sfc_main.setup = (props, ctx) => {
 const contact = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-14d83fd0"]]);
 
 export { contact as default };
-//# sourceMappingURL=contact-d159edc7.mjs.map
+//# sourceMappingURL=contact-de570faa.mjs.map
