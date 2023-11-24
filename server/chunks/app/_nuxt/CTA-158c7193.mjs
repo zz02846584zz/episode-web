@@ -27,7 +27,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_I18nLink = _sfc_main$6;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "cta" }, _attrs))} data-v-b1741f01><div class="cta-heading" data-v-b1741f01>${unref(ctaText)[unref(locale)].heading}</div><div class="cta-body" data-v-b1741f01><div class="left" data-v-b1741f01>${unref(ctaText)[unref(locale)].contact}</div><div class="right" data-v-b1741f01><div class="title" data-v-b1741f01>${ssrInterpolate(unref(ctaText)[unref(locale)].consultation)}</div><div class="description" data-v-b1741f01>${unref(ctaText)[unref(locale)].cta}</div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "cta" }, _attrs))} data-v-42e4d920><div class="cta-heading" data-v-42e4d920>${unref(ctaText)[unref(locale)].heading}</div><div class="cta-body" data-v-42e4d920><div class="left" data-v-42e4d920>${unref(ctaText)[unref(locale)].contact}</div><div class="right" data-v-42e4d920><div class="title" data-v-42e4d920>${ssrInterpolate(unref(ctaText)[unref(locale)].consultation)}</div><div class="description" data-v-42e4d920>${unref(ctaText)[unref(locale)].cta}</div>`);
       _push(ssrRenderComponent(_component_I18nLink, { to: "/contact" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -40,7 +40,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div></div><div class="glow" data-v-b1741f01></div></div>`);
+      _push(`</div></div><div class="glow" data-v-42e4d920></div></div>`);
     };
   }
 });
@@ -50,7 +50,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/CTA.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-b1741f01"]]);
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-42e4d920"]]);
 
 export { __nuxt_component_2 as _ };
-//# sourceMappingURL=CTA-63205d8c.mjs.map
+//# sourceMappingURL=CTA-158c7193.mjs.map

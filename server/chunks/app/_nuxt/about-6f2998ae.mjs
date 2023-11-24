@@ -1,5 +1,5 @@
 import { u as useHttpPost, _ as __nuxt_component_0, a as __nuxt_component_3 } from './useHttp-d4b068f5.mjs';
-import { _ as __nuxt_component_2 } from './CTA-63205d8c.mjs';
+import { _ as __nuxt_component_2 } from './CTA-158c7193.mjs';
 import { useSSRContext, defineComponent, withAsyncContext, mergeProps, unref } from 'vue';
 import { u as useHead, a as useI18n } from '../server.mjs';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrInterpolate, ssrRenderStyle } from 'vue/server-renderer';
@@ -80,4 +80,4 @@ _sfc_main.setup = (props, ctx) => {
 const about = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-f5c077d5"]]);
 
 export { about as default };
-//# sourceMappingURL=about-d69df90a.mjs.map
+//# sourceMappingURL=about-6f2998ae.mjs.map

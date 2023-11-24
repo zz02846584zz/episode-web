@@ -1,5 +1,5 @@
 import { u as useHttpPost, c as useAssets, _ as __nuxt_component_0, d as _sfc_main$6, a as __nuxt_component_3 } from './useHttp-d4b068f5.mjs';
-import { _ as __nuxt_component_2 } from './CTA-63205d8c.mjs';
+import { _ as __nuxt_component_2 } from './CTA-158c7193.mjs';
 import { useSSRContext, defineComponent, withAsyncContext, mergeProps, unref, withCtx, createVNode, toDisplayString } from 'vue';
 import { u as useHead, a as useI18n } from '../server.mjs';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
@@ -44,25 +44,28 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_I18nLink = _sfc_main$6;
       const _component_CTA = __nuxt_component_2;
       const _component_Footer = __nuxt_component_3;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "projects" }, _attrs))} data-v-ed697508>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({
+        class: "projects",
+        style: { "opacity": "0" }
+      }, _attrs))} data-v-a935c5af>`);
       _push(ssrRenderComponent(_component_Header, { class: "header" }, null, _parent));
-      _push(`<div class="line-container" data-v-ed697508><!--[-->`);
+      _push(`<div class="line-container" data-v-a935c5af><!--[-->`);
       ssrRenderList(7, (n) => {
-        _push(`<div class="line" data-v-ed697508><span data-v-ed697508></span></div>`);
+        _push(`<div class="line" data-v-a935c5af><span data-v-a935c5af></span></div>`);
       });
-      _push(`<!--]--></div><div class="page-content" data-v-ed697508><div class="page-title" data-v-ed697508><!--[-->`);
+      _push(`<!--]--></div><div class="page-content" data-v-a935c5af><div class="page-title" data-v-a935c5af><!--[-->`);
       ssrRenderList("WORKS".split(""), (char, index2) => {
-        _push(`<span data-v-ed697508>${ssrInterpolate(char)}</span>`);
+        _push(`<span data-v-a935c5af>${ssrInterpolate(char)}</span>`);
       });
-      _push(`<!--]--></div><div class="projects-list" data-v-ed697508><!--[-->`);
+      _push(`<!--]--></div><div class="projects-list" data-v-a935c5af><!--[-->`);
       ssrRenderList(unref(list), (item, index2) => {
-        _push(`<div class="item" data-v-ed697508>`);
+        _push(`<div class="item" data-v-a935c5af>`);
         _push(ssrRenderComponent(_component_I18nLink, {
           to: `/project/${item.slug}`
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${ssrRenderAttr("src", item.cover)} data-v-ed697508${_scopeId}><div class="title" data-v-ed697508${_scopeId}>${ssrInterpolate(item[unref(locale)].title)}</div><div class="icon" data-v-ed697508${_scopeId}><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))("icons/Play.svg"))} data-v-ed697508${_scopeId}></div>`);
+              _push2(`<img${ssrRenderAttr("src", item.cover)} data-v-a935c5af${_scopeId}><div class="title" data-v-a935c5af${_scopeId}>${ssrInterpolate(item[unref(locale)].title)}</div><div class="icon" data-v-a935c5af${_scopeId}><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))("icons/Play.svg"))} data-v-a935c5af${_scopeId}></div>`);
             } else {
               return [
                 createVNode("img", {
@@ -86,7 +89,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       });
       _push(`<!--]--></div>`);
       _push(ssrRenderComponent(_component_CTA, null, null, _parent));
-      _push(`</div><div class="footer-container" data-v-ed697508>`);
+      _push(`</div><div class="footer-container" data-v-a935c5af>`);
       _push(ssrRenderComponent(_component_Footer, { class: "footer" }, null, _parent));
       _push(`</div></div>`);
     };
@@ -98,7 +101,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-ed697508"]]);
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a935c5af"]]);
 
 export { index as default };
-//# sourceMappingURL=index-8f51f2e0.mjs.map
+//# sourceMappingURL=index-b6c28682.mjs.map
