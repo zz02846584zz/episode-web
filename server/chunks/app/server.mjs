@@ -1,5 +1,5 @@
-import { hasInjectionContext, getCurrentInstance, version, ref, watchEffect, watch, inject, toRef, isRef, defineComponent, h, onUnmounted, useSSRContext, unref, computed, Fragment, withCtx, createVNode, createApp, reactive, Suspense, nextTick, Transition, provide, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, Text, mergeProps, defineAsyncComponent, effectScope, markRaw, isShallow, isReactive, toRaw, toValue } from 'vue';
-import { u as useRuntimeConfig$1, p as withQuery, q as hasProtocol, t as parseURL, v as isScriptProtocol, k as joinURL, x as createError$1, $ as $fetch, y as sanitizeStatusCode, z as withLeadingSlash, A as defu, B as encodeParam, C as createHooks, D as encodePath, E as isEqual, F as getRequestHeaders, G as withHttps, H as hasTrailingSlash$1, I as withTrailingSlash$1, J as withoutTrailingSlash$1, K as withBase } from '../nitro/node-server.mjs';
+import { hasInjectionContext, getCurrentInstance, version, ref, watchEffect, watch, inject, toRef, isRef, defineComponent, h, onUnmounted, useSSRContext, unref, computed, Fragment, withCtx, createVNode, createApp, reactive, Suspense, nextTick, Transition, provide, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, Text, mergeProps, defineAsyncComponent, effectScope, markRaw, isShallow, isReactive, toRaw, toValue, createElementBlock } from 'vue';
+import { u as useRuntimeConfig$1, v as withQuery, x as hasProtocol, y as parseURL, z as isScriptProtocol, k as joinURL, A as createError$1, $ as $fetch, B as sanitizeStatusCode, C as withLeadingSlash, D as defu, E as encodeParam, F as createHooks, G as encodePath, H as isEqual, I as getRequestHeaders, J as withHttps, K as hasTrailingSlash$1, L as withTrailingSlash$1, M as withoutTrailingSlash$1, N as withBase } from '../nitro/node-server.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin, composableNames, hashCode } from '@unhead/shared';
 import { useRouter as useRouter$1, useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
@@ -813,7 +813,7 @@ const _routes = [
     meta: __nuxt_page_meta$4 || {},
     alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
     redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
-    component: () => import('./_nuxt/about-070a4b22.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/about-10a9a9fc.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "about___zh-Hant",
@@ -821,7 +821,7 @@ const _routes = [
     meta: __nuxt_page_meta$4 || {},
     alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
     redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
-    component: () => import('./_nuxt/about-070a4b22.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/about-10a9a9fc.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "contact___en",
@@ -829,7 +829,7 @@ const _routes = [
     meta: __nuxt_page_meta$3 || {},
     alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
     redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
-    component: () => import('./_nuxt/contact-de570faa.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contact-09cda1ce.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "contact___zh-Hant",
@@ -837,39 +837,39 @@ const _routes = [
     meta: __nuxt_page_meta$3 || {},
     alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
     redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
-    component: () => import('./_nuxt/contact-de570faa.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/contact-09cda1ce.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "film-assist___en",
-    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/en/film-assist",
+    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "index___en",
+    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/en",
     meta: __nuxt_page_meta$2 || {},
     alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
     redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
-    component: () => import('./_nuxt/film-assist-07882426.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-62ba73a5.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "film-assist___zh-Hant",
-    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/film-assist",
+    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "index___zh-Hant",
+    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/",
     meta: __nuxt_page_meta$2 || {},
     alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
     redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
-    component: () => import('./_nuxt/film-assist-07882426.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-62ba73a5.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "index___en",
-    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/en",
+    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "production-service___en",
+    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/en/production-service",
     meta: __nuxt_page_meta$1 || {},
     alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
     redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
-    component: () => import('./_nuxt/index-2c40fe91.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/production-service-88464d86.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "index___zh-Hant",
-    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/",
+    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "production-service___zh-Hant",
+    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/production-service",
     meta: __nuxt_page_meta$1 || {},
     alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
     redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
-    component: () => import('./_nuxt/index-2c40fe91.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/production-service-88464d86.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "project-slug___en",
@@ -877,7 +877,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/_slug_-a5142bae.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_slug_-726dac0d.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "project-slug___zh-Hant",
@@ -885,7 +885,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/_slug_-a5142bae.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_slug_-726dac0d.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -3161,7 +3161,7 @@ const resolveNuxtI18nOptions = async (context) => {
   nuxtI18nOptions.customBlocks = Object({ "defaultSFCLang": "json", "globalSFCScope": false });
   nuxtI18nOptions.vueI18n = Object({});
   (_a = nuxtI18nOptions.vueI18n).messages ?? (_a.messages = {});
-  nuxtI18nOptions.locales = [Object({ "code": "en", "files": ["locales/en-US.json"], "hashes": ["72089bf0"], "types": ["static"] }), Object({ "code": "zh-Hant", "files": ["locales/zh-Hant.json"], "hashes": ["f4a8e93c"], "types": ["static"] })];
+  nuxtI18nOptions.locales = [Object({ "code": "en", "files": ["locales/en-US.json"], "hashes": ["56e089e2"], "types": ["static"] }), Object({ "code": "zh-Hant", "files": ["locales/zh-Hant.json"], "hashes": ["a7785a1e"], "types": ["static"] })];
   nuxtI18nOptions.defaultLocale = "zh-Hant";
   nuxtI18nOptions.defaultDirection = "ltr";
   nuxtI18nOptions.routesNameSeparator = "___";
@@ -3185,7 +3185,7 @@ const resolveNuxtI18nOptions = async (context) => {
   return nuxtI18nOptions;
 };
 const nuxtI18nOptionsDefault = Object({ experimental: Object({ "jsTsFormatResource": false }), bundle: Object({ "compositionOnly": true, "runtimeOnly": false, "fullInstall": true, "dropMessageCompiler": false }), compilation: Object({ "jit": true, "strictMessage": true, "escapeHtml": false }), customBlocks: Object({ "defaultSFCLang": "json", "globalSFCScope": false }), vueI18n: "", locales: [], defaultLocale: "", defaultDirection: "ltr", routesNameSeparator: "___", trailingSlash: false, defaultLocaleRouteNameSuffix: "default", strategy: "prefix_except_default", lazy: false, langDir: null, rootRedirect: null, detectBrowserLanguage: Object({ "alwaysRedirect": false, "cookieCrossOrigin": false, "cookieDomain": null, "cookieKey": "i18n_redirected", "cookieSecure": false, "fallbackLocale": "", "redirectOn": "root", "useCookie": true }), differentDomains: false, baseUrl: "", dynamicRouteParams: false, customRoutes: "page", pages: Object({}), skipSettingLocaleOnNavigate: false, types: "composition", debug: false, parallelPlugin: false });
-const nuxtI18nInternalOptions = Object({ __normalizedLocales: [Object({ "code": "en", "files": ["locales/en-US.json"], "hashes": ["72089bf0"], "types": ["static"] }), Object({ "code": "zh-Hant", "files": ["locales/zh-Hant.json"], "hashes": ["f4a8e93c"], "types": ["static"] })] });
+const nuxtI18nInternalOptions = Object({ __normalizedLocales: [Object({ "code": "en", "files": ["locales/en-US.json"], "hashes": ["56e089e2"], "types": ["static"] }), Object({ "code": "zh-Hant", "files": ["locales/zh-Hant.json"], "hashes": ["a7785a1e"], "types": ["static"] })] });
 const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n";
 const isSSG = false;
 const parallelPlugin = false;
@@ -4315,7 +4315,7 @@ const getImage = (src, { modifiers = {}, baseURL: baseURL2 } = {}, ctx) => {
 };
 const validateDomains = true;
 const supportsAlias = true;
-const ipxRuntime$MjjTzVWm3T = /* @__PURE__ */ Object.freeze({
+const ipxRuntime$ZGpt4WiFrm = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   getImage,
   supportsAlias,
@@ -4337,7 +4337,7 @@ const imageOptions = {
   "alias": {}
 };
 imageOptions.providers = {
-  ["ipx"]: { provider: ipxRuntime$MjjTzVWm3T, defaults: void 0 }
+  ["ipx"]: { provider: ipxRuntime$ZGpt4WiFrm, defaults: void 0 }
 };
 const useImage = () => {
   const config = /* @__PURE__ */ useRuntimeConfig();
@@ -6478,6 +6478,47 @@ const Body = /* @__PURE__ */ defineComponent({
   },
   setup: setupForUseMeta((bodyAttrs) => ({ bodyAttrs }), true)
 });
+const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
+  name: "ClientOnly",
+  inheritAttrs: false,
+  // eslint-disable-next-line vue/require-prop-types
+  props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
+  setup(_, { slots, attrs }) {
+    const mounted = ref(false);
+    return (props) => {
+      var _a;
+      if (mounted.value) {
+        return (_a = slots.default) == null ? void 0 : _a.call(slots);
+      }
+      const slot = slots.fallback || slots.placeholder;
+      if (slot) {
+        return slot();
+      }
+      const fallbackStr = props.fallback || props.placeholder || "";
+      const fallbackTag = props.fallbackTag || props.placeholderTag || "span";
+      return createElementBlock(fallbackTag, attrs, fallbackStr);
+    };
+  }
+});
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const _sfc_main$3 = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+  const _component_ClientOnly = __nuxt_component_0;
+  _push(ssrRenderComponent(_component_ClientOnly, _attrs, {}, _parent));
+}
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Webgl/index.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-79ff8c33"]]);
 const _wrapIf = (component, props, slots) => {
   props = props === true ? {} : props;
   return { default: () => {
@@ -6498,7 +6539,7 @@ const LayoutLoader = /* @__PURE__ */ defineComponent({
     return () => h(LayoutComponent, props.layoutProps, context.slots);
   }
 });
-const __nuxt_component_2 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_3 = /* @__PURE__ */ defineComponent({
   name: "NuxtLayout",
   inheritAttrs: false,
   props: {
@@ -6624,7 +6665,7 @@ const RouteProvider = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const __nuxt_component_3 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_4 = /* @__PURE__ */ defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -6723,14 +6764,16 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_Html = Html;
       const _component_Body = Body;
-      const _component_NuxtLayout = __nuxt_component_2;
-      const _component_NuxtPage = __nuxt_component_3;
+      const _component_Webgl = __nuxt_component_2;
+      const _component_NuxtLayout = __nuxt_component_3;
+      const _component_NuxtPage = __nuxt_component_4;
       _push(ssrRenderComponent(_component_Html, _attrs, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(_component_Body, null, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
+                  _push3(ssrRenderComponent(_component_Webgl, null, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_NuxtLayout, null, {
                     default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                       if (_push4) {
@@ -6747,6 +6790,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   }, _parent3, _scopeId2));
                 } else {
                   return [
+                    createVNode(_component_Webgl),
                     createVNode(_component_NuxtLayout, null, {
                       default: withCtx(() => [
                         createVNode("div", { class: "glow" }),
@@ -6763,6 +6807,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             return [
               createVNode(_component_Body, null, {
                 default: withCtx(() => [
+                  createVNode(_component_Webgl),
                   createVNode(_component_NuxtLayout, null, {
                     default: withCtx(() => [
                       createVNode("div", { class: "glow" }),
@@ -6808,8 +6853,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-e3be0ce1.mjs').then((r) => r.default || r));
-    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-5119279d.mjs').then((r) => r.default || r));
+    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-ebb6b3aa.mjs').then((r) => r.default || r));
+    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-5b9d4d7c.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -6894,5 +6939,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { useI18n as a, useRoute as b, createError as c, useNuxtApp as d, entry$1 as default, useRequestFetch as e, useLocalePath as f, useRouter as g, getComposer as h, useSwitchLocalePath as i, useImage as j, prerenderStaticImages as k, useState as l, navigateTo as n, parseSize as p, useHead as u };
+export { _export_sfc as _, useI18n as a, useRoute as b, createError as c, useNuxtApp as d, entry$1 as default, useRequestFetch as e, useLocalePath as f, useRouter as g, getComposer as h, useSwitchLocalePath as i, useImage as j, prerenderStaticImages as k, useState as l, navigateTo as n, parseSize as p, useHead as u };
 //# sourceMappingURL=server.mjs.map

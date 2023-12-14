@@ -1,5 +1,5 @@
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'vue-bundle-renderer/runtime';
-import { e as eventHandler, b as setResponseHeader, c as send, f as getResponseStatus, h as setResponseStatus, i as setResponseHeaders, j as useNitroApp, k as joinURL, u as useRuntimeConfig, l as getQuery, m as createError, n as getRouteRules, o as getResponseStatusText } from '../nitro/node-server.mjs';
+import { e as eventHandler, b as setResponseHeader, c as send, f as getResponseStatus, h as setResponseStatus, i as setResponseHeaders, j as useNitroApp, k as joinURL, u as useRuntimeConfig, l as getQuery, m as createError, n as getRouteRules, o as getResponseStatus$1, p as getResponseStatusText } from '../nitro/node-server.mjs';
 import { stringify, uneval } from 'devalue';
 import { renderToString } from 'vue/server-renderer';
 import { renderSSRHead } from '@unhead/ssr';
@@ -289,7 +289,7 @@ const renderer = defineRenderHandler(async (event) => {
   await nitroApp.hooks.callHook("render:html", htmlContext, { event });
   const response = {
     body: renderHTMLDocument(htmlContext),
-    statusCode: getResponseStatus(event),
+    statusCode: getResponseStatus$1(event),
     statusMessage: getResponseStatusText(event),
     headers: {
       "content-type": "text/html;charset=utf-8",
@@ -341,7 +341,7 @@ async function renderInlineStyles(usedModules) {
 function renderPayloadResponse(ssrContext) {
   return {
     body: stringify(splitPayload(ssrContext).payload, ssrContext._payloadReducers) ,
-    statusCode: getResponseStatus(ssrContext.event),
+    statusCode: getResponseStatus$1(ssrContext.event),
     statusMessage: getResponseStatusText(ssrContext.event),
     headers: {
       "content-type": "application/json;charset=utf-8" ,

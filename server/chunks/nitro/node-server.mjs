@@ -12,25 +12,25 @@ import { promises as promises$1, existsSync } from 'fs';
 import { dirname as dirname$1, resolve as resolve$1, join } from 'path';
 import { createIPX, createIPXMiddleware } from 'ipx';
 
-var Za=Object.defineProperty;var n=(i,o)=>Za(i,"name",{value:o,configurable:!0});var Ko=(i,o,a)=>{if(!o.has(i))throw TypeError("Cannot "+a)};var k=(i,o,a)=>(Ko(i,o,"read from private field"),a?a.call(i):o.get(i)),ae=(i,o,a)=>{if(o.has(i))throw TypeError("Cannot add the same private member more than once");o instanceof WeakSet?o.add(i):o.set(i,a);},Y=(i,o,a,l)=>(Ko(i,o,"write to private field"),l?l.call(i,a):o.set(i,a),a);var me,vt,ct,wr,xe,Et,At,Wt,G,Bt,Ue,Ne,kt;function os(i){if(!/^data:/i.test(i))throw new TypeError('`uri` does not appear to be a Data URI (must begin with "data:")');i=i.replace(/\r?\n/g,"");const o=i.indexOf(",");if(o===-1||o<=4)throw new TypeError("malformed data: URI");const a=i.substring(5,o).split(";");let l="",u=!1;const d=a[0]||"text/plain";let p=d;for(let I=1;I<a.length;I++)a[I]==="base64"?u=!0:a[I]&&(p+=`;${a[I]}`,a[I].indexOf("charset=")===0&&(l=a[I].substring(8)));!a[0]&&!l.length&&(p+=";charset=US-ASCII",l="US-ASCII");const m=u?"base64":"ascii",C=unescape(i.substring(o+1)),S=Buffer.from(C,m);return S.type=d,S.typeFull=p,S.charset=l,S}n(os,"dataUriToBuffer");var _n=typeof globalThis<"u"?globalThis:typeof global<"u"?global:typeof self<"u"?self:{};function is(i){return i&&i.__esModule&&Object.prototype.hasOwnProperty.call(i,"default")?i.default:i}n(is,"getDefaultExportFromCjs");var cr={exports:{}},Xo;function as(){return Xo||(Xo=1,function(i,o){(function(a,l){l(o);})(_n,function(a){const l=typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?Symbol:e=>`Symbol(${e})`;function u(){}n(u,"noop");function d(){if(typeof self<"u")return self;if(typeof _n<"u")return _n}n(d,"getGlobals");const p=d();function m(e){return typeof e=="object"&&e!==null||typeof e=="function"}n(m,"typeIsObject");const C=u,S=Promise,I=Promise.prototype.then,re=Promise.resolve.bind(S),L=Promise.reject.bind(S);function E(e){return new S(e)}n(E,"newPromise");function b(e){return re(e)}n(b,"promiseResolvedWith");function g(e){return L(e)}n(g,"promiseRejectedWith");function A(e,t,r){return I.call(e,t,r)}n(A,"PerformPromiseThen");function q(e,t,r){A(A(e,t,r),void 0,C);}n(q,"uponPromise");function ne(e,t){q(e,t);}n(ne,"uponFulfillment");function dt(e,t){q(e,void 0,t);}n(dt,"uponRejection");function O(e,t,r){return A(e,t,r)}n(O,"transformPromiseWith");function $(e){A(e,void 0,C);}n($,"setPromiseIsHandledToTrue");const F=(()=>{const e=p&&p.queueMicrotask;if(typeof e=="function")return e;const t=b(void 0);return r=>A(t,r)})();function ve(e,t,r){if(typeof e!="function")throw new TypeError("Argument is not a function");return Function.prototype.apply.call(e,t,r)}n(ve,"reflectCall");function ue(e,t,r){try{return b(ve(e,t,r))}catch(s){return g(s)}}n(ue,"promiseCall");const jn=16384,rn=class rn{constructor(){this._cursor=0,this._size=0,this._front={_elements:[],_next:void 0},this._back=this._front,this._cursor=0,this._size=0;}get length(){return this._size}push(t){const r=this._back;let s=r;r._elements.length===jn-1&&(s={_elements:[],_next:void 0}),r._elements.push(t),s!==r&&(this._back=s,r._next=s),++this._size;}shift(){const t=this._front;let r=t;const s=this._cursor;let f=s+1;const c=t._elements,h=c[s];return f===jn&&(r=t._next,f=0),--this._size,this._cursor=f,t!==r&&(this._front=r),c[s]=void 0,h}forEach(t){let r=this._cursor,s=this._front,f=s._elements;for(;(r!==f.length||s._next!==void 0)&&!(r===f.length&&(s=s._next,f=s._elements,r=0,f.length===0));)t(f[r]),++r;}peek(){const t=this._front,r=this._cursor;return t._elements[r]}};n(rn,"SimpleQueue");let x=rn;function Fn(e,t){e._ownerReadableStream=t,t._reader=e,t._state==="readable"?vr(e):t._state==="closed"?Pi(e):In(e,t._storedError);}n(Fn,"ReadableStreamReaderGenericInitialize");function Pr(e,t){const r=e._ownerReadableStream;return J(r,t)}n(Pr,"ReadableStreamReaderGenericCancel");function fe(e){e._ownerReadableStream._state==="readable"?Er(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")):vi(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")),e._ownerReadableStream._reader=void 0,e._ownerReadableStream=void 0;}n(fe,"ReadableStreamReaderGenericRelease");function He(e){return new TypeError("Cannot "+e+" a stream using a released reader")}n(He,"readerLockException");function vr(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r;});}n(vr,"defaultReaderClosedPromiseInitialize");function In(e,t){vr(e),Er(e,t);}n(In,"defaultReaderClosedPromiseInitializeAsRejected");function Pi(e){vr(e),Ln(e);}n(Pi,"defaultReaderClosedPromiseInitializeAsResolved");function Er(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n(Er,"defaultReaderClosedPromiseReject");function vi(e,t){In(e,t);}n(vi,"defaultReaderClosedPromiseResetToRejected");function Ln(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n(Ln,"defaultReaderClosedPromiseResolve");const $n=l("[[AbortSteps]]"),Dn=l("[[ErrorSteps]]"),Ar=l("[[CancelSteps]]"),Wr=l("[[PullSteps]]"),Mn=Number.isFinite||function(e){return typeof e=="number"&&isFinite(e)},Ei=Math.trunc||function(e){return e<0?Math.ceil(e):Math.floor(e)};function Ai(e){return typeof e=="object"||typeof e=="function"}n(Ai,"isDictionary");function ce(e,t){if(e!==void 0&&!Ai(e))throw new TypeError(`${t} is not an object.`)}n(ce,"assertDictionary");function Z(e,t){if(typeof e!="function")throw new TypeError(`${t} is not a function.`)}n(Z,"assertFunction");function Wi(e){return typeof e=="object"&&e!==null||typeof e=="function"}n(Wi,"isObject");function Un(e,t){if(!Wi(e))throw new TypeError(`${t} is not an object.`)}n(Un,"assertObject");function de(e,t,r){if(e===void 0)throw new TypeError(`Parameter ${t} is required in '${r}'.`)}n(de,"assertRequiredArgument");function Br(e,t,r){if(e===void 0)throw new TypeError(`${t} is required in '${r}'.`)}n(Br,"assertRequiredField");function kr(e){return Number(e)}n(kr,"convertUnrestrictedDouble");function Nn(e){return e===0?0:e}n(Nn,"censorNegativeZero");function Bi(e){return Nn(Ei(e))}n(Bi,"integerPart");function xn(e,t){const s=Number.MAX_SAFE_INTEGER;let f=Number(e);if(f=Nn(f),!Mn(f))throw new TypeError(`${t} is not a finite number`);if(f=Bi(f),f<0||f>s)throw new TypeError(`${t} is outside the accepted range of 0 to ${s}, inclusive`);return !Mn(f)||f===0?0:f}n(xn,"convertUnsignedLongLongWithEnforceRange");function Or(e,t){if(!Te(e))throw new TypeError(`${t} is not a ReadableStream.`)}n(Or,"assertReadableStream");function Ve(e){return new Ee(e)}n(Ve,"AcquireReadableStreamDefaultReader");function Hn(e,t){e._reader._readRequests.push(t);}n(Hn,"ReadableStreamAddReadRequest");function qr(e,t,r){const f=e._reader._readRequests.shift();r?f._closeSteps():f._chunkSteps(t);}n(qr,"ReadableStreamFulfillReadRequest");function Ot(e){return e._reader._readRequests.length}n(Ot,"ReadableStreamGetNumReadRequests");function Vn(e){const t=e._reader;return !(t===void 0||!ye(t))}n(Vn,"ReadableStreamHasDefaultReader");const nn=class nn{constructor(t){if(de(t,1,"ReadableStreamDefaultReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");Fn(this,t),this._readRequests=new x;}get closed(){return ye(this)?this._closedPromise:g(qt("closed"))}cancel(t=void 0){return ye(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(qt("cancel"))}read(){if(!ye(this))return g(qt("read"));if(this._ownerReadableStream===void 0)return g(He("read from"));let t,r;const s=E((c,h)=>{t=c,r=h;});return ht(this,{_chunkSteps:c=>t({value:c,done:!1}),_closeSteps:()=>t({value:void 0,done:!0}),_errorSteps:c=>r(c)}),s}releaseLock(){if(!ye(this))throw qt("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n(nn,"ReadableStreamDefaultReader");let Ee=nn;Object.defineProperties(Ee.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ee.prototype,l.toStringTag,{value:"ReadableStreamDefaultReader",configurable:!0});function ye(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readRequests")?!1:e instanceof Ee}n(ye,"IsReadableStreamDefaultReader");function ht(e,t){const r=e._ownerReadableStream;r._disturbed=!0,r._state==="closed"?t._closeSteps():r._state==="errored"?t._errorSteps(r._storedError):r._readableStreamController[Wr](t);}n(ht,"ReadableStreamDefaultReaderRead");function qt(e){return new TypeError(`ReadableStreamDefaultReader.prototype.${e} can only be used on a ReadableStreamDefaultReader`)}n(qt,"defaultReaderBrandCheckException");const Qn=Object.getPrototypeOf(Object.getPrototypeOf(async function*(){}).prototype),on=class on{constructor(t,r){this._ongoingPromise=void 0,this._isFinished=!1,this._reader=t,this._preventCancel=r;}next(){const t=n(()=>this._nextSteps(),"nextSteps");return this._ongoingPromise=this._ongoingPromise?O(this._ongoingPromise,t,t):t(),this._ongoingPromise}return(t){const r=n(()=>this._returnSteps(t),"returnSteps");return this._ongoingPromise?O(this._ongoingPromise,r,r):r()}_nextSteps(){if(this._isFinished)return Promise.resolve({value:void 0,done:!0});const t=this._reader;if(t._ownerReadableStream===void 0)return g(He("iterate"));let r,s;const f=E((h,y)=>{r=h,s=y;});return ht(t,{_chunkSteps:h=>{this._ongoingPromise=void 0,F(()=>r({value:h,done:!1}));},_closeSteps:()=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),r({value:void 0,done:!0});},_errorSteps:h=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),s(h);}}),f}_returnSteps(t){if(this._isFinished)return Promise.resolve({value:t,done:!0});this._isFinished=!0;const r=this._reader;if(r._ownerReadableStream===void 0)return g(He("finish iterating"));if(!this._preventCancel){const s=Pr(r,t);return fe(r),O(s,()=>({value:t,done:!0}))}return fe(r),b({value:t,done:!0})}};n(on,"ReadableStreamAsyncIteratorImpl");let zt=on;const Yn={next(){return Gn(this)?this._asyncIteratorImpl.next():g(Zn("next"))},return(e){return Gn(this)?this._asyncIteratorImpl.return(e):g(Zn("return"))}};Qn!==void 0&&Object.setPrototypeOf(Yn,Qn);function ki(e,t){const r=Ve(e),s=new zt(r,t),f=Object.create(Yn);return f._asyncIteratorImpl=s,f}n(ki,"AcquireReadableStreamAsyncIterator");function Gn(e){if(!m(e)||!Object.prototype.hasOwnProperty.call(e,"_asyncIteratorImpl"))return !1;try{return e._asyncIteratorImpl instanceof zt}catch{return !1}}n(Gn,"IsReadableStreamAsyncIterator");function Zn(e){return new TypeError(`ReadableStreamAsyncIterator.${e} can only be used on a ReadableSteamAsyncIterator`)}n(Zn,"streamAsyncIteratorBrandCheckException");const Kn=Number.isNaN||function(e){return e!==e};function pt(e){return e.slice()}n(pt,"CreateArrayFromList");function Jn(e,t,r,s,f){new Uint8Array(e).set(new Uint8Array(r,s,f),t);}n(Jn,"CopyDataBlockBytes");function Ks(e){return e}n(Ks,"TransferArrayBuffer");function jt(e){return !1}n(jt,"IsDetachedBuffer");function Xn(e,t,r){if(e.slice)return e.slice(t,r);const s=r-t,f=new ArrayBuffer(s);return Jn(f,0,e,t,s),f}n(Xn,"ArrayBufferSlice");function Oi(e){return !(typeof e!="number"||Kn(e)||e<0)}n(Oi,"IsNonNegativeNumber");function eo(e){const t=Xn(e.buffer,e.byteOffset,e.byteOffset+e.byteLength);return new Uint8Array(t)}n(eo,"CloneAsUint8Array");function zr(e){const t=e._queue.shift();return e._queueTotalSize-=t.size,e._queueTotalSize<0&&(e._queueTotalSize=0),t.value}n(zr,"DequeueValue");function jr(e,t,r){if(!Oi(r)||r===1/0)throw new RangeError("Size must be a finite, non-NaN, non-negative number.");e._queue.push({value:t,size:r}),e._queueTotalSize+=r;}n(jr,"EnqueueValueWithSize");function qi(e){return e._queue.peek().value}n(qi,"PeekQueueValue");function ge(e){e._queue=new x,e._queueTotalSize=0;}n(ge,"ResetQueue");const an=class an{constructor(){throw new TypeError("Illegal constructor")}get view(){if(!Fr(this))throw Dr("view");return this._view}respond(t){if(!Fr(this))throw Dr("respond");if(de(t,1,"respond"),t=xn(t,"First parameter"),this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(this._view.buffer),Dt(this._associatedReadableByteStreamController,t);}respondWithNewView(t){if(!Fr(this))throw Dr("respondWithNewView");if(de(t,1,"respondWithNewView"),!ArrayBuffer.isView(t))throw new TypeError("You can only respond with array buffer views");if(this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(t.buffer),Mt(this._associatedReadableByteStreamController,t);}};n(an,"ReadableStreamBYOBRequest");let Ae=an;Object.defineProperties(Ae.prototype,{respond:{enumerable:!0},respondWithNewView:{enumerable:!0},view:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ae.prototype,l.toStringTag,{value:"ReadableStreamBYOBRequest",configurable:!0});const sn=class sn{constructor(){throw new TypeError("Illegal constructor")}get byobRequest(){if(!We(this))throw mt("byobRequest");return $r(this)}get desiredSize(){if(!We(this))throw mt("desiredSize");return lo(this)}close(){if(!We(this))throw mt("close");if(this._closeRequested)throw new TypeError("The stream has already been closed; do not close it again!");const t=this._controlledReadableByteStream._state;if(t!=="readable")throw new TypeError(`The stream (in ${t} state) is not in the readable state and cannot be closed`);bt(this);}enqueue(t){if(!We(this))throw mt("enqueue");if(de(t,1,"enqueue"),!ArrayBuffer.isView(t))throw new TypeError("chunk must be an array buffer view");if(t.byteLength===0)throw new TypeError("chunk must have non-zero byteLength");if(t.buffer.byteLength===0)throw new TypeError("chunk's buffer must have non-zero byteLength");if(this._closeRequested)throw new TypeError("stream is closed or draining");const r=this._controlledReadableByteStream._state;if(r!=="readable")throw new TypeError(`The stream (in ${r} state) is not in the readable state and cannot be enqueued to`);$t(this,t);}error(t=void 0){if(!We(this))throw mt("error");K(this,t);}[Ar](t){to(this),ge(this);const r=this._cancelAlgorithm(t);return Lt(this),r}[Wr](t){const r=this._controlledReadableByteStream;if(this._queueTotalSize>0){const f=this._queue.shift();this._queueTotalSize-=f.byteLength,io(this);const c=new Uint8Array(f.buffer,f.byteOffset,f.byteLength);t._chunkSteps(c);return}const s=this._autoAllocateChunkSize;if(s!==void 0){let f;try{f=new ArrayBuffer(s);}catch(h){t._errorSteps(h);return}const c={buffer:f,bufferByteLength:s,byteOffset:0,byteLength:s,bytesFilled:0,elementSize:1,viewConstructor:Uint8Array,readerType:"default"};this._pendingPullIntos.push(c);}Hn(r,t),Be(this);}};n(sn,"ReadableByteStreamController");let _e=sn;Object.defineProperties(_e.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},byobRequest:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(_e.prototype,l.toStringTag,{value:"ReadableByteStreamController",configurable:!0});function We(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableByteStream")?!1:e instanceof _e}n(We,"IsReadableByteStreamController");function Fr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_associatedReadableByteStreamController")?!1:e instanceof Ae}n(Fr,"IsReadableStreamBYOBRequest");function Be(e){if(!Ii(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,Be(e));},s=>{K(e,s);});}n(Be,"ReadableByteStreamControllerCallPullIfNeeded");function to(e){Lr(e),e._pendingPullIntos=new x;}n(to,"ReadableByteStreamControllerClearPendingPullIntos");function Ir(e,t){let r=!1;e._state==="closed"&&(r=!0);const s=ro(t);t.readerType==="default"?qr(e,s,r):Di(e,s,r);}n(Ir,"ReadableByteStreamControllerCommitPullIntoDescriptor");function ro(e){const t=e.bytesFilled,r=e.elementSize;return new e.viewConstructor(e.buffer,e.byteOffset,t/r)}n(ro,"ReadableByteStreamControllerConvertPullIntoDescriptor");function Ft(e,t,r,s){e._queue.push({buffer:t,byteOffset:r,byteLength:s}),e._queueTotalSize+=s;}n(Ft,"ReadableByteStreamControllerEnqueueChunkToQueue");function no(e,t){const r=t.elementSize,s=t.bytesFilled-t.bytesFilled%r,f=Math.min(e._queueTotalSize,t.byteLength-t.bytesFilled),c=t.bytesFilled+f,h=c-c%r;let y=f,w=!1;h>s&&(y=h-t.bytesFilled,w=!0);const T=e._queue;for(;y>0;){const P=T.peek(),v=Math.min(y,P.byteLength),z=t.byteOffset+t.bytesFilled;Jn(t.buffer,z,P.buffer,P.byteOffset,v),P.byteLength===v?T.shift():(P.byteOffset+=v,P.byteLength-=v),e._queueTotalSize-=v,oo(e,v,t),y-=v;}return w}n(no,"ReadableByteStreamControllerFillPullIntoDescriptorFromQueue");function oo(e,t,r){r.bytesFilled+=t;}n(oo,"ReadableByteStreamControllerFillHeadPullIntoDescriptor");function io(e){e._queueTotalSize===0&&e._closeRequested?(Lt(e),wt(e._controlledReadableByteStream)):Be(e);}n(io,"ReadableByteStreamControllerHandleQueueDrain");function Lr(e){e._byobRequest!==null&&(e._byobRequest._associatedReadableByteStreamController=void 0,e._byobRequest._view=null,e._byobRequest=null);}n(Lr,"ReadableByteStreamControllerInvalidateBYOBRequest");function ao(e){for(;e._pendingPullIntos.length>0;){if(e._queueTotalSize===0)return;const t=e._pendingPullIntos.peek();no(e,t)&&(It(e),Ir(e._controlledReadableByteStream,t));}}n(ao,"ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue");function zi(e,t,r){const s=e._controlledReadableByteStream;let f=1;t.constructor!==DataView&&(f=t.constructor.BYTES_PER_ELEMENT);const c=t.constructor,h=t.buffer,y={buffer:h,bufferByteLength:h.byteLength,byteOffset:t.byteOffset,byteLength:t.byteLength,bytesFilled:0,elementSize:f,viewConstructor:c,readerType:"byob"};if(e._pendingPullIntos.length>0){e._pendingPullIntos.push(y),co(s,r);return}if(s._state==="closed"){const w=new c(y.buffer,y.byteOffset,0);r._closeSteps(w);return}if(e._queueTotalSize>0){if(no(e,y)){const w=ro(y);io(e),r._chunkSteps(w);return}if(e._closeRequested){const w=new TypeError("Insufficient bytes to fill elements in the given buffer");K(e,w),r._errorSteps(w);return}}e._pendingPullIntos.push(y),co(s,r),Be(e);}n(zi,"ReadableByteStreamControllerPullInto");function ji(e,t){const r=e._controlledReadableByteStream;if(Mr(r))for(;ho(r)>0;){const s=It(e);Ir(r,s);}}n(ji,"ReadableByteStreamControllerRespondInClosedState");function Fi(e,t,r){if(oo(e,t,r),r.bytesFilled<r.elementSize)return;It(e);const s=r.bytesFilled%r.elementSize;if(s>0){const f=r.byteOffset+r.bytesFilled,c=Xn(r.buffer,f-s,f);Ft(e,c,0,c.byteLength);}r.bytesFilled-=s,Ir(e._controlledReadableByteStream,r),ao(e);}n(Fi,"ReadableByteStreamControllerRespondInReadableState");function so(e,t){const r=e._pendingPullIntos.peek();Lr(e),e._controlledReadableByteStream._state==="closed"?ji(e):Fi(e,t,r),Be(e);}n(so,"ReadableByteStreamControllerRespondInternal");function It(e){return e._pendingPullIntos.shift()}n(It,"ReadableByteStreamControllerShiftPendingPullInto");function Ii(e){const t=e._controlledReadableByteStream;return t._state!=="readable"||e._closeRequested||!e._started?!1:!!(Vn(t)&&Ot(t)>0||Mr(t)&&ho(t)>0||lo(e)>0)}n(Ii,"ReadableByteStreamControllerShouldCallPull");function Lt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0;}n(Lt,"ReadableByteStreamControllerClearAlgorithms");function bt(e){const t=e._controlledReadableByteStream;if(!(e._closeRequested||t._state!=="readable")){if(e._queueTotalSize>0){e._closeRequested=!0;return}if(e._pendingPullIntos.length>0&&e._pendingPullIntos.peek().bytesFilled>0){const s=new TypeError("Insufficient bytes to fill elements in the given buffer");throw K(e,s),s}Lt(e),wt(t);}}n(bt,"ReadableByteStreamControllerClose");function $t(e,t){const r=e._controlledReadableByteStream;if(e._closeRequested||r._state!=="readable")return;const s=t.buffer,f=t.byteOffset,c=t.byteLength,h=s;if(e._pendingPullIntos.length>0){const y=e._pendingPullIntos.peek();jt(y.buffer),y.buffer=y.buffer;}if(Lr(e),Vn(r))if(Ot(r)===0)Ft(e,h,f,c);else {e._pendingPullIntos.length>0&&It(e);const y=new Uint8Array(h,f,c);qr(r,y,!1);}else Mr(r)?(Ft(e,h,f,c),ao(e)):Ft(e,h,f,c);Be(e);}n($t,"ReadableByteStreamControllerEnqueue");function K(e,t){const r=e._controlledReadableByteStream;r._state==="readable"&&(to(e),ge(e),Lt(e),Io(r,t));}n(K,"ReadableByteStreamControllerError");function $r(e){if(e._byobRequest===null&&e._pendingPullIntos.length>0){const t=e._pendingPullIntos.peek(),r=new Uint8Array(t.buffer,t.byteOffset+t.bytesFilled,t.byteLength-t.bytesFilled),s=Object.create(Ae.prototype);$i(s,e,r),e._byobRequest=s;}return e._byobRequest}n($r,"ReadableByteStreamControllerGetBYOBRequest");function lo(e){const t=e._controlledReadableByteStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n(lo,"ReadableByteStreamControllerGetDesiredSize");function Dt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t!==0)throw new TypeError("bytesWritten must be 0 when calling respond() on a closed stream")}else {if(t===0)throw new TypeError("bytesWritten must be greater than 0 when calling respond() on a readable stream");if(r.bytesFilled+t>r.byteLength)throw new RangeError("bytesWritten out of range")}r.buffer=r.buffer,so(e,t);}n(Dt,"ReadableByteStreamControllerRespond");function Mt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t.byteLength!==0)throw new TypeError("The view's length must be 0 when calling respondWithNewView() on a closed stream")}else if(t.byteLength===0)throw new TypeError("The view's length must be greater than 0 when calling respondWithNewView() on a readable stream");if(r.byteOffset+r.bytesFilled!==t.byteOffset)throw new RangeError("The region specified by view does not match byobRequest");if(r.bufferByteLength!==t.buffer.byteLength)throw new RangeError("The buffer of view has different capacity than byobRequest");if(r.bytesFilled+t.byteLength>r.byteLength)throw new RangeError("The region specified by view is larger than byobRequest");const f=t.byteLength;r.buffer=t.buffer,so(e,f);}n(Mt,"ReadableByteStreamControllerRespondWithNewView");function uo(e,t,r,s,f,c,h){t._controlledReadableByteStream=e,t._pullAgain=!1,t._pulling=!1,t._byobRequest=null,t._queue=t._queueTotalSize=void 0,ge(t),t._closeRequested=!1,t._started=!1,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,t._autoAllocateChunkSize=h,t._pendingPullIntos=new x,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,Be(t);},w=>{K(t,w);});}n(uo,"SetUpReadableByteStreamController");function Li(e,t,r){const s=Object.create(_e.prototype);let f=n(()=>{},"startAlgorithm"),c=n(()=>b(void 0),"pullAlgorithm"),h=n(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(f=n(()=>t.start(s),"startAlgorithm")),t.pull!==void 0&&(c=n(()=>t.pull(s),"pullAlgorithm")),t.cancel!==void 0&&(h=n(w=>t.cancel(w),"cancelAlgorithm"));const y=t.autoAllocateChunkSize;if(y===0)throw new TypeError("autoAllocateChunkSize must be greater than 0");uo(e,s,f,c,h,r,y);}n(Li,"SetUpReadableByteStreamControllerFromUnderlyingSource");function $i(e,t,r){e._associatedReadableByteStreamController=t,e._view=r;}n($i,"SetUpReadableStreamBYOBRequest");function Dr(e){return new TypeError(`ReadableStreamBYOBRequest.prototype.${e} can only be used on a ReadableStreamBYOBRequest`)}n(Dr,"byobRequestBrandCheckException");function mt(e){return new TypeError(`ReadableByteStreamController.prototype.${e} can only be used on a ReadableByteStreamController`)}n(mt,"byteStreamControllerBrandCheckException");function fo(e){return new ke(e)}n(fo,"AcquireReadableStreamBYOBReader");function co(e,t){e._reader._readIntoRequests.push(t);}n(co,"ReadableStreamAddReadIntoRequest");function Di(e,t,r){const f=e._reader._readIntoRequests.shift();r?f._closeSteps(t):f._chunkSteps(t);}n(Di,"ReadableStreamFulfillReadIntoRequest");function ho(e){return e._reader._readIntoRequests.length}n(ho,"ReadableStreamGetNumReadIntoRequests");function Mr(e){const t=e._reader;return !(t===void 0||!Oe(t))}n(Mr,"ReadableStreamHasBYOBReader");const ln=class ln{constructor(t){if(de(t,1,"ReadableStreamBYOBReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");if(!We(t._readableStreamController))throw new TypeError("Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source");Fn(this,t),this._readIntoRequests=new x;}get closed(){return Oe(this)?this._closedPromise:g(Ut("closed"))}cancel(t=void 0){return Oe(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(Ut("cancel"))}read(t){if(!Oe(this))return g(Ut("read"));if(!ArrayBuffer.isView(t))return g(new TypeError("view must be an array buffer view"));if(t.byteLength===0)return g(new TypeError("view must have non-zero byteLength"));if(t.buffer.byteLength===0)return g(new TypeError("view's buffer must have non-zero byteLength"));if(jt(t.buffer),this._ownerReadableStream===void 0)return g(He("read from"));let r,s;const f=E((h,y)=>{r=h,s=y;});return po(this,t,{_chunkSteps:h=>r({value:h,done:!1}),_closeSteps:h=>r({value:h,done:!0}),_errorSteps:h=>s(h)}),f}releaseLock(){if(!Oe(this))throw Ut("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readIntoRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n(ln,"ReadableStreamBYOBReader");let ke=ln;Object.defineProperties(ke.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ke.prototype,l.toStringTag,{value:"ReadableStreamBYOBReader",configurable:!0});function Oe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readIntoRequests")?!1:e instanceof ke}n(Oe,"IsReadableStreamBYOBReader");function po(e,t,r){const s=e._ownerReadableStream;s._disturbed=!0,s._state==="errored"?r._errorSteps(s._storedError):zi(s._readableStreamController,t,r);}n(po,"ReadableStreamBYOBReaderRead");function Ut(e){return new TypeError(`ReadableStreamBYOBReader.prototype.${e} can only be used on a ReadableStreamBYOBReader`)}n(Ut,"byobReaderBrandCheckException");function yt(e,t){const{highWaterMark:r}=e;if(r===void 0)return t;if(Kn(r)||r<0)throw new RangeError("Invalid highWaterMark");return r}n(yt,"ExtractHighWaterMark");function Nt(e){const{size:t}=e;return t||(()=>1)}n(Nt,"ExtractSizeAlgorithm");function xt(e,t){ce(e,t);const r=e?.highWaterMark,s=e?.size;return {highWaterMark:r===void 0?void 0:kr(r),size:s===void 0?void 0:Mi(s,`${t} has member 'size' that`)}}n(xt,"convertQueuingStrategy");function Mi(e,t){return Z(e,t),r=>kr(e(r))}n(Mi,"convertQueuingStrategySize");function Ui(e,t){ce(e,t);const r=e?.abort,s=e?.close,f=e?.start,c=e?.type,h=e?.write;return {abort:r===void 0?void 0:Ni(r,e,`${t} has member 'abort' that`),close:s===void 0?void 0:xi(s,e,`${t} has member 'close' that`),start:f===void 0?void 0:Hi(f,e,`${t} has member 'start' that`),write:h===void 0?void 0:Vi(h,e,`${t} has member 'write' that`),type:c}}n(Ui,"convertUnderlyingSink");function Ni(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Ni,"convertUnderlyingSinkAbortCallback");function xi(e,t,r){return Z(e,r),()=>ue(e,t,[])}n(xi,"convertUnderlyingSinkCloseCallback");function Hi(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n(Hi,"convertUnderlyingSinkStartCallback");function Vi(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n(Vi,"convertUnderlyingSinkWriteCallback");function bo(e,t){if(!Qe(e))throw new TypeError(`${t} is not a WritableStream.`)}n(bo,"assertWritableStream");function Qi(e){if(typeof e!="object"||e===null)return !1;try{return typeof e.aborted=="boolean"}catch{return !1}}n(Qi,"isAbortSignal");const Yi=typeof AbortController=="function";function Gi(){if(Yi)return new AbortController}n(Gi,"createAbortController");const un=class un{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ui(t,"First parameter");if(yo(this),f.type!==void 0)throw new RangeError("Invalid type is specified");const h=Nt(s),y=yt(s,1);ua(this,f,y,h);}get locked(){if(!Qe(this))throw Gt("locked");return Ye(this)}abort(t=void 0){return Qe(this)?Ye(this)?g(new TypeError("Cannot abort a stream that already has a writer")):Ht(this,t):g(Gt("abort"))}close(){return Qe(this)?Ye(this)?g(new TypeError("Cannot close a stream that already has a writer")):oe(this)?g(new TypeError("Cannot close an already-closing stream")):go(this):g(Gt("close"))}getWriter(){if(!Qe(this))throw Gt("getWriter");return mo(this)}};n(un,"WritableStream");let qe=un;Object.defineProperties(qe.prototype,{abort:{enumerable:!0},close:{enumerable:!0},getWriter:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(qe.prototype,l.toStringTag,{value:"WritableStream",configurable:!0});function mo(e){return new ze(e)}n(mo,"AcquireWritableStreamDefaultWriter");function Zi(e,t,r,s,f=1,c=()=>1){const h=Object.create(qe.prototype);yo(h);const y=Object.create(Se.prototype);return Co(h,y,e,t,r,s,f,c),h}n(Zi,"CreateWritableStream");function yo(e){e._state="writable",e._storedError=void 0,e._writer=void 0,e._writableStreamController=void 0,e._writeRequests=new x,e._inFlightWriteRequest=void 0,e._closeRequest=void 0,e._inFlightCloseRequest=void 0,e._pendingAbortRequest=void 0,e._backpressure=!1;}n(yo,"InitializeWritableStream");function Qe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_writableStreamController")?!1:e instanceof qe}n(Qe,"IsWritableStream");function Ye(e){return e._writer!==void 0}n(Ye,"IsWritableStreamLocked");function Ht(e,t){var r;if(e._state==="closed"||e._state==="errored")return b(void 0);e._writableStreamController._abortReason=t,(r=e._writableStreamController._abortController)===null||r===void 0||r.abort();const s=e._state;if(s==="closed"||s==="errored")return b(void 0);if(e._pendingAbortRequest!==void 0)return e._pendingAbortRequest._promise;let f=!1;s==="erroring"&&(f=!0,t=void 0);const c=E((h,y)=>{e._pendingAbortRequest={_promise:void 0,_resolve:h,_reject:y,_reason:t,_wasAlreadyErroring:f};});return e._pendingAbortRequest._promise=c,f||Nr(e,t),c}n(Ht,"WritableStreamAbort");function go(e){const t=e._state;if(t==="closed"||t==="errored")return g(new TypeError(`The stream (in ${t} state) is not in the writable state and cannot be closed`));const r=E((f,c)=>{const h={_resolve:f,_reject:c};e._closeRequest=h;}),s=e._writer;return s!==void 0&&e._backpressure&&t==="writable"&&Jr(s),fa(e._writableStreamController),r}n(go,"WritableStreamClose");function Ki(e){return E((r,s)=>{const f={_resolve:r,_reject:s};e._writeRequests.push(f);})}n(Ki,"WritableStreamAddWriteRequest");function Ur(e,t){if(e._state==="writable"){Nr(e,t);return}xr(e);}n(Ur,"WritableStreamDealWithRejection");function Nr(e,t){const r=e._writableStreamController;e._state="erroring",e._storedError=t;const s=e._writer;s!==void 0&&So(s,t),!ra(e)&&r._started&&xr(e);}n(Nr,"WritableStreamStartErroring");function xr(e){e._state="errored",e._writableStreamController[Dn]();const t=e._storedError;if(e._writeRequests.forEach(f=>{f._reject(t);}),e._writeRequests=new x,e._pendingAbortRequest===void 0){Vt(e);return}const r=e._pendingAbortRequest;if(e._pendingAbortRequest=void 0,r._wasAlreadyErroring){r._reject(t),Vt(e);return}const s=e._writableStreamController[$n](r._reason);q(s,()=>{r._resolve(),Vt(e);},f=>{r._reject(f),Vt(e);});}n(xr,"WritableStreamFinishErroring");function Ji(e){e._inFlightWriteRequest._resolve(void 0),e._inFlightWriteRequest=void 0;}n(Ji,"WritableStreamFinishInFlightWrite");function Xi(e,t){e._inFlightWriteRequest._reject(t),e._inFlightWriteRequest=void 0,Ur(e,t);}n(Xi,"WritableStreamFinishInFlightWriteWithError");function ea(e){e._inFlightCloseRequest._resolve(void 0),e._inFlightCloseRequest=void 0,e._state==="erroring"&&(e._storedError=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._resolve(),e._pendingAbortRequest=void 0)),e._state="closed";const r=e._writer;r!==void 0&&Ao(r);}n(ea,"WritableStreamFinishInFlightClose");function ta(e,t){e._inFlightCloseRequest._reject(t),e._inFlightCloseRequest=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._reject(t),e._pendingAbortRequest=void 0),Ur(e,t);}n(ta,"WritableStreamFinishInFlightCloseWithError");function oe(e){return !(e._closeRequest===void 0&&e._inFlightCloseRequest===void 0)}n(oe,"WritableStreamCloseQueuedOrInFlight");function ra(e){return !(e._inFlightWriteRequest===void 0&&e._inFlightCloseRequest===void 0)}n(ra,"WritableStreamHasOperationMarkedInFlight");function na(e){e._inFlightCloseRequest=e._closeRequest,e._closeRequest=void 0;}n(na,"WritableStreamMarkCloseRequestInFlight");function oa(e){e._inFlightWriteRequest=e._writeRequests.shift();}n(oa,"WritableStreamMarkFirstWriteRequestInFlight");function Vt(e){e._closeRequest!==void 0&&(e._closeRequest._reject(e._storedError),e._closeRequest=void 0);const t=e._writer;t!==void 0&&Zr(t,e._storedError);}n(Vt,"WritableStreamRejectCloseAndClosedPromiseIfNeeded");function Hr(e,t){const r=e._writer;r!==void 0&&t!==e._backpressure&&(t?ya(r):Jr(r)),e._backpressure=t;}n(Hr,"WritableStreamUpdateBackpressure");const fn=class fn{constructor(t){if(de(t,1,"WritableStreamDefaultWriter"),bo(t,"First parameter"),Ye(t))throw new TypeError("This stream has already been locked for exclusive writing by another writer");this._ownerWritableStream=t,t._writer=this;const r=t._state;if(r==="writable")!oe(t)&&t._backpressure?Kt(this):Wo(this),Zt(this);else if(r==="erroring")Kr(this,t._storedError),Zt(this);else if(r==="closed")Wo(this),ba(this);else {const s=t._storedError;Kr(this,s),Eo(this,s);}}get closed(){return je(this)?this._closedPromise:g(Fe("closed"))}get desiredSize(){if(!je(this))throw Fe("desiredSize");if(this._ownerWritableStream===void 0)throw gt("desiredSize");return la(this)}get ready(){return je(this)?this._readyPromise:g(Fe("ready"))}abort(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("abort")):ia(this,t):g(Fe("abort"))}close(){if(!je(this))return g(Fe("close"));const t=this._ownerWritableStream;return t===void 0?g(gt("close")):oe(t)?g(new TypeError("Cannot close an already-closing stream")):_o(this)}releaseLock(){if(!je(this))throw Fe("releaseLock");this._ownerWritableStream!==void 0&&wo(this);}write(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("write to")):Ro(this,t):g(Fe("write"))}};n(fn,"WritableStreamDefaultWriter");let ze=fn;Object.defineProperties(ze.prototype,{abort:{enumerable:!0},close:{enumerable:!0},releaseLock:{enumerable:!0},write:{enumerable:!0},closed:{enumerable:!0},desiredSize:{enumerable:!0},ready:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ze.prototype,l.toStringTag,{value:"WritableStreamDefaultWriter",configurable:!0});function je(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_ownerWritableStream")?!1:e instanceof ze}n(je,"IsWritableStreamDefaultWriter");function ia(e,t){const r=e._ownerWritableStream;return Ht(r,t)}n(ia,"WritableStreamDefaultWriterAbort");function _o(e){const t=e._ownerWritableStream;return go(t)}n(_o,"WritableStreamDefaultWriterClose");function aa(e){const t=e._ownerWritableStream,r=t._state;return oe(t)||r==="closed"?b(void 0):r==="errored"?g(t._storedError):_o(e)}n(aa,"WritableStreamDefaultWriterCloseWithErrorPropagation");function sa(e,t){e._closedPromiseState==="pending"?Zr(e,t):ma(e,t);}n(sa,"WritableStreamDefaultWriterEnsureClosedPromiseRejected");function So(e,t){e._readyPromiseState==="pending"?Bo(e,t):ga(e,t);}n(So,"WritableStreamDefaultWriterEnsureReadyPromiseRejected");function la(e){const t=e._ownerWritableStream,r=t._state;return r==="errored"||r==="erroring"?null:r==="closed"?0:Po(t._writableStreamController)}n(la,"WritableStreamDefaultWriterGetDesiredSize");function wo(e){const t=e._ownerWritableStream,r=new TypeError("Writer was released and can no longer be used to monitor the stream's closedness");So(e,r),sa(e,r),t._writer=void 0,e._ownerWritableStream=void 0;}n(wo,"WritableStreamDefaultWriterRelease");function Ro(e,t){const r=e._ownerWritableStream,s=r._writableStreamController,f=ca(s,t);if(r!==e._ownerWritableStream)return g(gt("write to"));const c=r._state;if(c==="errored")return g(r._storedError);if(oe(r)||c==="closed")return g(new TypeError("The stream is closing or closed and cannot be written to"));if(c==="erroring")return g(r._storedError);const h=Ki(r);return da(s,t,f),h}n(Ro,"WritableStreamDefaultWriterWrite");const To={},cn=class cn{constructor(){throw new TypeError("Illegal constructor")}get abortReason(){if(!Vr(this))throw Gr("abortReason");return this._abortReason}get signal(){if(!Vr(this))throw Gr("signal");if(this._abortController===void 0)throw new TypeError("WritableStreamDefaultController.prototype.signal is not supported");return this._abortController.signal}error(t=void 0){if(!Vr(this))throw Gr("error");this._controlledWritableStream._state==="writable"&&vo(this,t);}[$n](t){const r=this._abortAlgorithm(t);return Qt(this),r}[Dn](){ge(this);}};n(cn,"WritableStreamDefaultController");let Se=cn;Object.defineProperties(Se.prototype,{abortReason:{enumerable:!0},signal:{enumerable:!0},error:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Se.prototype,l.toStringTag,{value:"WritableStreamDefaultController",configurable:!0});function Vr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledWritableStream")?!1:e instanceof Se}n(Vr,"IsWritableStreamDefaultController");function Co(e,t,r,s,f,c,h,y){t._controlledWritableStream=e,e._writableStreamController=t,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._abortReason=void 0,t._abortController=Gi(),t._started=!1,t._strategySizeAlgorithm=y,t._strategyHWM=h,t._writeAlgorithm=s,t._closeAlgorithm=f,t._abortAlgorithm=c;const w=Yr(t);Hr(e,w);const T=r(),P=b(T);q(P,()=>{t._started=!0,Yt(t);},v=>{t._started=!0,Ur(e,v);});}n(Co,"SetUpWritableStreamDefaultController");function ua(e,t,r,s){const f=Object.create(Se.prototype);let c=n(()=>{},"startAlgorithm"),h=n(()=>b(void 0),"writeAlgorithm"),y=n(()=>b(void 0),"closeAlgorithm"),w=n(()=>b(void 0),"abortAlgorithm");t.start!==void 0&&(c=n(()=>t.start(f),"startAlgorithm")),t.write!==void 0&&(h=n(T=>t.write(T,f),"writeAlgorithm")),t.close!==void 0&&(y=n(()=>t.close(),"closeAlgorithm")),t.abort!==void 0&&(w=n(T=>t.abort(T),"abortAlgorithm")),Co(e,f,c,h,y,w,r,s);}n(ua,"SetUpWritableStreamDefaultControllerFromUnderlyingSink");function Qt(e){e._writeAlgorithm=void 0,e._closeAlgorithm=void 0,e._abortAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n(Qt,"WritableStreamDefaultControllerClearAlgorithms");function fa(e){jr(e,To,0),Yt(e);}n(fa,"WritableStreamDefaultControllerClose");function ca(e,t){try{return e._strategySizeAlgorithm(t)}catch(r){return Qr(e,r),1}}n(ca,"WritableStreamDefaultControllerGetChunkSize");function Po(e){return e._strategyHWM-e._queueTotalSize}n(Po,"WritableStreamDefaultControllerGetDesiredSize");function da(e,t,r){try{jr(e,t,r);}catch(f){Qr(e,f);return}const s=e._controlledWritableStream;if(!oe(s)&&s._state==="writable"){const f=Yr(e);Hr(s,f);}Yt(e);}n(da,"WritableStreamDefaultControllerWrite");function Yt(e){const t=e._controlledWritableStream;if(!e._started||t._inFlightWriteRequest!==void 0)return;if(t._state==="erroring"){xr(t);return}if(e._queue.length===0)return;const s=qi(e);s===To?ha(e):pa(e,s);}n(Yt,"WritableStreamDefaultControllerAdvanceQueueIfNeeded");function Qr(e,t){e._controlledWritableStream._state==="writable"&&vo(e,t);}n(Qr,"WritableStreamDefaultControllerErrorIfNeeded");function ha(e){const t=e._controlledWritableStream;na(t),zr(e);const r=e._closeAlgorithm();Qt(e),q(r,()=>{ea(t);},s=>{ta(t,s);});}n(ha,"WritableStreamDefaultControllerProcessClose");function pa(e,t){const r=e._controlledWritableStream;oa(r);const s=e._writeAlgorithm(t);q(s,()=>{Ji(r);const f=r._state;if(zr(e),!oe(r)&&f==="writable"){const c=Yr(e);Hr(r,c);}Yt(e);},f=>{r._state==="writable"&&Qt(e),Xi(r,f);});}n(pa,"WritableStreamDefaultControllerProcessWrite");function Yr(e){return Po(e)<=0}n(Yr,"WritableStreamDefaultControllerGetBackpressure");function vo(e,t){const r=e._controlledWritableStream;Qt(e),Nr(r,t);}n(vo,"WritableStreamDefaultControllerError");function Gt(e){return new TypeError(`WritableStream.prototype.${e} can only be used on a WritableStream`)}n(Gt,"streamBrandCheckException$2");function Gr(e){return new TypeError(`WritableStreamDefaultController.prototype.${e} can only be used on a WritableStreamDefaultController`)}n(Gr,"defaultControllerBrandCheckException$2");function Fe(e){return new TypeError(`WritableStreamDefaultWriter.prototype.${e} can only be used on a WritableStreamDefaultWriter`)}n(Fe,"defaultWriterBrandCheckException");function gt(e){return new TypeError("Cannot "+e+" a stream using a released writer")}n(gt,"defaultWriterLockException");function Zt(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r,e._closedPromiseState="pending";});}n(Zt,"defaultWriterClosedPromiseInitialize");function Eo(e,t){Zt(e),Zr(e,t);}n(Eo,"defaultWriterClosedPromiseInitializeAsRejected");function ba(e){Zt(e),Ao(e);}n(ba,"defaultWriterClosedPromiseInitializeAsResolved");function Zr(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="rejected");}n(Zr,"defaultWriterClosedPromiseReject");function ma(e,t){Eo(e,t);}n(ma,"defaultWriterClosedPromiseResetToRejected");function Ao(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="resolved");}n(Ao,"defaultWriterClosedPromiseResolve");function Kt(e){e._readyPromise=E((t,r)=>{e._readyPromise_resolve=t,e._readyPromise_reject=r;}),e._readyPromiseState="pending";}n(Kt,"defaultWriterReadyPromiseInitialize");function Kr(e,t){Kt(e),Bo(e,t);}n(Kr,"defaultWriterReadyPromiseInitializeAsRejected");function Wo(e){Kt(e),Jr(e);}n(Wo,"defaultWriterReadyPromiseInitializeAsResolved");function Bo(e,t){e._readyPromise_reject!==void 0&&($(e._readyPromise),e._readyPromise_reject(t),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="rejected");}n(Bo,"defaultWriterReadyPromiseReject");function ya(e){Kt(e);}n(ya,"defaultWriterReadyPromiseReset");function ga(e,t){Kr(e,t);}n(ga,"defaultWriterReadyPromiseResetToRejected");function Jr(e){e._readyPromise_resolve!==void 0&&(e._readyPromise_resolve(void 0),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="fulfilled");}n(Jr,"defaultWriterReadyPromiseResolve");const ko=typeof DOMException<"u"?DOMException:void 0;function _a(e){if(!(typeof e=="function"||typeof e=="object"))return !1;try{return new e,!0}catch{return !1}}n(_a,"isDOMExceptionConstructor");function Sa(){const e=n(function(r,s){this.message=r||"",this.name=s||"Error",Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor);},"DOMException");return e.prototype=Object.create(Error.prototype),Object.defineProperty(e.prototype,"constructor",{value:e,writable:!0,configurable:!0}),e}n(Sa,"createDOMExceptionPolyfill");const wa=_a(ko)?ko:Sa();function Oo(e,t,r,s,f,c){const h=Ve(e),y=mo(t);e._disturbed=!0;let w=!1,T=b(void 0);return E((P,v)=>{let z;if(c!==void 0){if(z=n(()=>{const _=new wa("Aborted","AbortError"),R=[];s||R.push(()=>t._state==="writable"?Ht(t,_):b(void 0)),f||R.push(()=>e._state==="readable"?J(e,_):b(void 0)),U(()=>Promise.all(R.map(W=>W())),!0,_);},"abortAlgorithm"),c.aborted){z();return}c.addEventListener("abort",z);}function X(){return E((_,R)=>{function W(H){H?_():A(Xe(),W,R);}n(W,"next"),W(!1);})}n(X,"pipeLoop");function Xe(){return w?b(!0):A(y._readyPromise,()=>E((_,R)=>{ht(h,{_chunkSteps:W=>{T=A(Ro(y,W),void 0,u),_(!1);},_closeSteps:()=>_(!0),_errorSteps:R});}))}if(n(Xe,"pipeStep"),he(e,h._closedPromise,_=>{s?Q(!0,_):U(()=>Ht(t,_),!0,_);}),he(t,y._closedPromise,_=>{f?Q(!0,_):U(()=>J(e,_),!0,_);}),M(e,h._closedPromise,()=>{r?Q():U(()=>aa(y));}),oe(t)||t._state==="closed"){const _=new TypeError("the destination writable stream closed before all data could be piped to it");f?Q(!0,_):U(()=>J(e,_),!0,_);}$(X());function Pe(){const _=T;return A(T,()=>_!==T?Pe():void 0)}n(Pe,"waitForWritesToFinish");function he(_,R,W){_._state==="errored"?W(_._storedError):dt(R,W);}n(he,"isOrBecomesErrored");function M(_,R,W){_._state==="closed"?W():ne(R,W);}n(M,"isOrBecomesClosed");function U(_,R,W){if(w)return;w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),H):H();function H(){q(_(),()=>pe(R,W),et=>pe(!0,et));}n(H,"doTheRest");}n(U,"shutdownWithAction");function Q(_,R){w||(w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),()=>pe(_,R)):pe(_,R));}n(Q,"shutdown");function pe(_,R){wo(y),fe(h),c!==void 0&&c.removeEventListener("abort",z),_?v(R):P(void 0);}n(pe,"finalize");})}n(Oo,"ReadableStreamPipeTo");const dn=class dn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!Jt(this))throw tr("desiredSize");return Xr(this)}close(){if(!Jt(this))throw tr("close");if(!Ge(this))throw new TypeError("The stream is not in a state that permits close");St(this);}enqueue(t=void 0){if(!Jt(this))throw tr("enqueue");if(!Ge(this))throw new TypeError("The stream is not in a state that permits enqueue");return er(this,t)}error(t=void 0){if(!Jt(this))throw tr("error");Re(this,t);}[Ar](t){ge(this);const r=this._cancelAlgorithm(t);return Xt(this),r}[Wr](t){const r=this._controlledReadableStream;if(this._queue.length>0){const s=zr(this);this._closeRequested&&this._queue.length===0?(Xt(this),wt(r)):_t(this),t._chunkSteps(s);}else Hn(r,t),_t(this);}};n(dn,"ReadableStreamDefaultController");let we=dn;Object.defineProperties(we.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(we.prototype,l.toStringTag,{value:"ReadableStreamDefaultController",configurable:!0});function Jt(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableStream")?!1:e instanceof we}n(Jt,"IsReadableStreamDefaultController");function _t(e){if(!qo(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,_t(e));},s=>{Re(e,s);});}n(_t,"ReadableStreamDefaultControllerCallPullIfNeeded");function qo(e){const t=e._controlledReadableStream;return !Ge(e)||!e._started?!1:!!(Ce(t)&&Ot(t)>0||Xr(e)>0)}n(qo,"ReadableStreamDefaultControllerShouldCallPull");function Xt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n(Xt,"ReadableStreamDefaultControllerClearAlgorithms");function St(e){if(!Ge(e))return;const t=e._controlledReadableStream;e._closeRequested=!0,e._queue.length===0&&(Xt(e),wt(t));}n(St,"ReadableStreamDefaultControllerClose");function er(e,t){if(!Ge(e))return;const r=e._controlledReadableStream;if(Ce(r)&&Ot(r)>0)qr(r,t,!1);else {let s;try{s=e._strategySizeAlgorithm(t);}catch(f){throw Re(e,f),f}try{jr(e,t,s);}catch(f){throw Re(e,f),f}}_t(e);}n(er,"ReadableStreamDefaultControllerEnqueue");function Re(e,t){const r=e._controlledReadableStream;r._state==="readable"&&(ge(e),Xt(e),Io(r,t));}n(Re,"ReadableStreamDefaultControllerError");function Xr(e){const t=e._controlledReadableStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n(Xr,"ReadableStreamDefaultControllerGetDesiredSize");function Ra(e){return !qo(e)}n(Ra,"ReadableStreamDefaultControllerHasBackpressure");function Ge(e){const t=e._controlledReadableStream._state;return !e._closeRequested&&t==="readable"}n(Ge,"ReadableStreamDefaultControllerCanCloseOrEnqueue");function zo(e,t,r,s,f,c,h){t._controlledReadableStream=e,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._started=!1,t._closeRequested=!1,t._pullAgain=!1,t._pulling=!1,t._strategySizeAlgorithm=h,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,_t(t);},w=>{Re(t,w);});}n(zo,"SetUpReadableStreamDefaultController");function Ta(e,t,r,s){const f=Object.create(we.prototype);let c=n(()=>{},"startAlgorithm"),h=n(()=>b(void 0),"pullAlgorithm"),y=n(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(c=n(()=>t.start(f),"startAlgorithm")),t.pull!==void 0&&(h=n(()=>t.pull(f),"pullAlgorithm")),t.cancel!==void 0&&(y=n(w=>t.cancel(w),"cancelAlgorithm")),zo(e,f,c,h,y,r,s);}n(Ta,"SetUpReadableStreamDefaultControllerFromUnderlyingSource");function tr(e){return new TypeError(`ReadableStreamDefaultController.prototype.${e} can only be used on a ReadableStreamDefaultController`)}n(tr,"defaultControllerBrandCheckException$1");function Ca(e,t){return We(e._readableStreamController)?va(e):Pa(e)}n(Ca,"ReadableStreamTee");function Pa(e,t){const r=Ve(e);let s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(M=>{v=M;});function X(){return s?(f=!0,b(void 0)):(s=!0,ht(r,{_chunkSteps:U=>{F(()=>{f=!1;const Q=U,pe=U;c||er(T._readableStreamController,Q),h||er(P._readableStreamController,pe),s=!1,f&&X();});},_closeSteps:()=>{s=!1,c||St(T._readableStreamController),h||St(P._readableStreamController),(!c||!h)&&v(void 0);},_errorSteps:()=>{s=!1;}}),b(void 0))}n(X,"pullAlgorithm");function Xe(M){if(c=!0,y=M,h){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n(Xe,"cancel1Algorithm");function Pe(M){if(h=!0,w=M,c){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n(Pe,"cancel2Algorithm");function he(){}return n(he,"startAlgorithm"),T=en(he,X,Xe),P=en(he,X,Pe),dt(r._closedPromise,M=>{Re(T._readableStreamController,M),Re(P._readableStreamController,M),(!c||!h)&&v(void 0);}),[T,P]}n(Pa,"ReadableStreamDefaultTee");function va(e){let t=Ve(e),r=!1,s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(_=>{v=_;});function X(_){dt(_._closedPromise,R=>{_===t&&(K(T._readableStreamController,R),K(P._readableStreamController,R),(!c||!h)&&v(void 0));});}n(X,"forwardReaderError");function Xe(){Oe(t)&&(fe(t),t=Ve(e),X(t)),ht(t,{_chunkSteps:R=>{F(()=>{s=!1,f=!1;const W=R;let H=R;if(!c&&!h)try{H=eo(R);}catch(et){K(T._readableStreamController,et),K(P._readableStreamController,et),v(J(e,et));return}c||$t(T._readableStreamController,W),h||$t(P._readableStreamController,H),r=!1,s?he():f&&M();});},_closeSteps:()=>{r=!1,c||bt(T._readableStreamController),h||bt(P._readableStreamController),T._readableStreamController._pendingPullIntos.length>0&&Dt(T._readableStreamController,0),P._readableStreamController._pendingPullIntos.length>0&&Dt(P._readableStreamController,0),(!c||!h)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n(Xe,"pullWithDefaultReader");function Pe(_,R){ye(t)&&(fe(t),t=fo(e),X(t));const W=R?P:T,H=R?T:P;po(t,_,{_chunkSteps:tt=>{F(()=>{s=!1,f=!1;const rt=R?h:c;if(R?c:h)rt||Mt(W._readableStreamController,tt);else {let Zo;try{Zo=eo(tt);}catch(gn){K(W._readableStreamController,gn),K(H._readableStreamController,gn),v(J(e,gn));return}rt||Mt(W._readableStreamController,tt),$t(H._readableStreamController,Zo);}r=!1,s?he():f&&M();});},_closeSteps:tt=>{r=!1;const rt=R?h:c,sr=R?c:h;rt||bt(W._readableStreamController),sr||bt(H._readableStreamController),tt!==void 0&&(rt||Mt(W._readableStreamController,tt),!sr&&H._readableStreamController._pendingPullIntos.length>0&&Dt(H._readableStreamController,0)),(!rt||!sr)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n(Pe,"pullWithBYOBReader");function he(){if(r)return s=!0,b(void 0);r=!0;const _=$r(T._readableStreamController);return _===null?Xe():Pe(_._view,!1),b(void 0)}n(he,"pull1Algorithm");function M(){if(r)return f=!0,b(void 0);r=!0;const _=$r(P._readableStreamController);return _===null?Xe():Pe(_._view,!0),b(void 0)}n(M,"pull2Algorithm");function U(_){if(c=!0,y=_,h){const R=pt([y,w]),W=J(e,R);v(W);}return z}n(U,"cancel1Algorithm");function Q(_){if(h=!0,w=_,c){const R=pt([y,w]),W=J(e,R);v(W);}return z}n(Q,"cancel2Algorithm");function pe(){}return n(pe,"startAlgorithm"),T=Fo(pe,he,U),P=Fo(pe,M,Q),X(t),[T,P]}n(va,"ReadableByteStreamTee");function Ea(e,t){ce(e,t);const r=e,s=r?.autoAllocateChunkSize,f=r?.cancel,c=r?.pull,h=r?.start,y=r?.type;return {autoAllocateChunkSize:s===void 0?void 0:xn(s,`${t} has member 'autoAllocateChunkSize' that`),cancel:f===void 0?void 0:Aa(f,r,`${t} has member 'cancel' that`),pull:c===void 0?void 0:Wa(c,r,`${t} has member 'pull' that`),start:h===void 0?void 0:Ba(h,r,`${t} has member 'start' that`),type:y===void 0?void 0:ka(y,`${t} has member 'type' that`)}}n(Ea,"convertUnderlyingDefaultOrByteSource");function Aa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Aa,"convertUnderlyingSourceCancelCallback");function Wa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Wa,"convertUnderlyingSourcePullCallback");function Ba(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n(Ba,"convertUnderlyingSourceStartCallback");function ka(e,t){if(e=`${e}`,e!=="bytes")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamType`);return e}n(ka,"convertReadableStreamType");function Oa(e,t){ce(e,t);const r=e?.mode;return {mode:r===void 0?void 0:qa(r,`${t} has member 'mode' that`)}}n(Oa,"convertReaderOptions");function qa(e,t){if(e=`${e}`,e!=="byob")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamReaderMode`);return e}n(qa,"convertReadableStreamReaderMode");function za(e,t){return ce(e,t),{preventCancel:!!e?.preventCancel}}n(za,"convertIteratorOptions");function jo(e,t){ce(e,t);const r=e?.preventAbort,s=e?.preventCancel,f=e?.preventClose,c=e?.signal;return c!==void 0&&ja(c,`${t} has member 'signal' that`),{preventAbort:!!r,preventCancel:!!s,preventClose:!!f,signal:c}}n(jo,"convertPipeOptions");function ja(e,t){if(!Qi(e))throw new TypeError(`${t} is not an AbortSignal.`)}n(ja,"assertAbortSignal");function Fa(e,t){ce(e,t);const r=e?.readable;Br(r,"readable","ReadableWritablePair"),Or(r,`${t} has member 'readable' that`);const s=e?.writable;return Br(s,"writable","ReadableWritablePair"),bo(s,`${t} has member 'writable' that`),{readable:r,writable:s}}n(Fa,"convertReadableWritablePair");const hn=class hn{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ea(t,"First parameter");if(tn(this),f.type==="bytes"){if(s.size!==void 0)throw new RangeError("The strategy for a byte stream cannot have a size function");const c=yt(s,0);Li(this,f,c);}else {const c=Nt(s),h=yt(s,1);Ta(this,f,h,c);}}get locked(){if(!Te(this))throw Ie("locked");return Ce(this)}cancel(t=void 0){return Te(this)?Ce(this)?g(new TypeError("Cannot cancel a stream that already has a reader")):J(this,t):g(Ie("cancel"))}getReader(t=void 0){if(!Te(this))throw Ie("getReader");return Oa(t,"First parameter").mode===void 0?Ve(this):fo(this)}pipeThrough(t,r={}){if(!Te(this))throw Ie("pipeThrough");de(t,1,"pipeThrough");const s=Fa(t,"First parameter"),f=jo(r,"Second parameter");if(Ce(this))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream");if(Ye(s.writable))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream");const c=Oo(this,s.writable,f.preventClose,f.preventAbort,f.preventCancel,f.signal);return $(c),s.readable}pipeTo(t,r={}){if(!Te(this))return g(Ie("pipeTo"));if(t===void 0)return g("Parameter 1 is required in 'pipeTo'.");if(!Qe(t))return g(new TypeError("ReadableStream.prototype.pipeTo's first argument must be a WritableStream"));let s;try{s=jo(r,"Second parameter");}catch(f){return g(f)}return Ce(this)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream")):Ye(t)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream")):Oo(this,t,s.preventClose,s.preventAbort,s.preventCancel,s.signal)}tee(){if(!Te(this))throw Ie("tee");const t=Ca(this);return pt(t)}values(t=void 0){if(!Te(this))throw Ie("values");const r=za(t,"First parameter");return ki(this,r.preventCancel)}};n(hn,"ReadableStream");let ie=hn;Object.defineProperties(ie.prototype,{cancel:{enumerable:!0},getReader:{enumerable:!0},pipeThrough:{enumerable:!0},pipeTo:{enumerable:!0},tee:{enumerable:!0},values:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ie.prototype,l.toStringTag,{value:"ReadableStream",configurable:!0}),typeof l.asyncIterator=="symbol"&&Object.defineProperty(ie.prototype,l.asyncIterator,{value:ie.prototype.values,writable:!0,configurable:!0});function en(e,t,r,s=1,f=()=>1){const c=Object.create(ie.prototype);tn(c);const h=Object.create(we.prototype);return zo(c,h,e,t,r,s,f),c}n(en,"CreateReadableStream");function Fo(e,t,r){const s=Object.create(ie.prototype);tn(s);const f=Object.create(_e.prototype);return uo(s,f,e,t,r,0,void 0),s}n(Fo,"CreateReadableByteStream");function tn(e){e._state="readable",e._reader=void 0,e._storedError=void 0,e._disturbed=!1;}n(tn,"InitializeReadableStream");function Te(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readableStreamController")?!1:e instanceof ie}n(Te,"IsReadableStream");function Ce(e){return e._reader!==void 0}n(Ce,"IsReadableStreamLocked");function J(e,t){if(e._disturbed=!0,e._state==="closed")return b(void 0);if(e._state==="errored")return g(e._storedError);wt(e);const r=e._reader;r!==void 0&&Oe(r)&&(r._readIntoRequests.forEach(f=>{f._closeSteps(void 0);}),r._readIntoRequests=new x);const s=e._readableStreamController[Ar](t);return O(s,u)}n(J,"ReadableStreamCancel");function wt(e){e._state="closed";const t=e._reader;t!==void 0&&(Ln(t),ye(t)&&(t._readRequests.forEach(r=>{r._closeSteps();}),t._readRequests=new x));}n(wt,"ReadableStreamClose");function Io(e,t){e._state="errored",e._storedError=t;const r=e._reader;r!==void 0&&(Er(r,t),ye(r)?(r._readRequests.forEach(s=>{s._errorSteps(t);}),r._readRequests=new x):(r._readIntoRequests.forEach(s=>{s._errorSteps(t);}),r._readIntoRequests=new x));}n(Io,"ReadableStreamError");function Ie(e){return new TypeError(`ReadableStream.prototype.${e} can only be used on a ReadableStream`)}n(Ie,"streamBrandCheckException$1");function Lo(e,t){ce(e,t);const r=e?.highWaterMark;return Br(r,"highWaterMark","QueuingStrategyInit"),{highWaterMark:kr(r)}}n(Lo,"convertQueuingStrategyInit");const $o=n(e=>e.byteLength,"byteLengthSizeFunction");try{Object.defineProperty($o,"name",{value:"size",configurable:!0});}catch{}const pn=class pn{constructor(t){de(t,1,"ByteLengthQueuingStrategy"),t=Lo(t,"First parameter"),this._byteLengthQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!Mo(this))throw Do("highWaterMark");return this._byteLengthQueuingStrategyHighWaterMark}get size(){if(!Mo(this))throw Do("size");return $o}};n(pn,"ByteLengthQueuingStrategy");let Ze=pn;Object.defineProperties(Ze.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ze.prototype,l.toStringTag,{value:"ByteLengthQueuingStrategy",configurable:!0});function Do(e){return new TypeError(`ByteLengthQueuingStrategy.prototype.${e} can only be used on a ByteLengthQueuingStrategy`)}n(Do,"byteLengthBrandCheckException");function Mo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_byteLengthQueuingStrategyHighWaterMark")?!1:e instanceof Ze}n(Mo,"IsByteLengthQueuingStrategy");const Uo=n(()=>1,"countSizeFunction");try{Object.defineProperty(Uo,"name",{value:"size",configurable:!0});}catch{}const bn=class bn{constructor(t){de(t,1,"CountQueuingStrategy"),t=Lo(t,"First parameter"),this._countQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!xo(this))throw No("highWaterMark");return this._countQueuingStrategyHighWaterMark}get size(){if(!xo(this))throw No("size");return Uo}};n(bn,"CountQueuingStrategy");let Ke=bn;Object.defineProperties(Ke.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ke.prototype,l.toStringTag,{value:"CountQueuingStrategy",configurable:!0});function No(e){return new TypeError(`CountQueuingStrategy.prototype.${e} can only be used on a CountQueuingStrategy`)}n(No,"countBrandCheckException");function xo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_countQueuingStrategyHighWaterMark")?!1:e instanceof Ke}n(xo,"IsCountQueuingStrategy");function Ia(e,t){ce(e,t);const r=e?.flush,s=e?.readableType,f=e?.start,c=e?.transform,h=e?.writableType;return {flush:r===void 0?void 0:La(r,e,`${t} has member 'flush' that`),readableType:s,start:f===void 0?void 0:$a(f,e,`${t} has member 'start' that`),transform:c===void 0?void 0:Da(c,e,`${t} has member 'transform' that`),writableType:h}}n(Ia,"convertTransformer");function La(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(La,"convertTransformerFlushCallback");function $a(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n($a,"convertTransformerStartCallback");function Da(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n(Da,"convertTransformerTransformCallback");const mn=class mn{constructor(t={},r={},s={}){t===void 0&&(t=null);const f=xt(r,"Second parameter"),c=xt(s,"Third parameter"),h=Ia(t,"First parameter");if(h.readableType!==void 0)throw new RangeError("Invalid readableType specified");if(h.writableType!==void 0)throw new RangeError("Invalid writableType specified");const y=yt(c,0),w=Nt(c),T=yt(f,1),P=Nt(f);let v;const z=E(X=>{v=X;});Ma(this,z,T,P,y,w),Na(this,h),h.start!==void 0?v(h.start(this._transformStreamController)):v(void 0);}get readable(){if(!Ho(this))throw Go("readable");return this._readable}get writable(){if(!Ho(this))throw Go("writable");return this._writable}};n(mn,"TransformStream");let Je=mn;Object.defineProperties(Je.prototype,{readable:{enumerable:!0},writable:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Je.prototype,l.toStringTag,{value:"TransformStream",configurable:!0});function Ma(e,t,r,s,f,c){function h(){return t}n(h,"startAlgorithm");function y(z){return Va(e,z)}n(y,"writeAlgorithm");function w(z){return Qa(e,z)}n(w,"abortAlgorithm");function T(){return Ya(e)}n(T,"closeAlgorithm"),e._writable=Zi(h,y,T,w,r,s);function P(){return Ga(e)}n(P,"pullAlgorithm");function v(z){return nr(e,z),b(void 0)}n(v,"cancelAlgorithm"),e._readable=en(h,P,v,f,c),e._backpressure=void 0,e._backpressureChangePromise=void 0,e._backpressureChangePromise_resolve=void 0,or(e,!0),e._transformStreamController=void 0;}n(Ma,"InitializeTransformStream");function Ho(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_transformStreamController")?!1:e instanceof Je}n(Ho,"IsTransformStream");function rr(e,t){Re(e._readable._readableStreamController,t),nr(e,t);}n(rr,"TransformStreamError");function nr(e,t){Vo(e._transformStreamController),Qr(e._writable._writableStreamController,t),e._backpressure&&or(e,!1);}n(nr,"TransformStreamErrorWritableAndUnblockWrite");function or(e,t){e._backpressureChangePromise!==void 0&&e._backpressureChangePromise_resolve(),e._backpressureChangePromise=E(r=>{e._backpressureChangePromise_resolve=r;}),e._backpressure=t;}n(or,"TransformStreamSetBackpressure");const yn=class yn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!ir(this))throw ar("desiredSize");const t=this._controlledTransformStream._readable._readableStreamController;return Xr(t)}enqueue(t=void 0){if(!ir(this))throw ar("enqueue");Qo(this,t);}error(t=void 0){if(!ir(this))throw ar("error");xa(this,t);}terminate(){if(!ir(this))throw ar("terminate");Ha(this);}};n(yn,"TransformStreamDefaultController");let Le=yn;Object.defineProperties(Le.prototype,{enqueue:{enumerable:!0},error:{enumerable:!0},terminate:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Le.prototype,l.toStringTag,{value:"TransformStreamDefaultController",configurable:!0});function ir(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledTransformStream")?!1:e instanceof Le}n(ir,"IsTransformStreamDefaultController");function Ua(e,t,r,s){t._controlledTransformStream=e,e._transformStreamController=t,t._transformAlgorithm=r,t._flushAlgorithm=s;}n(Ua,"SetUpTransformStreamDefaultController");function Na(e,t){const r=Object.create(Le.prototype);let s=n(c=>{try{return Qo(r,c),b(void 0)}catch(h){return g(h)}},"transformAlgorithm"),f=n(()=>b(void 0),"flushAlgorithm");t.transform!==void 0&&(s=n(c=>t.transform(c,r),"transformAlgorithm")),t.flush!==void 0&&(f=n(()=>t.flush(r),"flushAlgorithm")),Ua(e,r,s,f);}n(Na,"SetUpTransformStreamDefaultControllerFromTransformer");function Vo(e){e._transformAlgorithm=void 0,e._flushAlgorithm=void 0;}n(Vo,"TransformStreamDefaultControllerClearAlgorithms");function Qo(e,t){const r=e._controlledTransformStream,s=r._readable._readableStreamController;if(!Ge(s))throw new TypeError("Readable side is not in a state that permits enqueue");try{er(s,t);}catch(c){throw nr(r,c),r._readable._storedError}Ra(s)!==r._backpressure&&or(r,!0);}n(Qo,"TransformStreamDefaultControllerEnqueue");function xa(e,t){rr(e._controlledTransformStream,t);}n(xa,"TransformStreamDefaultControllerError");function Yo(e,t){const r=e._transformAlgorithm(t);return O(r,void 0,s=>{throw rr(e._controlledTransformStream,s),s})}n(Yo,"TransformStreamDefaultControllerPerformTransform");function Ha(e){const t=e._controlledTransformStream,r=t._readable._readableStreamController;St(r);const s=new TypeError("TransformStream terminated");nr(t,s);}n(Ha,"TransformStreamDefaultControllerTerminate");function Va(e,t){const r=e._transformStreamController;if(e._backpressure){const s=e._backpressureChangePromise;return O(s,()=>{const f=e._writable;if(f._state==="erroring")throw f._storedError;return Yo(r,t)})}return Yo(r,t)}n(Va,"TransformStreamDefaultSinkWriteAlgorithm");function Qa(e,t){return rr(e,t),b(void 0)}n(Qa,"TransformStreamDefaultSinkAbortAlgorithm");function Ya(e){const t=e._readable,r=e._transformStreamController,s=r._flushAlgorithm();return Vo(r),O(s,()=>{if(t._state==="errored")throw t._storedError;St(t._readableStreamController);},f=>{throw rr(e,f),t._storedError})}n(Ya,"TransformStreamDefaultSinkCloseAlgorithm");function Ga(e){return or(e,!1),e._backpressureChangePromise}n(Ga,"TransformStreamDefaultSourcePullAlgorithm");function ar(e){return new TypeError(`TransformStreamDefaultController.prototype.${e} can only be used on a TransformStreamDefaultController`)}n(ar,"defaultControllerBrandCheckException");function Go(e){return new TypeError(`TransformStream.prototype.${e} can only be used on a TransformStream`)}n(Go,"streamBrandCheckException"),a.ByteLengthQueuingStrategy=Ze,a.CountQueuingStrategy=Ke,a.ReadableByteStreamController=_e,a.ReadableStream=ie,a.ReadableStreamBYOBReader=ke,a.ReadableStreamBYOBRequest=Ae,a.ReadableStreamDefaultController=we,a.ReadableStreamDefaultReader=Ee,a.TransformStream=Je,a.TransformStreamDefaultController=Le,a.WritableStream=qe,a.WritableStreamDefaultController=Se,a.WritableStreamDefaultWriter=ze,Object.defineProperty(a,"__esModule",{value:!0});});}(cr,cr.exports)),cr.exports}n(as,"requirePonyfill_es2018");const ss=65536;if(!globalThis.ReadableStream)try{const i=require("node:process"),{emitWarning:o}=i;try{i.emitWarning=()=>{},Object.assign(globalThis,require("node:stream/web")),i.emitWarning=o;}catch(a){throw i.emitWarning=o,a}}catch{Object.assign(globalThis,as());}try{const{Blob:i}=require("buffer");i&&!i.prototype.stream&&(i.prototype.stream=n(function(a){let l=0;const u=this;return new ReadableStream({type:"bytes",async pull(d){const m=await u.slice(l,Math.min(u.size,l+ss)).arrayBuffer();l+=m.byteLength,d.enqueue(new Uint8Array(m)),l===u.size&&d.close();}})},"name"));}catch{}/*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */const ei=65536;async function*Sn(i,o=!0){for(const a of i)if("stream"in a)yield*a.stream();else if(ArrayBuffer.isView(a))if(o){let l=a.byteOffset;const u=a.byteOffset+a.byteLength;for(;l!==u;){const d=Math.min(u-l,ei),p=a.buffer.slice(l,l+d);l+=p.byteLength,yield new Uint8Array(p);}}else yield a;else {let l=0,u=a;for(;l!==u.size;){const p=await u.slice(l,Math.min(u.size,l+ei)).arrayBuffer();l+=p.byteLength,yield new Uint8Array(p);}}}n(Sn,"toIterator");const ti=(xe=class{constructor(o=[],a={}){ae(this,me,[]);ae(this,vt,"");ae(this,ct,0);ae(this,wr,"transparent");if(typeof o!="object"||o===null)throw new TypeError("Failed to construct 'Blob': The provided value cannot be converted to a sequence.");if(typeof o[Symbol.iterator]!="function")throw new TypeError("Failed to construct 'Blob': The object must have a callable @@iterator property.");if(typeof a!="object"&&typeof a!="function")throw new TypeError("Failed to construct 'Blob': parameter 2 cannot convert to dictionary.");a===null&&(a={});const l=new TextEncoder;for(const d of o){let p;ArrayBuffer.isView(d)?p=new Uint8Array(d.buffer.slice(d.byteOffset,d.byteOffset+d.byteLength)):d instanceof ArrayBuffer?p=new Uint8Array(d.slice(0)):d instanceof xe?p=d:p=l.encode(`${d}`),Y(this,ct,k(this,ct)+(ArrayBuffer.isView(p)?p.byteLength:p.size)),k(this,me).push(p);}Y(this,wr,`${a.endings===void 0?"transparent":a.endings}`);const u=a.type===void 0?"":String(a.type);Y(this,vt,/^[\x20-\x7E]*$/.test(u)?u:"");}get size(){return k(this,ct)}get type(){return k(this,vt)}async text(){const o=new TextDecoder;let a="";for await(const l of Sn(k(this,me),!1))a+=o.decode(l,{stream:!0});return a+=o.decode(),a}async arrayBuffer(){const o=new Uint8Array(this.size);let a=0;for await(const l of Sn(k(this,me),!1))o.set(l,a),a+=l.length;return o.buffer}stream(){const o=Sn(k(this,me),!0);return new globalThis.ReadableStream({type:"bytes",async pull(a){const l=await o.next();l.done?a.close():a.enqueue(l.value);},async cancel(){await o.return();}})}slice(o=0,a=this.size,l=""){const{size:u}=this;let d=o<0?Math.max(u+o,0):Math.min(o,u),p=a<0?Math.max(u+a,0):Math.min(a,u);const m=Math.max(p-d,0),C=k(this,me),S=[];let I=0;for(const L of C){if(I>=m)break;const E=ArrayBuffer.isView(L)?L.byteLength:L.size;if(d&&E<=d)d-=E,p-=E;else {let b;ArrayBuffer.isView(L)?(b=L.subarray(d,Math.min(E,p)),I+=b.byteLength):(b=L.slice(d,Math.min(E,p)),I+=b.size),p-=E,S.push(b),d=0;}}const re=new xe([],{type:String(l).toLowerCase()});return Y(re,ct,m),Y(re,me,S),re}get[Symbol.toStringTag](){return "Blob"}static[Symbol.hasInstance](o){return o&&typeof o=="object"&&typeof o.constructor=="function"&&(typeof o.stream=="function"||typeof o.arrayBuffer=="function")&&/^(Blob|File)$/.test(o[Symbol.toStringTag])}},me=new WeakMap,vt=new WeakMap,ct=new WeakMap,wr=new WeakMap,n(xe,"Blob"),xe);Object.defineProperties(ti.prototype,{size:{enumerable:!0},type:{enumerable:!0},slice:{enumerable:!0}});const ls=ti,it=ls,us=(Wt=class extends it{constructor(a,l,u={}){if(arguments.length<2)throw new TypeError(`Failed to construct 'File': 2 arguments required, but only ${arguments.length} present.`);super(a,u);ae(this,Et,0);ae(this,At,"");u===null&&(u={});const d=u.lastModified===void 0?Date.now():Number(u.lastModified);Number.isNaN(d)||Y(this,Et,d),Y(this,At,String(l));}get name(){return k(this,At)}get lastModified(){return k(this,Et)}get[Symbol.toStringTag](){return "File"}static[Symbol.hasInstance](a){return !!a&&a instanceof it&&/^(File)$/.test(a[Symbol.toStringTag])}},Et=new WeakMap,At=new WeakMap,n(Wt,"File"),Wt),fs=us,wn=fs;/*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */var{toStringTag:Tt,iterator:cs,hasInstance:ds}=Symbol,ri=Math.random,hs="append,set,get,getAll,delete,keys,values,entries,forEach,constructor".split(","),ni=n((i,o,a)=>(i+="",/^(Blob|File)$/.test(o&&o[Tt])?[(a=a!==void 0?a+"":o[Tt]=="File"?o.name:"blob",i),o.name!==a||o[Tt]=="blob"?new wn([o],a,o):o]:[i,o+""]),"f"),Rn=n((i,o)=>(o?i:i.replace(/\r?\n|\r/g,`\r
-`)).replace(/\n/g,"%0A").replace(/\r/g,"%0D").replace(/"/g,"%22"),"e$1"),$e=n((i,o,a)=>{if(o.length<a)throw new TypeError(`Failed to execute '${i}' on 'FormData': ${a} arguments required, but only ${o.length} present.`)},"x");const dr=(Bt=class{constructor(...o){ae(this,G,[]);if(o.length)throw new TypeError("Failed to construct 'FormData': parameter 1 is not of type 'HTMLFormElement'.")}get[Tt](){return "FormData"}[cs](){return this.entries()}static[ds](o){return o&&typeof o=="object"&&o[Tt]==="FormData"&&!hs.some(a=>typeof o[a]!="function")}append(...o){$e("append",arguments,2),k(this,G).push(ni(...o));}delete(o){$e("delete",arguments,1),o+="",Y(this,G,k(this,G).filter(([a])=>a!==o));}get(o){$e("get",arguments,1),o+="";for(var a=k(this,G),l=a.length,u=0;u<l;u++)if(a[u][0]===o)return a[u][1];return null}getAll(o,a){return $e("getAll",arguments,1),a=[],o+="",k(this,G).forEach(l=>l[0]===o&&a.push(l[1])),a}has(o){return $e("has",arguments,1),o+="",k(this,G).some(a=>a[0]===o)}forEach(o,a){$e("forEach",arguments,1);for(var[l,u]of this)o.call(a,u,l,this);}set(...o){$e("set",arguments,2);var a=[],l=!0;o=ni(...o),k(this,G).forEach(u=>{u[0]===o[0]?l&&(l=!a.push(o)):a.push(u);}),l&&a.push(o),Y(this,G,a);}*entries(){yield*k(this,G);}*keys(){for(var[o]of this)yield o;}*values(){for(var[,o]of this)yield o;}},G=new WeakMap,n(Bt,"FormData"),Bt);function ps(i,o=it){var a=`${ri()}${ri()}`.replace(/\./g,"").slice(-28).padStart(32,"-"),l=[],u=`--${a}\r
-Content-Disposition: form-data; name="`;return i.forEach((d,p)=>typeof d=="string"?l.push(u+Rn(p)+`"\r
+var Za$1=Object.defineProperty;var n$1=(i,o)=>Za$1(i,"name",{value:o,configurable:!0});var Ko$1=(i,o,a)=>{if(!o.has(i))throw TypeError("Cannot "+a)};var k$1=(i,o,a)=>(Ko$1(i,o,"read from private field"),a?a.call(i):o.get(i)),ae$1=(i,o,a)=>{if(o.has(i))throw TypeError("Cannot add the same private member more than once");o instanceof WeakSet?o.add(i):o.set(i,a);},Y$1=(i,o,a,l)=>(Ko$1(i,o,"write to private field"),l?l.call(i,a):o.set(i,a),a);var me$1,vt$1,ct$1,wr$1,xe$1,Et$1,At$1,Wt$1,G$1,Bt$1,Ue$1,Ne$1,kt$1;function os$1(i){if(!/^data:/i.test(i))throw new TypeError('`uri` does not appear to be a Data URI (must begin with "data:")');i=i.replace(/\r?\n/g,"");const o=i.indexOf(",");if(o===-1||o<=4)throw new TypeError("malformed data: URI");const a=i.substring(5,o).split(";");let l="",u=!1;const d=a[0]||"text/plain";let p=d;for(let I=1;I<a.length;I++)a[I]==="base64"?u=!0:a[I]&&(p+=`;${a[I]}`,a[I].indexOf("charset=")===0&&(l=a[I].substring(8)));!a[0]&&!l.length&&(p+=";charset=US-ASCII",l="US-ASCII");const m=u?"base64":"ascii",C=unescape(i.substring(o+1)),S=Buffer.from(C,m);return S.type=d,S.typeFull=p,S.charset=l,S}n$1(os$1,"dataUriToBuffer");var _n$1=typeof globalThis<"u"?globalThis:typeof global<"u"?global:typeof self<"u"?self:{};function is$1(i){return i&&i.__esModule&&Object.prototype.hasOwnProperty.call(i,"default")?i.default:i}n$1(is$1,"getDefaultExportFromCjs");var cr$1={exports:{}},Xo$1;function as$1(){return Xo$1||(Xo$1=1,function(i,o){(function(a,l){l(o);})(_n$1,function(a){const l=typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?Symbol:e=>`Symbol(${e})`;function u(){}n$1(u,"noop");function d(){if(typeof self<"u")return self;if(typeof _n$1<"u")return _n$1}n$1(d,"getGlobals");const p=d();function m(e){return typeof e=="object"&&e!==null||typeof e=="function"}n$1(m,"typeIsObject");const C=u,S=Promise,I=Promise.prototype.then,re=Promise.resolve.bind(S),L=Promise.reject.bind(S);function E(e){return new S(e)}n$1(E,"newPromise");function b(e){return re(e)}n$1(b,"promiseResolvedWith");function g(e){return L(e)}n$1(g,"promiseRejectedWith");function A(e,t,r){return I.call(e,t,r)}n$1(A,"PerformPromiseThen");function q(e,t,r){A(A(e,t,r),void 0,C);}n$1(q,"uponPromise");function ne(e,t){q(e,t);}n$1(ne,"uponFulfillment");function dt(e,t){q(e,void 0,t);}n$1(dt,"uponRejection");function O(e,t,r){return A(e,t,r)}n$1(O,"transformPromiseWith");function $(e){A(e,void 0,C);}n$1($,"setPromiseIsHandledToTrue");const F=(()=>{const e=p&&p.queueMicrotask;if(typeof e=="function")return e;const t=b(void 0);return r=>A(t,r)})();function ve(e,t,r){if(typeof e!="function")throw new TypeError("Argument is not a function");return Function.prototype.apply.call(e,t,r)}n$1(ve,"reflectCall");function ue(e,t,r){try{return b(ve(e,t,r))}catch(s){return g(s)}}n$1(ue,"promiseCall");const jn=16384,rn=class rn{constructor(){this._cursor=0,this._size=0,this._front={_elements:[],_next:void 0},this._back=this._front,this._cursor=0,this._size=0;}get length(){return this._size}push(t){const r=this._back;let s=r;r._elements.length===jn-1&&(s={_elements:[],_next:void 0}),r._elements.push(t),s!==r&&(this._back=s,r._next=s),++this._size;}shift(){const t=this._front;let r=t;const s=this._cursor;let f=s+1;const c=t._elements,h=c[s];return f===jn&&(r=t._next,f=0),--this._size,this._cursor=f,t!==r&&(this._front=r),c[s]=void 0,h}forEach(t){let r=this._cursor,s=this._front,f=s._elements;for(;(r!==f.length||s._next!==void 0)&&!(r===f.length&&(s=s._next,f=s._elements,r=0,f.length===0));)t(f[r]),++r;}peek(){const t=this._front,r=this._cursor;return t._elements[r]}};n$1(rn,"SimpleQueue");let x=rn;function Fn(e,t){e._ownerReadableStream=t,t._reader=e,t._state==="readable"?vr(e):t._state==="closed"?Pi(e):In(e,t._storedError);}n$1(Fn,"ReadableStreamReaderGenericInitialize");function Pr(e,t){const r=e._ownerReadableStream;return J(r,t)}n$1(Pr,"ReadableStreamReaderGenericCancel");function fe(e){e._ownerReadableStream._state==="readable"?Er(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")):vi(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")),e._ownerReadableStream._reader=void 0,e._ownerReadableStream=void 0;}n$1(fe,"ReadableStreamReaderGenericRelease");function He(e){return new TypeError("Cannot "+e+" a stream using a released reader")}n$1(He,"readerLockException");function vr(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r;});}n$1(vr,"defaultReaderClosedPromiseInitialize");function In(e,t){vr(e),Er(e,t);}n$1(In,"defaultReaderClosedPromiseInitializeAsRejected");function Pi(e){vr(e),Ln(e);}n$1(Pi,"defaultReaderClosedPromiseInitializeAsResolved");function Er(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n$1(Er,"defaultReaderClosedPromiseReject");function vi(e,t){In(e,t);}n$1(vi,"defaultReaderClosedPromiseResetToRejected");function Ln(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n$1(Ln,"defaultReaderClosedPromiseResolve");const $n=l("[[AbortSteps]]"),Dn=l("[[ErrorSteps]]"),Ar=l("[[CancelSteps]]"),Wr=l("[[PullSteps]]"),Mn=Number.isFinite||function(e){return typeof e=="number"&&isFinite(e)},Ei=Math.trunc||function(e){return e<0?Math.ceil(e):Math.floor(e)};function Ai(e){return typeof e=="object"||typeof e=="function"}n$1(Ai,"isDictionary");function ce(e,t){if(e!==void 0&&!Ai(e))throw new TypeError(`${t} is not an object.`)}n$1(ce,"assertDictionary");function Z(e,t){if(typeof e!="function")throw new TypeError(`${t} is not a function.`)}n$1(Z,"assertFunction");function Wi(e){return typeof e=="object"&&e!==null||typeof e=="function"}n$1(Wi,"isObject");function Un(e,t){if(!Wi(e))throw new TypeError(`${t} is not an object.`)}n$1(Un,"assertObject");function de(e,t,r){if(e===void 0)throw new TypeError(`Parameter ${t} is required in '${r}'.`)}n$1(de,"assertRequiredArgument");function Br(e,t,r){if(e===void 0)throw new TypeError(`${t} is required in '${r}'.`)}n$1(Br,"assertRequiredField");function kr(e){return Number(e)}n$1(kr,"convertUnrestrictedDouble");function Nn(e){return e===0?0:e}n$1(Nn,"censorNegativeZero");function Bi(e){return Nn(Ei(e))}n$1(Bi,"integerPart");function xn(e,t){const s=Number.MAX_SAFE_INTEGER;let f=Number(e);if(f=Nn(f),!Mn(f))throw new TypeError(`${t} is not a finite number`);if(f=Bi(f),f<0||f>s)throw new TypeError(`${t} is outside the accepted range of 0 to ${s}, inclusive`);return !Mn(f)||f===0?0:f}n$1(xn,"convertUnsignedLongLongWithEnforceRange");function Or(e,t){if(!Te(e))throw new TypeError(`${t} is not a ReadableStream.`)}n$1(Or,"assertReadableStream");function Ve(e){return new Ee(e)}n$1(Ve,"AcquireReadableStreamDefaultReader");function Hn(e,t){e._reader._readRequests.push(t);}n$1(Hn,"ReadableStreamAddReadRequest");function qr(e,t,r){const f=e._reader._readRequests.shift();r?f._closeSteps():f._chunkSteps(t);}n$1(qr,"ReadableStreamFulfillReadRequest");function Ot(e){return e._reader._readRequests.length}n$1(Ot,"ReadableStreamGetNumReadRequests");function Vn(e){const t=e._reader;return !(t===void 0||!ye(t))}n$1(Vn,"ReadableStreamHasDefaultReader");const nn=class nn{constructor(t){if(de(t,1,"ReadableStreamDefaultReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");Fn(this,t),this._readRequests=new x;}get closed(){return ye(this)?this._closedPromise:g(qt("closed"))}cancel(t=void 0){return ye(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(qt("cancel"))}read(){if(!ye(this))return g(qt("read"));if(this._ownerReadableStream===void 0)return g(He("read from"));let t,r;const s=E((c,h)=>{t=c,r=h;});return ht(this,{_chunkSteps:c=>t({value:c,done:!1}),_closeSteps:()=>t({value:void 0,done:!0}),_errorSteps:c=>r(c)}),s}releaseLock(){if(!ye(this))throw qt("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n$1(nn,"ReadableStreamDefaultReader");let Ee=nn;Object.defineProperties(Ee.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ee.prototype,l.toStringTag,{value:"ReadableStreamDefaultReader",configurable:!0});function ye(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readRequests")?!1:e instanceof Ee}n$1(ye,"IsReadableStreamDefaultReader");function ht(e,t){const r=e._ownerReadableStream;r._disturbed=!0,r._state==="closed"?t._closeSteps():r._state==="errored"?t._errorSteps(r._storedError):r._readableStreamController[Wr](t);}n$1(ht,"ReadableStreamDefaultReaderRead");function qt(e){return new TypeError(`ReadableStreamDefaultReader.prototype.${e} can only be used on a ReadableStreamDefaultReader`)}n$1(qt,"defaultReaderBrandCheckException");const Qn=Object.getPrototypeOf(Object.getPrototypeOf(async function*(){}).prototype),on=class on{constructor(t,r){this._ongoingPromise=void 0,this._isFinished=!1,this._reader=t,this._preventCancel=r;}next(){const t=n$1(()=>this._nextSteps(),"nextSteps");return this._ongoingPromise=this._ongoingPromise?O(this._ongoingPromise,t,t):t(),this._ongoingPromise}return(t){const r=n$1(()=>this._returnSteps(t),"returnSteps");return this._ongoingPromise?O(this._ongoingPromise,r,r):r()}_nextSteps(){if(this._isFinished)return Promise.resolve({value:void 0,done:!0});const t=this._reader;if(t._ownerReadableStream===void 0)return g(He("iterate"));let r,s;const f=E((h,y)=>{r=h,s=y;});return ht(t,{_chunkSteps:h=>{this._ongoingPromise=void 0,F(()=>r({value:h,done:!1}));},_closeSteps:()=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),r({value:void 0,done:!0});},_errorSteps:h=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),s(h);}}),f}_returnSteps(t){if(this._isFinished)return Promise.resolve({value:t,done:!0});this._isFinished=!0;const r=this._reader;if(r._ownerReadableStream===void 0)return g(He("finish iterating"));if(!this._preventCancel){const s=Pr(r,t);return fe(r),O(s,()=>({value:t,done:!0}))}return fe(r),b({value:t,done:!0})}};n$1(on,"ReadableStreamAsyncIteratorImpl");let zt=on;const Yn={next(){return Gn(this)?this._asyncIteratorImpl.next():g(Zn("next"))},return(e){return Gn(this)?this._asyncIteratorImpl.return(e):g(Zn("return"))}};Qn!==void 0&&Object.setPrototypeOf(Yn,Qn);function ki(e,t){const r=Ve(e),s=new zt(r,t),f=Object.create(Yn);return f._asyncIteratorImpl=s,f}n$1(ki,"AcquireReadableStreamAsyncIterator");function Gn(e){if(!m(e)||!Object.prototype.hasOwnProperty.call(e,"_asyncIteratorImpl"))return !1;try{return e._asyncIteratorImpl instanceof zt}catch{return !1}}n$1(Gn,"IsReadableStreamAsyncIterator");function Zn(e){return new TypeError(`ReadableStreamAsyncIterator.${e} can only be used on a ReadableSteamAsyncIterator`)}n$1(Zn,"streamAsyncIteratorBrandCheckException");const Kn=Number.isNaN||function(e){return e!==e};function pt(e){return e.slice()}n$1(pt,"CreateArrayFromList");function Jn(e,t,r,s,f){new Uint8Array(e).set(new Uint8Array(r,s,f),t);}n$1(Jn,"CopyDataBlockBytes");function Ks(e){return e}n$1(Ks,"TransferArrayBuffer");function jt(e){return !1}n$1(jt,"IsDetachedBuffer");function Xn(e,t,r){if(e.slice)return e.slice(t,r);const s=r-t,f=new ArrayBuffer(s);return Jn(f,0,e,t,s),f}n$1(Xn,"ArrayBufferSlice");function Oi(e){return !(typeof e!="number"||Kn(e)||e<0)}n$1(Oi,"IsNonNegativeNumber");function eo(e){const t=Xn(e.buffer,e.byteOffset,e.byteOffset+e.byteLength);return new Uint8Array(t)}n$1(eo,"CloneAsUint8Array");function zr(e){const t=e._queue.shift();return e._queueTotalSize-=t.size,e._queueTotalSize<0&&(e._queueTotalSize=0),t.value}n$1(zr,"DequeueValue");function jr(e,t,r){if(!Oi(r)||r===1/0)throw new RangeError("Size must be a finite, non-NaN, non-negative number.");e._queue.push({value:t,size:r}),e._queueTotalSize+=r;}n$1(jr,"EnqueueValueWithSize");function qi(e){return e._queue.peek().value}n$1(qi,"PeekQueueValue");function ge(e){e._queue=new x,e._queueTotalSize=0;}n$1(ge,"ResetQueue");const an=class an{constructor(){throw new TypeError("Illegal constructor")}get view(){if(!Fr(this))throw Dr("view");return this._view}respond(t){if(!Fr(this))throw Dr("respond");if(de(t,1,"respond"),t=xn(t,"First parameter"),this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(this._view.buffer),Dt(this._associatedReadableByteStreamController,t);}respondWithNewView(t){if(!Fr(this))throw Dr("respondWithNewView");if(de(t,1,"respondWithNewView"),!ArrayBuffer.isView(t))throw new TypeError("You can only respond with array buffer views");if(this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(t.buffer),Mt(this._associatedReadableByteStreamController,t);}};n$1(an,"ReadableStreamBYOBRequest");let Ae=an;Object.defineProperties(Ae.prototype,{respond:{enumerable:!0},respondWithNewView:{enumerable:!0},view:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ae.prototype,l.toStringTag,{value:"ReadableStreamBYOBRequest",configurable:!0});const sn=class sn{constructor(){throw new TypeError("Illegal constructor")}get byobRequest(){if(!We(this))throw mt("byobRequest");return $r(this)}get desiredSize(){if(!We(this))throw mt("desiredSize");return lo(this)}close(){if(!We(this))throw mt("close");if(this._closeRequested)throw new TypeError("The stream has already been closed; do not close it again!");const t=this._controlledReadableByteStream._state;if(t!=="readable")throw new TypeError(`The stream (in ${t} state) is not in the readable state and cannot be closed`);bt(this);}enqueue(t){if(!We(this))throw mt("enqueue");if(de(t,1,"enqueue"),!ArrayBuffer.isView(t))throw new TypeError("chunk must be an array buffer view");if(t.byteLength===0)throw new TypeError("chunk must have non-zero byteLength");if(t.buffer.byteLength===0)throw new TypeError("chunk's buffer must have non-zero byteLength");if(this._closeRequested)throw new TypeError("stream is closed or draining");const r=this._controlledReadableByteStream._state;if(r!=="readable")throw new TypeError(`The stream (in ${r} state) is not in the readable state and cannot be enqueued to`);$t(this,t);}error(t=void 0){if(!We(this))throw mt("error");K(this,t);}[Ar](t){to(this),ge(this);const r=this._cancelAlgorithm(t);return Lt(this),r}[Wr](t){const r=this._controlledReadableByteStream;if(this._queueTotalSize>0){const f=this._queue.shift();this._queueTotalSize-=f.byteLength,io(this);const c=new Uint8Array(f.buffer,f.byteOffset,f.byteLength);t._chunkSteps(c);return}const s=this._autoAllocateChunkSize;if(s!==void 0){let f;try{f=new ArrayBuffer(s);}catch(h){t._errorSteps(h);return}const c={buffer:f,bufferByteLength:s,byteOffset:0,byteLength:s,bytesFilled:0,elementSize:1,viewConstructor:Uint8Array,readerType:"default"};this._pendingPullIntos.push(c);}Hn(r,t),Be(this);}};n$1(sn,"ReadableByteStreamController");let _e=sn;Object.defineProperties(_e.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},byobRequest:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(_e.prototype,l.toStringTag,{value:"ReadableByteStreamController",configurable:!0});function We(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableByteStream")?!1:e instanceof _e}n$1(We,"IsReadableByteStreamController");function Fr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_associatedReadableByteStreamController")?!1:e instanceof Ae}n$1(Fr,"IsReadableStreamBYOBRequest");function Be(e){if(!Ii(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,Be(e));},s=>{K(e,s);});}n$1(Be,"ReadableByteStreamControllerCallPullIfNeeded");function to(e){Lr(e),e._pendingPullIntos=new x;}n$1(to,"ReadableByteStreamControllerClearPendingPullIntos");function Ir(e,t){let r=!1;e._state==="closed"&&(r=!0);const s=ro(t);t.readerType==="default"?qr(e,s,r):Di(e,s,r);}n$1(Ir,"ReadableByteStreamControllerCommitPullIntoDescriptor");function ro(e){const t=e.bytesFilled,r=e.elementSize;return new e.viewConstructor(e.buffer,e.byteOffset,t/r)}n$1(ro,"ReadableByteStreamControllerConvertPullIntoDescriptor");function Ft(e,t,r,s){e._queue.push({buffer:t,byteOffset:r,byteLength:s}),e._queueTotalSize+=s;}n$1(Ft,"ReadableByteStreamControllerEnqueueChunkToQueue");function no(e,t){const r=t.elementSize,s=t.bytesFilled-t.bytesFilled%r,f=Math.min(e._queueTotalSize,t.byteLength-t.bytesFilled),c=t.bytesFilled+f,h=c-c%r;let y=f,w=!1;h>s&&(y=h-t.bytesFilled,w=!0);const T=e._queue;for(;y>0;){const P=T.peek(),v=Math.min(y,P.byteLength),z=t.byteOffset+t.bytesFilled;Jn(t.buffer,z,P.buffer,P.byteOffset,v),P.byteLength===v?T.shift():(P.byteOffset+=v,P.byteLength-=v),e._queueTotalSize-=v,oo(e,v,t),y-=v;}return w}n$1(no,"ReadableByteStreamControllerFillPullIntoDescriptorFromQueue");function oo(e,t,r){r.bytesFilled+=t;}n$1(oo,"ReadableByteStreamControllerFillHeadPullIntoDescriptor");function io(e){e._queueTotalSize===0&&e._closeRequested?(Lt(e),wt(e._controlledReadableByteStream)):Be(e);}n$1(io,"ReadableByteStreamControllerHandleQueueDrain");function Lr(e){e._byobRequest!==null&&(e._byobRequest._associatedReadableByteStreamController=void 0,e._byobRequest._view=null,e._byobRequest=null);}n$1(Lr,"ReadableByteStreamControllerInvalidateBYOBRequest");function ao(e){for(;e._pendingPullIntos.length>0;){if(e._queueTotalSize===0)return;const t=e._pendingPullIntos.peek();no(e,t)&&(It(e),Ir(e._controlledReadableByteStream,t));}}n$1(ao,"ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue");function zi(e,t,r){const s=e._controlledReadableByteStream;let f=1;t.constructor!==DataView&&(f=t.constructor.BYTES_PER_ELEMENT);const c=t.constructor,h=t.buffer,y={buffer:h,bufferByteLength:h.byteLength,byteOffset:t.byteOffset,byteLength:t.byteLength,bytesFilled:0,elementSize:f,viewConstructor:c,readerType:"byob"};if(e._pendingPullIntos.length>0){e._pendingPullIntos.push(y),co(s,r);return}if(s._state==="closed"){const w=new c(y.buffer,y.byteOffset,0);r._closeSteps(w);return}if(e._queueTotalSize>0){if(no(e,y)){const w=ro(y);io(e),r._chunkSteps(w);return}if(e._closeRequested){const w=new TypeError("Insufficient bytes to fill elements in the given buffer");K(e,w),r._errorSteps(w);return}}e._pendingPullIntos.push(y),co(s,r),Be(e);}n$1(zi,"ReadableByteStreamControllerPullInto");function ji(e,t){const r=e._controlledReadableByteStream;if(Mr(r))for(;ho(r)>0;){const s=It(e);Ir(r,s);}}n$1(ji,"ReadableByteStreamControllerRespondInClosedState");function Fi(e,t,r){if(oo(e,t,r),r.bytesFilled<r.elementSize)return;It(e);const s=r.bytesFilled%r.elementSize;if(s>0){const f=r.byteOffset+r.bytesFilled,c=Xn(r.buffer,f-s,f);Ft(e,c,0,c.byteLength);}r.bytesFilled-=s,Ir(e._controlledReadableByteStream,r),ao(e);}n$1(Fi,"ReadableByteStreamControllerRespondInReadableState");function so(e,t){const r=e._pendingPullIntos.peek();Lr(e),e._controlledReadableByteStream._state==="closed"?ji(e):Fi(e,t,r),Be(e);}n$1(so,"ReadableByteStreamControllerRespondInternal");function It(e){return e._pendingPullIntos.shift()}n$1(It,"ReadableByteStreamControllerShiftPendingPullInto");function Ii(e){const t=e._controlledReadableByteStream;return t._state!=="readable"||e._closeRequested||!e._started?!1:!!(Vn(t)&&Ot(t)>0||Mr(t)&&ho(t)>0||lo(e)>0)}n$1(Ii,"ReadableByteStreamControllerShouldCallPull");function Lt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0;}n$1(Lt,"ReadableByteStreamControllerClearAlgorithms");function bt(e){const t=e._controlledReadableByteStream;if(!(e._closeRequested||t._state!=="readable")){if(e._queueTotalSize>0){e._closeRequested=!0;return}if(e._pendingPullIntos.length>0&&e._pendingPullIntos.peek().bytesFilled>0){const s=new TypeError("Insufficient bytes to fill elements in the given buffer");throw K(e,s),s}Lt(e),wt(t);}}n$1(bt,"ReadableByteStreamControllerClose");function $t(e,t){const r=e._controlledReadableByteStream;if(e._closeRequested||r._state!=="readable")return;const s=t.buffer,f=t.byteOffset,c=t.byteLength,h=s;if(e._pendingPullIntos.length>0){const y=e._pendingPullIntos.peek();jt(y.buffer),y.buffer=y.buffer;}if(Lr(e),Vn(r))if(Ot(r)===0)Ft(e,h,f,c);else {e._pendingPullIntos.length>0&&It(e);const y=new Uint8Array(h,f,c);qr(r,y,!1);}else Mr(r)?(Ft(e,h,f,c),ao(e)):Ft(e,h,f,c);Be(e);}n$1($t,"ReadableByteStreamControllerEnqueue");function K(e,t){const r=e._controlledReadableByteStream;r._state==="readable"&&(to(e),ge(e),Lt(e),Io(r,t));}n$1(K,"ReadableByteStreamControllerError");function $r(e){if(e._byobRequest===null&&e._pendingPullIntos.length>0){const t=e._pendingPullIntos.peek(),r=new Uint8Array(t.buffer,t.byteOffset+t.bytesFilled,t.byteLength-t.bytesFilled),s=Object.create(Ae.prototype);$i(s,e,r),e._byobRequest=s;}return e._byobRequest}n$1($r,"ReadableByteStreamControllerGetBYOBRequest");function lo(e){const t=e._controlledReadableByteStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n$1(lo,"ReadableByteStreamControllerGetDesiredSize");function Dt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t!==0)throw new TypeError("bytesWritten must be 0 when calling respond() on a closed stream")}else {if(t===0)throw new TypeError("bytesWritten must be greater than 0 when calling respond() on a readable stream");if(r.bytesFilled+t>r.byteLength)throw new RangeError("bytesWritten out of range")}r.buffer=r.buffer,so(e,t);}n$1(Dt,"ReadableByteStreamControllerRespond");function Mt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t.byteLength!==0)throw new TypeError("The view's length must be 0 when calling respondWithNewView() on a closed stream")}else if(t.byteLength===0)throw new TypeError("The view's length must be greater than 0 when calling respondWithNewView() on a readable stream");if(r.byteOffset+r.bytesFilled!==t.byteOffset)throw new RangeError("The region specified by view does not match byobRequest");if(r.bufferByteLength!==t.buffer.byteLength)throw new RangeError("The buffer of view has different capacity than byobRequest");if(r.bytesFilled+t.byteLength>r.byteLength)throw new RangeError("The region specified by view is larger than byobRequest");const f=t.byteLength;r.buffer=t.buffer,so(e,f);}n$1(Mt,"ReadableByteStreamControllerRespondWithNewView");function uo(e,t,r,s,f,c,h){t._controlledReadableByteStream=e,t._pullAgain=!1,t._pulling=!1,t._byobRequest=null,t._queue=t._queueTotalSize=void 0,ge(t),t._closeRequested=!1,t._started=!1,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,t._autoAllocateChunkSize=h,t._pendingPullIntos=new x,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,Be(t);},w=>{K(t,w);});}n$1(uo,"SetUpReadableByteStreamController");function Li(e,t,r){const s=Object.create(_e.prototype);let f=n$1(()=>{},"startAlgorithm"),c=n$1(()=>b(void 0),"pullAlgorithm"),h=n$1(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(f=n$1(()=>t.start(s),"startAlgorithm")),t.pull!==void 0&&(c=n$1(()=>t.pull(s),"pullAlgorithm")),t.cancel!==void 0&&(h=n$1(w=>t.cancel(w),"cancelAlgorithm"));const y=t.autoAllocateChunkSize;if(y===0)throw new TypeError("autoAllocateChunkSize must be greater than 0");uo(e,s,f,c,h,r,y);}n$1(Li,"SetUpReadableByteStreamControllerFromUnderlyingSource");function $i(e,t,r){e._associatedReadableByteStreamController=t,e._view=r;}n$1($i,"SetUpReadableStreamBYOBRequest");function Dr(e){return new TypeError(`ReadableStreamBYOBRequest.prototype.${e} can only be used on a ReadableStreamBYOBRequest`)}n$1(Dr,"byobRequestBrandCheckException");function mt(e){return new TypeError(`ReadableByteStreamController.prototype.${e} can only be used on a ReadableByteStreamController`)}n$1(mt,"byteStreamControllerBrandCheckException");function fo(e){return new ke(e)}n$1(fo,"AcquireReadableStreamBYOBReader");function co(e,t){e._reader._readIntoRequests.push(t);}n$1(co,"ReadableStreamAddReadIntoRequest");function Di(e,t,r){const f=e._reader._readIntoRequests.shift();r?f._closeSteps(t):f._chunkSteps(t);}n$1(Di,"ReadableStreamFulfillReadIntoRequest");function ho(e){return e._reader._readIntoRequests.length}n$1(ho,"ReadableStreamGetNumReadIntoRequests");function Mr(e){const t=e._reader;return !(t===void 0||!Oe(t))}n$1(Mr,"ReadableStreamHasBYOBReader");const ln=class ln{constructor(t){if(de(t,1,"ReadableStreamBYOBReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");if(!We(t._readableStreamController))throw new TypeError("Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source");Fn(this,t),this._readIntoRequests=new x;}get closed(){return Oe(this)?this._closedPromise:g(Ut("closed"))}cancel(t=void 0){return Oe(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(Ut("cancel"))}read(t){if(!Oe(this))return g(Ut("read"));if(!ArrayBuffer.isView(t))return g(new TypeError("view must be an array buffer view"));if(t.byteLength===0)return g(new TypeError("view must have non-zero byteLength"));if(t.buffer.byteLength===0)return g(new TypeError("view's buffer must have non-zero byteLength"));if(jt(t.buffer),this._ownerReadableStream===void 0)return g(He("read from"));let r,s;const f=E((h,y)=>{r=h,s=y;});return po(this,t,{_chunkSteps:h=>r({value:h,done:!1}),_closeSteps:h=>r({value:h,done:!0}),_errorSteps:h=>s(h)}),f}releaseLock(){if(!Oe(this))throw Ut("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readIntoRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n$1(ln,"ReadableStreamBYOBReader");let ke=ln;Object.defineProperties(ke.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ke.prototype,l.toStringTag,{value:"ReadableStreamBYOBReader",configurable:!0});function Oe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readIntoRequests")?!1:e instanceof ke}n$1(Oe,"IsReadableStreamBYOBReader");function po(e,t,r){const s=e._ownerReadableStream;s._disturbed=!0,s._state==="errored"?r._errorSteps(s._storedError):zi(s._readableStreamController,t,r);}n$1(po,"ReadableStreamBYOBReaderRead");function Ut(e){return new TypeError(`ReadableStreamBYOBReader.prototype.${e} can only be used on a ReadableStreamBYOBReader`)}n$1(Ut,"byobReaderBrandCheckException");function yt(e,t){const{highWaterMark:r}=e;if(r===void 0)return t;if(Kn(r)||r<0)throw new RangeError("Invalid highWaterMark");return r}n$1(yt,"ExtractHighWaterMark");function Nt(e){const{size:t}=e;return t||(()=>1)}n$1(Nt,"ExtractSizeAlgorithm");function xt(e,t){ce(e,t);const r=e?.highWaterMark,s=e?.size;return {highWaterMark:r===void 0?void 0:kr(r),size:s===void 0?void 0:Mi(s,`${t} has member 'size' that`)}}n$1(xt,"convertQueuingStrategy");function Mi(e,t){return Z(e,t),r=>kr(e(r))}n$1(Mi,"convertQueuingStrategySize");function Ui(e,t){ce(e,t);const r=e?.abort,s=e?.close,f=e?.start,c=e?.type,h=e?.write;return {abort:r===void 0?void 0:Ni(r,e,`${t} has member 'abort' that`),close:s===void 0?void 0:xi(s,e,`${t} has member 'close' that`),start:f===void 0?void 0:Hi(f,e,`${t} has member 'start' that`),write:h===void 0?void 0:Vi(h,e,`${t} has member 'write' that`),type:c}}n$1(Ui,"convertUnderlyingSink");function Ni(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n$1(Ni,"convertUnderlyingSinkAbortCallback");function xi(e,t,r){return Z(e,r),()=>ue(e,t,[])}n$1(xi,"convertUnderlyingSinkCloseCallback");function Hi(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n$1(Hi,"convertUnderlyingSinkStartCallback");function Vi(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n$1(Vi,"convertUnderlyingSinkWriteCallback");function bo(e,t){if(!Qe(e))throw new TypeError(`${t} is not a WritableStream.`)}n$1(bo,"assertWritableStream");function Qi(e){if(typeof e!="object"||e===null)return !1;try{return typeof e.aborted=="boolean"}catch{return !1}}n$1(Qi,"isAbortSignal");const Yi=typeof AbortController=="function";function Gi(){if(Yi)return new AbortController}n$1(Gi,"createAbortController");const un=class un{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ui(t,"First parameter");if(yo(this),f.type!==void 0)throw new RangeError("Invalid type is specified");const h=Nt(s),y=yt(s,1);ua(this,f,y,h);}get locked(){if(!Qe(this))throw Gt("locked");return Ye(this)}abort(t=void 0){return Qe(this)?Ye(this)?g(new TypeError("Cannot abort a stream that already has a writer")):Ht(this,t):g(Gt("abort"))}close(){return Qe(this)?Ye(this)?g(new TypeError("Cannot close a stream that already has a writer")):oe(this)?g(new TypeError("Cannot close an already-closing stream")):go(this):g(Gt("close"))}getWriter(){if(!Qe(this))throw Gt("getWriter");return mo(this)}};n$1(un,"WritableStream");let qe=un;Object.defineProperties(qe.prototype,{abort:{enumerable:!0},close:{enumerable:!0},getWriter:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(qe.prototype,l.toStringTag,{value:"WritableStream",configurable:!0});function mo(e){return new ze(e)}n$1(mo,"AcquireWritableStreamDefaultWriter");function Zi(e,t,r,s,f=1,c=()=>1){const h=Object.create(qe.prototype);yo(h);const y=Object.create(Se.prototype);return Co(h,y,e,t,r,s,f,c),h}n$1(Zi,"CreateWritableStream");function yo(e){e._state="writable",e._storedError=void 0,e._writer=void 0,e._writableStreamController=void 0,e._writeRequests=new x,e._inFlightWriteRequest=void 0,e._closeRequest=void 0,e._inFlightCloseRequest=void 0,e._pendingAbortRequest=void 0,e._backpressure=!1;}n$1(yo,"InitializeWritableStream");function Qe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_writableStreamController")?!1:e instanceof qe}n$1(Qe,"IsWritableStream");function Ye(e){return e._writer!==void 0}n$1(Ye,"IsWritableStreamLocked");function Ht(e,t){var r;if(e._state==="closed"||e._state==="errored")return b(void 0);e._writableStreamController._abortReason=t,(r=e._writableStreamController._abortController)===null||r===void 0||r.abort();const s=e._state;if(s==="closed"||s==="errored")return b(void 0);if(e._pendingAbortRequest!==void 0)return e._pendingAbortRequest._promise;let f=!1;s==="erroring"&&(f=!0,t=void 0);const c=E((h,y)=>{e._pendingAbortRequest={_promise:void 0,_resolve:h,_reject:y,_reason:t,_wasAlreadyErroring:f};});return e._pendingAbortRequest._promise=c,f||Nr(e,t),c}n$1(Ht,"WritableStreamAbort");function go(e){const t=e._state;if(t==="closed"||t==="errored")return g(new TypeError(`The stream (in ${t} state) is not in the writable state and cannot be closed`));const r=E((f,c)=>{const h={_resolve:f,_reject:c};e._closeRequest=h;}),s=e._writer;return s!==void 0&&e._backpressure&&t==="writable"&&Jr(s),fa(e._writableStreamController),r}n$1(go,"WritableStreamClose");function Ki(e){return E((r,s)=>{const f={_resolve:r,_reject:s};e._writeRequests.push(f);})}n$1(Ki,"WritableStreamAddWriteRequest");function Ur(e,t){if(e._state==="writable"){Nr(e,t);return}xr(e);}n$1(Ur,"WritableStreamDealWithRejection");function Nr(e,t){const r=e._writableStreamController;e._state="erroring",e._storedError=t;const s=e._writer;s!==void 0&&So(s,t),!ra(e)&&r._started&&xr(e);}n$1(Nr,"WritableStreamStartErroring");function xr(e){e._state="errored",e._writableStreamController[Dn]();const t=e._storedError;if(e._writeRequests.forEach(f=>{f._reject(t);}),e._writeRequests=new x,e._pendingAbortRequest===void 0){Vt(e);return}const r=e._pendingAbortRequest;if(e._pendingAbortRequest=void 0,r._wasAlreadyErroring){r._reject(t),Vt(e);return}const s=e._writableStreamController[$n](r._reason);q(s,()=>{r._resolve(),Vt(e);},f=>{r._reject(f),Vt(e);});}n$1(xr,"WritableStreamFinishErroring");function Ji(e){e._inFlightWriteRequest._resolve(void 0),e._inFlightWriteRequest=void 0;}n$1(Ji,"WritableStreamFinishInFlightWrite");function Xi(e,t){e._inFlightWriteRequest._reject(t),e._inFlightWriteRequest=void 0,Ur(e,t);}n$1(Xi,"WritableStreamFinishInFlightWriteWithError");function ea(e){e._inFlightCloseRequest._resolve(void 0),e._inFlightCloseRequest=void 0,e._state==="erroring"&&(e._storedError=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._resolve(),e._pendingAbortRequest=void 0)),e._state="closed";const r=e._writer;r!==void 0&&Ao(r);}n$1(ea,"WritableStreamFinishInFlightClose");function ta(e,t){e._inFlightCloseRequest._reject(t),e._inFlightCloseRequest=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._reject(t),e._pendingAbortRequest=void 0),Ur(e,t);}n$1(ta,"WritableStreamFinishInFlightCloseWithError");function oe(e){return !(e._closeRequest===void 0&&e._inFlightCloseRequest===void 0)}n$1(oe,"WritableStreamCloseQueuedOrInFlight");function ra(e){return !(e._inFlightWriteRequest===void 0&&e._inFlightCloseRequest===void 0)}n$1(ra,"WritableStreamHasOperationMarkedInFlight");function na(e){e._inFlightCloseRequest=e._closeRequest,e._closeRequest=void 0;}n$1(na,"WritableStreamMarkCloseRequestInFlight");function oa(e){e._inFlightWriteRequest=e._writeRequests.shift();}n$1(oa,"WritableStreamMarkFirstWriteRequestInFlight");function Vt(e){e._closeRequest!==void 0&&(e._closeRequest._reject(e._storedError),e._closeRequest=void 0);const t=e._writer;t!==void 0&&Zr(t,e._storedError);}n$1(Vt,"WritableStreamRejectCloseAndClosedPromiseIfNeeded");function Hr(e,t){const r=e._writer;r!==void 0&&t!==e._backpressure&&(t?ya(r):Jr(r)),e._backpressure=t;}n$1(Hr,"WritableStreamUpdateBackpressure");const fn=class fn{constructor(t){if(de(t,1,"WritableStreamDefaultWriter"),bo(t,"First parameter"),Ye(t))throw new TypeError("This stream has already been locked for exclusive writing by another writer");this._ownerWritableStream=t,t._writer=this;const r=t._state;if(r==="writable")!oe(t)&&t._backpressure?Kt(this):Wo(this),Zt(this);else if(r==="erroring")Kr(this,t._storedError),Zt(this);else if(r==="closed")Wo(this),ba(this);else {const s=t._storedError;Kr(this,s),Eo(this,s);}}get closed(){return je(this)?this._closedPromise:g(Fe("closed"))}get desiredSize(){if(!je(this))throw Fe("desiredSize");if(this._ownerWritableStream===void 0)throw gt("desiredSize");return la(this)}get ready(){return je(this)?this._readyPromise:g(Fe("ready"))}abort(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("abort")):ia(this,t):g(Fe("abort"))}close(){if(!je(this))return g(Fe("close"));const t=this._ownerWritableStream;return t===void 0?g(gt("close")):oe(t)?g(new TypeError("Cannot close an already-closing stream")):_o(this)}releaseLock(){if(!je(this))throw Fe("releaseLock");this._ownerWritableStream!==void 0&&wo(this);}write(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("write to")):Ro(this,t):g(Fe("write"))}};n$1(fn,"WritableStreamDefaultWriter");let ze=fn;Object.defineProperties(ze.prototype,{abort:{enumerable:!0},close:{enumerable:!0},releaseLock:{enumerable:!0},write:{enumerable:!0},closed:{enumerable:!0},desiredSize:{enumerable:!0},ready:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ze.prototype,l.toStringTag,{value:"WritableStreamDefaultWriter",configurable:!0});function je(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_ownerWritableStream")?!1:e instanceof ze}n$1(je,"IsWritableStreamDefaultWriter");function ia(e,t){const r=e._ownerWritableStream;return Ht(r,t)}n$1(ia,"WritableStreamDefaultWriterAbort");function _o(e){const t=e._ownerWritableStream;return go(t)}n$1(_o,"WritableStreamDefaultWriterClose");function aa(e){const t=e._ownerWritableStream,r=t._state;return oe(t)||r==="closed"?b(void 0):r==="errored"?g(t._storedError):_o(e)}n$1(aa,"WritableStreamDefaultWriterCloseWithErrorPropagation");function sa(e,t){e._closedPromiseState==="pending"?Zr(e,t):ma(e,t);}n$1(sa,"WritableStreamDefaultWriterEnsureClosedPromiseRejected");function So(e,t){e._readyPromiseState==="pending"?Bo(e,t):ga(e,t);}n$1(So,"WritableStreamDefaultWriterEnsureReadyPromiseRejected");function la(e){const t=e._ownerWritableStream,r=t._state;return r==="errored"||r==="erroring"?null:r==="closed"?0:Po(t._writableStreamController)}n$1(la,"WritableStreamDefaultWriterGetDesiredSize");function wo(e){const t=e._ownerWritableStream,r=new TypeError("Writer was released and can no longer be used to monitor the stream's closedness");So(e,r),sa(e,r),t._writer=void 0,e._ownerWritableStream=void 0;}n$1(wo,"WritableStreamDefaultWriterRelease");function Ro(e,t){const r=e._ownerWritableStream,s=r._writableStreamController,f=ca(s,t);if(r!==e._ownerWritableStream)return g(gt("write to"));const c=r._state;if(c==="errored")return g(r._storedError);if(oe(r)||c==="closed")return g(new TypeError("The stream is closing or closed and cannot be written to"));if(c==="erroring")return g(r._storedError);const h=Ki(r);return da(s,t,f),h}n$1(Ro,"WritableStreamDefaultWriterWrite");const To={},cn=class cn{constructor(){throw new TypeError("Illegal constructor")}get abortReason(){if(!Vr(this))throw Gr("abortReason");return this._abortReason}get signal(){if(!Vr(this))throw Gr("signal");if(this._abortController===void 0)throw new TypeError("WritableStreamDefaultController.prototype.signal is not supported");return this._abortController.signal}error(t=void 0){if(!Vr(this))throw Gr("error");this._controlledWritableStream._state==="writable"&&vo(this,t);}[$n](t){const r=this._abortAlgorithm(t);return Qt(this),r}[Dn](){ge(this);}};n$1(cn,"WritableStreamDefaultController");let Se=cn;Object.defineProperties(Se.prototype,{abortReason:{enumerable:!0},signal:{enumerable:!0},error:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Se.prototype,l.toStringTag,{value:"WritableStreamDefaultController",configurable:!0});function Vr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledWritableStream")?!1:e instanceof Se}n$1(Vr,"IsWritableStreamDefaultController");function Co(e,t,r,s,f,c,h,y){t._controlledWritableStream=e,e._writableStreamController=t,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._abortReason=void 0,t._abortController=Gi(),t._started=!1,t._strategySizeAlgorithm=y,t._strategyHWM=h,t._writeAlgorithm=s,t._closeAlgorithm=f,t._abortAlgorithm=c;const w=Yr(t);Hr(e,w);const T=r(),P=b(T);q(P,()=>{t._started=!0,Yt(t);},v=>{t._started=!0,Ur(e,v);});}n$1(Co,"SetUpWritableStreamDefaultController");function ua(e,t,r,s){const f=Object.create(Se.prototype);let c=n$1(()=>{},"startAlgorithm"),h=n$1(()=>b(void 0),"writeAlgorithm"),y=n$1(()=>b(void 0),"closeAlgorithm"),w=n$1(()=>b(void 0),"abortAlgorithm");t.start!==void 0&&(c=n$1(()=>t.start(f),"startAlgorithm")),t.write!==void 0&&(h=n$1(T=>t.write(T,f),"writeAlgorithm")),t.close!==void 0&&(y=n$1(()=>t.close(),"closeAlgorithm")),t.abort!==void 0&&(w=n$1(T=>t.abort(T),"abortAlgorithm")),Co(e,f,c,h,y,w,r,s);}n$1(ua,"SetUpWritableStreamDefaultControllerFromUnderlyingSink");function Qt(e){e._writeAlgorithm=void 0,e._closeAlgorithm=void 0,e._abortAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n$1(Qt,"WritableStreamDefaultControllerClearAlgorithms");function fa(e){jr(e,To,0),Yt(e);}n$1(fa,"WritableStreamDefaultControllerClose");function ca(e,t){try{return e._strategySizeAlgorithm(t)}catch(r){return Qr(e,r),1}}n$1(ca,"WritableStreamDefaultControllerGetChunkSize");function Po(e){return e._strategyHWM-e._queueTotalSize}n$1(Po,"WritableStreamDefaultControllerGetDesiredSize");function da(e,t,r){try{jr(e,t,r);}catch(f){Qr(e,f);return}const s=e._controlledWritableStream;if(!oe(s)&&s._state==="writable"){const f=Yr(e);Hr(s,f);}Yt(e);}n$1(da,"WritableStreamDefaultControllerWrite");function Yt(e){const t=e._controlledWritableStream;if(!e._started||t._inFlightWriteRequest!==void 0)return;if(t._state==="erroring"){xr(t);return}if(e._queue.length===0)return;const s=qi(e);s===To?ha(e):pa(e,s);}n$1(Yt,"WritableStreamDefaultControllerAdvanceQueueIfNeeded");function Qr(e,t){e._controlledWritableStream._state==="writable"&&vo(e,t);}n$1(Qr,"WritableStreamDefaultControllerErrorIfNeeded");function ha(e){const t=e._controlledWritableStream;na(t),zr(e);const r=e._closeAlgorithm();Qt(e),q(r,()=>{ea(t);},s=>{ta(t,s);});}n$1(ha,"WritableStreamDefaultControllerProcessClose");function pa(e,t){const r=e._controlledWritableStream;oa(r);const s=e._writeAlgorithm(t);q(s,()=>{Ji(r);const f=r._state;if(zr(e),!oe(r)&&f==="writable"){const c=Yr(e);Hr(r,c);}Yt(e);},f=>{r._state==="writable"&&Qt(e),Xi(r,f);});}n$1(pa,"WritableStreamDefaultControllerProcessWrite");function Yr(e){return Po(e)<=0}n$1(Yr,"WritableStreamDefaultControllerGetBackpressure");function vo(e,t){const r=e._controlledWritableStream;Qt(e),Nr(r,t);}n$1(vo,"WritableStreamDefaultControllerError");function Gt(e){return new TypeError(`WritableStream.prototype.${e} can only be used on a WritableStream`)}n$1(Gt,"streamBrandCheckException$2");function Gr(e){return new TypeError(`WritableStreamDefaultController.prototype.${e} can only be used on a WritableStreamDefaultController`)}n$1(Gr,"defaultControllerBrandCheckException$2");function Fe(e){return new TypeError(`WritableStreamDefaultWriter.prototype.${e} can only be used on a WritableStreamDefaultWriter`)}n$1(Fe,"defaultWriterBrandCheckException");function gt(e){return new TypeError("Cannot "+e+" a stream using a released writer")}n$1(gt,"defaultWriterLockException");function Zt(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r,e._closedPromiseState="pending";});}n$1(Zt,"defaultWriterClosedPromiseInitialize");function Eo(e,t){Zt(e),Zr(e,t);}n$1(Eo,"defaultWriterClosedPromiseInitializeAsRejected");function ba(e){Zt(e),Ao(e);}n$1(ba,"defaultWriterClosedPromiseInitializeAsResolved");function Zr(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="rejected");}n$1(Zr,"defaultWriterClosedPromiseReject");function ma(e,t){Eo(e,t);}n$1(ma,"defaultWriterClosedPromiseResetToRejected");function Ao(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="resolved");}n$1(Ao,"defaultWriterClosedPromiseResolve");function Kt(e){e._readyPromise=E((t,r)=>{e._readyPromise_resolve=t,e._readyPromise_reject=r;}),e._readyPromiseState="pending";}n$1(Kt,"defaultWriterReadyPromiseInitialize");function Kr(e,t){Kt(e),Bo(e,t);}n$1(Kr,"defaultWriterReadyPromiseInitializeAsRejected");function Wo(e){Kt(e),Jr(e);}n$1(Wo,"defaultWriterReadyPromiseInitializeAsResolved");function Bo(e,t){e._readyPromise_reject!==void 0&&($(e._readyPromise),e._readyPromise_reject(t),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="rejected");}n$1(Bo,"defaultWriterReadyPromiseReject");function ya(e){Kt(e);}n$1(ya,"defaultWriterReadyPromiseReset");function ga(e,t){Kr(e,t);}n$1(ga,"defaultWriterReadyPromiseResetToRejected");function Jr(e){e._readyPromise_resolve!==void 0&&(e._readyPromise_resolve(void 0),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="fulfilled");}n$1(Jr,"defaultWriterReadyPromiseResolve");const ko=typeof DOMException<"u"?DOMException:void 0;function _a(e){if(!(typeof e=="function"||typeof e=="object"))return !1;try{return new e,!0}catch{return !1}}n$1(_a,"isDOMExceptionConstructor");function Sa(){const e=n$1(function(r,s){this.message=r||"",this.name=s||"Error",Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor);},"DOMException");return e.prototype=Object.create(Error.prototype),Object.defineProperty(e.prototype,"constructor",{value:e,writable:!0,configurable:!0}),e}n$1(Sa,"createDOMExceptionPolyfill");const wa=_a(ko)?ko:Sa();function Oo(e,t,r,s,f,c){const h=Ve(e),y=mo(t);e._disturbed=!0;let w=!1,T=b(void 0);return E((P,v)=>{let z;if(c!==void 0){if(z=n$1(()=>{const _=new wa("Aborted","AbortError"),R=[];s||R.push(()=>t._state==="writable"?Ht(t,_):b(void 0)),f||R.push(()=>e._state==="readable"?J(e,_):b(void 0)),U(()=>Promise.all(R.map(W=>W())),!0,_);},"abortAlgorithm"),c.aborted){z();return}c.addEventListener("abort",z);}function X(){return E((_,R)=>{function W(H){H?_():A(Xe(),W,R);}n$1(W,"next"),W(!1);})}n$1(X,"pipeLoop");function Xe(){return w?b(!0):A(y._readyPromise,()=>E((_,R)=>{ht(h,{_chunkSteps:W=>{T=A(Ro(y,W),void 0,u),_(!1);},_closeSteps:()=>_(!0),_errorSteps:R});}))}if(n$1(Xe,"pipeStep"),he(e,h._closedPromise,_=>{s?Q(!0,_):U(()=>Ht(t,_),!0,_);}),he(t,y._closedPromise,_=>{f?Q(!0,_):U(()=>J(e,_),!0,_);}),M(e,h._closedPromise,()=>{r?Q():U(()=>aa(y));}),oe(t)||t._state==="closed"){const _=new TypeError("the destination writable stream closed before all data could be piped to it");f?Q(!0,_):U(()=>J(e,_),!0,_);}$(X());function Pe(){const _=T;return A(T,()=>_!==T?Pe():void 0)}n$1(Pe,"waitForWritesToFinish");function he(_,R,W){_._state==="errored"?W(_._storedError):dt(R,W);}n$1(he,"isOrBecomesErrored");function M(_,R,W){_._state==="closed"?W():ne(R,W);}n$1(M,"isOrBecomesClosed");function U(_,R,W){if(w)return;w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),H):H();function H(){q(_(),()=>pe(R,W),et=>pe(!0,et));}n$1(H,"doTheRest");}n$1(U,"shutdownWithAction");function Q(_,R){w||(w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),()=>pe(_,R)):pe(_,R));}n$1(Q,"shutdown");function pe(_,R){wo(y),fe(h),c!==void 0&&c.removeEventListener("abort",z),_?v(R):P(void 0);}n$1(pe,"finalize");})}n$1(Oo,"ReadableStreamPipeTo");const dn=class dn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!Jt(this))throw tr("desiredSize");return Xr(this)}close(){if(!Jt(this))throw tr("close");if(!Ge(this))throw new TypeError("The stream is not in a state that permits close");St(this);}enqueue(t=void 0){if(!Jt(this))throw tr("enqueue");if(!Ge(this))throw new TypeError("The stream is not in a state that permits enqueue");return er(this,t)}error(t=void 0){if(!Jt(this))throw tr("error");Re(this,t);}[Ar](t){ge(this);const r=this._cancelAlgorithm(t);return Xt(this),r}[Wr](t){const r=this._controlledReadableStream;if(this._queue.length>0){const s=zr(this);this._closeRequested&&this._queue.length===0?(Xt(this),wt(r)):_t(this),t._chunkSteps(s);}else Hn(r,t),_t(this);}};n$1(dn,"ReadableStreamDefaultController");let we=dn;Object.defineProperties(we.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(we.prototype,l.toStringTag,{value:"ReadableStreamDefaultController",configurable:!0});function Jt(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableStream")?!1:e instanceof we}n$1(Jt,"IsReadableStreamDefaultController");function _t(e){if(!qo(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,_t(e));},s=>{Re(e,s);});}n$1(_t,"ReadableStreamDefaultControllerCallPullIfNeeded");function qo(e){const t=e._controlledReadableStream;return !Ge(e)||!e._started?!1:!!(Ce(t)&&Ot(t)>0||Xr(e)>0)}n$1(qo,"ReadableStreamDefaultControllerShouldCallPull");function Xt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n$1(Xt,"ReadableStreamDefaultControllerClearAlgorithms");function St(e){if(!Ge(e))return;const t=e._controlledReadableStream;e._closeRequested=!0,e._queue.length===0&&(Xt(e),wt(t));}n$1(St,"ReadableStreamDefaultControllerClose");function er(e,t){if(!Ge(e))return;const r=e._controlledReadableStream;if(Ce(r)&&Ot(r)>0)qr(r,t,!1);else {let s;try{s=e._strategySizeAlgorithm(t);}catch(f){throw Re(e,f),f}try{jr(e,t,s);}catch(f){throw Re(e,f),f}}_t(e);}n$1(er,"ReadableStreamDefaultControllerEnqueue");function Re(e,t){const r=e._controlledReadableStream;r._state==="readable"&&(ge(e),Xt(e),Io(r,t));}n$1(Re,"ReadableStreamDefaultControllerError");function Xr(e){const t=e._controlledReadableStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n$1(Xr,"ReadableStreamDefaultControllerGetDesiredSize");function Ra(e){return !qo(e)}n$1(Ra,"ReadableStreamDefaultControllerHasBackpressure");function Ge(e){const t=e._controlledReadableStream._state;return !e._closeRequested&&t==="readable"}n$1(Ge,"ReadableStreamDefaultControllerCanCloseOrEnqueue");function zo(e,t,r,s,f,c,h){t._controlledReadableStream=e,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._started=!1,t._closeRequested=!1,t._pullAgain=!1,t._pulling=!1,t._strategySizeAlgorithm=h,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,_t(t);},w=>{Re(t,w);});}n$1(zo,"SetUpReadableStreamDefaultController");function Ta(e,t,r,s){const f=Object.create(we.prototype);let c=n$1(()=>{},"startAlgorithm"),h=n$1(()=>b(void 0),"pullAlgorithm"),y=n$1(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(c=n$1(()=>t.start(f),"startAlgorithm")),t.pull!==void 0&&(h=n$1(()=>t.pull(f),"pullAlgorithm")),t.cancel!==void 0&&(y=n$1(w=>t.cancel(w),"cancelAlgorithm")),zo(e,f,c,h,y,r,s);}n$1(Ta,"SetUpReadableStreamDefaultControllerFromUnderlyingSource");function tr(e){return new TypeError(`ReadableStreamDefaultController.prototype.${e} can only be used on a ReadableStreamDefaultController`)}n$1(tr,"defaultControllerBrandCheckException$1");function Ca(e,t){return We(e._readableStreamController)?va(e):Pa(e)}n$1(Ca,"ReadableStreamTee");function Pa(e,t){const r=Ve(e);let s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(M=>{v=M;});function X(){return s?(f=!0,b(void 0)):(s=!0,ht(r,{_chunkSteps:U=>{F(()=>{f=!1;const Q=U,pe=U;c||er(T._readableStreamController,Q),h||er(P._readableStreamController,pe),s=!1,f&&X();});},_closeSteps:()=>{s=!1,c||St(T._readableStreamController),h||St(P._readableStreamController),(!c||!h)&&v(void 0);},_errorSteps:()=>{s=!1;}}),b(void 0))}n$1(X,"pullAlgorithm");function Xe(M){if(c=!0,y=M,h){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n$1(Xe,"cancel1Algorithm");function Pe(M){if(h=!0,w=M,c){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n$1(Pe,"cancel2Algorithm");function he(){}return n$1(he,"startAlgorithm"),T=en(he,X,Xe),P=en(he,X,Pe),dt(r._closedPromise,M=>{Re(T._readableStreamController,M),Re(P._readableStreamController,M),(!c||!h)&&v(void 0);}),[T,P]}n$1(Pa,"ReadableStreamDefaultTee");function va(e){let t=Ve(e),r=!1,s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(_=>{v=_;});function X(_){dt(_._closedPromise,R=>{_===t&&(K(T._readableStreamController,R),K(P._readableStreamController,R),(!c||!h)&&v(void 0));});}n$1(X,"forwardReaderError");function Xe(){Oe(t)&&(fe(t),t=Ve(e),X(t)),ht(t,{_chunkSteps:R=>{F(()=>{s=!1,f=!1;const W=R;let H=R;if(!c&&!h)try{H=eo(R);}catch(et){K(T._readableStreamController,et),K(P._readableStreamController,et),v(J(e,et));return}c||$t(T._readableStreamController,W),h||$t(P._readableStreamController,H),r=!1,s?he():f&&M();});},_closeSteps:()=>{r=!1,c||bt(T._readableStreamController),h||bt(P._readableStreamController),T._readableStreamController._pendingPullIntos.length>0&&Dt(T._readableStreamController,0),P._readableStreamController._pendingPullIntos.length>0&&Dt(P._readableStreamController,0),(!c||!h)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n$1(Xe,"pullWithDefaultReader");function Pe(_,R){ye(t)&&(fe(t),t=fo(e),X(t));const W=R?P:T,H=R?T:P;po(t,_,{_chunkSteps:tt=>{F(()=>{s=!1,f=!1;const rt=R?h:c;if(R?c:h)rt||Mt(W._readableStreamController,tt);else {let Zo;try{Zo=eo(tt);}catch(gn){K(W._readableStreamController,gn),K(H._readableStreamController,gn),v(J(e,gn));return}rt||Mt(W._readableStreamController,tt),$t(H._readableStreamController,Zo);}r=!1,s?he():f&&M();});},_closeSteps:tt=>{r=!1;const rt=R?h:c,sr=R?c:h;rt||bt(W._readableStreamController),sr||bt(H._readableStreamController),tt!==void 0&&(rt||Mt(W._readableStreamController,tt),!sr&&H._readableStreamController._pendingPullIntos.length>0&&Dt(H._readableStreamController,0)),(!rt||!sr)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n$1(Pe,"pullWithBYOBReader");function he(){if(r)return s=!0,b(void 0);r=!0;const _=$r(T._readableStreamController);return _===null?Xe():Pe(_._view,!1),b(void 0)}n$1(he,"pull1Algorithm");function M(){if(r)return f=!0,b(void 0);r=!0;const _=$r(P._readableStreamController);return _===null?Xe():Pe(_._view,!0),b(void 0)}n$1(M,"pull2Algorithm");function U(_){if(c=!0,y=_,h){const R=pt([y,w]),W=J(e,R);v(W);}return z}n$1(U,"cancel1Algorithm");function Q(_){if(h=!0,w=_,c){const R=pt([y,w]),W=J(e,R);v(W);}return z}n$1(Q,"cancel2Algorithm");function pe(){}return n$1(pe,"startAlgorithm"),T=Fo(pe,he,U),P=Fo(pe,M,Q),X(t),[T,P]}n$1(va,"ReadableByteStreamTee");function Ea(e,t){ce(e,t);const r=e,s=r?.autoAllocateChunkSize,f=r?.cancel,c=r?.pull,h=r?.start,y=r?.type;return {autoAllocateChunkSize:s===void 0?void 0:xn(s,`${t} has member 'autoAllocateChunkSize' that`),cancel:f===void 0?void 0:Aa(f,r,`${t} has member 'cancel' that`),pull:c===void 0?void 0:Wa(c,r,`${t} has member 'pull' that`),start:h===void 0?void 0:Ba(h,r,`${t} has member 'start' that`),type:y===void 0?void 0:ka(y,`${t} has member 'type' that`)}}n$1(Ea,"convertUnderlyingDefaultOrByteSource");function Aa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n$1(Aa,"convertUnderlyingSourceCancelCallback");function Wa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n$1(Wa,"convertUnderlyingSourcePullCallback");function Ba(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n$1(Ba,"convertUnderlyingSourceStartCallback");function ka(e,t){if(e=`${e}`,e!=="bytes")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamType`);return e}n$1(ka,"convertReadableStreamType");function Oa(e,t){ce(e,t);const r=e?.mode;return {mode:r===void 0?void 0:qa(r,`${t} has member 'mode' that`)}}n$1(Oa,"convertReaderOptions");function qa(e,t){if(e=`${e}`,e!=="byob")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamReaderMode`);return e}n$1(qa,"convertReadableStreamReaderMode");function za(e,t){return ce(e,t),{preventCancel:!!e?.preventCancel}}n$1(za,"convertIteratorOptions");function jo(e,t){ce(e,t);const r=e?.preventAbort,s=e?.preventCancel,f=e?.preventClose,c=e?.signal;return c!==void 0&&ja(c,`${t} has member 'signal' that`),{preventAbort:!!r,preventCancel:!!s,preventClose:!!f,signal:c}}n$1(jo,"convertPipeOptions");function ja(e,t){if(!Qi(e))throw new TypeError(`${t} is not an AbortSignal.`)}n$1(ja,"assertAbortSignal");function Fa(e,t){ce(e,t);const r=e?.readable;Br(r,"readable","ReadableWritablePair"),Or(r,`${t} has member 'readable' that`);const s=e?.writable;return Br(s,"writable","ReadableWritablePair"),bo(s,`${t} has member 'writable' that`),{readable:r,writable:s}}n$1(Fa,"convertReadableWritablePair");const hn=class hn{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ea(t,"First parameter");if(tn(this),f.type==="bytes"){if(s.size!==void 0)throw new RangeError("The strategy for a byte stream cannot have a size function");const c=yt(s,0);Li(this,f,c);}else {const c=Nt(s),h=yt(s,1);Ta(this,f,h,c);}}get locked(){if(!Te(this))throw Ie("locked");return Ce(this)}cancel(t=void 0){return Te(this)?Ce(this)?g(new TypeError("Cannot cancel a stream that already has a reader")):J(this,t):g(Ie("cancel"))}getReader(t=void 0){if(!Te(this))throw Ie("getReader");return Oa(t,"First parameter").mode===void 0?Ve(this):fo(this)}pipeThrough(t,r={}){if(!Te(this))throw Ie("pipeThrough");de(t,1,"pipeThrough");const s=Fa(t,"First parameter"),f=jo(r,"Second parameter");if(Ce(this))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream");if(Ye(s.writable))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream");const c=Oo(this,s.writable,f.preventClose,f.preventAbort,f.preventCancel,f.signal);return $(c),s.readable}pipeTo(t,r={}){if(!Te(this))return g(Ie("pipeTo"));if(t===void 0)return g("Parameter 1 is required in 'pipeTo'.");if(!Qe(t))return g(new TypeError("ReadableStream.prototype.pipeTo's first argument must be a WritableStream"));let s;try{s=jo(r,"Second parameter");}catch(f){return g(f)}return Ce(this)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream")):Ye(t)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream")):Oo(this,t,s.preventClose,s.preventAbort,s.preventCancel,s.signal)}tee(){if(!Te(this))throw Ie("tee");const t=Ca(this);return pt(t)}values(t=void 0){if(!Te(this))throw Ie("values");const r=za(t,"First parameter");return ki(this,r.preventCancel)}};n$1(hn,"ReadableStream");let ie=hn;Object.defineProperties(ie.prototype,{cancel:{enumerable:!0},getReader:{enumerable:!0},pipeThrough:{enumerable:!0},pipeTo:{enumerable:!0},tee:{enumerable:!0},values:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ie.prototype,l.toStringTag,{value:"ReadableStream",configurable:!0}),typeof l.asyncIterator=="symbol"&&Object.defineProperty(ie.prototype,l.asyncIterator,{value:ie.prototype.values,writable:!0,configurable:!0});function en(e,t,r,s=1,f=()=>1){const c=Object.create(ie.prototype);tn(c);const h=Object.create(we.prototype);return zo(c,h,e,t,r,s,f),c}n$1(en,"CreateReadableStream");function Fo(e,t,r){const s=Object.create(ie.prototype);tn(s);const f=Object.create(_e.prototype);return uo(s,f,e,t,r,0,void 0),s}n$1(Fo,"CreateReadableByteStream");function tn(e){e._state="readable",e._reader=void 0,e._storedError=void 0,e._disturbed=!1;}n$1(tn,"InitializeReadableStream");function Te(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readableStreamController")?!1:e instanceof ie}n$1(Te,"IsReadableStream");function Ce(e){return e._reader!==void 0}n$1(Ce,"IsReadableStreamLocked");function J(e,t){if(e._disturbed=!0,e._state==="closed")return b(void 0);if(e._state==="errored")return g(e._storedError);wt(e);const r=e._reader;r!==void 0&&Oe(r)&&(r._readIntoRequests.forEach(f=>{f._closeSteps(void 0);}),r._readIntoRequests=new x);const s=e._readableStreamController[Ar](t);return O(s,u)}n$1(J,"ReadableStreamCancel");function wt(e){e._state="closed";const t=e._reader;t!==void 0&&(Ln(t),ye(t)&&(t._readRequests.forEach(r=>{r._closeSteps();}),t._readRequests=new x));}n$1(wt,"ReadableStreamClose");function Io(e,t){e._state="errored",e._storedError=t;const r=e._reader;r!==void 0&&(Er(r,t),ye(r)?(r._readRequests.forEach(s=>{s._errorSteps(t);}),r._readRequests=new x):(r._readIntoRequests.forEach(s=>{s._errorSteps(t);}),r._readIntoRequests=new x));}n$1(Io,"ReadableStreamError");function Ie(e){return new TypeError(`ReadableStream.prototype.${e} can only be used on a ReadableStream`)}n$1(Ie,"streamBrandCheckException$1");function Lo(e,t){ce(e,t);const r=e?.highWaterMark;return Br(r,"highWaterMark","QueuingStrategyInit"),{highWaterMark:kr(r)}}n$1(Lo,"convertQueuingStrategyInit");const $o=n$1(e=>e.byteLength,"byteLengthSizeFunction");try{Object.defineProperty($o,"name",{value:"size",configurable:!0});}catch{}const pn=class pn{constructor(t){de(t,1,"ByteLengthQueuingStrategy"),t=Lo(t,"First parameter"),this._byteLengthQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!Mo(this))throw Do("highWaterMark");return this._byteLengthQueuingStrategyHighWaterMark}get size(){if(!Mo(this))throw Do("size");return $o}};n$1(pn,"ByteLengthQueuingStrategy");let Ze=pn;Object.defineProperties(Ze.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ze.prototype,l.toStringTag,{value:"ByteLengthQueuingStrategy",configurable:!0});function Do(e){return new TypeError(`ByteLengthQueuingStrategy.prototype.${e} can only be used on a ByteLengthQueuingStrategy`)}n$1(Do,"byteLengthBrandCheckException");function Mo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_byteLengthQueuingStrategyHighWaterMark")?!1:e instanceof Ze}n$1(Mo,"IsByteLengthQueuingStrategy");const Uo=n$1(()=>1,"countSizeFunction");try{Object.defineProperty(Uo,"name",{value:"size",configurable:!0});}catch{}const bn=class bn{constructor(t){de(t,1,"CountQueuingStrategy"),t=Lo(t,"First parameter"),this._countQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!xo(this))throw No("highWaterMark");return this._countQueuingStrategyHighWaterMark}get size(){if(!xo(this))throw No("size");return Uo}};n$1(bn,"CountQueuingStrategy");let Ke=bn;Object.defineProperties(Ke.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ke.prototype,l.toStringTag,{value:"CountQueuingStrategy",configurable:!0});function No(e){return new TypeError(`CountQueuingStrategy.prototype.${e} can only be used on a CountQueuingStrategy`)}n$1(No,"countBrandCheckException");function xo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_countQueuingStrategyHighWaterMark")?!1:e instanceof Ke}n$1(xo,"IsCountQueuingStrategy");function Ia(e,t){ce(e,t);const r=e?.flush,s=e?.readableType,f=e?.start,c=e?.transform,h=e?.writableType;return {flush:r===void 0?void 0:La(r,e,`${t} has member 'flush' that`),readableType:s,start:f===void 0?void 0:$a(f,e,`${t} has member 'start' that`),transform:c===void 0?void 0:Da(c,e,`${t} has member 'transform' that`),writableType:h}}n$1(Ia,"convertTransformer");function La(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n$1(La,"convertTransformerFlushCallback");function $a(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n$1($a,"convertTransformerStartCallback");function Da(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n$1(Da,"convertTransformerTransformCallback");const mn=class mn{constructor(t={},r={},s={}){t===void 0&&(t=null);const f=xt(r,"Second parameter"),c=xt(s,"Third parameter"),h=Ia(t,"First parameter");if(h.readableType!==void 0)throw new RangeError("Invalid readableType specified");if(h.writableType!==void 0)throw new RangeError("Invalid writableType specified");const y=yt(c,0),w=Nt(c),T=yt(f,1),P=Nt(f);let v;const z=E(X=>{v=X;});Ma(this,z,T,P,y,w),Na(this,h),h.start!==void 0?v(h.start(this._transformStreamController)):v(void 0);}get readable(){if(!Ho(this))throw Go("readable");return this._readable}get writable(){if(!Ho(this))throw Go("writable");return this._writable}};n$1(mn,"TransformStream");let Je=mn;Object.defineProperties(Je.prototype,{readable:{enumerable:!0},writable:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Je.prototype,l.toStringTag,{value:"TransformStream",configurable:!0});function Ma(e,t,r,s,f,c){function h(){return t}n$1(h,"startAlgorithm");function y(z){return Va(e,z)}n$1(y,"writeAlgorithm");function w(z){return Qa(e,z)}n$1(w,"abortAlgorithm");function T(){return Ya(e)}n$1(T,"closeAlgorithm"),e._writable=Zi(h,y,T,w,r,s);function P(){return Ga(e)}n$1(P,"pullAlgorithm");function v(z){return nr(e,z),b(void 0)}n$1(v,"cancelAlgorithm"),e._readable=en(h,P,v,f,c),e._backpressure=void 0,e._backpressureChangePromise=void 0,e._backpressureChangePromise_resolve=void 0,or(e,!0),e._transformStreamController=void 0;}n$1(Ma,"InitializeTransformStream");function Ho(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_transformStreamController")?!1:e instanceof Je}n$1(Ho,"IsTransformStream");function rr(e,t){Re(e._readable._readableStreamController,t),nr(e,t);}n$1(rr,"TransformStreamError");function nr(e,t){Vo(e._transformStreamController),Qr(e._writable._writableStreamController,t),e._backpressure&&or(e,!1);}n$1(nr,"TransformStreamErrorWritableAndUnblockWrite");function or(e,t){e._backpressureChangePromise!==void 0&&e._backpressureChangePromise_resolve(),e._backpressureChangePromise=E(r=>{e._backpressureChangePromise_resolve=r;}),e._backpressure=t;}n$1(or,"TransformStreamSetBackpressure");const yn=class yn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!ir(this))throw ar("desiredSize");const t=this._controlledTransformStream._readable._readableStreamController;return Xr(t)}enqueue(t=void 0){if(!ir(this))throw ar("enqueue");Qo(this,t);}error(t=void 0){if(!ir(this))throw ar("error");xa(this,t);}terminate(){if(!ir(this))throw ar("terminate");Ha(this);}};n$1(yn,"TransformStreamDefaultController");let Le=yn;Object.defineProperties(Le.prototype,{enqueue:{enumerable:!0},error:{enumerable:!0},terminate:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Le.prototype,l.toStringTag,{value:"TransformStreamDefaultController",configurable:!0});function ir(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledTransformStream")?!1:e instanceof Le}n$1(ir,"IsTransformStreamDefaultController");function Ua(e,t,r,s){t._controlledTransformStream=e,e._transformStreamController=t,t._transformAlgorithm=r,t._flushAlgorithm=s;}n$1(Ua,"SetUpTransformStreamDefaultController");function Na(e,t){const r=Object.create(Le.prototype);let s=n$1(c=>{try{return Qo(r,c),b(void 0)}catch(h){return g(h)}},"transformAlgorithm"),f=n$1(()=>b(void 0),"flushAlgorithm");t.transform!==void 0&&(s=n$1(c=>t.transform(c,r),"transformAlgorithm")),t.flush!==void 0&&(f=n$1(()=>t.flush(r),"flushAlgorithm")),Ua(e,r,s,f);}n$1(Na,"SetUpTransformStreamDefaultControllerFromTransformer");function Vo(e){e._transformAlgorithm=void 0,e._flushAlgorithm=void 0;}n$1(Vo,"TransformStreamDefaultControllerClearAlgorithms");function Qo(e,t){const r=e._controlledTransformStream,s=r._readable._readableStreamController;if(!Ge(s))throw new TypeError("Readable side is not in a state that permits enqueue");try{er(s,t);}catch(c){throw nr(r,c),r._readable._storedError}Ra(s)!==r._backpressure&&or(r,!0);}n$1(Qo,"TransformStreamDefaultControllerEnqueue");function xa(e,t){rr(e._controlledTransformStream,t);}n$1(xa,"TransformStreamDefaultControllerError");function Yo(e,t){const r=e._transformAlgorithm(t);return O(r,void 0,s=>{throw rr(e._controlledTransformStream,s),s})}n$1(Yo,"TransformStreamDefaultControllerPerformTransform");function Ha(e){const t=e._controlledTransformStream,r=t._readable._readableStreamController;St(r);const s=new TypeError("TransformStream terminated");nr(t,s);}n$1(Ha,"TransformStreamDefaultControllerTerminate");function Va(e,t){const r=e._transformStreamController;if(e._backpressure){const s=e._backpressureChangePromise;return O(s,()=>{const f=e._writable;if(f._state==="erroring")throw f._storedError;return Yo(r,t)})}return Yo(r,t)}n$1(Va,"TransformStreamDefaultSinkWriteAlgorithm");function Qa(e,t){return rr(e,t),b(void 0)}n$1(Qa,"TransformStreamDefaultSinkAbortAlgorithm");function Ya(e){const t=e._readable,r=e._transformStreamController,s=r._flushAlgorithm();return Vo(r),O(s,()=>{if(t._state==="errored")throw t._storedError;St(t._readableStreamController);},f=>{throw rr(e,f),t._storedError})}n$1(Ya,"TransformStreamDefaultSinkCloseAlgorithm");function Ga(e){return or(e,!1),e._backpressureChangePromise}n$1(Ga,"TransformStreamDefaultSourcePullAlgorithm");function ar(e){return new TypeError(`TransformStreamDefaultController.prototype.${e} can only be used on a TransformStreamDefaultController`)}n$1(ar,"defaultControllerBrandCheckException");function Go(e){return new TypeError(`TransformStream.prototype.${e} can only be used on a TransformStream`)}n$1(Go,"streamBrandCheckException"),a.ByteLengthQueuingStrategy=Ze,a.CountQueuingStrategy=Ke,a.ReadableByteStreamController=_e,a.ReadableStream=ie,a.ReadableStreamBYOBReader=ke,a.ReadableStreamBYOBRequest=Ae,a.ReadableStreamDefaultController=we,a.ReadableStreamDefaultReader=Ee,a.TransformStream=Je,a.TransformStreamDefaultController=Le,a.WritableStream=qe,a.WritableStreamDefaultController=Se,a.WritableStreamDefaultWriter=ze,Object.defineProperty(a,"__esModule",{value:!0});});}(cr$1,cr$1.exports)),cr$1.exports}n$1(as$1,"requirePonyfill_es2018");const ss$1=65536;if(!globalThis.ReadableStream)try{const i=require("node:process"),{emitWarning:o}=i;try{i.emitWarning=()=>{},Object.assign(globalThis,require("node:stream/web")),i.emitWarning=o;}catch(a){throw i.emitWarning=o,a}}catch{Object.assign(globalThis,as$1());}try{const{Blob:i}=require("buffer");i&&!i.prototype.stream&&(i.prototype.stream=n$1(function(a){let l=0;const u=this;return new ReadableStream({type:"bytes",async pull(d){const m=await u.slice(l,Math.min(u.size,l+ss$1)).arrayBuffer();l+=m.byteLength,d.enqueue(new Uint8Array(m)),l===u.size&&d.close();}})},"name"));}catch{}/*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */const ei$1=65536;async function*Sn$1(i,o=!0){for(const a of i)if("stream"in a)yield*a.stream();else if(ArrayBuffer.isView(a))if(o){let l=a.byteOffset;const u=a.byteOffset+a.byteLength;for(;l!==u;){const d=Math.min(u-l,ei$1),p=a.buffer.slice(l,l+d);l+=p.byteLength,yield new Uint8Array(p);}}else yield a;else {let l=0,u=a;for(;l!==u.size;){const p=await u.slice(l,Math.min(u.size,l+ei$1)).arrayBuffer();l+=p.byteLength,yield new Uint8Array(p);}}}n$1(Sn$1,"toIterator");const ti$1=(xe$1=class{constructor(o=[],a={}){ae$1(this,me$1,[]);ae$1(this,vt$1,"");ae$1(this,ct$1,0);ae$1(this,wr$1,"transparent");if(typeof o!="object"||o===null)throw new TypeError("Failed to construct 'Blob': The provided value cannot be converted to a sequence.");if(typeof o[Symbol.iterator]!="function")throw new TypeError("Failed to construct 'Blob': The object must have a callable @@iterator property.");if(typeof a!="object"&&typeof a!="function")throw new TypeError("Failed to construct 'Blob': parameter 2 cannot convert to dictionary.");a===null&&(a={});const l=new TextEncoder;for(const d of o){let p;ArrayBuffer.isView(d)?p=new Uint8Array(d.buffer.slice(d.byteOffset,d.byteOffset+d.byteLength)):d instanceof ArrayBuffer?p=new Uint8Array(d.slice(0)):d instanceof xe$1?p=d:p=l.encode(`${d}`),Y$1(this,ct$1,k$1(this,ct$1)+(ArrayBuffer.isView(p)?p.byteLength:p.size)),k$1(this,me$1).push(p);}Y$1(this,wr$1,`${a.endings===void 0?"transparent":a.endings}`);const u=a.type===void 0?"":String(a.type);Y$1(this,vt$1,/^[\x20-\x7E]*$/.test(u)?u:"");}get size(){return k$1(this,ct$1)}get type(){return k$1(this,vt$1)}async text(){const o=new TextDecoder;let a="";for await(const l of Sn$1(k$1(this,me$1),!1))a+=o.decode(l,{stream:!0});return a+=o.decode(),a}async arrayBuffer(){const o=new Uint8Array(this.size);let a=0;for await(const l of Sn$1(k$1(this,me$1),!1))o.set(l,a),a+=l.length;return o.buffer}stream(){const o=Sn$1(k$1(this,me$1),!0);return new globalThis.ReadableStream({type:"bytes",async pull(a){const l=await o.next();l.done?a.close():a.enqueue(l.value);},async cancel(){await o.return();}})}slice(o=0,a=this.size,l=""){const{size:u}=this;let d=o<0?Math.max(u+o,0):Math.min(o,u),p=a<0?Math.max(u+a,0):Math.min(a,u);const m=Math.max(p-d,0),C=k$1(this,me$1),S=[];let I=0;for(const L of C){if(I>=m)break;const E=ArrayBuffer.isView(L)?L.byteLength:L.size;if(d&&E<=d)d-=E,p-=E;else {let b;ArrayBuffer.isView(L)?(b=L.subarray(d,Math.min(E,p)),I+=b.byteLength):(b=L.slice(d,Math.min(E,p)),I+=b.size),p-=E,S.push(b),d=0;}}const re=new xe$1([],{type:String(l).toLowerCase()});return Y$1(re,ct$1,m),Y$1(re,me$1,S),re}get[Symbol.toStringTag](){return "Blob"}static[Symbol.hasInstance](o){return o&&typeof o=="object"&&typeof o.constructor=="function"&&(typeof o.stream=="function"||typeof o.arrayBuffer=="function")&&/^(Blob|File)$/.test(o[Symbol.toStringTag])}},me$1=new WeakMap,vt$1=new WeakMap,ct$1=new WeakMap,wr$1=new WeakMap,n$1(xe$1,"Blob"),xe$1);Object.defineProperties(ti$1.prototype,{size:{enumerable:!0},type:{enumerable:!0},slice:{enumerable:!0}});const ls$1=ti$1,it$1=ls$1,us$1=(Wt$1=class extends it$1{constructor(a,l,u={}){if(arguments.length<2)throw new TypeError(`Failed to construct 'File': 2 arguments required, but only ${arguments.length} present.`);super(a,u);ae$1(this,Et$1,0);ae$1(this,At$1,"");u===null&&(u={});const d=u.lastModified===void 0?Date.now():Number(u.lastModified);Number.isNaN(d)||Y$1(this,Et$1,d),Y$1(this,At$1,String(l));}get name(){return k$1(this,At$1)}get lastModified(){return k$1(this,Et$1)}get[Symbol.toStringTag](){return "File"}static[Symbol.hasInstance](a){return !!a&&a instanceof it$1&&/^(File)$/.test(a[Symbol.toStringTag])}},Et$1=new WeakMap,At$1=new WeakMap,n$1(Wt$1,"File"),Wt$1),fs$1=us$1,wn$1=fs$1;/*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */var{toStringTag:Tt$1,iterator:cs$1,hasInstance:ds$1}=Symbol,ri$1=Math.random,hs$1="append,set,get,getAll,delete,keys,values,entries,forEach,constructor".split(","),ni$1=n$1((i,o,a)=>(i+="",/^(Blob|File)$/.test(o&&o[Tt$1])?[(a=a!==void 0?a+"":o[Tt$1]=="File"?o.name:"blob",i),o.name!==a||o[Tt$1]=="blob"?new wn$1([o],a,o):o]:[i,o+""]),"f"),Rn$1=n$1((i,o)=>(o?i:i.replace(/\r?\n|\r/g,`\r
+`)).replace(/\n/g,"%0A").replace(/\r/g,"%0D").replace(/"/g,"%22"),"e$1"),$e$1=n$1((i,o,a)=>{if(o.length<a)throw new TypeError(`Failed to execute '${i}' on 'FormData': ${a} arguments required, but only ${o.length} present.`)},"x");const dr$1=(Bt$1=class{constructor(...o){ae$1(this,G$1,[]);if(o.length)throw new TypeError("Failed to construct 'FormData': parameter 1 is not of type 'HTMLFormElement'.")}get[Tt$1](){return "FormData"}[cs$1](){return this.entries()}static[ds$1](o){return o&&typeof o=="object"&&o[Tt$1]==="FormData"&&!hs$1.some(a=>typeof o[a]!="function")}append(...o){$e$1("append",arguments,2),k$1(this,G$1).push(ni$1(...o));}delete(o){$e$1("delete",arguments,1),o+="",Y$1(this,G$1,k$1(this,G$1).filter(([a])=>a!==o));}get(o){$e$1("get",arguments,1),o+="";for(var a=k$1(this,G$1),l=a.length,u=0;u<l;u++)if(a[u][0]===o)return a[u][1];return null}getAll(o,a){return $e$1("getAll",arguments,1),a=[],o+="",k$1(this,G$1).forEach(l=>l[0]===o&&a.push(l[1])),a}has(o){return $e$1("has",arguments,1),o+="",k$1(this,G$1).some(a=>a[0]===o)}forEach(o,a){$e$1("forEach",arguments,1);for(var[l,u]of this)o.call(a,u,l,this);}set(...o){$e$1("set",arguments,2);var a=[],l=!0;o=ni$1(...o),k$1(this,G$1).forEach(u=>{u[0]===o[0]?l&&(l=!a.push(o)):a.push(u);}),l&&a.push(o),Y$1(this,G$1,a);}*entries(){yield*k$1(this,G$1);}*keys(){for(var[o]of this)yield o;}*values(){for(var[,o]of this)yield o;}},G$1=new WeakMap,n$1(Bt$1,"FormData"),Bt$1);function ps$1(i,o=it$1){var a=`${ri$1()}${ri$1()}`.replace(/\./g,"").slice(-28).padStart(32,"-"),l=[],u=`--${a}\r
+Content-Disposition: form-data; name="`;return i.forEach((d,p)=>typeof d=="string"?l.push(u+Rn$1(p)+`"\r
 \r
 ${d.replace(/\r(?!\n)|(?<!\r)\n/g,`\r
 `)}\r
-`):l.push(u+Rn(p)+`"; filename="${Rn(d.name,1)}"\r
+`):l.push(u+Rn$1(p)+`"; filename="${Rn$1(d.name,1)}"\r
 Content-Type: ${d.type||"application/octet-stream"}\r
 \r
 `,d,`\r
-`)),l.push(`--${a}--`),new o(l,{type:"multipart/form-data; boundary="+a})}n(ps,"formDataToBlob");const Bn=class Bn extends Error{constructor(o,a){super(o),Error.captureStackTrace(this,this.constructor),this.type=a;}get name(){return this.constructor.name}get[Symbol.toStringTag](){return this.constructor.name}};n(Bn,"FetchBaseError");let at=Bn;const kn=class kn extends at{constructor(o,a,l){super(o,a),l&&(this.code=this.errno=l.code,this.erroredSysCall=l.syscall);}};n(kn,"FetchError");let V=kn;const hr=Symbol.toStringTag,oi=n(i=>typeof i=="object"&&typeof i.append=="function"&&typeof i.delete=="function"&&typeof i.get=="function"&&typeof i.getAll=="function"&&typeof i.has=="function"&&typeof i.set=="function"&&typeof i.sort=="function"&&i[hr]==="URLSearchParams","isURLSearchParameters"),pr=n(i=>i&&typeof i=="object"&&typeof i.arrayBuffer=="function"&&typeof i.type=="string"&&typeof i.stream=="function"&&typeof i.constructor=="function"&&/^(Blob|File)$/.test(i[hr]),"isBlob"),bs=n(i=>typeof i=="object"&&(i[hr]==="AbortSignal"||i[hr]==="EventTarget"),"isAbortSignal"),ms=n((i,o)=>{const a=new URL(o).hostname,l=new URL(i).hostname;return a===l||a.endsWith(`.${l}`)},"isDomainOrSubdomain"),ys=n((i,o)=>{const a=new URL(o).protocol,l=new URL(i).protocol;return a===l},"isSameProtocol"),gs=promisify(se.pipeline),N=Symbol("Body internals"),On=class On{constructor(o,{size:a=0}={}){let l=null;o===null?o=null:oi(o)?o=Buffer$1.from(o.toString()):pr(o)||Buffer$1.isBuffer(o)||(types.isAnyArrayBuffer(o)?o=Buffer$1.from(o):ArrayBuffer.isView(o)?o=Buffer$1.from(o.buffer,o.byteOffset,o.byteLength):o instanceof se||(o instanceof dr?(o=ps(o),l=o.type.split("=")[1]):o=Buffer$1.from(String(o))));let u=o;Buffer$1.isBuffer(o)?u=se.Readable.from(o):pr(o)&&(u=se.Readable.from(o.stream())),this[N]={body:o,stream:u,boundary:l,disturbed:!1,error:null},this.size=a,o instanceof se&&o.on("error",d=>{const p=d instanceof at?d:new V(`Invalid response body while trying to fetch ${this.url}: ${d.message}`,"system",d);this[N].error=p;});}get body(){return this[N].stream}get bodyUsed(){return this[N].disturbed}async arrayBuffer(){const{buffer:o,byteOffset:a,byteLength:l}=await Tn(this);return o.slice(a,a+l)}async formData(){const o=this.headers.get("content-type");if(o.startsWith("application/x-www-form-urlencoded")){const l=new dr,u=new URLSearchParams(await this.text());for(const[d,p]of u)l.append(d,p);return l}const{toFormData:a}=await import('../multipart-parser.mjs');return a(this.body,o)}async blob(){const o=this.headers&&this.headers.get("content-type")||this[N].body&&this[N].body.type||"",a=await this.arrayBuffer();return new it([a],{type:o})}async json(){const o=await this.text();return JSON.parse(o)}async text(){const o=await Tn(this);return new TextDecoder().decode(o)}buffer(){return Tn(this)}};n(On,"Body");let De=On;De.prototype.buffer=deprecate(De.prototype.buffer,"Please use 'response.arrayBuffer()' instead of 'response.buffer()'","node-fetch#buffer"),Object.defineProperties(De.prototype,{body:{enumerable:!0},bodyUsed:{enumerable:!0},arrayBuffer:{enumerable:!0},blob:{enumerable:!0},json:{enumerable:!0},text:{enumerable:!0},data:{get:deprecate(()=>{},"data doesn't exist, use json(), text(), arrayBuffer(), or body instead","https://github.com/node-fetch/node-fetch/issues/1000 (response)")}});async function Tn(i){if(i[N].disturbed)throw new TypeError(`body used already for: ${i.url}`);if(i[N].disturbed=!0,i[N].error)throw i[N].error;const{body:o}=i;if(o===null)return Buffer$1.alloc(0);if(!(o instanceof se))return Buffer$1.alloc(0);const a=[];let l=0;try{for await(const u of o){if(i.size>0&&l+u.length>i.size){const d=new V(`content size at ${i.url} over limit: ${i.size}`,"max-size");throw o.destroy(d),d}l+=u.length,a.push(u);}}catch(u){throw u instanceof at?u:new V(`Invalid response body while trying to fetch ${i.url}: ${u.message}`,"system",u)}if(o.readableEnded===!0||o._readableState.ended===!0)try{return a.every(u=>typeof u=="string")?Buffer$1.from(a.join("")):Buffer$1.concat(a,l)}catch(u){throw new V(`Could not create Buffer from response body for ${i.url}: ${u.message}`,"system",u)}else throw new V(`Premature close of server response while trying to fetch ${i.url}`)}n(Tn,"consumeBody");const Cn=n((i,o)=>{let a,l,{body:u}=i[N];if(i.bodyUsed)throw new Error("cannot clone body after it is used");return u instanceof se&&typeof u.getBoundary!="function"&&(a=new PassThrough({highWaterMark:o}),l=new PassThrough({highWaterMark:o}),u.pipe(a),u.pipe(l),i[N].stream=a,u=l),u},"clone"),_s=deprecate(i=>i.getBoundary(),"form-data doesn't follow the spec and requires special treatment. Use alternative package","https://github.com/node-fetch/node-fetch/issues/1167"),ii=n((i,o)=>i===null?null:typeof i=="string"?"text/plain;charset=UTF-8":oi(i)?"application/x-www-form-urlencoded;charset=UTF-8":pr(i)?i.type||null:Buffer$1.isBuffer(i)||types.isAnyArrayBuffer(i)||ArrayBuffer.isView(i)?null:i instanceof dr?`multipart/form-data; boundary=${o[N].boundary}`:i&&typeof i.getBoundary=="function"?`multipart/form-data;boundary=${_s(i)}`:i instanceof se?null:"text/plain;charset=UTF-8","extractContentType"),Ss=n(i=>{const{body:o}=i[N];return o===null?0:pr(o)?o.size:Buffer$1.isBuffer(o)?o.length:o&&typeof o.getLengthSync=="function"&&o.hasKnownLength&&o.hasKnownLength()?o.getLengthSync():null},"getTotalBytes"),ws=n(async(i,{body:o})=>{o===null?i.end():await gs(o,i);},"writeToStream"),br=typeof Rt.validateHeaderName=="function"?Rt.validateHeaderName:i=>{if(!/^[\^`\-\w!#$%&'*+.|~]+$/.test(i)){const o=new TypeError(`Header name must be a valid HTTP token [${i}]`);throw Object.defineProperty(o,"code",{value:"ERR_INVALID_HTTP_TOKEN"}),o}},Pn=typeof Rt.validateHeaderValue=="function"?Rt.validateHeaderValue:(i,o)=>{if(/[^\t\u0020-\u007E\u0080-\u00FF]/.test(o)){const a=new TypeError(`Invalid character in header content ["${i}"]`);throw Object.defineProperty(a,"code",{value:"ERR_INVALID_CHAR"}),a}},Rr=class Rr extends URLSearchParams{constructor(o){let a=[];if(o instanceof Rr){const l=o.raw();for(const[u,d]of Object.entries(l))a.push(...d.map(p=>[u,p]));}else if(o!=null)if(typeof o=="object"&&!types.isBoxedPrimitive(o)){const l=o[Symbol.iterator];if(l==null)a.push(...Object.entries(o));else {if(typeof l!="function")throw new TypeError("Header pairs must be iterable");a=[...o].map(u=>{if(typeof u!="object"||types.isBoxedPrimitive(u))throw new TypeError("Each header pair must be an iterable object");return [...u]}).map(u=>{if(u.length!==2)throw new TypeError("Each header pair must be a name/value tuple");return [...u]});}}else throw new TypeError("Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)");return a=a.length>0?a.map(([l,u])=>(br(l),Pn(l,String(u)),[String(l).toLowerCase(),String(u)])):void 0,super(a),new Proxy(this,{get(l,u,d){switch(u){case"append":case"set":return (p,m)=>(br(p),Pn(p,String(m)),URLSearchParams.prototype[u].call(l,String(p).toLowerCase(),String(m)));case"delete":case"has":case"getAll":return p=>(br(p),URLSearchParams.prototype[u].call(l,String(p).toLowerCase()));case"keys":return ()=>(l.sort(),new Set(URLSearchParams.prototype.keys.call(l)).keys());default:return Reflect.get(l,u,d)}}})}get[Symbol.toStringTag](){return this.constructor.name}toString(){return Object.prototype.toString.call(this)}get(o){const a=this.getAll(o);if(a.length===0)return null;let l=a.join(", ");return /^content-encoding$/i.test(o)&&(l=l.toLowerCase()),l}forEach(o,a=void 0){for(const l of this.keys())Reflect.apply(o,a,[this.get(l),l,this]);}*values(){for(const o of this.keys())yield this.get(o);}*entries(){for(const o of this.keys())yield [o,this.get(o)];}[Symbol.iterator](){return this.entries()}raw(){return [...this.keys()].reduce((o,a)=>(o[a]=this.getAll(a),o),{})}[Symbol.for("nodejs.util.inspect.custom")](){return [...this.keys()].reduce((o,a)=>{const l=this.getAll(a);return a==="host"?o[a]=l[0]:o[a]=l.length>1?l:l[0],o},{})}};n(Rr,"Headers");let le=Rr;Object.defineProperties(le.prototype,["get","entries","forEach","values"].reduce((i,o)=>(i[o]={enumerable:!0},i),{}));function Rs(i=[]){return new le(i.reduce((o,a,l,u)=>(l%2===0&&o.push(u.slice(l,l+2)),o),[]).filter(([o,a])=>{try{return br(o),Pn(o,String(a)),!0}catch{return !1}}))}n(Rs,"fromRawHeaders");const Ts=new Set([301,302,303,307,308]),vn=n(i=>Ts.has(i),"isRedirect"),ee=Symbol("Response internals"),Me=class Me extends De{constructor(o=null,a={}){super(o,a);const l=a.status!=null?a.status:200,u=new le(a.headers);if(o!==null&&!u.has("Content-Type")){const d=ii(o,this);d&&u.append("Content-Type",d);}this[ee]={type:"default",url:a.url,status:l,statusText:a.statusText||"",headers:u,counter:a.counter,highWaterMark:a.highWaterMark};}get type(){return this[ee].type}get url(){return this[ee].url||""}get status(){return this[ee].status}get ok(){return this[ee].status>=200&&this[ee].status<300}get redirected(){return this[ee].counter>0}get statusText(){return this[ee].statusText}get headers(){return this[ee].headers}get highWaterMark(){return this[ee].highWaterMark}clone(){return new Me(Cn(this,this.highWaterMark),{type:this.type,url:this.url,status:this.status,statusText:this.statusText,headers:this.headers,ok:this.ok,redirected:this.redirected,size:this.size,highWaterMark:this.highWaterMark})}static redirect(o,a=302){if(!vn(a))throw new RangeError('Failed to execute "redirect" on "response": Invalid status code');return new Me(null,{headers:{location:new URL(o).toString()},status:a})}static error(){const o=new Me(null,{status:0,statusText:""});return o[ee].type="error",o}static json(o=void 0,a={}){const l=JSON.stringify(o);if(l===void 0)throw new TypeError("data is not JSON serializable");const u=new le(a&&a.headers);return u.has("content-type")||u.set("content-type","application/json"),new Me(l,{...a,headers:u})}get[Symbol.toStringTag](){return "Response"}};n(Me,"Response");let te=Me;Object.defineProperties(te.prototype,{type:{enumerable:!0},url:{enumerable:!0},status:{enumerable:!0},ok:{enumerable:!0},redirected:{enumerable:!0},statusText:{enumerable:!0},headers:{enumerable:!0},clone:{enumerable:!0}});const Cs=n(i=>{if(i.search)return i.search;const o=i.href.length-1,a=i.hash||(i.href[o]==="#"?"#":"");return i.href[o-a.length]==="?"?"?":""},"getSearch");function ai(i,o=!1){return i==null||(i=new URL(i),/^(about|blob|data):$/.test(i.protocol))?"no-referrer":(i.username="",i.password="",i.hash="",o&&(i.pathname="",i.search=""),i)}n(ai,"stripURLForUseAsAReferrer");const si=new Set(["","no-referrer","no-referrer-when-downgrade","same-origin","origin","strict-origin","origin-when-cross-origin","strict-origin-when-cross-origin","unsafe-url"]),Ps="strict-origin-when-cross-origin";function vs(i){if(!si.has(i))throw new TypeError(`Invalid referrerPolicy: ${i}`);return i}n(vs,"validateReferrerPolicy");function Es(i){if(/^(http|ws)s:$/.test(i.protocol))return !0;const o=i.host.replace(/(^\[)|(]$)/g,""),a=isIP(o);return a===4&&/^127\./.test(o)||a===6&&/^(((0+:){7})|(::(0+:){0,6}))0*1$/.test(o)?!0:i.host==="localhost"||i.host.endsWith(".localhost")?!1:i.protocol==="file:"}n(Es,"isOriginPotentiallyTrustworthy");function st(i){return /^about:(blank|srcdoc)$/.test(i)||i.protocol==="data:"||/^(blob|filesystem):$/.test(i.protocol)?!0:Es(i)}n(st,"isUrlPotentiallyTrustworthy");function As(i,{referrerURLCallback:o,referrerOriginCallback:a}={}){if(i.referrer==="no-referrer"||i.referrerPolicy==="")return null;const l=i.referrerPolicy;if(i.referrer==="about:client")return "no-referrer";const u=i.referrer;let d=ai(u),p=ai(u,!0);d.toString().length>4096&&(d=p),o&&(d=o(d)),a&&(p=a(p));const m=new URL(i.url);switch(l){case"no-referrer":return "no-referrer";case"origin":return p;case"unsafe-url":return d;case"strict-origin":return st(d)&&!st(m)?"no-referrer":p.toString();case"strict-origin-when-cross-origin":return d.origin===m.origin?d:st(d)&&!st(m)?"no-referrer":p;case"same-origin":return d.origin===m.origin?d:"no-referrer";case"origin-when-cross-origin":return d.origin===m.origin?d:p;case"no-referrer-when-downgrade":return st(d)&&!st(m)?"no-referrer":d;default:throw new TypeError(`Invalid referrerPolicy: ${l}`)}}n(As,"determineRequestsReferrer");function Ws(i){const o=(i.get("referrer-policy")||"").split(/[,\s]+/);let a="";for(const l of o)l&&si.has(l)&&(a=l);return a}n(Ws,"parseReferrerPolicyFromHeader");const j=Symbol("Request internals"),Ct=n(i=>typeof i=="object"&&typeof i[j]=="object","isRequest"),Bs=deprecate(()=>{},".data is not a valid RequestInit property, use .body instead","https://github.com/node-fetch/node-fetch/issues/1000 (request)"),Tr=class Tr extends De{constructor(o,a={}){let l;if(Ct(o)?l=new URL(o.url):(l=new URL(o),o={}),l.username!==""||l.password!=="")throw new TypeError(`${l} is an url with embedded credentials.`);let u=a.method||o.method||"GET";if(/^(delete|get|head|options|post|put)$/i.test(u)&&(u=u.toUpperCase()),!Ct(a)&&"data"in a&&Bs(),(a.body!=null||Ct(o)&&o.body!==null)&&(u==="GET"||u==="HEAD"))throw new TypeError("Request with GET/HEAD method cannot have body");const d=a.body?a.body:Ct(o)&&o.body!==null?Cn(o):null;super(d,{size:a.size||o.size||0});const p=new le(a.headers||o.headers||{});if(d!==null&&!p.has("Content-Type")){const S=ii(d,this);S&&p.set("Content-Type",S);}let m=Ct(o)?o.signal:null;if("signal"in a&&(m=a.signal),m!=null&&!bs(m))throw new TypeError("Expected signal to be an instanceof AbortSignal or EventTarget");let C=a.referrer==null?o.referrer:a.referrer;if(C==="")C="no-referrer";else if(C){const S=new URL(C);C=/^about:(\/\/)?client$/.test(S)?"client":S;}else C=void 0;this[j]={method:u,redirect:a.redirect||o.redirect||"follow",headers:p,parsedURL:l,signal:m,referrer:C},this.follow=a.follow===void 0?o.follow===void 0?20:o.follow:a.follow,this.compress=a.compress===void 0?o.compress===void 0?!0:o.compress:a.compress,this.counter=a.counter||o.counter||0,this.agent=a.agent||o.agent,this.highWaterMark=a.highWaterMark||o.highWaterMark||16384,this.insecureHTTPParser=a.insecureHTTPParser||o.insecureHTTPParser||!1,this.referrerPolicy=a.referrerPolicy||o.referrerPolicy||"";}get method(){return this[j].method}get url(){return format(this[j].parsedURL)}get headers(){return this[j].headers}get redirect(){return this[j].redirect}get signal(){return this[j].signal}get referrer(){if(this[j].referrer==="no-referrer")return "";if(this[j].referrer==="client")return "about:client";if(this[j].referrer)return this[j].referrer.toString()}get referrerPolicy(){return this[j].referrerPolicy}set referrerPolicy(o){this[j].referrerPolicy=vs(o);}clone(){return new Tr(this)}get[Symbol.toStringTag](){return "Request"}};n(Tr,"Request");let lt=Tr;Object.defineProperties(lt.prototype,{method:{enumerable:!0},url:{enumerable:!0},headers:{enumerable:!0},redirect:{enumerable:!0},clone:{enumerable:!0},signal:{enumerable:!0},referrer:{enumerable:!0},referrerPolicy:{enumerable:!0}});const ks=n(i=>{const{parsedURL:o}=i[j],a=new le(i[j].headers);a.has("Accept")||a.set("Accept","*/*");let l=null;if(i.body===null&&/^(post|put)$/i.test(i.method)&&(l="0"),i.body!==null){const m=Ss(i);typeof m=="number"&&!Number.isNaN(m)&&(l=String(m));}l&&a.set("Content-Length",l),i.referrerPolicy===""&&(i.referrerPolicy=Ps),i.referrer&&i.referrer!=="no-referrer"?i[j].referrer=As(i):i[j].referrer="no-referrer",i[j].referrer instanceof URL&&a.set("Referer",i.referrer),a.has("User-Agent")||a.set("User-Agent","node-fetch"),i.compress&&!a.has("Accept-Encoding")&&a.set("Accept-Encoding","gzip, deflate, br");let{agent:u}=i;typeof u=="function"&&(u=u(o));const d=Cs(o),p={path:o.pathname+d,method:i.method,headers:a[Symbol.for("nodejs.util.inspect.custom")](),insecureHTTPParser:i.insecureHTTPParser,agent:u};return {parsedURL:o,options:p}},"getNodeRequestOptions"),qn=class qn extends at{constructor(o,a="aborted"){super(o,a);}};n(qn,"AbortError");let mr=qn;/*! node-domexception. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */if(!globalThis.DOMException)try{const{MessageChannel:i}=require("worker_threads"),o=new i().port1,a=new ArrayBuffer;o.postMessage(a,[a,a]);}catch(i){i.constructor.name==="DOMException"&&(globalThis.DOMException=i.constructor);}var Os=globalThis.DOMException;const qs=is(Os),{stat:En}=promises;n((i,o)=>li(statSync(i),i,o),"blobFromSync");n((i,o)=>En(i).then(a=>li(a,i,o)),"blobFrom");n((i,o)=>En(i).then(a=>ui(a,i,o)),"fileFrom");n((i,o)=>ui(statSync(i),i,o),"fileFromSync");const li=n((i,o,a="")=>new it([new yr({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],{type:a}),"fromBlob"),ui=n((i,o,a="")=>new wn([new yr({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],basename(o),{type:a,lastModified:i.mtimeMs}),"fromFile"),Cr=class Cr{constructor(o){ae(this,Ue,void 0);ae(this,Ne,void 0);Y(this,Ue,o.path),Y(this,Ne,o.start),this.size=o.size,this.lastModified=o.lastModified;}slice(o,a){return new Cr({path:k(this,Ue),lastModified:this.lastModified,size:a-o,start:k(this,Ne)+o})}async*stream(){const{mtimeMs:o}=await En(k(this,Ue));if(o>this.lastModified)throw new qs("The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.","NotReadableError");yield*createReadStream(k(this,Ue),{start:k(this,Ne),end:k(this,Ne)+this.size-1});}get[Symbol.toStringTag](){return "Blob"}};Ue=new WeakMap,Ne=new WeakMap,n(Cr,"BlobDataItem");let yr=Cr;const Ls=new Set(["data:","http:","https:"]);async function fi(i,o){return new Promise((a,l)=>{const u=new lt(i,o),{parsedURL:d,options:p}=ks(u);if(!Ls.has(d.protocol))throw new TypeError(`node-fetch cannot load ${i}. URL scheme "${d.protocol.replace(/:$/,"")}" is not supported.`);if(d.protocol==="data:"){const b=os(u.url),g=new te(b,{headers:{"Content-Type":b.typeFull}});a(g);return}const m=(d.protocol==="https:"?Ka:Rt).request,{signal:C}=u;let S=null;const I=n(()=>{const b=new mr("The operation was aborted.");l(b),u.body&&u.body instanceof se.Readable&&u.body.destroy(b),!(!S||!S.body)&&S.body.emit("error",b);},"abort");if(C&&C.aborted){I();return}const re=n(()=>{I(),E();},"abortAndFinalize"),L=m(d.toString(),p);C&&C.addEventListener("abort",re);const E=n(()=>{L.abort(),C&&C.removeEventListener("abort",re);},"finalize");L.on("error",b=>{l(new V(`request to ${u.url} failed, reason: ${b.message}`,"system",b)),E();}),$s(L,b=>{S&&S.body&&S.body.destroy(b);}),process.version<"v14"&&L.on("socket",b=>{let g;b.prependListener("end",()=>{g=b._eventsCount;}),b.prependListener("close",A=>{if(S&&g<b._eventsCount&&!A){const q=new Error("Premature close");q.code="ERR_STREAM_PREMATURE_CLOSE",S.body.emit("error",q);}});}),L.on("response",b=>{L.setTimeout(0);const g=Rs(b.rawHeaders);if(vn(b.statusCode)){const O=g.get("Location");let $=null;try{$=O===null?null:new URL(O,u.url);}catch{if(u.redirect!=="manual"){l(new V(`uri requested responds with an invalid redirect URL: ${O}`,"invalid-redirect")),E();return}}switch(u.redirect){case"error":l(new V(`uri requested responds with a redirect, redirect mode is set to error: ${u.url}`,"no-redirect")),E();return;case"manual":break;case"follow":{if($===null)break;if(u.counter>=u.follow){l(new V(`maximum redirect reached at: ${u.url}`,"max-redirect")),E();return}const F={headers:new le(u.headers),follow:u.follow,counter:u.counter+1,agent:u.agent,compress:u.compress,method:u.method,body:Cn(u),signal:u.signal,size:u.size,referrer:u.referrer,referrerPolicy:u.referrerPolicy};if(!ms(u.url,$)||!ys(u.url,$))for(const ue of ["authorization","www-authenticate","cookie","cookie2"])F.headers.delete(ue);if(b.statusCode!==303&&u.body&&o.body instanceof se.Readable){l(new V("Cannot follow redirect with body being a readable stream","unsupported-redirect")),E();return}(b.statusCode===303||(b.statusCode===301||b.statusCode===302)&&u.method==="POST")&&(F.method="GET",F.body=void 0,F.headers.delete("content-length"));const ve=Ws(g);ve&&(F.referrerPolicy=ve),a(fi(new lt($,F))),E();return}default:return l(new TypeError(`Redirect option '${u.redirect}' is not a valid value of RequestRedirect`))}}C&&b.once("end",()=>{C.removeEventListener("abort",re);});let A=pipeline(b,new PassThrough,O=>{O&&l(O);});process.version<"v12.10"&&b.on("aborted",re);const q={url:u.url,status:b.statusCode,statusText:b.statusMessage,headers:g,size:u.size,counter:u.counter,highWaterMark:u.highWaterMark},ne=g.get("Content-Encoding");if(!u.compress||u.method==="HEAD"||ne===null||b.statusCode===204||b.statusCode===304){S=new te(A,q),a(S);return}const dt={flush:nt.Z_SYNC_FLUSH,finishFlush:nt.Z_SYNC_FLUSH};if(ne==="gzip"||ne==="x-gzip"){A=pipeline(A,nt.createGunzip(dt),O=>{O&&l(O);}),S=new te(A,q),a(S);return}if(ne==="deflate"||ne==="x-deflate"){const O=pipeline(b,new PassThrough,$=>{$&&l($);});O.once("data",$=>{($[0]&15)===8?A=pipeline(A,nt.createInflate(),F=>{F&&l(F);}):A=pipeline(A,nt.createInflateRaw(),F=>{F&&l(F);}),S=new te(A,q),a(S);}),O.once("end",()=>{S||(S=new te(A,q),a(S));});return}if(ne==="br"){A=pipeline(A,nt.createBrotliDecompress(),O=>{O&&l(O);}),S=new te(A,q),a(S);return}S=new te(A,q),a(S);}),ws(L,u).catch(l);})}n(fi,"fetch$1");function $s(i,o){const a=Buffer$1.from(`0\r
+`)),l.push(`--${a}--`),new o(l,{type:"multipart/form-data; boundary="+a})}n$1(ps$1,"formDataToBlob");const Bn$1=class Bn extends Error{constructor(o,a){super(o),Error.captureStackTrace(this,this.constructor),this.type=a;}get name(){return this.constructor.name}get[Symbol.toStringTag](){return this.constructor.name}};n$1(Bn$1,"FetchBaseError");let at$1=Bn$1;const kn$1=class kn extends at$1{constructor(o,a,l){super(o,a),l&&(this.code=this.errno=l.code,this.erroredSysCall=l.syscall);}};n$1(kn$1,"FetchError");let V$1=kn$1;const hr$1=Symbol.toStringTag,oi$1=n$1(i=>typeof i=="object"&&typeof i.append=="function"&&typeof i.delete=="function"&&typeof i.get=="function"&&typeof i.getAll=="function"&&typeof i.has=="function"&&typeof i.set=="function"&&typeof i.sort=="function"&&i[hr$1]==="URLSearchParams","isURLSearchParameters"),pr$1=n$1(i=>i&&typeof i=="object"&&typeof i.arrayBuffer=="function"&&typeof i.type=="string"&&typeof i.stream=="function"&&typeof i.constructor=="function"&&/^(Blob|File)$/.test(i[hr$1]),"isBlob"),bs$1=n$1(i=>typeof i=="object"&&(i[hr$1]==="AbortSignal"||i[hr$1]==="EventTarget"),"isAbortSignal"),ms$1=n$1((i,o)=>{const a=new URL(o).hostname,l=new URL(i).hostname;return a===l||a.endsWith(`.${l}`)},"isDomainOrSubdomain"),ys$1=n$1((i,o)=>{const a=new URL(o).protocol,l=new URL(i).protocol;return a===l},"isSameProtocol"),gs$1=promisify(se.pipeline),N$1=Symbol("Body internals"),On$1=class On{constructor(o,{size:a=0}={}){let l=null;o===null?o=null:oi$1(o)?o=Buffer$1.from(o.toString()):pr$1(o)||Buffer$1.isBuffer(o)||(types.isAnyArrayBuffer(o)?o=Buffer$1.from(o):ArrayBuffer.isView(o)?o=Buffer$1.from(o.buffer,o.byteOffset,o.byteLength):o instanceof se||(o instanceof dr$1?(o=ps$1(o),l=o.type.split("=")[1]):o=Buffer$1.from(String(o))));let u=o;Buffer$1.isBuffer(o)?u=se.Readable.from(o):pr$1(o)&&(u=se.Readable.from(o.stream())),this[N$1]={body:o,stream:u,boundary:l,disturbed:!1,error:null},this.size=a,o instanceof se&&o.on("error",d=>{const p=d instanceof at$1?d:new V$1(`Invalid response body while trying to fetch ${this.url}: ${d.message}`,"system",d);this[N$1].error=p;});}get body(){return this[N$1].stream}get bodyUsed(){return this[N$1].disturbed}async arrayBuffer(){const{buffer:o,byteOffset:a,byteLength:l}=await Tn$1(this);return o.slice(a,a+l)}async formData(){const o=this.headers.get("content-type");if(o.startsWith("application/x-www-form-urlencoded")){const l=new dr$1,u=new URLSearchParams(await this.text());for(const[d,p]of u)l.append(d,p);return l}const{toFormData:a}=await import('../multipart-parser.mjs');return a(this.body,o)}async blob(){const o=this.headers&&this.headers.get("content-type")||this[N$1].body&&this[N$1].body.type||"",a=await this.arrayBuffer();return new it$1([a],{type:o})}async json(){const o=await this.text();return JSON.parse(o)}async text(){const o=await Tn$1(this);return new TextDecoder().decode(o)}buffer(){return Tn$1(this)}};n$1(On$1,"Body");let De$1=On$1;De$1.prototype.buffer=deprecate(De$1.prototype.buffer,"Please use 'response.arrayBuffer()' instead of 'response.buffer()'","node-fetch#buffer"),Object.defineProperties(De$1.prototype,{body:{enumerable:!0},bodyUsed:{enumerable:!0},arrayBuffer:{enumerable:!0},blob:{enumerable:!0},json:{enumerable:!0},text:{enumerable:!0},data:{get:deprecate(()=>{},"data doesn't exist, use json(), text(), arrayBuffer(), or body instead","https://github.com/node-fetch/node-fetch/issues/1000 (response)")}});async function Tn$1(i){if(i[N$1].disturbed)throw new TypeError(`body used already for: ${i.url}`);if(i[N$1].disturbed=!0,i[N$1].error)throw i[N$1].error;const{body:o}=i;if(o===null)return Buffer$1.alloc(0);if(!(o instanceof se))return Buffer$1.alloc(0);const a=[];let l=0;try{for await(const u of o){if(i.size>0&&l+u.length>i.size){const d=new V$1(`content size at ${i.url} over limit: ${i.size}`,"max-size");throw o.destroy(d),d}l+=u.length,a.push(u);}}catch(u){throw u instanceof at$1?u:new V$1(`Invalid response body while trying to fetch ${i.url}: ${u.message}`,"system",u)}if(o.readableEnded===!0||o._readableState.ended===!0)try{return a.every(u=>typeof u=="string")?Buffer$1.from(a.join("")):Buffer$1.concat(a,l)}catch(u){throw new V$1(`Could not create Buffer from response body for ${i.url}: ${u.message}`,"system",u)}else throw new V$1(`Premature close of server response while trying to fetch ${i.url}`)}n$1(Tn$1,"consumeBody");const Cn$1=n$1((i,o)=>{let a,l,{body:u}=i[N$1];if(i.bodyUsed)throw new Error("cannot clone body after it is used");return u instanceof se&&typeof u.getBoundary!="function"&&(a=new PassThrough({highWaterMark:o}),l=new PassThrough({highWaterMark:o}),u.pipe(a),u.pipe(l),i[N$1].stream=a,u=l),u},"clone"),_s$1=deprecate(i=>i.getBoundary(),"form-data doesn't follow the spec and requires special treatment. Use alternative package","https://github.com/node-fetch/node-fetch/issues/1167"),ii$1=n$1((i,o)=>i===null?null:typeof i=="string"?"text/plain;charset=UTF-8":oi$1(i)?"application/x-www-form-urlencoded;charset=UTF-8":pr$1(i)?i.type||null:Buffer$1.isBuffer(i)||types.isAnyArrayBuffer(i)||ArrayBuffer.isView(i)?null:i instanceof dr$1?`multipart/form-data; boundary=${o[N$1].boundary}`:i&&typeof i.getBoundary=="function"?`multipart/form-data;boundary=${_s$1(i)}`:i instanceof se?null:"text/plain;charset=UTF-8","extractContentType"),Ss$1=n$1(i=>{const{body:o}=i[N$1];return o===null?0:pr$1(o)?o.size:Buffer$1.isBuffer(o)?o.length:o&&typeof o.getLengthSync=="function"&&o.hasKnownLength&&o.hasKnownLength()?o.getLengthSync():null},"getTotalBytes"),ws$1=n$1(async(i,{body:o})=>{o===null?i.end():await gs$1(o,i);},"writeToStream"),br$1=typeof Rt.validateHeaderName=="function"?Rt.validateHeaderName:i=>{if(!/^[\^`\-\w!#$%&'*+.|~]+$/.test(i)){const o=new TypeError(`Header name must be a valid HTTP token [${i}]`);throw Object.defineProperty(o,"code",{value:"ERR_INVALID_HTTP_TOKEN"}),o}},Pn$1=typeof Rt.validateHeaderValue=="function"?Rt.validateHeaderValue:(i,o)=>{if(/[^\t\u0020-\u007E\u0080-\u00FF]/.test(o)){const a=new TypeError(`Invalid character in header content ["${i}"]`);throw Object.defineProperty(a,"code",{value:"ERR_INVALID_CHAR"}),a}},Rr$1=class Rr extends URLSearchParams{constructor(o){let a=[];if(o instanceof Rr){const l=o.raw();for(const[u,d]of Object.entries(l))a.push(...d.map(p=>[u,p]));}else if(o!=null)if(typeof o=="object"&&!types.isBoxedPrimitive(o)){const l=o[Symbol.iterator];if(l==null)a.push(...Object.entries(o));else {if(typeof l!="function")throw new TypeError("Header pairs must be iterable");a=[...o].map(u=>{if(typeof u!="object"||types.isBoxedPrimitive(u))throw new TypeError("Each header pair must be an iterable object");return [...u]}).map(u=>{if(u.length!==2)throw new TypeError("Each header pair must be a name/value tuple");return [...u]});}}else throw new TypeError("Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)");return a=a.length>0?a.map(([l,u])=>(br$1(l),Pn$1(l,String(u)),[String(l).toLowerCase(),String(u)])):void 0,super(a),new Proxy(this,{get(l,u,d){switch(u){case"append":case"set":return (p,m)=>(br$1(p),Pn$1(p,String(m)),URLSearchParams.prototype[u].call(l,String(p).toLowerCase(),String(m)));case"delete":case"has":case"getAll":return p=>(br$1(p),URLSearchParams.prototype[u].call(l,String(p).toLowerCase()));case"keys":return ()=>(l.sort(),new Set(URLSearchParams.prototype.keys.call(l)).keys());default:return Reflect.get(l,u,d)}}})}get[Symbol.toStringTag](){return this.constructor.name}toString(){return Object.prototype.toString.call(this)}get(o){const a=this.getAll(o);if(a.length===0)return null;let l=a.join(", ");return /^content-encoding$/i.test(o)&&(l=l.toLowerCase()),l}forEach(o,a=void 0){for(const l of this.keys())Reflect.apply(o,a,[this.get(l),l,this]);}*values(){for(const o of this.keys())yield this.get(o);}*entries(){for(const o of this.keys())yield [o,this.get(o)];}[Symbol.iterator](){return this.entries()}raw(){return [...this.keys()].reduce((o,a)=>(o[a]=this.getAll(a),o),{})}[Symbol.for("nodejs.util.inspect.custom")](){return [...this.keys()].reduce((o,a)=>{const l=this.getAll(a);return a==="host"?o[a]=l[0]:o[a]=l.length>1?l:l[0],o},{})}};n$1(Rr$1,"Headers");let le$1=Rr$1;Object.defineProperties(le$1.prototype,["get","entries","forEach","values"].reduce((i,o)=>(i[o]={enumerable:!0},i),{}));function Rs$1(i=[]){return new le$1(i.reduce((o,a,l,u)=>(l%2===0&&o.push(u.slice(l,l+2)),o),[]).filter(([o,a])=>{try{return br$1(o),Pn$1(o,String(a)),!0}catch{return !1}}))}n$1(Rs$1,"fromRawHeaders");const Ts$1=new Set([301,302,303,307,308]),vn$1=n$1(i=>Ts$1.has(i),"isRedirect"),ee$1=Symbol("Response internals"),Me$1=class Me extends De$1{constructor(o=null,a={}){super(o,a);const l=a.status!=null?a.status:200,u=new le$1(a.headers);if(o!==null&&!u.has("Content-Type")){const d=ii$1(o,this);d&&u.append("Content-Type",d);}this[ee$1]={type:"default",url:a.url,status:l,statusText:a.statusText||"",headers:u,counter:a.counter,highWaterMark:a.highWaterMark};}get type(){return this[ee$1].type}get url(){return this[ee$1].url||""}get status(){return this[ee$1].status}get ok(){return this[ee$1].status>=200&&this[ee$1].status<300}get redirected(){return this[ee$1].counter>0}get statusText(){return this[ee$1].statusText}get headers(){return this[ee$1].headers}get highWaterMark(){return this[ee$1].highWaterMark}clone(){return new Me(Cn$1(this,this.highWaterMark),{type:this.type,url:this.url,status:this.status,statusText:this.statusText,headers:this.headers,ok:this.ok,redirected:this.redirected,size:this.size,highWaterMark:this.highWaterMark})}static redirect(o,a=302){if(!vn$1(a))throw new RangeError('Failed to execute "redirect" on "response": Invalid status code');return new Me(null,{headers:{location:new URL(o).toString()},status:a})}static error(){const o=new Me(null,{status:0,statusText:""});return o[ee$1].type="error",o}static json(o=void 0,a={}){const l=JSON.stringify(o);if(l===void 0)throw new TypeError("data is not JSON serializable");const u=new le$1(a&&a.headers);return u.has("content-type")||u.set("content-type","application/json"),new Me(l,{...a,headers:u})}get[Symbol.toStringTag](){return "Response"}};n$1(Me$1,"Response");let te$1=Me$1;Object.defineProperties(te$1.prototype,{type:{enumerable:!0},url:{enumerable:!0},status:{enumerable:!0},ok:{enumerable:!0},redirected:{enumerable:!0},statusText:{enumerable:!0},headers:{enumerable:!0},clone:{enumerable:!0}});const Cs$1=n$1(i=>{if(i.search)return i.search;const o=i.href.length-1,a=i.hash||(i.href[o]==="#"?"#":"");return i.href[o-a.length]==="?"?"?":""},"getSearch");function ai$1(i,o=!1){return i==null||(i=new URL(i),/^(about|blob|data):$/.test(i.protocol))?"no-referrer":(i.username="",i.password="",i.hash="",o&&(i.pathname="",i.search=""),i)}n$1(ai$1,"stripURLForUseAsAReferrer");const si$1=new Set(["","no-referrer","no-referrer-when-downgrade","same-origin","origin","strict-origin","origin-when-cross-origin","strict-origin-when-cross-origin","unsafe-url"]),Ps$1="strict-origin-when-cross-origin";function vs$1(i){if(!si$1.has(i))throw new TypeError(`Invalid referrerPolicy: ${i}`);return i}n$1(vs$1,"validateReferrerPolicy");function Es$1(i){if(/^(http|ws)s:$/.test(i.protocol))return !0;const o=i.host.replace(/(^\[)|(]$)/g,""),a=isIP(o);return a===4&&/^127\./.test(o)||a===6&&/^(((0+:){7})|(::(0+:){0,6}))0*1$/.test(o)?!0:i.host==="localhost"||i.host.endsWith(".localhost")?!1:i.protocol==="file:"}n$1(Es$1,"isOriginPotentiallyTrustworthy");function st$1(i){return /^about:(blank|srcdoc)$/.test(i)||i.protocol==="data:"||/^(blob|filesystem):$/.test(i.protocol)?!0:Es$1(i)}n$1(st$1,"isUrlPotentiallyTrustworthy");function As$1(i,{referrerURLCallback:o,referrerOriginCallback:a}={}){if(i.referrer==="no-referrer"||i.referrerPolicy==="")return null;const l=i.referrerPolicy;if(i.referrer==="about:client")return "no-referrer";const u=i.referrer;let d=ai$1(u),p=ai$1(u,!0);d.toString().length>4096&&(d=p),o&&(d=o(d)),a&&(p=a(p));const m=new URL(i.url);switch(l){case"no-referrer":return "no-referrer";case"origin":return p;case"unsafe-url":return d;case"strict-origin":return st$1(d)&&!st$1(m)?"no-referrer":p.toString();case"strict-origin-when-cross-origin":return d.origin===m.origin?d:st$1(d)&&!st$1(m)?"no-referrer":p;case"same-origin":return d.origin===m.origin?d:"no-referrer";case"origin-when-cross-origin":return d.origin===m.origin?d:p;case"no-referrer-when-downgrade":return st$1(d)&&!st$1(m)?"no-referrer":d;default:throw new TypeError(`Invalid referrerPolicy: ${l}`)}}n$1(As$1,"determineRequestsReferrer");function Ws$1(i){const o=(i.get("referrer-policy")||"").split(/[,\s]+/);let a="";for(const l of o)l&&si$1.has(l)&&(a=l);return a}n$1(Ws$1,"parseReferrerPolicyFromHeader");const j$1=Symbol("Request internals"),Ct$1=n$1(i=>typeof i=="object"&&typeof i[j$1]=="object","isRequest"),Bs$1=deprecate(()=>{},".data is not a valid RequestInit property, use .body instead","https://github.com/node-fetch/node-fetch/issues/1000 (request)"),Tr$1=class Tr extends De$1{constructor(o,a={}){let l;if(Ct$1(o)?l=new URL(o.url):(l=new URL(o),o={}),l.username!==""||l.password!=="")throw new TypeError(`${l} is an url with embedded credentials.`);let u=a.method||o.method||"GET";if(/^(delete|get|head|options|post|put)$/i.test(u)&&(u=u.toUpperCase()),!Ct$1(a)&&"data"in a&&Bs$1(),(a.body!=null||Ct$1(o)&&o.body!==null)&&(u==="GET"||u==="HEAD"))throw new TypeError("Request with GET/HEAD method cannot have body");const d=a.body?a.body:Ct$1(o)&&o.body!==null?Cn$1(o):null;super(d,{size:a.size||o.size||0});const p=new le$1(a.headers||o.headers||{});if(d!==null&&!p.has("Content-Type")){const S=ii$1(d,this);S&&p.set("Content-Type",S);}let m=Ct$1(o)?o.signal:null;if("signal"in a&&(m=a.signal),m!=null&&!bs$1(m))throw new TypeError("Expected signal to be an instanceof AbortSignal or EventTarget");let C=a.referrer==null?o.referrer:a.referrer;if(C==="")C="no-referrer";else if(C){const S=new URL(C);C=/^about:(\/\/)?client$/.test(S)?"client":S;}else C=void 0;this[j$1]={method:u,redirect:a.redirect||o.redirect||"follow",headers:p,parsedURL:l,signal:m,referrer:C},this.follow=a.follow===void 0?o.follow===void 0?20:o.follow:a.follow,this.compress=a.compress===void 0?o.compress===void 0?!0:o.compress:a.compress,this.counter=a.counter||o.counter||0,this.agent=a.agent||o.agent,this.highWaterMark=a.highWaterMark||o.highWaterMark||16384,this.insecureHTTPParser=a.insecureHTTPParser||o.insecureHTTPParser||!1,this.referrerPolicy=a.referrerPolicy||o.referrerPolicy||"";}get method(){return this[j$1].method}get url(){return format(this[j$1].parsedURL)}get headers(){return this[j$1].headers}get redirect(){return this[j$1].redirect}get signal(){return this[j$1].signal}get referrer(){if(this[j$1].referrer==="no-referrer")return "";if(this[j$1].referrer==="client")return "about:client";if(this[j$1].referrer)return this[j$1].referrer.toString()}get referrerPolicy(){return this[j$1].referrerPolicy}set referrerPolicy(o){this[j$1].referrerPolicy=vs$1(o);}clone(){return new Tr(this)}get[Symbol.toStringTag](){return "Request"}};n$1(Tr$1,"Request");let lt$1=Tr$1;Object.defineProperties(lt$1.prototype,{method:{enumerable:!0},url:{enumerable:!0},headers:{enumerable:!0},redirect:{enumerable:!0},clone:{enumerable:!0},signal:{enumerable:!0},referrer:{enumerable:!0},referrerPolicy:{enumerable:!0}});const ks$1=n$1(i=>{const{parsedURL:o}=i[j$1],a=new le$1(i[j$1].headers);a.has("Accept")||a.set("Accept","*/*");let l=null;if(i.body===null&&/^(post|put)$/i.test(i.method)&&(l="0"),i.body!==null){const m=Ss$1(i);typeof m=="number"&&!Number.isNaN(m)&&(l=String(m));}l&&a.set("Content-Length",l),i.referrerPolicy===""&&(i.referrerPolicy=Ps$1),i.referrer&&i.referrer!=="no-referrer"?i[j$1].referrer=As$1(i):i[j$1].referrer="no-referrer",i[j$1].referrer instanceof URL&&a.set("Referer",i.referrer),a.has("User-Agent")||a.set("User-Agent","node-fetch"),i.compress&&!a.has("Accept-Encoding")&&a.set("Accept-Encoding","gzip, deflate, br");let{agent:u}=i;typeof u=="function"&&(u=u(o));const d=Cs$1(o),p={path:o.pathname+d,method:i.method,headers:a[Symbol.for("nodejs.util.inspect.custom")](),insecureHTTPParser:i.insecureHTTPParser,agent:u};return {parsedURL:o,options:p}},"getNodeRequestOptions"),qn$1=class qn extends at$1{constructor(o,a="aborted"){super(o,a);}};n$1(qn$1,"AbortError");let mr$1=qn$1;/*! node-domexception. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */if(!globalThis.DOMException)try{const{MessageChannel:i}=require("worker_threads"),o=new i().port1,a=new ArrayBuffer;o.postMessage(a,[a,a]);}catch(i){i.constructor.name==="DOMException"&&(globalThis.DOMException=i.constructor);}var Os$1=globalThis.DOMException;const qs$1=is$1(Os$1),{stat:En$1}=promises;n$1((i,o)=>li$1(statSync(i),i,o),"blobFromSync");n$1((i,o)=>En$1(i).then(a=>li$1(a,i,o)),"blobFrom");n$1((i,o)=>En$1(i).then(a=>ui$1(a,i,o)),"fileFrom");n$1((i,o)=>ui$1(statSync(i),i,o),"fileFromSync");const li$1=n$1((i,o,a="")=>new it$1([new yr$1({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],{type:a}),"fromBlob"),ui$1=n$1((i,o,a="")=>new wn$1([new yr$1({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],basename(o),{type:a,lastModified:i.mtimeMs}),"fromFile"),Cr$1=class Cr{constructor(o){ae$1(this,Ue$1,void 0);ae$1(this,Ne$1,void 0);Y$1(this,Ue$1,o.path),Y$1(this,Ne$1,o.start),this.size=o.size,this.lastModified=o.lastModified;}slice(o,a){return new Cr({path:k$1(this,Ue$1),lastModified:this.lastModified,size:a-o,start:k$1(this,Ne$1)+o})}async*stream(){const{mtimeMs:o}=await En$1(k$1(this,Ue$1));if(o>this.lastModified)throw new qs$1("The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.","NotReadableError");yield*createReadStream(k$1(this,Ue$1),{start:k$1(this,Ne$1),end:k$1(this,Ne$1)+this.size-1});}get[Symbol.toStringTag](){return "Blob"}};Ue$1=new WeakMap,Ne$1=new WeakMap,n$1(Cr$1,"BlobDataItem");let yr$1=Cr$1;const Ls$1=new Set(["data:","http:","https:"]);async function fi$1(i,o){return new Promise((a,l)=>{const u=new lt$1(i,o),{parsedURL:d,options:p}=ks$1(u);if(!Ls$1.has(d.protocol))throw new TypeError(`node-fetch cannot load ${i}. URL scheme "${d.protocol.replace(/:$/,"")}" is not supported.`);if(d.protocol==="data:"){const b=os$1(u.url),g=new te$1(b,{headers:{"Content-Type":b.typeFull}});a(g);return}const m=(d.protocol==="https:"?Ka:Rt).request,{signal:C}=u;let S=null;const I=n$1(()=>{const b=new mr$1("The operation was aborted.");l(b),u.body&&u.body instanceof se.Readable&&u.body.destroy(b),!(!S||!S.body)&&S.body.emit("error",b);},"abort");if(C&&C.aborted){I();return}const re=n$1(()=>{I(),E();},"abortAndFinalize"),L=m(d.toString(),p);C&&C.addEventListener("abort",re);const E=n$1(()=>{L.abort(),C&&C.removeEventListener("abort",re);},"finalize");L.on("error",b=>{l(new V$1(`request to ${u.url} failed, reason: ${b.message}`,"system",b)),E();}),$s$1(L,b=>{S&&S.body&&S.body.destroy(b);}),process.version<"v14"&&L.on("socket",b=>{let g;b.prependListener("end",()=>{g=b._eventsCount;}),b.prependListener("close",A=>{if(S&&g<b._eventsCount&&!A){const q=new Error("Premature close");q.code="ERR_STREAM_PREMATURE_CLOSE",S.body.emit("error",q);}});}),L.on("response",b=>{L.setTimeout(0);const g=Rs$1(b.rawHeaders);if(vn$1(b.statusCode)){const O=g.get("Location");let $=null;try{$=O===null?null:new URL(O,u.url);}catch{if(u.redirect!=="manual"){l(new V$1(`uri requested responds with an invalid redirect URL: ${O}`,"invalid-redirect")),E();return}}switch(u.redirect){case"error":l(new V$1(`uri requested responds with a redirect, redirect mode is set to error: ${u.url}`,"no-redirect")),E();return;case"manual":break;case"follow":{if($===null)break;if(u.counter>=u.follow){l(new V$1(`maximum redirect reached at: ${u.url}`,"max-redirect")),E();return}const F={headers:new le$1(u.headers),follow:u.follow,counter:u.counter+1,agent:u.agent,compress:u.compress,method:u.method,body:Cn$1(u),signal:u.signal,size:u.size,referrer:u.referrer,referrerPolicy:u.referrerPolicy};if(!ms$1(u.url,$)||!ys$1(u.url,$))for(const ue of ["authorization","www-authenticate","cookie","cookie2"])F.headers.delete(ue);if(b.statusCode!==303&&u.body&&o.body instanceof se.Readable){l(new V$1("Cannot follow redirect with body being a readable stream","unsupported-redirect")),E();return}(b.statusCode===303||(b.statusCode===301||b.statusCode===302)&&u.method==="POST")&&(F.method="GET",F.body=void 0,F.headers.delete("content-length"));const ve=Ws$1(g);ve&&(F.referrerPolicy=ve),a(fi$1(new lt$1($,F))),E();return}default:return l(new TypeError(`Redirect option '${u.redirect}' is not a valid value of RequestRedirect`))}}C&&b.once("end",()=>{C.removeEventListener("abort",re);});let A=pipeline(b,new PassThrough,O=>{O&&l(O);});process.version<"v12.10"&&b.on("aborted",re);const q={url:u.url,status:b.statusCode,statusText:b.statusMessage,headers:g,size:u.size,counter:u.counter,highWaterMark:u.highWaterMark},ne=g.get("Content-Encoding");if(!u.compress||u.method==="HEAD"||ne===null||b.statusCode===204||b.statusCode===304){S=new te$1(A,q),a(S);return}const dt={flush:nt.Z_SYNC_FLUSH,finishFlush:nt.Z_SYNC_FLUSH};if(ne==="gzip"||ne==="x-gzip"){A=pipeline(A,nt.createGunzip(dt),O=>{O&&l(O);}),S=new te$1(A,q),a(S);return}if(ne==="deflate"||ne==="x-deflate"){const O=pipeline(b,new PassThrough,$=>{$&&l($);});O.once("data",$=>{($[0]&15)===8?A=pipeline(A,nt.createInflate(),F=>{F&&l(F);}):A=pipeline(A,nt.createInflateRaw(),F=>{F&&l(F);}),S=new te$1(A,q),a(S);}),O.once("end",()=>{S||(S=new te$1(A,q),a(S));});return}if(ne==="br"){A=pipeline(A,nt.createBrotliDecompress(),O=>{O&&l(O);}),S=new te$1(A,q),a(S);return}S=new te$1(A,q),a(S);}),ws$1(L,u).catch(l);})}n$1(fi$1,"fetch$1");function $s$1(i,o){const a=Buffer$1.from(`0\r
 \r
-`);let l=!1,u=!1,d;i.on("response",p=>{const{headers:m}=p;l=m["transfer-encoding"]==="chunked"&&!m["content-length"];}),i.on("socket",p=>{const m=n(()=>{if(l&&!u){const S=new Error("Premature close");S.code="ERR_STREAM_PREMATURE_CLOSE",o(S);}},"onSocketClose"),C=n(S=>{u=Buffer$1.compare(S.slice(-5),a)===0,!u&&d&&(u=Buffer$1.compare(d.slice(-3),a.slice(0,3))===0&&Buffer$1.compare(S.slice(-2),a.slice(3))===0),d=S;},"onData");p.prependListener("close",m),p.on("data",C),i.on("close",()=>{p.removeListener("close",m),p.removeListener("data",C);});});}n($s,"fixResponseChunkedTransferBadEnding");const ci=new WeakMap,An=new WeakMap;function B(i){const o=ci.get(i);return console.assert(o!=null,"'this' is expected an Event object, but got",i),o}n(B,"pd");function di(i){if(i.passiveListener!=null){typeof console<"u"&&typeof console.error=="function"&&console.error("Unable to preventDefault inside passive event listener invocation.",i.passiveListener);return}i.event.cancelable&&(i.canceled=!0,typeof i.event.preventDefault=="function"&&i.event.preventDefault());}n(di,"setCancelFlag");function ut(i,o){ci.set(this,{eventTarget:i,event:o,eventPhase:2,currentTarget:i,canceled:!1,stopped:!1,immediateStopped:!1,passiveListener:null,timeStamp:o.timeStamp||Date.now()}),Object.defineProperty(this,"isTrusted",{value:!1,enumerable:!0});const a=Object.keys(o);for(let l=0;l<a.length;++l){const u=a[l];u in this||Object.defineProperty(this,u,hi(u));}}n(ut,"Event"),ut.prototype={get type(){return B(this).event.type},get target(){return B(this).eventTarget},get currentTarget(){return B(this).currentTarget},composedPath(){const i=B(this).currentTarget;return i==null?[]:[i]},get NONE(){return 0},get CAPTURING_PHASE(){return 1},get AT_TARGET(){return 2},get BUBBLING_PHASE(){return 3},get eventPhase(){return B(this).eventPhase},stopPropagation(){const i=B(this);i.stopped=!0,typeof i.event.stopPropagation=="function"&&i.event.stopPropagation();},stopImmediatePropagation(){const i=B(this);i.stopped=!0,i.immediateStopped=!0,typeof i.event.stopImmediatePropagation=="function"&&i.event.stopImmediatePropagation();},get bubbles(){return !!B(this).event.bubbles},get cancelable(){return !!B(this).event.cancelable},preventDefault(){di(B(this));},get defaultPrevented(){return B(this).canceled},get composed(){return !!B(this).event.composed},get timeStamp(){return B(this).timeStamp},get srcElement(){return B(this).eventTarget},get cancelBubble(){return B(this).stopped},set cancelBubble(i){if(!i)return;const o=B(this);o.stopped=!0,typeof o.event.cancelBubble=="boolean"&&(o.event.cancelBubble=!0);},get returnValue(){return !B(this).canceled},set returnValue(i){i||di(B(this));},initEvent(){}},Object.defineProperty(ut.prototype,"constructor",{value:ut,configurable:!0,writable:!0});function hi(i){return {get(){return B(this).event[i]},set(o){B(this).event[i]=o;},configurable:!0,enumerable:!0}}n(hi,"defineRedirectDescriptor");function Ds(i){return {value(){const o=B(this).event;return o[i].apply(o,arguments)},configurable:!0,enumerable:!0}}n(Ds,"defineCallDescriptor");function Ms(i,o){const a=Object.keys(o);if(a.length===0)return i;function l(u,d){i.call(this,u,d);}n(l,"CustomEvent"),l.prototype=Object.create(i.prototype,{constructor:{value:l,configurable:!0,writable:!0}});for(let u=0;u<a.length;++u){const d=a[u];if(!(d in i.prototype)){const m=typeof Object.getOwnPropertyDescriptor(o,d).value=="function";Object.defineProperty(l.prototype,d,m?Ds(d):hi(d));}}return l}n(Ms,"defineWrapper");function pi(i){if(i==null||i===Object.prototype)return ut;let o=An.get(i);return o==null&&(o=Ms(pi(Object.getPrototypeOf(i)),i),An.set(i,o)),o}n(pi,"getWrapper");function Us(i,o){const a=pi(Object.getPrototypeOf(o));return new a(i,o)}n(Us,"wrapEvent");function Ns(i){return B(i).immediateStopped}n(Ns,"isStopped");function xs(i,o){B(i).eventPhase=o;}n(xs,"setEventPhase");function Hs(i,o){B(i).currentTarget=o;}n(Hs,"setCurrentTarget");function bi(i,o){B(i).passiveListener=o;}n(bi,"setPassiveListener");const mi=new WeakMap,yi=1,gi=2,gr=3;function _r(i){return i!==null&&typeof i=="object"}n(_r,"isObject");function Pt(i){const o=mi.get(i);if(o==null)throw new TypeError("'this' is expected an EventTarget object, but got another value.");return o}n(Pt,"getListeners");function Vs(i){return {get(){let a=Pt(this).get(i);for(;a!=null;){if(a.listenerType===gr)return a.listener;a=a.next;}return null},set(o){typeof o!="function"&&!_r(o)&&(o=null);const a=Pt(this);let l=null,u=a.get(i);for(;u!=null;)u.listenerType===gr?l!==null?l.next=u.next:u.next!==null?a.set(i,u.next):a.delete(i):l=u,u=u.next;if(o!==null){const d={listener:o,listenerType:gr,passive:!1,once:!1,next:null};l===null?a.set(i,d):l.next=d;}},configurable:!0,enumerable:!0}}n(Vs,"defineEventAttributeDescriptor");function _i(i,o){Object.defineProperty(i,`on${o}`,Vs(o));}n(_i,"defineEventAttribute");function Si(i){function o(){be.call(this);}n(o,"CustomEventTarget"),o.prototype=Object.create(be.prototype,{constructor:{value:o,configurable:!0,writable:!0}});for(let a=0;a<i.length;++a)_i(o.prototype,i[a]);return o}n(Si,"defineCustomEventTarget");function be(){if(this instanceof be){mi.set(this,new Map);return}if(arguments.length===1&&Array.isArray(arguments[0]))return Si(arguments[0]);if(arguments.length>0){const i=new Array(arguments.length);for(let o=0;o<arguments.length;++o)i[o]=arguments[o];return Si(i)}throw new TypeError("Cannot call a class as a function")}n(be,"EventTarget"),be.prototype={addEventListener(i,o,a){if(o==null)return;if(typeof o!="function"&&!_r(o))throw new TypeError("'listener' should be a function or an object.");const l=Pt(this),u=_r(a),p=(u?!!a.capture:!!a)?yi:gi,m={listener:o,listenerType:p,passive:u&&!!a.passive,once:u&&!!a.once,next:null};let C=l.get(i);if(C===void 0){l.set(i,m);return}let S=null;for(;C!=null;){if(C.listener===o&&C.listenerType===p)return;S=C,C=C.next;}S.next=m;},removeEventListener(i,o,a){if(o==null)return;const l=Pt(this),d=(_r(a)?!!a.capture:!!a)?yi:gi;let p=null,m=l.get(i);for(;m!=null;){if(m.listener===o&&m.listenerType===d){p!==null?p.next=m.next:m.next!==null?l.set(i,m.next):l.delete(i);return}p=m,m=m.next;}},dispatchEvent(i){if(i==null||typeof i.type!="string")throw new TypeError('"event.type" should be a string.');const o=Pt(this),a=i.type;let l=o.get(a);if(l==null)return !0;const u=Us(this,i);let d=null;for(;l!=null;){if(l.once?d!==null?d.next=l.next:l.next!==null?o.set(a,l.next):o.delete(a):d=l,bi(u,l.passive?l.listener:null),typeof l.listener=="function")try{l.listener.call(this,u);}catch(p){typeof console<"u"&&typeof console.error=="function"&&console.error(p);}else l.listenerType!==gr&&typeof l.listener.handleEvent=="function"&&l.listener.handleEvent(u);if(Ns(u))break;l=l.next;}return bi(u,null),xs(u,0),Hs(u,null),!u.defaultPrevented}},Object.defineProperty(be.prototype,"constructor",{value:be,configurable:!0,writable:!0});const zn=class zn extends be{constructor(){throw super(),new TypeError("AbortSignal cannot be constructed directly")}get aborted(){const o=Sr.get(this);if(typeof o!="boolean")throw new TypeError(`Expected 'this' to be an 'AbortSignal' object, but got ${this===null?"null":typeof this}`);return o}};n(zn,"AbortSignal");let ft=zn;_i(ft.prototype,"abort");function Qs(){const i=Object.create(ft.prototype);return be.call(i),Sr.set(i,!1),i}n(Qs,"createAbortSignal");function Ys(i){Sr.get(i)===!1&&(Sr.set(i,!0),i.dispatchEvent({type:"abort"}));}n(Ys,"abortSignal");const Sr=new WeakMap;Object.defineProperties(ft.prototype,{aborted:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(ft.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortSignal"});let Wn=(kt=class{constructor(){wi.set(this,Qs());}get signal(){return Ri(this)}abort(){Ys(Ri(this));}},n(kt,"AbortController"),kt);const wi=new WeakMap;function Ri(i){const o=wi.get(i);if(o==null)throw new TypeError(`Expected 'this' to be an 'AbortController' object, but got ${i===null?"null":typeof i}`);return o}n(Ri,"getSignal"),Object.defineProperties(Wn.prototype,{signal:{enumerable:!0},abort:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(Wn.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortController"});var Gs=Object.defineProperty,Zs=n((i,o)=>Gs(i,"name",{value:o,configurable:!0}),"e");const Ti=fi;Ci();function Ci(){!globalThis.process?.versions?.node&&!globalThis.process?.env.DISABLE_NODE_FETCH_NATIVE_WARN&&console.warn("[node-fetch-native] Node.js compatible build of `node-fetch-native` is being used in a non-Node.js environment. Please make sure you are using proper export conditions or report this issue to https://github.com/unjs/node-fetch-native. You can set `process.env.DISABLE_NODE_FETCH_NATIVE_WARN` to disable this warning.");}n(Ci,"s"),Zs(Ci,"checkNodeEnvironment");
+`);let l=!1,u=!1,d;i.on("response",p=>{const{headers:m}=p;l=m["transfer-encoding"]==="chunked"&&!m["content-length"];}),i.on("socket",p=>{const m=n$1(()=>{if(l&&!u){const S=new Error("Premature close");S.code="ERR_STREAM_PREMATURE_CLOSE",o(S);}},"onSocketClose"),C=n$1(S=>{u=Buffer$1.compare(S.slice(-5),a)===0,!u&&d&&(u=Buffer$1.compare(d.slice(-3),a.slice(0,3))===0&&Buffer$1.compare(S.slice(-2),a.slice(3))===0),d=S;},"onData");p.prependListener("close",m),p.on("data",C),i.on("close",()=>{p.removeListener("close",m),p.removeListener("data",C);});});}n$1($s$1,"fixResponseChunkedTransferBadEnding");const ci$1=new WeakMap,An$1=new WeakMap;function B$1(i){const o=ci$1.get(i);return console.assert(o!=null,"'this' is expected an Event object, but got",i),o}n$1(B$1,"pd");function di$1(i){if(i.passiveListener!=null){typeof console<"u"&&typeof console.error=="function"&&console.error("Unable to preventDefault inside passive event listener invocation.",i.passiveListener);return}i.event.cancelable&&(i.canceled=!0,typeof i.event.preventDefault=="function"&&i.event.preventDefault());}n$1(di$1,"setCancelFlag");function ut$1(i,o){ci$1.set(this,{eventTarget:i,event:o,eventPhase:2,currentTarget:i,canceled:!1,stopped:!1,immediateStopped:!1,passiveListener:null,timeStamp:o.timeStamp||Date.now()}),Object.defineProperty(this,"isTrusted",{value:!1,enumerable:!0});const a=Object.keys(o);for(let l=0;l<a.length;++l){const u=a[l];u in this||Object.defineProperty(this,u,hi$1(u));}}n$1(ut$1,"Event"),ut$1.prototype={get type(){return B$1(this).event.type},get target(){return B$1(this).eventTarget},get currentTarget(){return B$1(this).currentTarget},composedPath(){const i=B$1(this).currentTarget;return i==null?[]:[i]},get NONE(){return 0},get CAPTURING_PHASE(){return 1},get AT_TARGET(){return 2},get BUBBLING_PHASE(){return 3},get eventPhase(){return B$1(this).eventPhase},stopPropagation(){const i=B$1(this);i.stopped=!0,typeof i.event.stopPropagation=="function"&&i.event.stopPropagation();},stopImmediatePropagation(){const i=B$1(this);i.stopped=!0,i.immediateStopped=!0,typeof i.event.stopImmediatePropagation=="function"&&i.event.stopImmediatePropagation();},get bubbles(){return !!B$1(this).event.bubbles},get cancelable(){return !!B$1(this).event.cancelable},preventDefault(){di$1(B$1(this));},get defaultPrevented(){return B$1(this).canceled},get composed(){return !!B$1(this).event.composed},get timeStamp(){return B$1(this).timeStamp},get srcElement(){return B$1(this).eventTarget},get cancelBubble(){return B$1(this).stopped},set cancelBubble(i){if(!i)return;const o=B$1(this);o.stopped=!0,typeof o.event.cancelBubble=="boolean"&&(o.event.cancelBubble=!0);},get returnValue(){return !B$1(this).canceled},set returnValue(i){i||di$1(B$1(this));},initEvent(){}},Object.defineProperty(ut$1.prototype,"constructor",{value:ut$1,configurable:!0,writable:!0});function hi$1(i){return {get(){return B$1(this).event[i]},set(o){B$1(this).event[i]=o;},configurable:!0,enumerable:!0}}n$1(hi$1,"defineRedirectDescriptor");function Ds$1(i){return {value(){const o=B$1(this).event;return o[i].apply(o,arguments)},configurable:!0,enumerable:!0}}n$1(Ds$1,"defineCallDescriptor");function Ms$1(i,o){const a=Object.keys(o);if(a.length===0)return i;function l(u,d){i.call(this,u,d);}n$1(l,"CustomEvent"),l.prototype=Object.create(i.prototype,{constructor:{value:l,configurable:!0,writable:!0}});for(let u=0;u<a.length;++u){const d=a[u];if(!(d in i.prototype)){const m=typeof Object.getOwnPropertyDescriptor(o,d).value=="function";Object.defineProperty(l.prototype,d,m?Ds$1(d):hi$1(d));}}return l}n$1(Ms$1,"defineWrapper");function pi$1(i){if(i==null||i===Object.prototype)return ut$1;let o=An$1.get(i);return o==null&&(o=Ms$1(pi$1(Object.getPrototypeOf(i)),i),An$1.set(i,o)),o}n$1(pi$1,"getWrapper");function Us$1(i,o){const a=pi$1(Object.getPrototypeOf(o));return new a(i,o)}n$1(Us$1,"wrapEvent");function Ns$1(i){return B$1(i).immediateStopped}n$1(Ns$1,"isStopped");function xs$1(i,o){B$1(i).eventPhase=o;}n$1(xs$1,"setEventPhase");function Hs$1(i,o){B$1(i).currentTarget=o;}n$1(Hs$1,"setCurrentTarget");function bi$1(i,o){B$1(i).passiveListener=o;}n$1(bi$1,"setPassiveListener");const mi$1=new WeakMap,yi$1=1,gi$1=2,gr$1=3;function _r$1(i){return i!==null&&typeof i=="object"}n$1(_r$1,"isObject");function Pt$1(i){const o=mi$1.get(i);if(o==null)throw new TypeError("'this' is expected an EventTarget object, but got another value.");return o}n$1(Pt$1,"getListeners");function Vs$1(i){return {get(){let a=Pt$1(this).get(i);for(;a!=null;){if(a.listenerType===gr$1)return a.listener;a=a.next;}return null},set(o){typeof o!="function"&&!_r$1(o)&&(o=null);const a=Pt$1(this);let l=null,u=a.get(i);for(;u!=null;)u.listenerType===gr$1?l!==null?l.next=u.next:u.next!==null?a.set(i,u.next):a.delete(i):l=u,u=u.next;if(o!==null){const d={listener:o,listenerType:gr$1,passive:!1,once:!1,next:null};l===null?a.set(i,d):l.next=d;}},configurable:!0,enumerable:!0}}n$1(Vs$1,"defineEventAttributeDescriptor");function _i$1(i,o){Object.defineProperty(i,`on${o}`,Vs$1(o));}n$1(_i$1,"defineEventAttribute");function Si$1(i){function o(){be$1.call(this);}n$1(o,"CustomEventTarget"),o.prototype=Object.create(be$1.prototype,{constructor:{value:o,configurable:!0,writable:!0}});for(let a=0;a<i.length;++a)_i$1(o.prototype,i[a]);return o}n$1(Si$1,"defineCustomEventTarget");function be$1(){if(this instanceof be$1){mi$1.set(this,new Map);return}if(arguments.length===1&&Array.isArray(arguments[0]))return Si$1(arguments[0]);if(arguments.length>0){const i=new Array(arguments.length);for(let o=0;o<arguments.length;++o)i[o]=arguments[o];return Si$1(i)}throw new TypeError("Cannot call a class as a function")}n$1(be$1,"EventTarget"),be$1.prototype={addEventListener(i,o,a){if(o==null)return;if(typeof o!="function"&&!_r$1(o))throw new TypeError("'listener' should be a function or an object.");const l=Pt$1(this),u=_r$1(a),p=(u?!!a.capture:!!a)?yi$1:gi$1,m={listener:o,listenerType:p,passive:u&&!!a.passive,once:u&&!!a.once,next:null};let C=l.get(i);if(C===void 0){l.set(i,m);return}let S=null;for(;C!=null;){if(C.listener===o&&C.listenerType===p)return;S=C,C=C.next;}S.next=m;},removeEventListener(i,o,a){if(o==null)return;const l=Pt$1(this),d=(_r$1(a)?!!a.capture:!!a)?yi$1:gi$1;let p=null,m=l.get(i);for(;m!=null;){if(m.listener===o&&m.listenerType===d){p!==null?p.next=m.next:m.next!==null?l.set(i,m.next):l.delete(i);return}p=m,m=m.next;}},dispatchEvent(i){if(i==null||typeof i.type!="string")throw new TypeError('"event.type" should be a string.');const o=Pt$1(this),a=i.type;let l=o.get(a);if(l==null)return !0;const u=Us$1(this,i);let d=null;for(;l!=null;){if(l.once?d!==null?d.next=l.next:l.next!==null?o.set(a,l.next):o.delete(a):d=l,bi$1(u,l.passive?l.listener:null),typeof l.listener=="function")try{l.listener.call(this,u);}catch(p){typeof console<"u"&&typeof console.error=="function"&&console.error(p);}else l.listenerType!==gr$1&&typeof l.listener.handleEvent=="function"&&l.listener.handleEvent(u);if(Ns$1(u))break;l=l.next;}return bi$1(u,null),xs$1(u,0),Hs$1(u,null),!u.defaultPrevented}},Object.defineProperty(be$1.prototype,"constructor",{value:be$1,configurable:!0,writable:!0});const zn$1=class zn extends be$1{constructor(){throw super(),new TypeError("AbortSignal cannot be constructed directly")}get aborted(){const o=Sr$1.get(this);if(typeof o!="boolean")throw new TypeError(`Expected 'this' to be an 'AbortSignal' object, but got ${this===null?"null":typeof this}`);return o}};n$1(zn$1,"AbortSignal");let ft$1=zn$1;_i$1(ft$1.prototype,"abort");function Qs$1(){const i=Object.create(ft$1.prototype);return be$1.call(i),Sr$1.set(i,!1),i}n$1(Qs$1,"createAbortSignal");function Ys$1(i){Sr$1.get(i)===!1&&(Sr$1.set(i,!0),i.dispatchEvent({type:"abort"}));}n$1(Ys$1,"abortSignal");const Sr$1=new WeakMap;Object.defineProperties(ft$1.prototype,{aborted:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(ft$1.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortSignal"});let Wn$1=(kt$1=class{constructor(){wi$1.set(this,Qs$1());}get signal(){return Ri$1(this)}abort(){Ys$1(Ri$1(this));}},n$1(kt$1,"AbortController"),kt$1);const wi$1=new WeakMap;function Ri$1(i){const o=wi$1.get(i);if(o==null)throw new TypeError(`Expected 'this' to be an 'AbortController' object, but got ${i===null?"null":typeof i}`);return o}n$1(Ri$1,"getSignal"),Object.defineProperties(Wn$1.prototype,{signal:{enumerable:!0},abort:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(Wn$1.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortController"});var Gs$1=Object.defineProperty,Zs$1=n$1((i,o)=>Gs$1(i,"name",{value:o,configurable:!0}),"e");const Ti$1=fi$1;Ci$1();function Ci$1(){!globalThis.process?.versions?.node&&!globalThis.process?.env.DISABLE_NODE_FETCH_NATIVE_WARN&&console.warn("[node-fetch-native] Node.js compatible build of `node-fetch-native` is being used in a non-Node.js environment. Please make sure you are using proper export conditions or report this issue to https://github.com/unjs/node-fetch-native. You can set `process.env.DISABLE_NODE_FETCH_NATIVE_WARN` to disable this warning.");}n$1(Ci$1,"s"),Zs$1(Ci$1,"checkNodeEnvironment");
 
-var i=Object.defineProperty;var e=(r,t)=>i(r,"name",{value:t,configurable:!0});var c=Object.defineProperty,h=e((r,t)=>c(r,"name",{value:t,configurable:!0}),"a");function o$1(r,t){if(!(r in globalThis))try{globalThis[r]=t;}catch{}}e(o$1,"e"),h(o$1,"polyfill"),o$1("fetch",Ti),o$1("Blob",it),o$1("File",wn),o$1("FormData",dr),o$1("Headers",le),o$1("Request",lt),o$1("Response",te),o$1("AbortController",Wn);
+var i=Object.defineProperty;var e=(r,t)=>i(r,"name",{value:t,configurable:!0});var c=Object.defineProperty,h=e((r,t)=>c(r,"name",{value:t,configurable:!0}),"a");function o$1(r,t){if(!(r in globalThis))try{globalThis[r]=t;}catch{}}e(o$1,"e"),h(o$1,"polyfill"),o$1("fetch",Ti$1),o$1("Blob",it$1),o$1("File",wn$1),o$1("FormData",dr$1),o$1("Headers",le$1),o$1("Request",lt$1),o$1("Response",te$1),o$1("AbortController",Wn$1);
 
 const suspectProtoRx$1 = /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
 const suspectConstructorRx$1 = /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
-const JsonSigRx$1 = /^\s*["[{]|^\s*-?\d[\d.]{0,14}\s*$/;
+const JsonSigRx$1 = /^\s*["[{]|^\s*-?\d{1,16}(\.\d{1,17})?([Ee][+-]?\d+)?\s*$/;
 function jsonParseTransform$1(key, value) {
   if (key === "__proto__" || key === "constructor" && value && typeof value === "object" && "prototype" in value) {
     warnKeyDropped$1(key);
@@ -46,7 +46,10 @@ function destr$1(value, options = {}) {
     return value;
   }
   const _value = value.trim();
-  if (value[0] === '"' && value[value.length - 1] === '"') {
+  if (
+    // eslint-disable-next-line unicorn/prefer-at
+    value[0] === '"' && value.at(-1) === '"' && !value.includes("\\")
+  ) {
     return _value.slice(1, -1);
   }
   if (_value.length <= 9) {
@@ -95,32 +98,23 @@ function destr$1(value, options = {}) {
   }
 }
 
-const HASH_RE = /#/g;
-const AMPERSAND_RE = /&/g;
-const SLASH_RE = /\//g;
-const EQUAL_RE = /=/g;
-const IM_RE = /\?/g;
-const PLUS_RE = /\+/g;
-const ENC_CARET_RE = /%5e/gi;
-const ENC_BACKTICK_RE = /%60/gi;
-const ENC_PIPE_RE = /%7c/gi;
-const ENC_SPACE_RE = /%20/gi;
+const HASH_RE$1 = /#/g;
+const AMPERSAND_RE$1 = /&/g;
+const EQUAL_RE$1 = /=/g;
+const PLUS_RE$1 = /\+/g;
+const ENC_CARET_RE$1 = /%5e/gi;
+const ENC_BACKTICK_RE$1 = /%60/gi;
+const ENC_PIPE_RE$1 = /%7c/gi;
+const ENC_SPACE_RE$1 = /%20/gi;
 const ENC_SLASH_RE = /%2f/gi;
-const ENC_ENC_SLASH_RE = /%252f/gi;
-function encode(text) {
-  return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
+function encode$1(text) {
+  return encodeURI("" + text).replace(ENC_PIPE_RE$1, "|");
 }
-function encodeQueryValue(input) {
-  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^");
+function encodeQueryValue$1(input) {
+  return encode$1(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE$1, "%2B").replace(ENC_SPACE_RE$1, "+").replace(HASH_RE$1, "%23").replace(AMPERSAND_RE$1, "%26").replace(ENC_BACKTICK_RE$1, "`").replace(ENC_CARET_RE$1, "^");
 }
-function encodeQueryKey(text) {
-  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
-}
-function encodePath(text) {
-  return encode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F").replace(ENC_ENC_SLASH_RE, "%2F").replace(AMPERSAND_RE, "%26").replace(PLUS_RE, "%2B");
-}
-function encodeParam(text) {
-  return encodePath(text).replace(SLASH_RE, "%2F");
+function encodeQueryKey$1(text) {
+  return encodeQueryValue$1(text).replace(EQUAL_RE$1, "%3D");
 }
 function decode$1(text = "") {
   try {
@@ -132,14 +126,14 @@ function decode$1(text = "") {
 function decodePath(text) {
   return decode$1(text.replace(ENC_SLASH_RE, "%252F"));
 }
-function decodeQueryKey(text) {
-  return decode$1(text.replace(PLUS_RE, " "));
+function decodeQueryKey$1(text) {
+  return decode$1(text.replace(PLUS_RE$1, " "));
 }
-function decodeQueryValue(text) {
-  return decode$1(text.replace(PLUS_RE, " "));
+function decodeQueryValue$1(text) {
+  return decode$1(text.replace(PLUS_RE$1, " "));
 }
 
-function parseQuery(parametersString = "") {
+function parseQuery$1(parametersString = "") {
   const object = {};
   if (parametersString[0] === "?") {
     parametersString = parametersString.slice(1);
@@ -149,11 +143,11 @@ function parseQuery(parametersString = "") {
     if (s.length < 2) {
       continue;
     }
-    const key = decodeQueryKey(s[1]);
+    const key = decodeQueryKey$1(s[1]);
     if (key === "__proto__" || key === "constructor") {
       continue;
     }
-    const value = decodeQueryValue(s[2] || "");
+    const value = decodeQueryValue$1(s[2] || "");
     if (object[key] === void 0) {
       object[key] = value;
     } else if (Array.isArray(object[key])) {
@@ -164,153 +158,141 @@ function parseQuery(parametersString = "") {
   }
   return object;
 }
-function encodeQueryItem(key, value) {
+function encodeQueryItem$1(key, value) {
   if (typeof value === "number" || typeof value === "boolean") {
     value = String(value);
   }
   if (!value) {
-    return encodeQueryKey(key);
+    return encodeQueryKey$1(key);
   }
   if (Array.isArray(value)) {
-    return value.map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`).join("&");
+    return value.map((_value) => `${encodeQueryKey$1(key)}=${encodeQueryValue$1(_value)}`).join("&");
   }
-  return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
+  return `${encodeQueryKey$1(key)}=${encodeQueryValue$1(value)}`;
 }
-function stringifyQuery(query) {
-  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
+function stringifyQuery$1(query) {
+  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem$1(k, query[k])).filter(Boolean).join("&");
 }
-const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
-const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
-const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
-function hasProtocol(inputString, opts = {}) {
+const PROTOCOL_STRICT_REGEX$1 = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
+const PROTOCOL_REGEX$1 = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
+const PROTOCOL_RELATIVE_REGEX$1 = /^([/\\]\s*){2,}[^/\\]/;
+function hasProtocol$1(inputString, opts = {}) {
   if (typeof opts === "boolean") {
     opts = { acceptRelative: opts };
   }
   if (opts.strict) {
-    return PROTOCOL_STRICT_REGEX.test(inputString);
+    return PROTOCOL_STRICT_REGEX$1.test(inputString);
   }
-  return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
+  return PROTOCOL_REGEX$1.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX$1.test(inputString) : false);
 }
-const PROTOCOL_SCRIPT_RE = /^[\s\0]*(blob|data|javascript|vbscript):$/i;
-function isScriptProtocol(protocol) {
-  return !!protocol && PROTOCOL_SCRIPT_RE.test(protocol);
-}
-const TRAILING_SLASH_RE = /\/$|\/\?/;
-function hasTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
+const TRAILING_SLASH_RE$1 = /\/$|\/\?|\/#/;
+function hasTrailingSlash$1(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
     return input.endsWith("/");
   }
-  return TRAILING_SLASH_RE.test(input);
+  return TRAILING_SLASH_RE$1.test(input);
 }
-function withoutTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
-    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+function withoutTrailingSlash$1(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
+    return (hasTrailingSlash$1(input) ? input.slice(0, -1) : input) || "/";
   }
-  if (!hasTrailingSlash(input, true)) {
+  if (!hasTrailingSlash$1(input, true)) {
     return input || "/";
   }
-  const [s0, ...s] = input.split("?");
-  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "");
+  let path = input;
+  let fragment = "";
+  const fragmentIndex = input.indexOf("#");
+  if (fragmentIndex >= 0) {
+    path = input.slice(0, fragmentIndex);
+    fragment = input.slice(fragmentIndex);
+  }
+  const [s0, ...s] = path.split("?");
+  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
 }
-function withTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
+function withTrailingSlash$1(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
     return input.endsWith("/") ? input : input + "/";
   }
-  if (hasTrailingSlash(input, true)) {
+  if (hasTrailingSlash$1(input, true)) {
     return input || "/";
   }
-  const [s0, ...s] = input.split("?");
-  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "");
+  let path = input;
+  let fragment = "";
+  const fragmentIndex = input.indexOf("#");
+  if (fragmentIndex >= 0) {
+    path = input.slice(0, fragmentIndex);
+    fragment = input.slice(fragmentIndex);
+    if (!path) {
+      return fragment;
+    }
+  }
+  const [s0, ...s] = path.split("?");
+  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
 }
-function hasLeadingSlash(input = "") {
+function hasLeadingSlash$1(input = "") {
   return input.startsWith("/");
 }
-function withLeadingSlash(input = "") {
-  return hasLeadingSlash(input) ? input : "/" + input;
+function withLeadingSlash$1(input = "") {
+  return hasLeadingSlash$1(input) ? input : "/" + input;
 }
-function withBase(input, base) {
-  if (isEmptyURL(base) || hasProtocol(input)) {
+function withBase$1(input, base) {
+  if (isEmptyURL$1(base) || hasProtocol$1(input)) {
     return input;
   }
-  const _base = withoutTrailingSlash(base);
+  const _base = withoutTrailingSlash$1(base);
   if (input.startsWith(_base)) {
     return input;
   }
-  return joinURL(_base, input);
+  return joinURL$1(_base, input);
 }
 function withoutBase(input, base) {
-  if (isEmptyURL(base)) {
+  if (isEmptyURL$1(base)) {
     return input;
   }
-  const _base = withoutTrailingSlash(base);
+  const _base = withoutTrailingSlash$1(base);
   if (!input.startsWith(_base)) {
     return input;
   }
   const trimmed = input.slice(_base.length);
   return trimmed[0] === "/" ? trimmed : "/" + trimmed;
 }
-function withQuery(input, query) {
-  const parsed = parseURL(input);
-  const mergedQuery = { ...parseQuery(parsed.search), ...query };
-  parsed.search = stringifyQuery(mergedQuery);
-  return stringifyParsedURL(parsed);
+function withQuery$1(input, query) {
+  const parsed = parseURL$1(input);
+  const mergedQuery = { ...parseQuery$1(parsed.search), ...query };
+  parsed.search = stringifyQuery$1(mergedQuery);
+  return stringifyParsedURL$1(parsed);
 }
 function getQuery$1(input) {
-  return parseQuery(parseURL(input).search);
+  return parseQuery$1(parseURL$1(input).search);
 }
-function isEmptyURL(url) {
+function isEmptyURL$1(url) {
   return !url || url === "/";
 }
-function isNonEmptyURL(url) {
+function isNonEmptyURL$1(url) {
   return url && url !== "/";
 }
-const JOIN_LEADING_SLASH_RE = /^\.?\//;
-function joinURL(base, ...input) {
+const JOIN_LEADING_SLASH_RE$1 = /^\.?\//;
+function joinURL$1(base, ...input) {
   let url = base || "";
-  for (const segment of input.filter((url2) => isNonEmptyURL(url2))) {
+  for (const segment of input.filter((url2) => isNonEmptyURL$1(url2))) {
     if (url) {
-      const _segment = segment.replace(JOIN_LEADING_SLASH_RE, "");
-      url = withTrailingSlash(url) + _segment;
+      const _segment = segment.replace(JOIN_LEADING_SLASH_RE$1, "");
+      url = withTrailingSlash$1(url) + _segment;
     } else {
       url = segment;
     }
   }
   return url;
 }
-function withHttps(input) {
-  return withProtocol(input, "https://");
-}
-function withProtocol(input, protocol) {
-  const match = input.match(PROTOCOL_REGEX);
-  if (!match) {
-    return protocol + input;
-  }
-  return protocol + input.slice(match[0].length);
-}
-function isEqual(a, b, options = {}) {
-  if (!options.trailingSlash) {
-    a = withTrailingSlash(a);
-    b = withTrailingSlash(b);
-  }
-  if (!options.leadingSlash) {
-    a = withLeadingSlash(a);
-    b = withLeadingSlash(b);
-  }
-  if (!options.encoding) {
-    a = decode$1(a);
-    b = decode$1(b);
-  }
-  return a === b;
-}
 
-function parseURL(input = "", defaultProto) {
+function parseURL$1(input = "", defaultProto) {
   const _specialProtoMatch = input.match(
-    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/
+    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i
   );
   if (_specialProtoMatch) {
     const [, _proto, _pathname = ""] = _specialProtoMatch;
     return {
-      protocol: _proto,
+      protocol: _proto.toLowerCase(),
       pathname: _pathname,
       href: _proto + _pathname,
       auth: "",
@@ -319,16 +301,16 @@ function parseURL(input = "", defaultProto) {
       hash: ""
     };
   }
-  if (!hasProtocol(input, { acceptRelative: true })) {
-    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
+  if (!hasProtocol$1(input, { acceptRelative: true })) {
+    return defaultProto ? parseURL$1(defaultProto + input) : parsePath$1(input);
   }
   const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
   const [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
-  const { pathname, search, hash } = parsePath(
+  const { pathname, search, hash } = parsePath$1(
     path.replace(/\/(?=[A-Za-z]:)/, "")
   );
   return {
-    protocol,
+    protocol: protocol.toLowerCase(),
     auth: auth ? auth.slice(0, Math.max(0, auth.length - 1)) : "",
     host,
     pathname,
@@ -336,7 +318,7 @@ function parseURL(input = "", defaultProto) {
     hash
   };
 }
-function parsePath(input = "") {
+function parsePath$1(input = "") {
   const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
   return {
     pathname,
@@ -344,7 +326,7 @@ function parsePath(input = "") {
     hash
   };
 }
-function stringifyParsedURL(parsed) {
+function stringifyParsedURL$1(parsed) {
   const pathname = parsed.pathname || "";
   const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
   const hash = parsed.hash || "";
@@ -568,12 +550,9 @@ function _routerNodeToTable(initialPath, initialNode) {
   return table;
 }
 
-function isObject(value) {
-  return value !== null && typeof value === "object";
-}
-function _defu(baseObject, defaults, namespace = ".", merger) {
-  if (!isObject(defaults)) {
-    return _defu(baseObject, {}, namespace, merger);
+function _defu$1(baseObject, defaults, namespace = ".", merger) {
+  if (!_isPlainObject(defaults)) {
+    return _defu$1(baseObject, {}, namespace, merger);
   }
   const object = Object.assign({}, defaults);
   for (const key in baseObject) {
@@ -589,8 +568,8 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
     }
     if (Array.isArray(value) && Array.isArray(object[key])) {
       object[key] = [...value, ...object[key]];
-    } else if (isObject(value) && isObject(object[key])) {
-      object[key] = _defu(
+    } else if (_isPlainObject(value) && _isPlainObject(object[key])) {
+      object[key] = _defu$1(
         value,
         object[key],
         (namespace ? `${namespace}.` : "") + key.toString(),
@@ -602,19 +581,20 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
   }
   return object;
 }
-function createDefu(merger) {
+function _isPlainObject(value) {
+  if (value === null || typeof value !== "object") {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(value);
+  return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in value) && !(Symbol.iterator in value);
+}
+function createDefu$1(merger) {
   return (...arguments_) => (
     // eslint-disable-next-line unicorn/no-array-reduce
-    arguments_.reduce((p, c) => _defu(p, c, "", merger), {})
+    arguments_.reduce((p, c) => _defu$1(p, c, "", merger), {})
   );
 }
-const defu = createDefu();
-const defuFn = createDefu((object, key, currentValue) => {
-  if (typeof object[key] !== "undefined" && typeof currentValue === "function") {
-    object[key] = currentValue(object[key]);
-    return true;
-  }
-});
+const defu$1 = createDefu$1();
 
 function rawHeaders(headers) {
   const rawHeaders2 = [];
@@ -1051,6 +1031,7 @@ class Socket extends Duplex {
   remoteAddress = "";
   remoteFamily = "";
   remotePort = 0;
+  autoSelectFamilyAttemptedAddresses = [];
   readyState = "readOnly";
   constructor(_options) {
     super();
@@ -1090,6 +1071,9 @@ class Socket extends Duplex {
   }
   ref() {
     return this;
+  }
+  destroySoon() {
+    this.destroy();
   }
   resetAndDestroy() {
     const err = new Error("ERR_SOCKET_CLOSED");
@@ -1361,18 +1345,24 @@ function sendError(event, error, debug) {
     return;
   }
   const _code = Number.parseInt(h3Error.statusCode);
-  setResponseStatus(event, _code, h3Error.statusMessage);
+  setResponseStatus$1(event, _code, h3Error.statusMessage);
   event.node.res.setHeader("content-type", MIMES.json);
   event.node.res.end(JSON.stringify(responseBody, void 0, 2));
 }
 function isError$1(input) {
   return input?.constructor?.__h3_error__ === true;
 }
-
-function getQuery(event) {
-  return getQuery$1(event.path || "");
+function getRouterParams(event, opts = {}) {
+  let params = event.context.params || {};
+  if (opts.decode) {
+    params = { ...params };
+    for (const key in params) {
+      params[key] = decode$1(params[key]);
+    }
+  }
+  return params;
 }
-function isMethod$1(event, expected, allowHead) {
+function isMethod(event, expected, allowHead) {
   if (allowHead && event.method === "HEAD") {
     return true;
   }
@@ -1385,8 +1375,8 @@ function isMethod$1(event, expected, allowHead) {
   }
   return false;
 }
-function assertMethod$1(event, expected, allowHead) {
-  if (!isMethod$1(event, expected, allowHead)) {
+function assertMethod(event, expected, allowHead) {
+  if (!isMethod(event, expected, allowHead)) {
     throw createError$2({
       statusCode: 405,
       statusMessage: "HTTP method is not allowed."
@@ -1406,12 +1396,28 @@ function getRequestHeader(event, name) {
   const value = headers[name.toLowerCase()];
   return value;
 }
+function getRequestHost(event, opts = {}) {
+  if (opts.xForwardedHost) {
+    const xForwardedHost = event.node.req.headers["x-forwarded-host"];
+    if (xForwardedHost) {
+      return xForwardedHost;
+    }
+  }
+  return event.node.req.headers.host || "localhost";
+}
+function getRequestProtocol(event, opts = {}) {
+  if (opts.xForwardedProto !== false && event.node.req.headers["x-forwarded-proto"] === "https") {
+    return "https";
+  }
+  return event.node.req.connection?.encrypted ? "https" : "http";
+}
 
-const RawBodySymbol$1 = Symbol.for("h3RawBody");
-const PayloadMethods$1$1 = ["PATCH", "POST", "PUT", "DELETE"];
-function readRawBody$1(event, encoding = "utf8") {
-  assertMethod$1(event, PayloadMethods$1$1);
-  const _rawBody = event._requestBody || event.web?.request?.body || event.node.req[RawBodySymbol$1] || event.node.req.body;
+const RawBodySymbol = Symbol.for("h3RawBody");
+const ParsedBodySymbol = Symbol.for("h3ParsedBody");
+const PayloadMethods$1 = ["PATCH", "POST", "PUT", "DELETE"];
+function readRawBody(event, encoding = "utf8") {
+  assertMethod(event, PayloadMethods$1);
+  const _rawBody = event._requestBody || event.web?.request?.body || event.node.req[RawBodySymbol] || event.node.req.body;
   if (_rawBody) {
     const promise2 = Promise.resolve(_rawBody).then((_resolved) => {
       if (Buffer.isBuffer(_resolved)) {
@@ -1454,7 +1460,7 @@ function readRawBody$1(event, encoding = "utf8") {
   if (!Number.parseInt(event.node.req.headers["content-length"] || "")) {
     return Promise.resolve(void 0);
   }
-  const promise = event.node.req[RawBodySymbol$1] = new Promise(
+  const promise = event.node.req[RawBodySymbol] = new Promise(
     (resolve, reject) => {
       const bodyData = [];
       event.node.req.on("error", (err) => {
@@ -1469,8 +1475,28 @@ function readRawBody$1(event, encoding = "utf8") {
   const result = encoding ? promise.then((buff) => buff.toString(encoding)) : promise;
   return result;
 }
+async function readBody(event, options = {}) {
+  const request = event.node.req;
+  if (hasProp$1(request, ParsedBodySymbol)) {
+    return request[ParsedBodySymbol];
+  }
+  const contentType = request.headers["content-type"] || "";
+  const body = await readRawBody(event);
+  let parsed;
+  if (contentType === "application/json") {
+    parsed = _parseJSON(body, options.strict ?? true);
+  } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
+    parsed = _parseURLEncodedBody(body);
+  } else if (contentType.startsWith("text/")) {
+    parsed = body;
+  } else {
+    parsed = _parseJSON(body, options.strict ?? false);
+  }
+  request[ParsedBodySymbol] = parsed;
+  return parsed;
+}
 function getRequestWebStream(event) {
-  if (!PayloadMethods$1$1.includes(event.method)) {
+  if (!PayloadMethods$1.includes(event.method)) {
     return;
   }
   return event.web?.request?.body || event._requestBody || new ReadableStream({
@@ -1486,6 +1512,35 @@ function getRequestWebStream(event) {
       });
     }
   });
+}
+function _parseJSON(body = "", strict) {
+  if (!body) {
+    return void 0;
+  }
+  try {
+    return destr$1(body, { strict });
+  } catch {
+    throw createError$2({
+      statusCode: 400,
+      statusMessage: "Bad Request",
+      message: "Invalid JSON body"
+    });
+  }
+}
+function _parseURLEncodedBody(body) {
+  const form = new URLSearchParams(body);
+  const parsedForm = /* @__PURE__ */ Object.create(null);
+  for (const [key, value] of form.entries()) {
+    if (hasProp$1(parsedForm, key)) {
+      if (!Array.isArray(parsedForm[key])) {
+        parsedForm[key] = [parsedForm[key]];
+      }
+      parsedForm[key].push(value);
+    } else {
+      parsedForm[key] = value;
+    }
+  }
+  return parsedForm;
 }
 
 function handleCacheHeaders(event, opts) {
@@ -1597,13 +1652,13 @@ function splitCookiesString(cookiesString) {
   return cookiesStrings;
 }
 
-const defer = typeof setImmediate === "undefined" ? (fn) => fn() : setImmediate;
-function send(event, data, type) {
+const defer$1 = typeof setImmediate === "undefined" ? (fn) => fn() : setImmediate;
+function send$1(event, data, type) {
   if (type) {
-    defaultContentType(event, type);
+    defaultContentType$1(event, type);
   }
   return new Promise((resolve) => {
-    defer(() => {
+    defer$1(() => {
       if (!event.handled) {
         event.node.res.end(data);
       }
@@ -1615,6 +1670,9 @@ function sendNoContent(event, code) {
   if (event.handled) {
     return;
   }
+  if (!code && event.node.res.statusCode !== 200) {
+    code = event.node.res.statusCode;
+  }
   const _code = sanitizeStatusCode$1(code, 204);
   if (_code === 204) {
     event.node.res.removeHeader("content-length");
@@ -1622,7 +1680,7 @@ function sendNoContent(event, code) {
   event.node.res.writeHead(_code);
   event.node.res.end();
 }
-function setResponseStatus(event, code, text) {
+function setResponseStatus$1(event, code, text) {
   if (code) {
     event.node.res.statusCode = sanitizeStatusCode$1(
       code,
@@ -1633,13 +1691,10 @@ function setResponseStatus(event, code, text) {
     event.node.res.statusMessage = sanitizeStatusMessage$1(text);
   }
 }
-function getResponseStatus(event) {
+function getResponseStatus$1(event) {
   return event.node.res.statusCode;
 }
-function getResponseStatusText(event) {
-  return event.node.res.statusMessage;
-}
-function defaultContentType(event, type) {
+function defaultContentType$1(event, type) {
   if (type && !event.node.res.getHeader("content-type")) {
     event.node.res.setHeader("content-type", type);
   }
@@ -1652,7 +1707,7 @@ function sendRedirect(event, location, code = 302) {
   event.node.res.setHeader("location", location);
   const encodedLoc = location.replace(/"/g, "%22");
   const html = `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=${encodedLoc}"></head></html>`;
-  return send(event, html, MIMES.html);
+  return send$1(event, html, MIMES.html);
 }
 function getResponseHeader(event, name) {
   return event.node.res.getHeader(name);
@@ -1663,10 +1718,9 @@ function setResponseHeaders(event, headers) {
   }
 }
 const setHeaders = setResponseHeaders;
-function setResponseHeader(event, name, value) {
+function setResponseHeader$1(event, name, value) {
   event.node.res.setHeader(name, value);
 }
-const setHeader = setResponseHeader;
 function removeResponseHeader(event, name) {
   return event.node.res.removeHeader(name);
 }
@@ -1690,7 +1744,7 @@ function isStream(data) {
 function isWebResponse(data) {
   return typeof Response !== "undefined" && data instanceof Response;
 }
-function sendStream$1(event, stream) {
+function sendStream(event, stream) {
   if (!stream || typeof stream !== "object") {
     throw new Error("[h3] Invalid stream provided.");
   }
@@ -1755,7 +1809,7 @@ function sendWebResponse(event, response) {
     event.node.res.end();
     return;
   }
-  return sendStream$1(event, response.body);
+  return sendStream(event, response.body);
 }
 
 const PayloadMethods = /* @__PURE__ */ new Set(["PATCH", "POST", "PUT", "DELETE"]);
@@ -1775,7 +1829,7 @@ async function proxyRequest(event, target, opts = {}) {
       body = getRequestWebStream(event);
       duplex = "half";
     } else {
-      body = await readRawBody$1(event, false).catch(() => void 0);
+      body = await readRawBody(event, false).catch(() => void 0);
     }
   }
   const method = opts.fetchOptions?.method || event.method;
@@ -2048,12 +2102,12 @@ async function _callHandler$1(event, handler, hooks) {
   }
   return response.body;
 }
-const eventHandler = defineEventHandler$1;
-function isEventHandler(input) {
+const eventHandler$1 = defineEventHandler$1;
+function isEventHandler$1(input) {
   return hasProp$1(input, "__is_handler__");
 }
-function toEventHandler(input, _, _route) {
-  if (!isEventHandler(input)) {
+function toEventHandler$1(input, _, _route) {
+  if (!isEventHandler$1(input)) {
     console.warn(
       "[h3] Implicit event handler conversion is deprecated. Use `eventHandler()` or `fromNodeMiddleware()` to define event handlers.",
       _route && _route !== "/" ? `
@@ -2064,7 +2118,7 @@ function toEventHandler(input, _, _route) {
   }
   return input;
 }
-function defineLazyEventHandler(factory) {
+function defineLazyEventHandler$1(factory) {
   let _promise;
   let _resolved;
   const resolveHandler = () => {
@@ -2080,20 +2134,20 @@ function defineLazyEventHandler(factory) {
             handler
           );
         }
-        _resolved = toEventHandler(r.default || r);
+        _resolved = toEventHandler$1(r.default || r);
         return _resolved;
       });
     }
     return _promise;
   };
-  return eventHandler((event) => {
+  return eventHandler$1((event) => {
     if (_resolved) {
       return _resolved(event);
     }
     return resolveHandler().then((handler) => handler(event));
   });
 }
-const lazyEventHandler = defineLazyEventHandler;
+const lazyEventHandler$1 = defineLazyEventHandler$1;
 
 function createApp(options = {}) {
   const stack = [];
@@ -2131,7 +2185,7 @@ function use(app, arg1, arg2, arg3) {
 }
 function createAppEventHandler(stack, options) {
   const spacing = options.debug ? 2 : void 0;
-  return eventHandler(async (event) => {
+  return eventHandler$1(async (event) => {
     event.node.req.originalUrl = event.node.req.originalUrl || event.node.req.url || "/";
     const _reqPath = event._path || event.node.req.url || "/";
     let _layerPath;
@@ -2189,12 +2243,12 @@ function normalizeLayer(input) {
     handler = handler.handler;
   }
   if (input.lazy) {
-    handler = lazyEventHandler(handler);
-  } else if (!isEventHandler(handler)) {
-    handler = toEventHandler(handler, void 0, input.route);
+    handler = lazyEventHandler$1(handler);
+  } else if (!isEventHandler$1(handler)) {
+    handler = toEventHandler$1(handler, void 0, input.route);
   }
   return {
-    route: withoutTrailingSlash(input.route),
+    route: withoutTrailingSlash$1(input.route),
     match: input.match,
     handler
   };
@@ -2208,14 +2262,14 @@ function handleHandlerResponse(event, val, jsonSpace) {
       return sendWebResponse(event, val);
     }
     if (isStream(val)) {
-      return sendStream$1(event, val);
+      return sendStream(event, val);
     }
     if (val.buffer) {
-      return send(event, val);
+      return send$1(event, val);
     }
     if (val.arrayBuffer && typeof val.arrayBuffer === "function") {
       return val.arrayBuffer().then((arrayBuffer) => {
-        return send(event, Buffer.from(arrayBuffer), val.type);
+        return send$1(event, Buffer.from(arrayBuffer), val.type);
       });
     }
     if (val instanceof Error) {
@@ -2227,13 +2281,13 @@ function handleHandlerResponse(event, val, jsonSpace) {
   }
   const valType = typeof val;
   if (valType === "string") {
-    return send(event, val, MIMES.html);
+    return send$1(event, val, MIMES.html);
   }
   if (valType === "object" || valType === "boolean" || valType === "number") {
-    return send(event, JSON.stringify(val, void 0, jsonSpace), MIMES.json);
+    return send$1(event, JSON.stringify(val, void 0, jsonSpace), MIMES.json);
   }
   if (valType === "bigint") {
-    return send(event, val.toString(), MIMES.json);
+    return send$1(event, val.toString(), MIMES.json);
   }
   throw createError$2({
     statusCode: 500,
@@ -2268,7 +2322,7 @@ function createRouter(opts = {}) {
         addRoute(path, handler, m);
       }
     } else {
-      route.handlers[method] = toEventHandler(handler, void 0, path);
+      route.handlers[method] = toEventHandler$1(handler, void 0, path);
     }
     return router;
   };
@@ -2276,7 +2330,7 @@ function createRouter(opts = {}) {
   for (const method of RouterMethods) {
     router[method] = (path, handle) => router.add(path, handle, method);
   }
-  router.handler = eventHandler((event) => {
+  router.handler = eventHandler$1((event) => {
     let path = event.path || "/";
     const qIndex = path.indexOf("?");
     if (qIndex !== -1) {
@@ -2361,6 +2415,20 @@ function toNodeListener(app) {
   };
   return toNodeHandle;
 }
+
+var Za=Object.defineProperty;var n=(i,o)=>Za(i,"name",{value:o,configurable:!0});var Ko=(i,o,a)=>{if(!o.has(i))throw TypeError("Cannot "+a)};var k=(i,o,a)=>(Ko(i,o,"read from private field"),a?a.call(i):o.get(i)),ae=(i,o,a)=>{if(o.has(i))throw TypeError("Cannot add the same private member more than once");o instanceof WeakSet?o.add(i):o.set(i,a);},Y=(i,o,a,l)=>(Ko(i,o,"write to private field"),l?l.call(i,a):o.set(i,a),a);var me,vt,ct,wr,xe,Et,At,Wt,G,Bt,Ue,Ne,kt;function os(i){if(!/^data:/i.test(i))throw new TypeError('`uri` does not appear to be a Data URI (must begin with "data:")');i=i.replace(/\r?\n/g,"");const o=i.indexOf(",");if(o===-1||o<=4)throw new TypeError("malformed data: URI");const a=i.substring(5,o).split(";");let l="",u=!1;const d=a[0]||"text/plain";let p=d;for(let I=1;I<a.length;I++)a[I]==="base64"?u=!0:a[I]&&(p+=`;${a[I]}`,a[I].indexOf("charset=")===0&&(l=a[I].substring(8)));!a[0]&&!l.length&&(p+=";charset=US-ASCII",l="US-ASCII");const m=u?"base64":"ascii",C=unescape(i.substring(o+1)),S=Buffer.from(C,m);return S.type=d,S.typeFull=p,S.charset=l,S}n(os,"dataUriToBuffer");var _n=typeof globalThis<"u"?globalThis:typeof global<"u"?global:typeof self<"u"?self:{};function is(i){return i&&i.__esModule&&Object.prototype.hasOwnProperty.call(i,"default")?i.default:i}n(is,"getDefaultExportFromCjs");var cr={exports:{}},Xo;function as(){return Xo||(Xo=1,function(i,o){(function(a,l){l(o);})(_n,function(a){const l=typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?Symbol:e=>`Symbol(${e})`;function u(){}n(u,"noop");function d(){if(typeof self<"u")return self;if(typeof _n<"u")return _n}n(d,"getGlobals");const p=d();function m(e){return typeof e=="object"&&e!==null||typeof e=="function"}n(m,"typeIsObject");const C=u,S=Promise,I=Promise.prototype.then,re=Promise.resolve.bind(S),L=Promise.reject.bind(S);function E(e){return new S(e)}n(E,"newPromise");function b(e){return re(e)}n(b,"promiseResolvedWith");function g(e){return L(e)}n(g,"promiseRejectedWith");function A(e,t,r){return I.call(e,t,r)}n(A,"PerformPromiseThen");function q(e,t,r){A(A(e,t,r),void 0,C);}n(q,"uponPromise");function ne(e,t){q(e,t);}n(ne,"uponFulfillment");function dt(e,t){q(e,void 0,t);}n(dt,"uponRejection");function O(e,t,r){return A(e,t,r)}n(O,"transformPromiseWith");function $(e){A(e,void 0,C);}n($,"setPromiseIsHandledToTrue");const F=(()=>{const e=p&&p.queueMicrotask;if(typeof e=="function")return e;const t=b(void 0);return r=>A(t,r)})();function ve(e,t,r){if(typeof e!="function")throw new TypeError("Argument is not a function");return Function.prototype.apply.call(e,t,r)}n(ve,"reflectCall");function ue(e,t,r){try{return b(ve(e,t,r))}catch(s){return g(s)}}n(ue,"promiseCall");const jn=16384,rn=class rn{constructor(){this._cursor=0,this._size=0,this._front={_elements:[],_next:void 0},this._back=this._front,this._cursor=0,this._size=0;}get length(){return this._size}push(t){const r=this._back;let s=r;r._elements.length===jn-1&&(s={_elements:[],_next:void 0}),r._elements.push(t),s!==r&&(this._back=s,r._next=s),++this._size;}shift(){const t=this._front;let r=t;const s=this._cursor;let f=s+1;const c=t._elements,h=c[s];return f===jn&&(r=t._next,f=0),--this._size,this._cursor=f,t!==r&&(this._front=r),c[s]=void 0,h}forEach(t){let r=this._cursor,s=this._front,f=s._elements;for(;(r!==f.length||s._next!==void 0)&&!(r===f.length&&(s=s._next,f=s._elements,r=0,f.length===0));)t(f[r]),++r;}peek(){const t=this._front,r=this._cursor;return t._elements[r]}};n(rn,"SimpleQueue");let x=rn;function Fn(e,t){e._ownerReadableStream=t,t._reader=e,t._state==="readable"?vr(e):t._state==="closed"?Pi(e):In(e,t._storedError);}n(Fn,"ReadableStreamReaderGenericInitialize");function Pr(e,t){const r=e._ownerReadableStream;return J(r,t)}n(Pr,"ReadableStreamReaderGenericCancel");function fe(e){e._ownerReadableStream._state==="readable"?Er(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")):vi(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")),e._ownerReadableStream._reader=void 0,e._ownerReadableStream=void 0;}n(fe,"ReadableStreamReaderGenericRelease");function He(e){return new TypeError("Cannot "+e+" a stream using a released reader")}n(He,"readerLockException");function vr(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r;});}n(vr,"defaultReaderClosedPromiseInitialize");function In(e,t){vr(e),Er(e,t);}n(In,"defaultReaderClosedPromiseInitializeAsRejected");function Pi(e){vr(e),Ln(e);}n(Pi,"defaultReaderClosedPromiseInitializeAsResolved");function Er(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n(Er,"defaultReaderClosedPromiseReject");function vi(e,t){In(e,t);}n(vi,"defaultReaderClosedPromiseResetToRejected");function Ln(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0);}n(Ln,"defaultReaderClosedPromiseResolve");const $n=l("[[AbortSteps]]"),Dn=l("[[ErrorSteps]]"),Ar=l("[[CancelSteps]]"),Wr=l("[[PullSteps]]"),Mn=Number.isFinite||function(e){return typeof e=="number"&&isFinite(e)},Ei=Math.trunc||function(e){return e<0?Math.ceil(e):Math.floor(e)};function Ai(e){return typeof e=="object"||typeof e=="function"}n(Ai,"isDictionary");function ce(e,t){if(e!==void 0&&!Ai(e))throw new TypeError(`${t} is not an object.`)}n(ce,"assertDictionary");function Z(e,t){if(typeof e!="function")throw new TypeError(`${t} is not a function.`)}n(Z,"assertFunction");function Wi(e){return typeof e=="object"&&e!==null||typeof e=="function"}n(Wi,"isObject");function Un(e,t){if(!Wi(e))throw new TypeError(`${t} is not an object.`)}n(Un,"assertObject");function de(e,t,r){if(e===void 0)throw new TypeError(`Parameter ${t} is required in '${r}'.`)}n(de,"assertRequiredArgument");function Br(e,t,r){if(e===void 0)throw new TypeError(`${t} is required in '${r}'.`)}n(Br,"assertRequiredField");function kr(e){return Number(e)}n(kr,"convertUnrestrictedDouble");function Nn(e){return e===0?0:e}n(Nn,"censorNegativeZero");function Bi(e){return Nn(Ei(e))}n(Bi,"integerPart");function xn(e,t){const s=Number.MAX_SAFE_INTEGER;let f=Number(e);if(f=Nn(f),!Mn(f))throw new TypeError(`${t} is not a finite number`);if(f=Bi(f),f<0||f>s)throw new TypeError(`${t} is outside the accepted range of 0 to ${s}, inclusive`);return !Mn(f)||f===0?0:f}n(xn,"convertUnsignedLongLongWithEnforceRange");function Or(e,t){if(!Te(e))throw new TypeError(`${t} is not a ReadableStream.`)}n(Or,"assertReadableStream");function Ve(e){return new Ee(e)}n(Ve,"AcquireReadableStreamDefaultReader");function Hn(e,t){e._reader._readRequests.push(t);}n(Hn,"ReadableStreamAddReadRequest");function qr(e,t,r){const f=e._reader._readRequests.shift();r?f._closeSteps():f._chunkSteps(t);}n(qr,"ReadableStreamFulfillReadRequest");function Ot(e){return e._reader._readRequests.length}n(Ot,"ReadableStreamGetNumReadRequests");function Vn(e){const t=e._reader;return !(t===void 0||!ye(t))}n(Vn,"ReadableStreamHasDefaultReader");const nn=class nn{constructor(t){if(de(t,1,"ReadableStreamDefaultReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");Fn(this,t),this._readRequests=new x;}get closed(){return ye(this)?this._closedPromise:g(qt("closed"))}cancel(t=void 0){return ye(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(qt("cancel"))}read(){if(!ye(this))return g(qt("read"));if(this._ownerReadableStream===void 0)return g(He("read from"));let t,r;const s=E((c,h)=>{t=c,r=h;});return ht(this,{_chunkSteps:c=>t({value:c,done:!1}),_closeSteps:()=>t({value:void 0,done:!0}),_errorSteps:c=>r(c)}),s}releaseLock(){if(!ye(this))throw qt("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n(nn,"ReadableStreamDefaultReader");let Ee=nn;Object.defineProperties(Ee.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ee.prototype,l.toStringTag,{value:"ReadableStreamDefaultReader",configurable:!0});function ye(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readRequests")?!1:e instanceof Ee}n(ye,"IsReadableStreamDefaultReader");function ht(e,t){const r=e._ownerReadableStream;r._disturbed=!0,r._state==="closed"?t._closeSteps():r._state==="errored"?t._errorSteps(r._storedError):r._readableStreamController[Wr](t);}n(ht,"ReadableStreamDefaultReaderRead");function qt(e){return new TypeError(`ReadableStreamDefaultReader.prototype.${e} can only be used on a ReadableStreamDefaultReader`)}n(qt,"defaultReaderBrandCheckException");const Qn=Object.getPrototypeOf(Object.getPrototypeOf(async function*(){}).prototype),on=class on{constructor(t,r){this._ongoingPromise=void 0,this._isFinished=!1,this._reader=t,this._preventCancel=r;}next(){const t=n(()=>this._nextSteps(),"nextSteps");return this._ongoingPromise=this._ongoingPromise?O(this._ongoingPromise,t,t):t(),this._ongoingPromise}return(t){const r=n(()=>this._returnSteps(t),"returnSteps");return this._ongoingPromise?O(this._ongoingPromise,r,r):r()}_nextSteps(){if(this._isFinished)return Promise.resolve({value:void 0,done:!0});const t=this._reader;if(t._ownerReadableStream===void 0)return g(He("iterate"));let r,s;const f=E((h,y)=>{r=h,s=y;});return ht(t,{_chunkSteps:h=>{this._ongoingPromise=void 0,F(()=>r({value:h,done:!1}));},_closeSteps:()=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),r({value:void 0,done:!0});},_errorSteps:h=>{this._ongoingPromise=void 0,this._isFinished=!0,fe(t),s(h);}}),f}_returnSteps(t){if(this._isFinished)return Promise.resolve({value:t,done:!0});this._isFinished=!0;const r=this._reader;if(r._ownerReadableStream===void 0)return g(He("finish iterating"));if(!this._preventCancel){const s=Pr(r,t);return fe(r),O(s,()=>({value:t,done:!0}))}return fe(r),b({value:t,done:!0})}};n(on,"ReadableStreamAsyncIteratorImpl");let zt=on;const Yn={next(){return Gn(this)?this._asyncIteratorImpl.next():g(Zn("next"))},return(e){return Gn(this)?this._asyncIteratorImpl.return(e):g(Zn("return"))}};Qn!==void 0&&Object.setPrototypeOf(Yn,Qn);function ki(e,t){const r=Ve(e),s=new zt(r,t),f=Object.create(Yn);return f._asyncIteratorImpl=s,f}n(ki,"AcquireReadableStreamAsyncIterator");function Gn(e){if(!m(e)||!Object.prototype.hasOwnProperty.call(e,"_asyncIteratorImpl"))return !1;try{return e._asyncIteratorImpl instanceof zt}catch{return !1}}n(Gn,"IsReadableStreamAsyncIterator");function Zn(e){return new TypeError(`ReadableStreamAsyncIterator.${e} can only be used on a ReadableSteamAsyncIterator`)}n(Zn,"streamAsyncIteratorBrandCheckException");const Kn=Number.isNaN||function(e){return e!==e};function pt(e){return e.slice()}n(pt,"CreateArrayFromList");function Jn(e,t,r,s,f){new Uint8Array(e).set(new Uint8Array(r,s,f),t);}n(Jn,"CopyDataBlockBytes");function Ks(e){return e}n(Ks,"TransferArrayBuffer");function jt(e){return !1}n(jt,"IsDetachedBuffer");function Xn(e,t,r){if(e.slice)return e.slice(t,r);const s=r-t,f=new ArrayBuffer(s);return Jn(f,0,e,t,s),f}n(Xn,"ArrayBufferSlice");function Oi(e){return !(typeof e!="number"||Kn(e)||e<0)}n(Oi,"IsNonNegativeNumber");function eo(e){const t=Xn(e.buffer,e.byteOffset,e.byteOffset+e.byteLength);return new Uint8Array(t)}n(eo,"CloneAsUint8Array");function zr(e){const t=e._queue.shift();return e._queueTotalSize-=t.size,e._queueTotalSize<0&&(e._queueTotalSize=0),t.value}n(zr,"DequeueValue");function jr(e,t,r){if(!Oi(r)||r===1/0)throw new RangeError("Size must be a finite, non-NaN, non-negative number.");e._queue.push({value:t,size:r}),e._queueTotalSize+=r;}n(jr,"EnqueueValueWithSize");function qi(e){return e._queue.peek().value}n(qi,"PeekQueueValue");function ge(e){e._queue=new x,e._queueTotalSize=0;}n(ge,"ResetQueue");const an=class an{constructor(){throw new TypeError("Illegal constructor")}get view(){if(!Fr(this))throw Dr("view");return this._view}respond(t){if(!Fr(this))throw Dr("respond");if(de(t,1,"respond"),t=xn(t,"First parameter"),this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(this._view.buffer),Dt(this._associatedReadableByteStreamController,t);}respondWithNewView(t){if(!Fr(this))throw Dr("respondWithNewView");if(de(t,1,"respondWithNewView"),!ArrayBuffer.isView(t))throw new TypeError("You can only respond with array buffer views");if(this._associatedReadableByteStreamController===void 0)throw new TypeError("This BYOB request has been invalidated");jt(t.buffer),Mt(this._associatedReadableByteStreamController,t);}};n(an,"ReadableStreamBYOBRequest");let Ae=an;Object.defineProperties(Ae.prototype,{respond:{enumerable:!0},respondWithNewView:{enumerable:!0},view:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ae.prototype,l.toStringTag,{value:"ReadableStreamBYOBRequest",configurable:!0});const sn=class sn{constructor(){throw new TypeError("Illegal constructor")}get byobRequest(){if(!We(this))throw mt("byobRequest");return $r(this)}get desiredSize(){if(!We(this))throw mt("desiredSize");return lo(this)}close(){if(!We(this))throw mt("close");if(this._closeRequested)throw new TypeError("The stream has already been closed; do not close it again!");const t=this._controlledReadableByteStream._state;if(t!=="readable")throw new TypeError(`The stream (in ${t} state) is not in the readable state and cannot be closed`);bt(this);}enqueue(t){if(!We(this))throw mt("enqueue");if(de(t,1,"enqueue"),!ArrayBuffer.isView(t))throw new TypeError("chunk must be an array buffer view");if(t.byteLength===0)throw new TypeError("chunk must have non-zero byteLength");if(t.buffer.byteLength===0)throw new TypeError("chunk's buffer must have non-zero byteLength");if(this._closeRequested)throw new TypeError("stream is closed or draining");const r=this._controlledReadableByteStream._state;if(r!=="readable")throw new TypeError(`The stream (in ${r} state) is not in the readable state and cannot be enqueued to`);$t(this,t);}error(t=void 0){if(!We(this))throw mt("error");K(this,t);}[Ar](t){to(this),ge(this);const r=this._cancelAlgorithm(t);return Lt(this),r}[Wr](t){const r=this._controlledReadableByteStream;if(this._queueTotalSize>0){const f=this._queue.shift();this._queueTotalSize-=f.byteLength,io(this);const c=new Uint8Array(f.buffer,f.byteOffset,f.byteLength);t._chunkSteps(c);return}const s=this._autoAllocateChunkSize;if(s!==void 0){let f;try{f=new ArrayBuffer(s);}catch(h){t._errorSteps(h);return}const c={buffer:f,bufferByteLength:s,byteOffset:0,byteLength:s,bytesFilled:0,elementSize:1,viewConstructor:Uint8Array,readerType:"default"};this._pendingPullIntos.push(c);}Hn(r,t),Be(this);}};n(sn,"ReadableByteStreamController");let _e=sn;Object.defineProperties(_e.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},byobRequest:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(_e.prototype,l.toStringTag,{value:"ReadableByteStreamController",configurable:!0});function We(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableByteStream")?!1:e instanceof _e}n(We,"IsReadableByteStreamController");function Fr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_associatedReadableByteStreamController")?!1:e instanceof Ae}n(Fr,"IsReadableStreamBYOBRequest");function Be(e){if(!Ii(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,Be(e));},s=>{K(e,s);});}n(Be,"ReadableByteStreamControllerCallPullIfNeeded");function to(e){Lr(e),e._pendingPullIntos=new x;}n(to,"ReadableByteStreamControllerClearPendingPullIntos");function Ir(e,t){let r=!1;e._state==="closed"&&(r=!0);const s=ro(t);t.readerType==="default"?qr(e,s,r):Di(e,s,r);}n(Ir,"ReadableByteStreamControllerCommitPullIntoDescriptor");function ro(e){const t=e.bytesFilled,r=e.elementSize;return new e.viewConstructor(e.buffer,e.byteOffset,t/r)}n(ro,"ReadableByteStreamControllerConvertPullIntoDescriptor");function Ft(e,t,r,s){e._queue.push({buffer:t,byteOffset:r,byteLength:s}),e._queueTotalSize+=s;}n(Ft,"ReadableByteStreamControllerEnqueueChunkToQueue");function no(e,t){const r=t.elementSize,s=t.bytesFilled-t.bytesFilled%r,f=Math.min(e._queueTotalSize,t.byteLength-t.bytesFilled),c=t.bytesFilled+f,h=c-c%r;let y=f,w=!1;h>s&&(y=h-t.bytesFilled,w=!0);const T=e._queue;for(;y>0;){const P=T.peek(),v=Math.min(y,P.byteLength),z=t.byteOffset+t.bytesFilled;Jn(t.buffer,z,P.buffer,P.byteOffset,v),P.byteLength===v?T.shift():(P.byteOffset+=v,P.byteLength-=v),e._queueTotalSize-=v,oo(e,v,t),y-=v;}return w}n(no,"ReadableByteStreamControllerFillPullIntoDescriptorFromQueue");function oo(e,t,r){r.bytesFilled+=t;}n(oo,"ReadableByteStreamControllerFillHeadPullIntoDescriptor");function io(e){e._queueTotalSize===0&&e._closeRequested?(Lt(e),wt(e._controlledReadableByteStream)):Be(e);}n(io,"ReadableByteStreamControllerHandleQueueDrain");function Lr(e){e._byobRequest!==null&&(e._byobRequest._associatedReadableByteStreamController=void 0,e._byobRequest._view=null,e._byobRequest=null);}n(Lr,"ReadableByteStreamControllerInvalidateBYOBRequest");function ao(e){for(;e._pendingPullIntos.length>0;){if(e._queueTotalSize===0)return;const t=e._pendingPullIntos.peek();no(e,t)&&(It(e),Ir(e._controlledReadableByteStream,t));}}n(ao,"ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue");function zi(e,t,r){const s=e._controlledReadableByteStream;let f=1;t.constructor!==DataView&&(f=t.constructor.BYTES_PER_ELEMENT);const c=t.constructor,h=t.buffer,y={buffer:h,bufferByteLength:h.byteLength,byteOffset:t.byteOffset,byteLength:t.byteLength,bytesFilled:0,elementSize:f,viewConstructor:c,readerType:"byob"};if(e._pendingPullIntos.length>0){e._pendingPullIntos.push(y),co(s,r);return}if(s._state==="closed"){const w=new c(y.buffer,y.byteOffset,0);r._closeSteps(w);return}if(e._queueTotalSize>0){if(no(e,y)){const w=ro(y);io(e),r._chunkSteps(w);return}if(e._closeRequested){const w=new TypeError("Insufficient bytes to fill elements in the given buffer");K(e,w),r._errorSteps(w);return}}e._pendingPullIntos.push(y),co(s,r),Be(e);}n(zi,"ReadableByteStreamControllerPullInto");function ji(e,t){const r=e._controlledReadableByteStream;if(Mr(r))for(;ho(r)>0;){const s=It(e);Ir(r,s);}}n(ji,"ReadableByteStreamControllerRespondInClosedState");function Fi(e,t,r){if(oo(e,t,r),r.bytesFilled<r.elementSize)return;It(e);const s=r.bytesFilled%r.elementSize;if(s>0){const f=r.byteOffset+r.bytesFilled,c=Xn(r.buffer,f-s,f);Ft(e,c,0,c.byteLength);}r.bytesFilled-=s,Ir(e._controlledReadableByteStream,r),ao(e);}n(Fi,"ReadableByteStreamControllerRespondInReadableState");function so(e,t){const r=e._pendingPullIntos.peek();Lr(e),e._controlledReadableByteStream._state==="closed"?ji(e):Fi(e,t,r),Be(e);}n(so,"ReadableByteStreamControllerRespondInternal");function It(e){return e._pendingPullIntos.shift()}n(It,"ReadableByteStreamControllerShiftPendingPullInto");function Ii(e){const t=e._controlledReadableByteStream;return t._state!=="readable"||e._closeRequested||!e._started?!1:!!(Vn(t)&&Ot(t)>0||Mr(t)&&ho(t)>0||lo(e)>0)}n(Ii,"ReadableByteStreamControllerShouldCallPull");function Lt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0;}n(Lt,"ReadableByteStreamControllerClearAlgorithms");function bt(e){const t=e._controlledReadableByteStream;if(!(e._closeRequested||t._state!=="readable")){if(e._queueTotalSize>0){e._closeRequested=!0;return}if(e._pendingPullIntos.length>0&&e._pendingPullIntos.peek().bytesFilled>0){const s=new TypeError("Insufficient bytes to fill elements in the given buffer");throw K(e,s),s}Lt(e),wt(t);}}n(bt,"ReadableByteStreamControllerClose");function $t(e,t){const r=e._controlledReadableByteStream;if(e._closeRequested||r._state!=="readable")return;const s=t.buffer,f=t.byteOffset,c=t.byteLength,h=s;if(e._pendingPullIntos.length>0){const y=e._pendingPullIntos.peek();jt(y.buffer),y.buffer=y.buffer;}if(Lr(e),Vn(r))if(Ot(r)===0)Ft(e,h,f,c);else {e._pendingPullIntos.length>0&&It(e);const y=new Uint8Array(h,f,c);qr(r,y,!1);}else Mr(r)?(Ft(e,h,f,c),ao(e)):Ft(e,h,f,c);Be(e);}n($t,"ReadableByteStreamControllerEnqueue");function K(e,t){const r=e._controlledReadableByteStream;r._state==="readable"&&(to(e),ge(e),Lt(e),Io(r,t));}n(K,"ReadableByteStreamControllerError");function $r(e){if(e._byobRequest===null&&e._pendingPullIntos.length>0){const t=e._pendingPullIntos.peek(),r=new Uint8Array(t.buffer,t.byteOffset+t.bytesFilled,t.byteLength-t.bytesFilled),s=Object.create(Ae.prototype);$i(s,e,r),e._byobRequest=s;}return e._byobRequest}n($r,"ReadableByteStreamControllerGetBYOBRequest");function lo(e){const t=e._controlledReadableByteStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n(lo,"ReadableByteStreamControllerGetDesiredSize");function Dt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t!==0)throw new TypeError("bytesWritten must be 0 when calling respond() on a closed stream")}else {if(t===0)throw new TypeError("bytesWritten must be greater than 0 when calling respond() on a readable stream");if(r.bytesFilled+t>r.byteLength)throw new RangeError("bytesWritten out of range")}r.buffer=r.buffer,so(e,t);}n(Dt,"ReadableByteStreamControllerRespond");function Mt(e,t){const r=e._pendingPullIntos.peek();if(e._controlledReadableByteStream._state==="closed"){if(t.byteLength!==0)throw new TypeError("The view's length must be 0 when calling respondWithNewView() on a closed stream")}else if(t.byteLength===0)throw new TypeError("The view's length must be greater than 0 when calling respondWithNewView() on a readable stream");if(r.byteOffset+r.bytesFilled!==t.byteOffset)throw new RangeError("The region specified by view does not match byobRequest");if(r.bufferByteLength!==t.buffer.byteLength)throw new RangeError("The buffer of view has different capacity than byobRequest");if(r.bytesFilled+t.byteLength>r.byteLength)throw new RangeError("The region specified by view is larger than byobRequest");const f=t.byteLength;r.buffer=t.buffer,so(e,f);}n(Mt,"ReadableByteStreamControllerRespondWithNewView");function uo(e,t,r,s,f,c,h){t._controlledReadableByteStream=e,t._pullAgain=!1,t._pulling=!1,t._byobRequest=null,t._queue=t._queueTotalSize=void 0,ge(t),t._closeRequested=!1,t._started=!1,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,t._autoAllocateChunkSize=h,t._pendingPullIntos=new x,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,Be(t);},w=>{K(t,w);});}n(uo,"SetUpReadableByteStreamController");function Li(e,t,r){const s=Object.create(_e.prototype);let f=n(()=>{},"startAlgorithm"),c=n(()=>b(void 0),"pullAlgorithm"),h=n(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(f=n(()=>t.start(s),"startAlgorithm")),t.pull!==void 0&&(c=n(()=>t.pull(s),"pullAlgorithm")),t.cancel!==void 0&&(h=n(w=>t.cancel(w),"cancelAlgorithm"));const y=t.autoAllocateChunkSize;if(y===0)throw new TypeError("autoAllocateChunkSize must be greater than 0");uo(e,s,f,c,h,r,y);}n(Li,"SetUpReadableByteStreamControllerFromUnderlyingSource");function $i(e,t,r){e._associatedReadableByteStreamController=t,e._view=r;}n($i,"SetUpReadableStreamBYOBRequest");function Dr(e){return new TypeError(`ReadableStreamBYOBRequest.prototype.${e} can only be used on a ReadableStreamBYOBRequest`)}n(Dr,"byobRequestBrandCheckException");function mt(e){return new TypeError(`ReadableByteStreamController.prototype.${e} can only be used on a ReadableByteStreamController`)}n(mt,"byteStreamControllerBrandCheckException");function fo(e){return new ke(e)}n(fo,"AcquireReadableStreamBYOBReader");function co(e,t){e._reader._readIntoRequests.push(t);}n(co,"ReadableStreamAddReadIntoRequest");function Di(e,t,r){const f=e._reader._readIntoRequests.shift();r?f._closeSteps(t):f._chunkSteps(t);}n(Di,"ReadableStreamFulfillReadIntoRequest");function ho(e){return e._reader._readIntoRequests.length}n(ho,"ReadableStreamGetNumReadIntoRequests");function Mr(e){const t=e._reader;return !(t===void 0||!Oe(t))}n(Mr,"ReadableStreamHasBYOBReader");const ln=class ln{constructor(t){if(de(t,1,"ReadableStreamBYOBReader"),Or(t,"First parameter"),Ce(t))throw new TypeError("This stream has already been locked for exclusive reading by another reader");if(!We(t._readableStreamController))throw new TypeError("Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source");Fn(this,t),this._readIntoRequests=new x;}get closed(){return Oe(this)?this._closedPromise:g(Ut("closed"))}cancel(t=void 0){return Oe(this)?this._ownerReadableStream===void 0?g(He("cancel")):Pr(this,t):g(Ut("cancel"))}read(t){if(!Oe(this))return g(Ut("read"));if(!ArrayBuffer.isView(t))return g(new TypeError("view must be an array buffer view"));if(t.byteLength===0)return g(new TypeError("view must have non-zero byteLength"));if(t.buffer.byteLength===0)return g(new TypeError("view's buffer must have non-zero byteLength"));if(jt(t.buffer),this._ownerReadableStream===void 0)return g(He("read from"));let r,s;const f=E((h,y)=>{r=h,s=y;});return po(this,t,{_chunkSteps:h=>r({value:h,done:!1}),_closeSteps:h=>r({value:h,done:!0}),_errorSteps:h=>s(h)}),f}releaseLock(){if(!Oe(this))throw Ut("releaseLock");if(this._ownerReadableStream!==void 0){if(this._readIntoRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");fe(this);}}};n(ln,"ReadableStreamBYOBReader");let ke=ln;Object.defineProperties(ke.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ke.prototype,l.toStringTag,{value:"ReadableStreamBYOBReader",configurable:!0});function Oe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readIntoRequests")?!1:e instanceof ke}n(Oe,"IsReadableStreamBYOBReader");function po(e,t,r){const s=e._ownerReadableStream;s._disturbed=!0,s._state==="errored"?r._errorSteps(s._storedError):zi(s._readableStreamController,t,r);}n(po,"ReadableStreamBYOBReaderRead");function Ut(e){return new TypeError(`ReadableStreamBYOBReader.prototype.${e} can only be used on a ReadableStreamBYOBReader`)}n(Ut,"byobReaderBrandCheckException");function yt(e,t){const{highWaterMark:r}=e;if(r===void 0)return t;if(Kn(r)||r<0)throw new RangeError("Invalid highWaterMark");return r}n(yt,"ExtractHighWaterMark");function Nt(e){const{size:t}=e;return t||(()=>1)}n(Nt,"ExtractSizeAlgorithm");function xt(e,t){ce(e,t);const r=e?.highWaterMark,s=e?.size;return {highWaterMark:r===void 0?void 0:kr(r),size:s===void 0?void 0:Mi(s,`${t} has member 'size' that`)}}n(xt,"convertQueuingStrategy");function Mi(e,t){return Z(e,t),r=>kr(e(r))}n(Mi,"convertQueuingStrategySize");function Ui(e,t){ce(e,t);const r=e?.abort,s=e?.close,f=e?.start,c=e?.type,h=e?.write;return {abort:r===void 0?void 0:Ni(r,e,`${t} has member 'abort' that`),close:s===void 0?void 0:xi(s,e,`${t} has member 'close' that`),start:f===void 0?void 0:Hi(f,e,`${t} has member 'start' that`),write:h===void 0?void 0:Vi(h,e,`${t} has member 'write' that`),type:c}}n(Ui,"convertUnderlyingSink");function Ni(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Ni,"convertUnderlyingSinkAbortCallback");function xi(e,t,r){return Z(e,r),()=>ue(e,t,[])}n(xi,"convertUnderlyingSinkCloseCallback");function Hi(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n(Hi,"convertUnderlyingSinkStartCallback");function Vi(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n(Vi,"convertUnderlyingSinkWriteCallback");function bo(e,t){if(!Qe(e))throw new TypeError(`${t} is not a WritableStream.`)}n(bo,"assertWritableStream");function Qi(e){if(typeof e!="object"||e===null)return !1;try{return typeof e.aborted=="boolean"}catch{return !1}}n(Qi,"isAbortSignal");const Yi=typeof AbortController=="function";function Gi(){if(Yi)return new AbortController}n(Gi,"createAbortController");const un=class un{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ui(t,"First parameter");if(yo(this),f.type!==void 0)throw new RangeError("Invalid type is specified");const h=Nt(s),y=yt(s,1);ua(this,f,y,h);}get locked(){if(!Qe(this))throw Gt("locked");return Ye(this)}abort(t=void 0){return Qe(this)?Ye(this)?g(new TypeError("Cannot abort a stream that already has a writer")):Ht(this,t):g(Gt("abort"))}close(){return Qe(this)?Ye(this)?g(new TypeError("Cannot close a stream that already has a writer")):oe(this)?g(new TypeError("Cannot close an already-closing stream")):go(this):g(Gt("close"))}getWriter(){if(!Qe(this))throw Gt("getWriter");return mo(this)}};n(un,"WritableStream");let qe=un;Object.defineProperties(qe.prototype,{abort:{enumerable:!0},close:{enumerable:!0},getWriter:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(qe.prototype,l.toStringTag,{value:"WritableStream",configurable:!0});function mo(e){return new ze(e)}n(mo,"AcquireWritableStreamDefaultWriter");function Zi(e,t,r,s,f=1,c=()=>1){const h=Object.create(qe.prototype);yo(h);const y=Object.create(Se.prototype);return Co(h,y,e,t,r,s,f,c),h}n(Zi,"CreateWritableStream");function yo(e){e._state="writable",e._storedError=void 0,e._writer=void 0,e._writableStreamController=void 0,e._writeRequests=new x,e._inFlightWriteRequest=void 0,e._closeRequest=void 0,e._inFlightCloseRequest=void 0,e._pendingAbortRequest=void 0,e._backpressure=!1;}n(yo,"InitializeWritableStream");function Qe(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_writableStreamController")?!1:e instanceof qe}n(Qe,"IsWritableStream");function Ye(e){return e._writer!==void 0}n(Ye,"IsWritableStreamLocked");function Ht(e,t){var r;if(e._state==="closed"||e._state==="errored")return b(void 0);e._writableStreamController._abortReason=t,(r=e._writableStreamController._abortController)===null||r===void 0||r.abort();const s=e._state;if(s==="closed"||s==="errored")return b(void 0);if(e._pendingAbortRequest!==void 0)return e._pendingAbortRequest._promise;let f=!1;s==="erroring"&&(f=!0,t=void 0);const c=E((h,y)=>{e._pendingAbortRequest={_promise:void 0,_resolve:h,_reject:y,_reason:t,_wasAlreadyErroring:f};});return e._pendingAbortRequest._promise=c,f||Nr(e,t),c}n(Ht,"WritableStreamAbort");function go(e){const t=e._state;if(t==="closed"||t==="errored")return g(new TypeError(`The stream (in ${t} state) is not in the writable state and cannot be closed`));const r=E((f,c)=>{const h={_resolve:f,_reject:c};e._closeRequest=h;}),s=e._writer;return s!==void 0&&e._backpressure&&t==="writable"&&Jr(s),fa(e._writableStreamController),r}n(go,"WritableStreamClose");function Ki(e){return E((r,s)=>{const f={_resolve:r,_reject:s};e._writeRequests.push(f);})}n(Ki,"WritableStreamAddWriteRequest");function Ur(e,t){if(e._state==="writable"){Nr(e,t);return}xr(e);}n(Ur,"WritableStreamDealWithRejection");function Nr(e,t){const r=e._writableStreamController;e._state="erroring",e._storedError=t;const s=e._writer;s!==void 0&&So(s,t),!ra(e)&&r._started&&xr(e);}n(Nr,"WritableStreamStartErroring");function xr(e){e._state="errored",e._writableStreamController[Dn]();const t=e._storedError;if(e._writeRequests.forEach(f=>{f._reject(t);}),e._writeRequests=new x,e._pendingAbortRequest===void 0){Vt(e);return}const r=e._pendingAbortRequest;if(e._pendingAbortRequest=void 0,r._wasAlreadyErroring){r._reject(t),Vt(e);return}const s=e._writableStreamController[$n](r._reason);q(s,()=>{r._resolve(),Vt(e);},f=>{r._reject(f),Vt(e);});}n(xr,"WritableStreamFinishErroring");function Ji(e){e._inFlightWriteRequest._resolve(void 0),e._inFlightWriteRequest=void 0;}n(Ji,"WritableStreamFinishInFlightWrite");function Xi(e,t){e._inFlightWriteRequest._reject(t),e._inFlightWriteRequest=void 0,Ur(e,t);}n(Xi,"WritableStreamFinishInFlightWriteWithError");function ea(e){e._inFlightCloseRequest._resolve(void 0),e._inFlightCloseRequest=void 0,e._state==="erroring"&&(e._storedError=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._resolve(),e._pendingAbortRequest=void 0)),e._state="closed";const r=e._writer;r!==void 0&&Ao(r);}n(ea,"WritableStreamFinishInFlightClose");function ta(e,t){e._inFlightCloseRequest._reject(t),e._inFlightCloseRequest=void 0,e._pendingAbortRequest!==void 0&&(e._pendingAbortRequest._reject(t),e._pendingAbortRequest=void 0),Ur(e,t);}n(ta,"WritableStreamFinishInFlightCloseWithError");function oe(e){return !(e._closeRequest===void 0&&e._inFlightCloseRequest===void 0)}n(oe,"WritableStreamCloseQueuedOrInFlight");function ra(e){return !(e._inFlightWriteRequest===void 0&&e._inFlightCloseRequest===void 0)}n(ra,"WritableStreamHasOperationMarkedInFlight");function na(e){e._inFlightCloseRequest=e._closeRequest,e._closeRequest=void 0;}n(na,"WritableStreamMarkCloseRequestInFlight");function oa(e){e._inFlightWriteRequest=e._writeRequests.shift();}n(oa,"WritableStreamMarkFirstWriteRequestInFlight");function Vt(e){e._closeRequest!==void 0&&(e._closeRequest._reject(e._storedError),e._closeRequest=void 0);const t=e._writer;t!==void 0&&Zr(t,e._storedError);}n(Vt,"WritableStreamRejectCloseAndClosedPromiseIfNeeded");function Hr(e,t){const r=e._writer;r!==void 0&&t!==e._backpressure&&(t?ya(r):Jr(r)),e._backpressure=t;}n(Hr,"WritableStreamUpdateBackpressure");const fn=class fn{constructor(t){if(de(t,1,"WritableStreamDefaultWriter"),bo(t,"First parameter"),Ye(t))throw new TypeError("This stream has already been locked for exclusive writing by another writer");this._ownerWritableStream=t,t._writer=this;const r=t._state;if(r==="writable")!oe(t)&&t._backpressure?Kt(this):Wo(this),Zt(this);else if(r==="erroring")Kr(this,t._storedError),Zt(this);else if(r==="closed")Wo(this),ba(this);else {const s=t._storedError;Kr(this,s),Eo(this,s);}}get closed(){return je(this)?this._closedPromise:g(Fe("closed"))}get desiredSize(){if(!je(this))throw Fe("desiredSize");if(this._ownerWritableStream===void 0)throw gt("desiredSize");return la(this)}get ready(){return je(this)?this._readyPromise:g(Fe("ready"))}abort(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("abort")):ia(this,t):g(Fe("abort"))}close(){if(!je(this))return g(Fe("close"));const t=this._ownerWritableStream;return t===void 0?g(gt("close")):oe(t)?g(new TypeError("Cannot close an already-closing stream")):_o(this)}releaseLock(){if(!je(this))throw Fe("releaseLock");this._ownerWritableStream!==void 0&&wo(this);}write(t=void 0){return je(this)?this._ownerWritableStream===void 0?g(gt("write to")):Ro(this,t):g(Fe("write"))}};n(fn,"WritableStreamDefaultWriter");let ze=fn;Object.defineProperties(ze.prototype,{abort:{enumerable:!0},close:{enumerable:!0},releaseLock:{enumerable:!0},write:{enumerable:!0},closed:{enumerable:!0},desiredSize:{enumerable:!0},ready:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ze.prototype,l.toStringTag,{value:"WritableStreamDefaultWriter",configurable:!0});function je(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_ownerWritableStream")?!1:e instanceof ze}n(je,"IsWritableStreamDefaultWriter");function ia(e,t){const r=e._ownerWritableStream;return Ht(r,t)}n(ia,"WritableStreamDefaultWriterAbort");function _o(e){const t=e._ownerWritableStream;return go(t)}n(_o,"WritableStreamDefaultWriterClose");function aa(e){const t=e._ownerWritableStream,r=t._state;return oe(t)||r==="closed"?b(void 0):r==="errored"?g(t._storedError):_o(e)}n(aa,"WritableStreamDefaultWriterCloseWithErrorPropagation");function sa(e,t){e._closedPromiseState==="pending"?Zr(e,t):ma(e,t);}n(sa,"WritableStreamDefaultWriterEnsureClosedPromiseRejected");function So(e,t){e._readyPromiseState==="pending"?Bo(e,t):ga(e,t);}n(So,"WritableStreamDefaultWriterEnsureReadyPromiseRejected");function la(e){const t=e._ownerWritableStream,r=t._state;return r==="errored"||r==="erroring"?null:r==="closed"?0:Po(t._writableStreamController)}n(la,"WritableStreamDefaultWriterGetDesiredSize");function wo(e){const t=e._ownerWritableStream,r=new TypeError("Writer was released and can no longer be used to monitor the stream's closedness");So(e,r),sa(e,r),t._writer=void 0,e._ownerWritableStream=void 0;}n(wo,"WritableStreamDefaultWriterRelease");function Ro(e,t){const r=e._ownerWritableStream,s=r._writableStreamController,f=ca(s,t);if(r!==e._ownerWritableStream)return g(gt("write to"));const c=r._state;if(c==="errored")return g(r._storedError);if(oe(r)||c==="closed")return g(new TypeError("The stream is closing or closed and cannot be written to"));if(c==="erroring")return g(r._storedError);const h=Ki(r);return da(s,t,f),h}n(Ro,"WritableStreamDefaultWriterWrite");const To={},cn=class cn{constructor(){throw new TypeError("Illegal constructor")}get abortReason(){if(!Vr(this))throw Gr("abortReason");return this._abortReason}get signal(){if(!Vr(this))throw Gr("signal");if(this._abortController===void 0)throw new TypeError("WritableStreamDefaultController.prototype.signal is not supported");return this._abortController.signal}error(t=void 0){if(!Vr(this))throw Gr("error");this._controlledWritableStream._state==="writable"&&vo(this,t);}[$n](t){const r=this._abortAlgorithm(t);return Qt(this),r}[Dn](){ge(this);}};n(cn,"WritableStreamDefaultController");let Se=cn;Object.defineProperties(Se.prototype,{abortReason:{enumerable:!0},signal:{enumerable:!0},error:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Se.prototype,l.toStringTag,{value:"WritableStreamDefaultController",configurable:!0});function Vr(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledWritableStream")?!1:e instanceof Se}n(Vr,"IsWritableStreamDefaultController");function Co(e,t,r,s,f,c,h,y){t._controlledWritableStream=e,e._writableStreamController=t,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._abortReason=void 0,t._abortController=Gi(),t._started=!1,t._strategySizeAlgorithm=y,t._strategyHWM=h,t._writeAlgorithm=s,t._closeAlgorithm=f,t._abortAlgorithm=c;const w=Yr(t);Hr(e,w);const T=r(),P=b(T);q(P,()=>{t._started=!0,Yt(t);},v=>{t._started=!0,Ur(e,v);});}n(Co,"SetUpWritableStreamDefaultController");function ua(e,t,r,s){const f=Object.create(Se.prototype);let c=n(()=>{},"startAlgorithm"),h=n(()=>b(void 0),"writeAlgorithm"),y=n(()=>b(void 0),"closeAlgorithm"),w=n(()=>b(void 0),"abortAlgorithm");t.start!==void 0&&(c=n(()=>t.start(f),"startAlgorithm")),t.write!==void 0&&(h=n(T=>t.write(T,f),"writeAlgorithm")),t.close!==void 0&&(y=n(()=>t.close(),"closeAlgorithm")),t.abort!==void 0&&(w=n(T=>t.abort(T),"abortAlgorithm")),Co(e,f,c,h,y,w,r,s);}n(ua,"SetUpWritableStreamDefaultControllerFromUnderlyingSink");function Qt(e){e._writeAlgorithm=void 0,e._closeAlgorithm=void 0,e._abortAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n(Qt,"WritableStreamDefaultControllerClearAlgorithms");function fa(e){jr(e,To,0),Yt(e);}n(fa,"WritableStreamDefaultControllerClose");function ca(e,t){try{return e._strategySizeAlgorithm(t)}catch(r){return Qr(e,r),1}}n(ca,"WritableStreamDefaultControllerGetChunkSize");function Po(e){return e._strategyHWM-e._queueTotalSize}n(Po,"WritableStreamDefaultControllerGetDesiredSize");function da(e,t,r){try{jr(e,t,r);}catch(f){Qr(e,f);return}const s=e._controlledWritableStream;if(!oe(s)&&s._state==="writable"){const f=Yr(e);Hr(s,f);}Yt(e);}n(da,"WritableStreamDefaultControllerWrite");function Yt(e){const t=e._controlledWritableStream;if(!e._started||t._inFlightWriteRequest!==void 0)return;if(t._state==="erroring"){xr(t);return}if(e._queue.length===0)return;const s=qi(e);s===To?ha(e):pa(e,s);}n(Yt,"WritableStreamDefaultControllerAdvanceQueueIfNeeded");function Qr(e,t){e._controlledWritableStream._state==="writable"&&vo(e,t);}n(Qr,"WritableStreamDefaultControllerErrorIfNeeded");function ha(e){const t=e._controlledWritableStream;na(t),zr(e);const r=e._closeAlgorithm();Qt(e),q(r,()=>{ea(t);},s=>{ta(t,s);});}n(ha,"WritableStreamDefaultControllerProcessClose");function pa(e,t){const r=e._controlledWritableStream;oa(r);const s=e._writeAlgorithm(t);q(s,()=>{Ji(r);const f=r._state;if(zr(e),!oe(r)&&f==="writable"){const c=Yr(e);Hr(r,c);}Yt(e);},f=>{r._state==="writable"&&Qt(e),Xi(r,f);});}n(pa,"WritableStreamDefaultControllerProcessWrite");function Yr(e){return Po(e)<=0}n(Yr,"WritableStreamDefaultControllerGetBackpressure");function vo(e,t){const r=e._controlledWritableStream;Qt(e),Nr(r,t);}n(vo,"WritableStreamDefaultControllerError");function Gt(e){return new TypeError(`WritableStream.prototype.${e} can only be used on a WritableStream`)}n(Gt,"streamBrandCheckException$2");function Gr(e){return new TypeError(`WritableStreamDefaultController.prototype.${e} can only be used on a WritableStreamDefaultController`)}n(Gr,"defaultControllerBrandCheckException$2");function Fe(e){return new TypeError(`WritableStreamDefaultWriter.prototype.${e} can only be used on a WritableStreamDefaultWriter`)}n(Fe,"defaultWriterBrandCheckException");function gt(e){return new TypeError("Cannot "+e+" a stream using a released writer")}n(gt,"defaultWriterLockException");function Zt(e){e._closedPromise=E((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r,e._closedPromiseState="pending";});}n(Zt,"defaultWriterClosedPromiseInitialize");function Eo(e,t){Zt(e),Zr(e,t);}n(Eo,"defaultWriterClosedPromiseInitializeAsRejected");function ba(e){Zt(e),Ao(e);}n(ba,"defaultWriterClosedPromiseInitializeAsResolved");function Zr(e,t){e._closedPromise_reject!==void 0&&($(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="rejected");}n(Zr,"defaultWriterClosedPromiseReject");function ma(e,t){Eo(e,t);}n(ma,"defaultWriterClosedPromiseResetToRejected");function Ao(e){e._closedPromise_resolve!==void 0&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="resolved");}n(Ao,"defaultWriterClosedPromiseResolve");function Kt(e){e._readyPromise=E((t,r)=>{e._readyPromise_resolve=t,e._readyPromise_reject=r;}),e._readyPromiseState="pending";}n(Kt,"defaultWriterReadyPromiseInitialize");function Kr(e,t){Kt(e),Bo(e,t);}n(Kr,"defaultWriterReadyPromiseInitializeAsRejected");function Wo(e){Kt(e),Jr(e);}n(Wo,"defaultWriterReadyPromiseInitializeAsResolved");function Bo(e,t){e._readyPromise_reject!==void 0&&($(e._readyPromise),e._readyPromise_reject(t),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="rejected");}n(Bo,"defaultWriterReadyPromiseReject");function ya(e){Kt(e);}n(ya,"defaultWriterReadyPromiseReset");function ga(e,t){Kr(e,t);}n(ga,"defaultWriterReadyPromiseResetToRejected");function Jr(e){e._readyPromise_resolve!==void 0&&(e._readyPromise_resolve(void 0),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="fulfilled");}n(Jr,"defaultWriterReadyPromiseResolve");const ko=typeof DOMException<"u"?DOMException:void 0;function _a(e){if(!(typeof e=="function"||typeof e=="object"))return !1;try{return new e,!0}catch{return !1}}n(_a,"isDOMExceptionConstructor");function Sa(){const e=n(function(r,s){this.message=r||"",this.name=s||"Error",Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor);},"DOMException");return e.prototype=Object.create(Error.prototype),Object.defineProperty(e.prototype,"constructor",{value:e,writable:!0,configurable:!0}),e}n(Sa,"createDOMExceptionPolyfill");const wa=_a(ko)?ko:Sa();function Oo(e,t,r,s,f,c){const h=Ve(e),y=mo(t);e._disturbed=!0;let w=!1,T=b(void 0);return E((P,v)=>{let z;if(c!==void 0){if(z=n(()=>{const _=new wa("Aborted","AbortError"),R=[];s||R.push(()=>t._state==="writable"?Ht(t,_):b(void 0)),f||R.push(()=>e._state==="readable"?J(e,_):b(void 0)),U(()=>Promise.all(R.map(W=>W())),!0,_);},"abortAlgorithm"),c.aborted){z();return}c.addEventListener("abort",z);}function X(){return E((_,R)=>{function W(H){H?_():A(Xe(),W,R);}n(W,"next"),W(!1);})}n(X,"pipeLoop");function Xe(){return w?b(!0):A(y._readyPromise,()=>E((_,R)=>{ht(h,{_chunkSteps:W=>{T=A(Ro(y,W),void 0,u),_(!1);},_closeSteps:()=>_(!0),_errorSteps:R});}))}if(n(Xe,"pipeStep"),he(e,h._closedPromise,_=>{s?Q(!0,_):U(()=>Ht(t,_),!0,_);}),he(t,y._closedPromise,_=>{f?Q(!0,_):U(()=>J(e,_),!0,_);}),M(e,h._closedPromise,()=>{r?Q():U(()=>aa(y));}),oe(t)||t._state==="closed"){const _=new TypeError("the destination writable stream closed before all data could be piped to it");f?Q(!0,_):U(()=>J(e,_),!0,_);}$(X());function Pe(){const _=T;return A(T,()=>_!==T?Pe():void 0)}n(Pe,"waitForWritesToFinish");function he(_,R,W){_._state==="errored"?W(_._storedError):dt(R,W);}n(he,"isOrBecomesErrored");function M(_,R,W){_._state==="closed"?W():ne(R,W);}n(M,"isOrBecomesClosed");function U(_,R,W){if(w)return;w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),H):H();function H(){q(_(),()=>pe(R,W),et=>pe(!0,et));}n(H,"doTheRest");}n(U,"shutdownWithAction");function Q(_,R){w||(w=!0,t._state==="writable"&&!oe(t)?ne(Pe(),()=>pe(_,R)):pe(_,R));}n(Q,"shutdown");function pe(_,R){wo(y),fe(h),c!==void 0&&c.removeEventListener("abort",z),_?v(R):P(void 0);}n(pe,"finalize");})}n(Oo,"ReadableStreamPipeTo");const dn=class dn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!Jt(this))throw tr("desiredSize");return Xr(this)}close(){if(!Jt(this))throw tr("close");if(!Ge(this))throw new TypeError("The stream is not in a state that permits close");St(this);}enqueue(t=void 0){if(!Jt(this))throw tr("enqueue");if(!Ge(this))throw new TypeError("The stream is not in a state that permits enqueue");return er(this,t)}error(t=void 0){if(!Jt(this))throw tr("error");Re(this,t);}[Ar](t){ge(this);const r=this._cancelAlgorithm(t);return Xt(this),r}[Wr](t){const r=this._controlledReadableStream;if(this._queue.length>0){const s=zr(this);this._closeRequested&&this._queue.length===0?(Xt(this),wt(r)):_t(this),t._chunkSteps(s);}else Hn(r,t),_t(this);}};n(dn,"ReadableStreamDefaultController");let we=dn;Object.defineProperties(we.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(we.prototype,l.toStringTag,{value:"ReadableStreamDefaultController",configurable:!0});function Jt(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledReadableStream")?!1:e instanceof we}n(Jt,"IsReadableStreamDefaultController");function _t(e){if(!qo(e))return;if(e._pulling){e._pullAgain=!0;return}e._pulling=!0;const r=e._pullAlgorithm();q(r,()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,_t(e));},s=>{Re(e,s);});}n(_t,"ReadableStreamDefaultControllerCallPullIfNeeded");function qo(e){const t=e._controlledReadableStream;return !Ge(e)||!e._started?!1:!!(Ce(t)&&Ot(t)>0||Xr(e)>0)}n(qo,"ReadableStreamDefaultControllerShouldCallPull");function Xt(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0,e._strategySizeAlgorithm=void 0;}n(Xt,"ReadableStreamDefaultControllerClearAlgorithms");function St(e){if(!Ge(e))return;const t=e._controlledReadableStream;e._closeRequested=!0,e._queue.length===0&&(Xt(e),wt(t));}n(St,"ReadableStreamDefaultControllerClose");function er(e,t){if(!Ge(e))return;const r=e._controlledReadableStream;if(Ce(r)&&Ot(r)>0)qr(r,t,!1);else {let s;try{s=e._strategySizeAlgorithm(t);}catch(f){throw Re(e,f),f}try{jr(e,t,s);}catch(f){throw Re(e,f),f}}_t(e);}n(er,"ReadableStreamDefaultControllerEnqueue");function Re(e,t){const r=e._controlledReadableStream;r._state==="readable"&&(ge(e),Xt(e),Io(r,t));}n(Re,"ReadableStreamDefaultControllerError");function Xr(e){const t=e._controlledReadableStream._state;return t==="errored"?null:t==="closed"?0:e._strategyHWM-e._queueTotalSize}n(Xr,"ReadableStreamDefaultControllerGetDesiredSize");function Ra(e){return !qo(e)}n(Ra,"ReadableStreamDefaultControllerHasBackpressure");function Ge(e){const t=e._controlledReadableStream._state;return !e._closeRequested&&t==="readable"}n(Ge,"ReadableStreamDefaultControllerCanCloseOrEnqueue");function zo(e,t,r,s,f,c,h){t._controlledReadableStream=e,t._queue=void 0,t._queueTotalSize=void 0,ge(t),t._started=!1,t._closeRequested=!1,t._pullAgain=!1,t._pulling=!1,t._strategySizeAlgorithm=h,t._strategyHWM=c,t._pullAlgorithm=s,t._cancelAlgorithm=f,e._readableStreamController=t;const y=r();q(b(y),()=>{t._started=!0,_t(t);},w=>{Re(t,w);});}n(zo,"SetUpReadableStreamDefaultController");function Ta(e,t,r,s){const f=Object.create(we.prototype);let c=n(()=>{},"startAlgorithm"),h=n(()=>b(void 0),"pullAlgorithm"),y=n(()=>b(void 0),"cancelAlgorithm");t.start!==void 0&&(c=n(()=>t.start(f),"startAlgorithm")),t.pull!==void 0&&(h=n(()=>t.pull(f),"pullAlgorithm")),t.cancel!==void 0&&(y=n(w=>t.cancel(w),"cancelAlgorithm")),zo(e,f,c,h,y,r,s);}n(Ta,"SetUpReadableStreamDefaultControllerFromUnderlyingSource");function tr(e){return new TypeError(`ReadableStreamDefaultController.prototype.${e} can only be used on a ReadableStreamDefaultController`)}n(tr,"defaultControllerBrandCheckException$1");function Ca(e,t){return We(e._readableStreamController)?va(e):Pa(e)}n(Ca,"ReadableStreamTee");function Pa(e,t){const r=Ve(e);let s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(M=>{v=M;});function X(){return s?(f=!0,b(void 0)):(s=!0,ht(r,{_chunkSteps:U=>{F(()=>{f=!1;const Q=U,pe=U;c||er(T._readableStreamController,Q),h||er(P._readableStreamController,pe),s=!1,f&&X();});},_closeSteps:()=>{s=!1,c||St(T._readableStreamController),h||St(P._readableStreamController),(!c||!h)&&v(void 0);},_errorSteps:()=>{s=!1;}}),b(void 0))}n(X,"pullAlgorithm");function Xe(M){if(c=!0,y=M,h){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n(Xe,"cancel1Algorithm");function Pe(M){if(h=!0,w=M,c){const U=pt([y,w]),Q=J(e,U);v(Q);}return z}n(Pe,"cancel2Algorithm");function he(){}return n(he,"startAlgorithm"),T=en(he,X,Xe),P=en(he,X,Pe),dt(r._closedPromise,M=>{Re(T._readableStreamController,M),Re(P._readableStreamController,M),(!c||!h)&&v(void 0);}),[T,P]}n(Pa,"ReadableStreamDefaultTee");function va(e){let t=Ve(e),r=!1,s=!1,f=!1,c=!1,h=!1,y,w,T,P,v;const z=E(_=>{v=_;});function X(_){dt(_._closedPromise,R=>{_===t&&(K(T._readableStreamController,R),K(P._readableStreamController,R),(!c||!h)&&v(void 0));});}n(X,"forwardReaderError");function Xe(){Oe(t)&&(fe(t),t=Ve(e),X(t)),ht(t,{_chunkSteps:R=>{F(()=>{s=!1,f=!1;const W=R;let H=R;if(!c&&!h)try{H=eo(R);}catch(et){K(T._readableStreamController,et),K(P._readableStreamController,et),v(J(e,et));return}c||$t(T._readableStreamController,W),h||$t(P._readableStreamController,H),r=!1,s?he():f&&M();});},_closeSteps:()=>{r=!1,c||bt(T._readableStreamController),h||bt(P._readableStreamController),T._readableStreamController._pendingPullIntos.length>0&&Dt(T._readableStreamController,0),P._readableStreamController._pendingPullIntos.length>0&&Dt(P._readableStreamController,0),(!c||!h)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n(Xe,"pullWithDefaultReader");function Pe(_,R){ye(t)&&(fe(t),t=fo(e),X(t));const W=R?P:T,H=R?T:P;po(t,_,{_chunkSteps:tt=>{F(()=>{s=!1,f=!1;const rt=R?h:c;if(R?c:h)rt||Mt(W._readableStreamController,tt);else {let Zo;try{Zo=eo(tt);}catch(gn){K(W._readableStreamController,gn),K(H._readableStreamController,gn),v(J(e,gn));return}rt||Mt(W._readableStreamController,tt),$t(H._readableStreamController,Zo);}r=!1,s?he():f&&M();});},_closeSteps:tt=>{r=!1;const rt=R?h:c,sr=R?c:h;rt||bt(W._readableStreamController),sr||bt(H._readableStreamController),tt!==void 0&&(rt||Mt(W._readableStreamController,tt),!sr&&H._readableStreamController._pendingPullIntos.length>0&&Dt(H._readableStreamController,0)),(!rt||!sr)&&v(void 0);},_errorSteps:()=>{r=!1;}});}n(Pe,"pullWithBYOBReader");function he(){if(r)return s=!0,b(void 0);r=!0;const _=$r(T._readableStreamController);return _===null?Xe():Pe(_._view,!1),b(void 0)}n(he,"pull1Algorithm");function M(){if(r)return f=!0,b(void 0);r=!0;const _=$r(P._readableStreamController);return _===null?Xe():Pe(_._view,!0),b(void 0)}n(M,"pull2Algorithm");function U(_){if(c=!0,y=_,h){const R=pt([y,w]),W=J(e,R);v(W);}return z}n(U,"cancel1Algorithm");function Q(_){if(h=!0,w=_,c){const R=pt([y,w]),W=J(e,R);v(W);}return z}n(Q,"cancel2Algorithm");function pe(){}return n(pe,"startAlgorithm"),T=Fo(pe,he,U),P=Fo(pe,M,Q),X(t),[T,P]}n(va,"ReadableByteStreamTee");function Ea(e,t){ce(e,t);const r=e,s=r?.autoAllocateChunkSize,f=r?.cancel,c=r?.pull,h=r?.start,y=r?.type;return {autoAllocateChunkSize:s===void 0?void 0:xn(s,`${t} has member 'autoAllocateChunkSize' that`),cancel:f===void 0?void 0:Aa(f,r,`${t} has member 'cancel' that`),pull:c===void 0?void 0:Wa(c,r,`${t} has member 'pull' that`),start:h===void 0?void 0:Ba(h,r,`${t} has member 'start' that`),type:y===void 0?void 0:ka(y,`${t} has member 'type' that`)}}n(Ea,"convertUnderlyingDefaultOrByteSource");function Aa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Aa,"convertUnderlyingSourceCancelCallback");function Wa(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(Wa,"convertUnderlyingSourcePullCallback");function Ba(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n(Ba,"convertUnderlyingSourceStartCallback");function ka(e,t){if(e=`${e}`,e!=="bytes")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamType`);return e}n(ka,"convertReadableStreamType");function Oa(e,t){ce(e,t);const r=e?.mode;return {mode:r===void 0?void 0:qa(r,`${t} has member 'mode' that`)}}n(Oa,"convertReaderOptions");function qa(e,t){if(e=`${e}`,e!=="byob")throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamReaderMode`);return e}n(qa,"convertReadableStreamReaderMode");function za(e,t){return ce(e,t),{preventCancel:!!e?.preventCancel}}n(za,"convertIteratorOptions");function jo(e,t){ce(e,t);const r=e?.preventAbort,s=e?.preventCancel,f=e?.preventClose,c=e?.signal;return c!==void 0&&ja(c,`${t} has member 'signal' that`),{preventAbort:!!r,preventCancel:!!s,preventClose:!!f,signal:c}}n(jo,"convertPipeOptions");function ja(e,t){if(!Qi(e))throw new TypeError(`${t} is not an AbortSignal.`)}n(ja,"assertAbortSignal");function Fa(e,t){ce(e,t);const r=e?.readable;Br(r,"readable","ReadableWritablePair"),Or(r,`${t} has member 'readable' that`);const s=e?.writable;return Br(s,"writable","ReadableWritablePair"),bo(s,`${t} has member 'writable' that`),{readable:r,writable:s}}n(Fa,"convertReadableWritablePair");const hn=class hn{constructor(t={},r={}){t===void 0?t=null:Un(t,"First parameter");const s=xt(r,"Second parameter"),f=Ea(t,"First parameter");if(tn(this),f.type==="bytes"){if(s.size!==void 0)throw new RangeError("The strategy for a byte stream cannot have a size function");const c=yt(s,0);Li(this,f,c);}else {const c=Nt(s),h=yt(s,1);Ta(this,f,h,c);}}get locked(){if(!Te(this))throw Ie("locked");return Ce(this)}cancel(t=void 0){return Te(this)?Ce(this)?g(new TypeError("Cannot cancel a stream that already has a reader")):J(this,t):g(Ie("cancel"))}getReader(t=void 0){if(!Te(this))throw Ie("getReader");return Oa(t,"First parameter").mode===void 0?Ve(this):fo(this)}pipeThrough(t,r={}){if(!Te(this))throw Ie("pipeThrough");de(t,1,"pipeThrough");const s=Fa(t,"First parameter"),f=jo(r,"Second parameter");if(Ce(this))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream");if(Ye(s.writable))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream");const c=Oo(this,s.writable,f.preventClose,f.preventAbort,f.preventCancel,f.signal);return $(c),s.readable}pipeTo(t,r={}){if(!Te(this))return g(Ie("pipeTo"));if(t===void 0)return g("Parameter 1 is required in 'pipeTo'.");if(!Qe(t))return g(new TypeError("ReadableStream.prototype.pipeTo's first argument must be a WritableStream"));let s;try{s=jo(r,"Second parameter");}catch(f){return g(f)}return Ce(this)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream")):Ye(t)?g(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream")):Oo(this,t,s.preventClose,s.preventAbort,s.preventCancel,s.signal)}tee(){if(!Te(this))throw Ie("tee");const t=Ca(this);return pt(t)}values(t=void 0){if(!Te(this))throw Ie("values");const r=za(t,"First parameter");return ki(this,r.preventCancel)}};n(hn,"ReadableStream");let ie=hn;Object.defineProperties(ie.prototype,{cancel:{enumerable:!0},getReader:{enumerable:!0},pipeThrough:{enumerable:!0},pipeTo:{enumerable:!0},tee:{enumerable:!0},values:{enumerable:!0},locked:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(ie.prototype,l.toStringTag,{value:"ReadableStream",configurable:!0}),typeof l.asyncIterator=="symbol"&&Object.defineProperty(ie.prototype,l.asyncIterator,{value:ie.prototype.values,writable:!0,configurable:!0});function en(e,t,r,s=1,f=()=>1){const c=Object.create(ie.prototype);tn(c);const h=Object.create(we.prototype);return zo(c,h,e,t,r,s,f),c}n(en,"CreateReadableStream");function Fo(e,t,r){const s=Object.create(ie.prototype);tn(s);const f=Object.create(_e.prototype);return uo(s,f,e,t,r,0,void 0),s}n(Fo,"CreateReadableByteStream");function tn(e){e._state="readable",e._reader=void 0,e._storedError=void 0,e._disturbed=!1;}n(tn,"InitializeReadableStream");function Te(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_readableStreamController")?!1:e instanceof ie}n(Te,"IsReadableStream");function Ce(e){return e._reader!==void 0}n(Ce,"IsReadableStreamLocked");function J(e,t){if(e._disturbed=!0,e._state==="closed")return b(void 0);if(e._state==="errored")return g(e._storedError);wt(e);const r=e._reader;r!==void 0&&Oe(r)&&(r._readIntoRequests.forEach(f=>{f._closeSteps(void 0);}),r._readIntoRequests=new x);const s=e._readableStreamController[Ar](t);return O(s,u)}n(J,"ReadableStreamCancel");function wt(e){e._state="closed";const t=e._reader;t!==void 0&&(Ln(t),ye(t)&&(t._readRequests.forEach(r=>{r._closeSteps();}),t._readRequests=new x));}n(wt,"ReadableStreamClose");function Io(e,t){e._state="errored",e._storedError=t;const r=e._reader;r!==void 0&&(Er(r,t),ye(r)?(r._readRequests.forEach(s=>{s._errorSteps(t);}),r._readRequests=new x):(r._readIntoRequests.forEach(s=>{s._errorSteps(t);}),r._readIntoRequests=new x));}n(Io,"ReadableStreamError");function Ie(e){return new TypeError(`ReadableStream.prototype.${e} can only be used on a ReadableStream`)}n(Ie,"streamBrandCheckException$1");function Lo(e,t){ce(e,t);const r=e?.highWaterMark;return Br(r,"highWaterMark","QueuingStrategyInit"),{highWaterMark:kr(r)}}n(Lo,"convertQueuingStrategyInit");const $o=n(e=>e.byteLength,"byteLengthSizeFunction");try{Object.defineProperty($o,"name",{value:"size",configurable:!0});}catch{}const pn=class pn{constructor(t){de(t,1,"ByteLengthQueuingStrategy"),t=Lo(t,"First parameter"),this._byteLengthQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!Mo(this))throw Do("highWaterMark");return this._byteLengthQueuingStrategyHighWaterMark}get size(){if(!Mo(this))throw Do("size");return $o}};n(pn,"ByteLengthQueuingStrategy");let Ze=pn;Object.defineProperties(Ze.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ze.prototype,l.toStringTag,{value:"ByteLengthQueuingStrategy",configurable:!0});function Do(e){return new TypeError(`ByteLengthQueuingStrategy.prototype.${e} can only be used on a ByteLengthQueuingStrategy`)}n(Do,"byteLengthBrandCheckException");function Mo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_byteLengthQueuingStrategyHighWaterMark")?!1:e instanceof Ze}n(Mo,"IsByteLengthQueuingStrategy");const Uo=n(()=>1,"countSizeFunction");try{Object.defineProperty(Uo,"name",{value:"size",configurable:!0});}catch{}const bn=class bn{constructor(t){de(t,1,"CountQueuingStrategy"),t=Lo(t,"First parameter"),this._countQueuingStrategyHighWaterMark=t.highWaterMark;}get highWaterMark(){if(!xo(this))throw No("highWaterMark");return this._countQueuingStrategyHighWaterMark}get size(){if(!xo(this))throw No("size");return Uo}};n(bn,"CountQueuingStrategy");let Ke=bn;Object.defineProperties(Ke.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Ke.prototype,l.toStringTag,{value:"CountQueuingStrategy",configurable:!0});function No(e){return new TypeError(`CountQueuingStrategy.prototype.${e} can only be used on a CountQueuingStrategy`)}n(No,"countBrandCheckException");function xo(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_countQueuingStrategyHighWaterMark")?!1:e instanceof Ke}n(xo,"IsCountQueuingStrategy");function Ia(e,t){ce(e,t);const r=e?.flush,s=e?.readableType,f=e?.start,c=e?.transform,h=e?.writableType;return {flush:r===void 0?void 0:La(r,e,`${t} has member 'flush' that`),readableType:s,start:f===void 0?void 0:$a(f,e,`${t} has member 'start' that`),transform:c===void 0?void 0:Da(c,e,`${t} has member 'transform' that`),writableType:h}}n(Ia,"convertTransformer");function La(e,t,r){return Z(e,r),s=>ue(e,t,[s])}n(La,"convertTransformerFlushCallback");function $a(e,t,r){return Z(e,r),s=>ve(e,t,[s])}n($a,"convertTransformerStartCallback");function Da(e,t,r){return Z(e,r),(s,f)=>ue(e,t,[s,f])}n(Da,"convertTransformerTransformCallback");const mn=class mn{constructor(t={},r={},s={}){t===void 0&&(t=null);const f=xt(r,"Second parameter"),c=xt(s,"Third parameter"),h=Ia(t,"First parameter");if(h.readableType!==void 0)throw new RangeError("Invalid readableType specified");if(h.writableType!==void 0)throw new RangeError("Invalid writableType specified");const y=yt(c,0),w=Nt(c),T=yt(f,1),P=Nt(f);let v;const z=E(X=>{v=X;});Ma(this,z,T,P,y,w),Na(this,h),h.start!==void 0?v(h.start(this._transformStreamController)):v(void 0);}get readable(){if(!Ho(this))throw Go("readable");return this._readable}get writable(){if(!Ho(this))throw Go("writable");return this._writable}};n(mn,"TransformStream");let Je=mn;Object.defineProperties(Je.prototype,{readable:{enumerable:!0},writable:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Je.prototype,l.toStringTag,{value:"TransformStream",configurable:!0});function Ma(e,t,r,s,f,c){function h(){return t}n(h,"startAlgorithm");function y(z){return Va(e,z)}n(y,"writeAlgorithm");function w(z){return Qa(e,z)}n(w,"abortAlgorithm");function T(){return Ya(e)}n(T,"closeAlgorithm"),e._writable=Zi(h,y,T,w,r,s);function P(){return Ga(e)}n(P,"pullAlgorithm");function v(z){return nr(e,z),b(void 0)}n(v,"cancelAlgorithm"),e._readable=en(h,P,v,f,c),e._backpressure=void 0,e._backpressureChangePromise=void 0,e._backpressureChangePromise_resolve=void 0,or(e,!0),e._transformStreamController=void 0;}n(Ma,"InitializeTransformStream");function Ho(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_transformStreamController")?!1:e instanceof Je}n(Ho,"IsTransformStream");function rr(e,t){Re(e._readable._readableStreamController,t),nr(e,t);}n(rr,"TransformStreamError");function nr(e,t){Vo(e._transformStreamController),Qr(e._writable._writableStreamController,t),e._backpressure&&or(e,!1);}n(nr,"TransformStreamErrorWritableAndUnblockWrite");function or(e,t){e._backpressureChangePromise!==void 0&&e._backpressureChangePromise_resolve(),e._backpressureChangePromise=E(r=>{e._backpressureChangePromise_resolve=r;}),e._backpressure=t;}n(or,"TransformStreamSetBackpressure");const yn=class yn{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!ir(this))throw ar("desiredSize");const t=this._controlledTransformStream._readable._readableStreamController;return Xr(t)}enqueue(t=void 0){if(!ir(this))throw ar("enqueue");Qo(this,t);}error(t=void 0){if(!ir(this))throw ar("error");xa(this,t);}terminate(){if(!ir(this))throw ar("terminate");Ha(this);}};n(yn,"TransformStreamDefaultController");let Le=yn;Object.defineProperties(Le.prototype,{enqueue:{enumerable:!0},error:{enumerable:!0},terminate:{enumerable:!0},desiredSize:{enumerable:!0}}),typeof l.toStringTag=="symbol"&&Object.defineProperty(Le.prototype,l.toStringTag,{value:"TransformStreamDefaultController",configurable:!0});function ir(e){return !m(e)||!Object.prototype.hasOwnProperty.call(e,"_controlledTransformStream")?!1:e instanceof Le}n(ir,"IsTransformStreamDefaultController");function Ua(e,t,r,s){t._controlledTransformStream=e,e._transformStreamController=t,t._transformAlgorithm=r,t._flushAlgorithm=s;}n(Ua,"SetUpTransformStreamDefaultController");function Na(e,t){const r=Object.create(Le.prototype);let s=n(c=>{try{return Qo(r,c),b(void 0)}catch(h){return g(h)}},"transformAlgorithm"),f=n(()=>b(void 0),"flushAlgorithm");t.transform!==void 0&&(s=n(c=>t.transform(c,r),"transformAlgorithm")),t.flush!==void 0&&(f=n(()=>t.flush(r),"flushAlgorithm")),Ua(e,r,s,f);}n(Na,"SetUpTransformStreamDefaultControllerFromTransformer");function Vo(e){e._transformAlgorithm=void 0,e._flushAlgorithm=void 0;}n(Vo,"TransformStreamDefaultControllerClearAlgorithms");function Qo(e,t){const r=e._controlledTransformStream,s=r._readable._readableStreamController;if(!Ge(s))throw new TypeError("Readable side is not in a state that permits enqueue");try{er(s,t);}catch(c){throw nr(r,c),r._readable._storedError}Ra(s)!==r._backpressure&&or(r,!0);}n(Qo,"TransformStreamDefaultControllerEnqueue");function xa(e,t){rr(e._controlledTransformStream,t);}n(xa,"TransformStreamDefaultControllerError");function Yo(e,t){const r=e._transformAlgorithm(t);return O(r,void 0,s=>{throw rr(e._controlledTransformStream,s),s})}n(Yo,"TransformStreamDefaultControllerPerformTransform");function Ha(e){const t=e._controlledTransformStream,r=t._readable._readableStreamController;St(r);const s=new TypeError("TransformStream terminated");nr(t,s);}n(Ha,"TransformStreamDefaultControllerTerminate");function Va(e,t){const r=e._transformStreamController;if(e._backpressure){const s=e._backpressureChangePromise;return O(s,()=>{const f=e._writable;if(f._state==="erroring")throw f._storedError;return Yo(r,t)})}return Yo(r,t)}n(Va,"TransformStreamDefaultSinkWriteAlgorithm");function Qa(e,t){return rr(e,t),b(void 0)}n(Qa,"TransformStreamDefaultSinkAbortAlgorithm");function Ya(e){const t=e._readable,r=e._transformStreamController,s=r._flushAlgorithm();return Vo(r),O(s,()=>{if(t._state==="errored")throw t._storedError;St(t._readableStreamController);},f=>{throw rr(e,f),t._storedError})}n(Ya,"TransformStreamDefaultSinkCloseAlgorithm");function Ga(e){return or(e,!1),e._backpressureChangePromise}n(Ga,"TransformStreamDefaultSourcePullAlgorithm");function ar(e){return new TypeError(`TransformStreamDefaultController.prototype.${e} can only be used on a TransformStreamDefaultController`)}n(ar,"defaultControllerBrandCheckException");function Go(e){return new TypeError(`TransformStream.prototype.${e} can only be used on a TransformStream`)}n(Go,"streamBrandCheckException"),a.ByteLengthQueuingStrategy=Ze,a.CountQueuingStrategy=Ke,a.ReadableByteStreamController=_e,a.ReadableStream=ie,a.ReadableStreamBYOBReader=ke,a.ReadableStreamBYOBRequest=Ae,a.ReadableStreamDefaultController=we,a.ReadableStreamDefaultReader=Ee,a.TransformStream=Je,a.TransformStreamDefaultController=Le,a.WritableStream=qe,a.WritableStreamDefaultController=Se,a.WritableStreamDefaultWriter=ze,Object.defineProperty(a,"__esModule",{value:!0});});}(cr,cr.exports)),cr.exports}n(as,"requirePonyfill_es2018");const ss=65536;if(!globalThis.ReadableStream)try{const i=require("node:process"),{emitWarning:o}=i;try{i.emitWarning=()=>{},Object.assign(globalThis,require("node:stream/web")),i.emitWarning=o;}catch(a){throw i.emitWarning=o,a}}catch{Object.assign(globalThis,as());}try{const{Blob:i}=require("buffer");i&&!i.prototype.stream&&(i.prototype.stream=n(function(a){let l=0;const u=this;return new ReadableStream({type:"bytes",async pull(d){const m=await u.slice(l,Math.min(u.size,l+ss)).arrayBuffer();l+=m.byteLength,d.enqueue(new Uint8Array(m)),l===u.size&&d.close();}})},"name"));}catch{}/*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */const ei=65536;async function*Sn(i,o=!0){for(const a of i)if("stream"in a)yield*a.stream();else if(ArrayBuffer.isView(a))if(o){let l=a.byteOffset;const u=a.byteOffset+a.byteLength;for(;l!==u;){const d=Math.min(u-l,ei),p=a.buffer.slice(l,l+d);l+=p.byteLength,yield new Uint8Array(p);}}else yield a;else {let l=0,u=a;for(;l!==u.size;){const p=await u.slice(l,Math.min(u.size,l+ei)).arrayBuffer();l+=p.byteLength,yield new Uint8Array(p);}}}n(Sn,"toIterator");const ti=(xe=class{constructor(o=[],a={}){ae(this,me,[]);ae(this,vt,"");ae(this,ct,0);ae(this,wr,"transparent");if(typeof o!="object"||o===null)throw new TypeError("Failed to construct 'Blob': The provided value cannot be converted to a sequence.");if(typeof o[Symbol.iterator]!="function")throw new TypeError("Failed to construct 'Blob': The object must have a callable @@iterator property.");if(typeof a!="object"&&typeof a!="function")throw new TypeError("Failed to construct 'Blob': parameter 2 cannot convert to dictionary.");a===null&&(a={});const l=new TextEncoder;for(const d of o){let p;ArrayBuffer.isView(d)?p=new Uint8Array(d.buffer.slice(d.byteOffset,d.byteOffset+d.byteLength)):d instanceof ArrayBuffer?p=new Uint8Array(d.slice(0)):d instanceof xe?p=d:p=l.encode(`${d}`),Y(this,ct,k(this,ct)+(ArrayBuffer.isView(p)?p.byteLength:p.size)),k(this,me).push(p);}Y(this,wr,`${a.endings===void 0?"transparent":a.endings}`);const u=a.type===void 0?"":String(a.type);Y(this,vt,/^[\x20-\x7E]*$/.test(u)?u:"");}get size(){return k(this,ct)}get type(){return k(this,vt)}async text(){const o=new TextDecoder;let a="";for await(const l of Sn(k(this,me),!1))a+=o.decode(l,{stream:!0});return a+=o.decode(),a}async arrayBuffer(){const o=new Uint8Array(this.size);let a=0;for await(const l of Sn(k(this,me),!1))o.set(l,a),a+=l.length;return o.buffer}stream(){const o=Sn(k(this,me),!0);return new globalThis.ReadableStream({type:"bytes",async pull(a){const l=await o.next();l.done?a.close():a.enqueue(l.value);},async cancel(){await o.return();}})}slice(o=0,a=this.size,l=""){const{size:u}=this;let d=o<0?Math.max(u+o,0):Math.min(o,u),p=a<0?Math.max(u+a,0):Math.min(a,u);const m=Math.max(p-d,0),C=k(this,me),S=[];let I=0;for(const L of C){if(I>=m)break;const E=ArrayBuffer.isView(L)?L.byteLength:L.size;if(d&&E<=d)d-=E,p-=E;else {let b;ArrayBuffer.isView(L)?(b=L.subarray(d,Math.min(E,p)),I+=b.byteLength):(b=L.slice(d,Math.min(E,p)),I+=b.size),p-=E,S.push(b),d=0;}}const re=new xe([],{type:String(l).toLowerCase()});return Y(re,ct,m),Y(re,me,S),re}get[Symbol.toStringTag](){return "Blob"}static[Symbol.hasInstance](o){return o&&typeof o=="object"&&typeof o.constructor=="function"&&(typeof o.stream=="function"||typeof o.arrayBuffer=="function")&&/^(Blob|File)$/.test(o[Symbol.toStringTag])}},me=new WeakMap,vt=new WeakMap,ct=new WeakMap,wr=new WeakMap,n(xe,"Blob"),xe);Object.defineProperties(ti.prototype,{size:{enumerable:!0},type:{enumerable:!0},slice:{enumerable:!0}});const ls=ti,it=ls,us=(Wt=class extends it{constructor(a,l,u={}){if(arguments.length<2)throw new TypeError(`Failed to construct 'File': 2 arguments required, but only ${arguments.length} present.`);super(a,u);ae(this,Et,0);ae(this,At,"");u===null&&(u={});const d=u.lastModified===void 0?Date.now():Number(u.lastModified);Number.isNaN(d)||Y(this,Et,d),Y(this,At,String(l));}get name(){return k(this,At)}get lastModified(){return k(this,Et)}get[Symbol.toStringTag](){return "File"}static[Symbol.hasInstance](a){return !!a&&a instanceof it&&/^(File)$/.test(a[Symbol.toStringTag])}},Et=new WeakMap,At=new WeakMap,n(Wt,"File"),Wt),fs=us,wn=fs;/*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */var{toStringTag:Tt,iterator:cs,hasInstance:ds}=Symbol,ri=Math.random,hs="append,set,get,getAll,delete,keys,values,entries,forEach,constructor".split(","),ni=n((i,o,a)=>(i+="",/^(Blob|File)$/.test(o&&o[Tt])?[(a=a!==void 0?a+"":o[Tt]=="File"?o.name:"blob",i),o.name!==a||o[Tt]=="blob"?new wn([o],a,o):o]:[i,o+""]),"f"),Rn=n((i,o)=>(o?i:i.replace(/\r?\n|\r/g,`\r
+`)).replace(/\n/g,"%0A").replace(/\r/g,"%0D").replace(/"/g,"%22"),"e$1"),$e=n((i,o,a)=>{if(o.length<a)throw new TypeError(`Failed to execute '${i}' on 'FormData': ${a} arguments required, but only ${o.length} present.`)},"x");const dr=(Bt=class{constructor(...o){ae(this,G,[]);if(o.length)throw new TypeError("Failed to construct 'FormData': parameter 1 is not of type 'HTMLFormElement'.")}get[Tt](){return "FormData"}[cs](){return this.entries()}static[ds](o){return o&&typeof o=="object"&&o[Tt]==="FormData"&&!hs.some(a=>typeof o[a]!="function")}append(...o){$e("append",arguments,2),k(this,G).push(ni(...o));}delete(o){$e("delete",arguments,1),o+="",Y(this,G,k(this,G).filter(([a])=>a!==o));}get(o){$e("get",arguments,1),o+="";for(var a=k(this,G),l=a.length,u=0;u<l;u++)if(a[u][0]===o)return a[u][1];return null}getAll(o,a){return $e("getAll",arguments,1),a=[],o+="",k(this,G).forEach(l=>l[0]===o&&a.push(l[1])),a}has(o){return $e("has",arguments,1),o+="",k(this,G).some(a=>a[0]===o)}forEach(o,a){$e("forEach",arguments,1);for(var[l,u]of this)o.call(a,u,l,this);}set(...o){$e("set",arguments,2);var a=[],l=!0;o=ni(...o),k(this,G).forEach(u=>{u[0]===o[0]?l&&(l=!a.push(o)):a.push(u);}),l&&a.push(o),Y(this,G,a);}*entries(){yield*k(this,G);}*keys(){for(var[o]of this)yield o;}*values(){for(var[,o]of this)yield o;}},G=new WeakMap,n(Bt,"FormData"),Bt);function ps(i,o=it){var a=`${ri()}${ri()}`.replace(/\./g,"").slice(-28).padStart(32,"-"),l=[],u=`--${a}\r
+Content-Disposition: form-data; name="`;return i.forEach((d,p)=>typeof d=="string"?l.push(u+Rn(p)+`"\r
+\r
+${d.replace(/\r(?!\n)|(?<!\r)\n/g,`\r
+`)}\r
+`):l.push(u+Rn(p)+`"; filename="${Rn(d.name,1)}"\r
+Content-Type: ${d.type||"application/octet-stream"}\r
+\r
+`,d,`\r
+`)),l.push(`--${a}--`),new o(l,{type:"multipart/form-data; boundary="+a})}n(ps,"formDataToBlob");const Bn=class Bn extends Error{constructor(o,a){super(o),Error.captureStackTrace(this,this.constructor),this.type=a;}get name(){return this.constructor.name}get[Symbol.toStringTag](){return this.constructor.name}};n(Bn,"FetchBaseError");let at=Bn;const kn=class kn extends at{constructor(o,a,l){super(o,a),l&&(this.code=this.errno=l.code,this.erroredSysCall=l.syscall);}};n(kn,"FetchError");let V=kn;const hr=Symbol.toStringTag,oi=n(i=>typeof i=="object"&&typeof i.append=="function"&&typeof i.delete=="function"&&typeof i.get=="function"&&typeof i.getAll=="function"&&typeof i.has=="function"&&typeof i.set=="function"&&typeof i.sort=="function"&&i[hr]==="URLSearchParams","isURLSearchParameters"),pr=n(i=>i&&typeof i=="object"&&typeof i.arrayBuffer=="function"&&typeof i.type=="string"&&typeof i.stream=="function"&&typeof i.constructor=="function"&&/^(Blob|File)$/.test(i[hr]),"isBlob"),bs=n(i=>typeof i=="object"&&(i[hr]==="AbortSignal"||i[hr]==="EventTarget"),"isAbortSignal"),ms=n((i,o)=>{const a=new URL(o).hostname,l=new URL(i).hostname;return a===l||a.endsWith(`.${l}`)},"isDomainOrSubdomain"),ys=n((i,o)=>{const a=new URL(o).protocol,l=new URL(i).protocol;return a===l},"isSameProtocol"),gs=promisify(se.pipeline),N=Symbol("Body internals"),On=class On{constructor(o,{size:a=0}={}){let l=null;o===null?o=null:oi(o)?o=Buffer$1.from(o.toString()):pr(o)||Buffer$1.isBuffer(o)||(types.isAnyArrayBuffer(o)?o=Buffer$1.from(o):ArrayBuffer.isView(o)?o=Buffer$1.from(o.buffer,o.byteOffset,o.byteLength):o instanceof se||(o instanceof dr?(o=ps(o),l=o.type.split("=")[1]):o=Buffer$1.from(String(o))));let u=o;Buffer$1.isBuffer(o)?u=se.Readable.from(o):pr(o)&&(u=se.Readable.from(o.stream())),this[N]={body:o,stream:u,boundary:l,disturbed:!1,error:null},this.size=a,o instanceof se&&o.on("error",d=>{const p=d instanceof at?d:new V(`Invalid response body while trying to fetch ${this.url}: ${d.message}`,"system",d);this[N].error=p;});}get body(){return this[N].stream}get bodyUsed(){return this[N].disturbed}async arrayBuffer(){const{buffer:o,byteOffset:a,byteLength:l}=await Tn(this);return o.slice(a,a+l)}async formData(){const o=this.headers.get("content-type");if(o.startsWith("application/x-www-form-urlencoded")){const l=new dr,u=new URLSearchParams(await this.text());for(const[d,p]of u)l.append(d,p);return l}const{toFormData:a}=await import('../multipart-parser2.mjs');return a(this.body,o)}async blob(){const o=this.headers&&this.headers.get("content-type")||this[N].body&&this[N].body.type||"",a=await this.arrayBuffer();return new it([a],{type:o})}async json(){const o=await this.text();return JSON.parse(o)}async text(){const o=await Tn(this);return new TextDecoder().decode(o)}buffer(){return Tn(this)}};n(On,"Body");let De=On;De.prototype.buffer=deprecate(De.prototype.buffer,"Please use 'response.arrayBuffer()' instead of 'response.buffer()'","node-fetch#buffer"),Object.defineProperties(De.prototype,{body:{enumerable:!0},bodyUsed:{enumerable:!0},arrayBuffer:{enumerable:!0},blob:{enumerable:!0},json:{enumerable:!0},text:{enumerable:!0},data:{get:deprecate(()=>{},"data doesn't exist, use json(), text(), arrayBuffer(), or body instead","https://github.com/node-fetch/node-fetch/issues/1000 (response)")}});async function Tn(i){if(i[N].disturbed)throw new TypeError(`body used already for: ${i.url}`);if(i[N].disturbed=!0,i[N].error)throw i[N].error;const{body:o}=i;if(o===null)return Buffer$1.alloc(0);if(!(o instanceof se))return Buffer$1.alloc(0);const a=[];let l=0;try{for await(const u of o){if(i.size>0&&l+u.length>i.size){const d=new V(`content size at ${i.url} over limit: ${i.size}`,"max-size");throw o.destroy(d),d}l+=u.length,a.push(u);}}catch(u){throw u instanceof at?u:new V(`Invalid response body while trying to fetch ${i.url}: ${u.message}`,"system",u)}if(o.readableEnded===!0||o._readableState.ended===!0)try{return a.every(u=>typeof u=="string")?Buffer$1.from(a.join("")):Buffer$1.concat(a,l)}catch(u){throw new V(`Could not create Buffer from response body for ${i.url}: ${u.message}`,"system",u)}else throw new V(`Premature close of server response while trying to fetch ${i.url}`)}n(Tn,"consumeBody");const Cn=n((i,o)=>{let a,l,{body:u}=i[N];if(i.bodyUsed)throw new Error("cannot clone body after it is used");return u instanceof se&&typeof u.getBoundary!="function"&&(a=new PassThrough({highWaterMark:o}),l=new PassThrough({highWaterMark:o}),u.pipe(a),u.pipe(l),i[N].stream=a,u=l),u},"clone"),_s=deprecate(i=>i.getBoundary(),"form-data doesn't follow the spec and requires special treatment. Use alternative package","https://github.com/node-fetch/node-fetch/issues/1167"),ii=n((i,o)=>i===null?null:typeof i=="string"?"text/plain;charset=UTF-8":oi(i)?"application/x-www-form-urlencoded;charset=UTF-8":pr(i)?i.type||null:Buffer$1.isBuffer(i)||types.isAnyArrayBuffer(i)||ArrayBuffer.isView(i)?null:i instanceof dr?`multipart/form-data; boundary=${o[N].boundary}`:i&&typeof i.getBoundary=="function"?`multipart/form-data;boundary=${_s(i)}`:i instanceof se?null:"text/plain;charset=UTF-8","extractContentType"),Ss=n(i=>{const{body:o}=i[N];return o===null?0:pr(o)?o.size:Buffer$1.isBuffer(o)?o.length:o&&typeof o.getLengthSync=="function"&&o.hasKnownLength&&o.hasKnownLength()?o.getLengthSync():null},"getTotalBytes"),ws=n(async(i,{body:o})=>{o===null?i.end():await gs(o,i);},"writeToStream"),br=typeof Rt.validateHeaderName=="function"?Rt.validateHeaderName:i=>{if(!/^[\^`\-\w!#$%&'*+.|~]+$/.test(i)){const o=new TypeError(`Header name must be a valid HTTP token [${i}]`);throw Object.defineProperty(o,"code",{value:"ERR_INVALID_HTTP_TOKEN"}),o}},Pn=typeof Rt.validateHeaderValue=="function"?Rt.validateHeaderValue:(i,o)=>{if(/[^\t\u0020-\u007E\u0080-\u00FF]/.test(o)){const a=new TypeError(`Invalid character in header content ["${i}"]`);throw Object.defineProperty(a,"code",{value:"ERR_INVALID_CHAR"}),a}},Rr=class Rr extends URLSearchParams{constructor(o){let a=[];if(o instanceof Rr){const l=o.raw();for(const[u,d]of Object.entries(l))a.push(...d.map(p=>[u,p]));}else if(o!=null)if(typeof o=="object"&&!types.isBoxedPrimitive(o)){const l=o[Symbol.iterator];if(l==null)a.push(...Object.entries(o));else {if(typeof l!="function")throw new TypeError("Header pairs must be iterable");a=[...o].map(u=>{if(typeof u!="object"||types.isBoxedPrimitive(u))throw new TypeError("Each header pair must be an iterable object");return [...u]}).map(u=>{if(u.length!==2)throw new TypeError("Each header pair must be a name/value tuple");return [...u]});}}else throw new TypeError("Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)");return a=a.length>0?a.map(([l,u])=>(br(l),Pn(l,String(u)),[String(l).toLowerCase(),String(u)])):void 0,super(a),new Proxy(this,{get(l,u,d){switch(u){case"append":case"set":return (p,m)=>(br(p),Pn(p,String(m)),URLSearchParams.prototype[u].call(l,String(p).toLowerCase(),String(m)));case"delete":case"has":case"getAll":return p=>(br(p),URLSearchParams.prototype[u].call(l,String(p).toLowerCase()));case"keys":return ()=>(l.sort(),new Set(URLSearchParams.prototype.keys.call(l)).keys());default:return Reflect.get(l,u,d)}}})}get[Symbol.toStringTag](){return this.constructor.name}toString(){return Object.prototype.toString.call(this)}get(o){const a=this.getAll(o);if(a.length===0)return null;let l=a.join(", ");return /^content-encoding$/i.test(o)&&(l=l.toLowerCase()),l}forEach(o,a=void 0){for(const l of this.keys())Reflect.apply(o,a,[this.get(l),l,this]);}*values(){for(const o of this.keys())yield this.get(o);}*entries(){for(const o of this.keys())yield [o,this.get(o)];}[Symbol.iterator](){return this.entries()}raw(){return [...this.keys()].reduce((o,a)=>(o[a]=this.getAll(a),o),{})}[Symbol.for("nodejs.util.inspect.custom")](){return [...this.keys()].reduce((o,a)=>{const l=this.getAll(a);return a==="host"?o[a]=l[0]:o[a]=l.length>1?l:l[0],o},{})}};n(Rr,"Headers");let le=Rr;Object.defineProperties(le.prototype,["get","entries","forEach","values"].reduce((i,o)=>(i[o]={enumerable:!0},i),{}));function Rs(i=[]){return new le(i.reduce((o,a,l,u)=>(l%2===0&&o.push(u.slice(l,l+2)),o),[]).filter(([o,a])=>{try{return br(o),Pn(o,String(a)),!0}catch{return !1}}))}n(Rs,"fromRawHeaders");const Ts=new Set([301,302,303,307,308]),vn=n(i=>Ts.has(i),"isRedirect"),ee=Symbol("Response internals"),Me=class Me extends De{constructor(o=null,a={}){super(o,a);const l=a.status!=null?a.status:200,u=new le(a.headers);if(o!==null&&!u.has("Content-Type")){const d=ii(o,this);d&&u.append("Content-Type",d);}this[ee]={type:"default",url:a.url,status:l,statusText:a.statusText||"",headers:u,counter:a.counter,highWaterMark:a.highWaterMark};}get type(){return this[ee].type}get url(){return this[ee].url||""}get status(){return this[ee].status}get ok(){return this[ee].status>=200&&this[ee].status<300}get redirected(){return this[ee].counter>0}get statusText(){return this[ee].statusText}get headers(){return this[ee].headers}get highWaterMark(){return this[ee].highWaterMark}clone(){return new Me(Cn(this,this.highWaterMark),{type:this.type,url:this.url,status:this.status,statusText:this.statusText,headers:this.headers,ok:this.ok,redirected:this.redirected,size:this.size,highWaterMark:this.highWaterMark})}static redirect(o,a=302){if(!vn(a))throw new RangeError('Failed to execute "redirect" on "response": Invalid status code');return new Me(null,{headers:{location:new URL(o).toString()},status:a})}static error(){const o=new Me(null,{status:0,statusText:""});return o[ee].type="error",o}static json(o=void 0,a={}){const l=JSON.stringify(o);if(l===void 0)throw new TypeError("data is not JSON serializable");const u=new le(a&&a.headers);return u.has("content-type")||u.set("content-type","application/json"),new Me(l,{...a,headers:u})}get[Symbol.toStringTag](){return "Response"}};n(Me,"Response");let te=Me;Object.defineProperties(te.prototype,{type:{enumerable:!0},url:{enumerable:!0},status:{enumerable:!0},ok:{enumerable:!0},redirected:{enumerable:!0},statusText:{enumerable:!0},headers:{enumerable:!0},clone:{enumerable:!0}});const Cs=n(i=>{if(i.search)return i.search;const o=i.href.length-1,a=i.hash||(i.href[o]==="#"?"#":"");return i.href[o-a.length]==="?"?"?":""},"getSearch");function ai(i,o=!1){return i==null||(i=new URL(i),/^(about|blob|data):$/.test(i.protocol))?"no-referrer":(i.username="",i.password="",i.hash="",o&&(i.pathname="",i.search=""),i)}n(ai,"stripURLForUseAsAReferrer");const si=new Set(["","no-referrer","no-referrer-when-downgrade","same-origin","origin","strict-origin","origin-when-cross-origin","strict-origin-when-cross-origin","unsafe-url"]),Ps="strict-origin-when-cross-origin";function vs(i){if(!si.has(i))throw new TypeError(`Invalid referrerPolicy: ${i}`);return i}n(vs,"validateReferrerPolicy");function Es(i){if(/^(http|ws)s:$/.test(i.protocol))return !0;const o=i.host.replace(/(^\[)|(]$)/g,""),a=isIP(o);return a===4&&/^127\./.test(o)||a===6&&/^(((0+:){7})|(::(0+:){0,6}))0*1$/.test(o)?!0:i.host==="localhost"||i.host.endsWith(".localhost")?!1:i.protocol==="file:"}n(Es,"isOriginPotentiallyTrustworthy");function st(i){return /^about:(blank|srcdoc)$/.test(i)||i.protocol==="data:"||/^(blob|filesystem):$/.test(i.protocol)?!0:Es(i)}n(st,"isUrlPotentiallyTrustworthy");function As(i,{referrerURLCallback:o,referrerOriginCallback:a}={}){if(i.referrer==="no-referrer"||i.referrerPolicy==="")return null;const l=i.referrerPolicy;if(i.referrer==="about:client")return "no-referrer";const u=i.referrer;let d=ai(u),p=ai(u,!0);d.toString().length>4096&&(d=p),o&&(d=o(d)),a&&(p=a(p));const m=new URL(i.url);switch(l){case"no-referrer":return "no-referrer";case"origin":return p;case"unsafe-url":return d;case"strict-origin":return st(d)&&!st(m)?"no-referrer":p.toString();case"strict-origin-when-cross-origin":return d.origin===m.origin?d:st(d)&&!st(m)?"no-referrer":p;case"same-origin":return d.origin===m.origin?d:"no-referrer";case"origin-when-cross-origin":return d.origin===m.origin?d:p;case"no-referrer-when-downgrade":return st(d)&&!st(m)?"no-referrer":d;default:throw new TypeError(`Invalid referrerPolicy: ${l}`)}}n(As,"determineRequestsReferrer");function Ws(i){const o=(i.get("referrer-policy")||"").split(/[,\s]+/);let a="";for(const l of o)l&&si.has(l)&&(a=l);return a}n(Ws,"parseReferrerPolicyFromHeader");const j=Symbol("Request internals"),Ct=n(i=>typeof i=="object"&&typeof i[j]=="object","isRequest"),Bs=deprecate(()=>{},".data is not a valid RequestInit property, use .body instead","https://github.com/node-fetch/node-fetch/issues/1000 (request)"),Tr=class Tr extends De{constructor(o,a={}){let l;if(Ct(o)?l=new URL(o.url):(l=new URL(o),o={}),l.username!==""||l.password!=="")throw new TypeError(`${l} is an url with embedded credentials.`);let u=a.method||o.method||"GET";if(/^(delete|get|head|options|post|put)$/i.test(u)&&(u=u.toUpperCase()),!Ct(a)&&"data"in a&&Bs(),(a.body!=null||Ct(o)&&o.body!==null)&&(u==="GET"||u==="HEAD"))throw new TypeError("Request with GET/HEAD method cannot have body");const d=a.body?a.body:Ct(o)&&o.body!==null?Cn(o):null;super(d,{size:a.size||o.size||0});const p=new le(a.headers||o.headers||{});if(d!==null&&!p.has("Content-Type")){const S=ii(d,this);S&&p.set("Content-Type",S);}let m=Ct(o)?o.signal:null;if("signal"in a&&(m=a.signal),m!=null&&!bs(m))throw new TypeError("Expected signal to be an instanceof AbortSignal or EventTarget");let C=a.referrer==null?o.referrer:a.referrer;if(C==="")C="no-referrer";else if(C){const S=new URL(C);C=/^about:(\/\/)?client$/.test(S)?"client":S;}else C=void 0;this[j]={method:u,redirect:a.redirect||o.redirect||"follow",headers:p,parsedURL:l,signal:m,referrer:C},this.follow=a.follow===void 0?o.follow===void 0?20:o.follow:a.follow,this.compress=a.compress===void 0?o.compress===void 0?!0:o.compress:a.compress,this.counter=a.counter||o.counter||0,this.agent=a.agent||o.agent,this.highWaterMark=a.highWaterMark||o.highWaterMark||16384,this.insecureHTTPParser=a.insecureHTTPParser||o.insecureHTTPParser||!1,this.referrerPolicy=a.referrerPolicy||o.referrerPolicy||"";}get method(){return this[j].method}get url(){return format(this[j].parsedURL)}get headers(){return this[j].headers}get redirect(){return this[j].redirect}get signal(){return this[j].signal}get referrer(){if(this[j].referrer==="no-referrer")return "";if(this[j].referrer==="client")return "about:client";if(this[j].referrer)return this[j].referrer.toString()}get referrerPolicy(){return this[j].referrerPolicy}set referrerPolicy(o){this[j].referrerPolicy=vs(o);}clone(){return new Tr(this)}get[Symbol.toStringTag](){return "Request"}};n(Tr,"Request");let lt=Tr;Object.defineProperties(lt.prototype,{method:{enumerable:!0},url:{enumerable:!0},headers:{enumerable:!0},redirect:{enumerable:!0},clone:{enumerable:!0},signal:{enumerable:!0},referrer:{enumerable:!0},referrerPolicy:{enumerable:!0}});const ks=n(i=>{const{parsedURL:o}=i[j],a=new le(i[j].headers);a.has("Accept")||a.set("Accept","*/*");let l=null;if(i.body===null&&/^(post|put)$/i.test(i.method)&&(l="0"),i.body!==null){const m=Ss(i);typeof m=="number"&&!Number.isNaN(m)&&(l=String(m));}l&&a.set("Content-Length",l),i.referrerPolicy===""&&(i.referrerPolicy=Ps),i.referrer&&i.referrer!=="no-referrer"?i[j].referrer=As(i):i[j].referrer="no-referrer",i[j].referrer instanceof URL&&a.set("Referer",i.referrer),a.has("User-Agent")||a.set("User-Agent","node-fetch"),i.compress&&!a.has("Accept-Encoding")&&a.set("Accept-Encoding","gzip, deflate, br");let{agent:u}=i;typeof u=="function"&&(u=u(o));const d=Cs(o),p={path:o.pathname+d,method:i.method,headers:a[Symbol.for("nodejs.util.inspect.custom")](),insecureHTTPParser:i.insecureHTTPParser,agent:u};return {parsedURL:o,options:p}},"getNodeRequestOptions"),qn=class qn extends at{constructor(o,a="aborted"){super(o,a);}};n(qn,"AbortError");let mr=qn;/*! node-domexception. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */if(!globalThis.DOMException)try{const{MessageChannel:i}=require("worker_threads"),o=new i().port1,a=new ArrayBuffer;o.postMessage(a,[a,a]);}catch(i){i.constructor.name==="DOMException"&&(globalThis.DOMException=i.constructor);}var Os=globalThis.DOMException;const qs=is(Os),{stat:En}=promises;n((i,o)=>li(statSync(i),i,o),"blobFromSync");n((i,o)=>En(i).then(a=>li(a,i,o)),"blobFrom");n((i,o)=>En(i).then(a=>ui(a,i,o)),"fileFrom");n((i,o)=>ui(statSync(i),i,o),"fileFromSync");const li=n((i,o,a="")=>new it([new yr({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],{type:a}),"fromBlob"),ui=n((i,o,a="")=>new wn([new yr({path:o,size:i.size,lastModified:i.mtimeMs,start:0})],basename(o),{type:a,lastModified:i.mtimeMs}),"fromFile"),Cr=class Cr{constructor(o){ae(this,Ue,void 0);ae(this,Ne,void 0);Y(this,Ue,o.path),Y(this,Ne,o.start),this.size=o.size,this.lastModified=o.lastModified;}slice(o,a){return new Cr({path:k(this,Ue),lastModified:this.lastModified,size:a-o,start:k(this,Ne)+o})}async*stream(){const{mtimeMs:o}=await En(k(this,Ue));if(o>this.lastModified)throw new qs("The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.","NotReadableError");yield*createReadStream(k(this,Ue),{start:k(this,Ne),end:k(this,Ne)+this.size-1});}get[Symbol.toStringTag](){return "Blob"}};Ue=new WeakMap,Ne=new WeakMap,n(Cr,"BlobDataItem");let yr=Cr;const Ls=new Set(["data:","http:","https:"]);async function fi(i,o){return new Promise((a,l)=>{const u=new lt(i,o),{parsedURL:d,options:p}=ks(u);if(!Ls.has(d.protocol))throw new TypeError(`node-fetch cannot load ${i}. URL scheme "${d.protocol.replace(/:$/,"")}" is not supported.`);if(d.protocol==="data:"){const b=os(u.url),g=new te(b,{headers:{"Content-Type":b.typeFull}});a(g);return}const m=(d.protocol==="https:"?Ka:Rt).request,{signal:C}=u;let S=null;const I=n(()=>{const b=new mr("The operation was aborted.");l(b),u.body&&u.body instanceof se.Readable&&u.body.destroy(b),!(!S||!S.body)&&S.body.emit("error",b);},"abort");if(C&&C.aborted){I();return}const re=n(()=>{I(),E();},"abortAndFinalize"),L=m(d.toString(),p);C&&C.addEventListener("abort",re);const E=n(()=>{L.abort(),C&&C.removeEventListener("abort",re);},"finalize");L.on("error",b=>{l(new V(`request to ${u.url} failed, reason: ${b.message}`,"system",b)),E();}),$s(L,b=>{S&&S.body&&S.body.destroy(b);}),process.version<"v14"&&L.on("socket",b=>{let g;b.prependListener("end",()=>{g=b._eventsCount;}),b.prependListener("close",A=>{if(S&&g<b._eventsCount&&!A){const q=new Error("Premature close");q.code="ERR_STREAM_PREMATURE_CLOSE",S.body.emit("error",q);}});}),L.on("response",b=>{L.setTimeout(0);const g=Rs(b.rawHeaders);if(vn(b.statusCode)){const O=g.get("Location");let $=null;try{$=O===null?null:new URL(O,u.url);}catch{if(u.redirect!=="manual"){l(new V(`uri requested responds with an invalid redirect URL: ${O}`,"invalid-redirect")),E();return}}switch(u.redirect){case"error":l(new V(`uri requested responds with a redirect, redirect mode is set to error: ${u.url}`,"no-redirect")),E();return;case"manual":break;case"follow":{if($===null)break;if(u.counter>=u.follow){l(new V(`maximum redirect reached at: ${u.url}`,"max-redirect")),E();return}const F={headers:new le(u.headers),follow:u.follow,counter:u.counter+1,agent:u.agent,compress:u.compress,method:u.method,body:Cn(u),signal:u.signal,size:u.size,referrer:u.referrer,referrerPolicy:u.referrerPolicy};if(!ms(u.url,$)||!ys(u.url,$))for(const ue of ["authorization","www-authenticate","cookie","cookie2"])F.headers.delete(ue);if(b.statusCode!==303&&u.body&&o.body instanceof se.Readable){l(new V("Cannot follow redirect with body being a readable stream","unsupported-redirect")),E();return}(b.statusCode===303||(b.statusCode===301||b.statusCode===302)&&u.method==="POST")&&(F.method="GET",F.body=void 0,F.headers.delete("content-length"));const ve=Ws(g);ve&&(F.referrerPolicy=ve),a(fi(new lt($,F))),E();return}default:return l(new TypeError(`Redirect option '${u.redirect}' is not a valid value of RequestRedirect`))}}C&&b.once("end",()=>{C.removeEventListener("abort",re);});let A=pipeline(b,new PassThrough,O=>{O&&l(O);});process.version<"v12.10"&&b.on("aborted",re);const q={url:u.url,status:b.statusCode,statusText:b.statusMessage,headers:g,size:u.size,counter:u.counter,highWaterMark:u.highWaterMark},ne=g.get("Content-Encoding");if(!u.compress||u.method==="HEAD"||ne===null||b.statusCode===204||b.statusCode===304){S=new te(A,q),a(S);return}const dt={flush:nt.Z_SYNC_FLUSH,finishFlush:nt.Z_SYNC_FLUSH};if(ne==="gzip"||ne==="x-gzip"){A=pipeline(A,nt.createGunzip(dt),O=>{O&&l(O);}),S=new te(A,q),a(S);return}if(ne==="deflate"||ne==="x-deflate"){const O=pipeline(b,new PassThrough,$=>{$&&l($);});O.once("data",$=>{($[0]&15)===8?A=pipeline(A,nt.createInflate(),F=>{F&&l(F);}):A=pipeline(A,nt.createInflateRaw(),F=>{F&&l(F);}),S=new te(A,q),a(S);}),O.once("end",()=>{S||(S=new te(A,q),a(S));});return}if(ne==="br"){A=pipeline(A,nt.createBrotliDecompress(),O=>{O&&l(O);}),S=new te(A,q),a(S);return}S=new te(A,q),a(S);}),ws(L,u).catch(l);})}n(fi,"fetch$1");function $s(i,o){const a=Buffer$1.from(`0\r
+\r
+`);let l=!1,u=!1,d;i.on("response",p=>{const{headers:m}=p;l=m["transfer-encoding"]==="chunked"&&!m["content-length"];}),i.on("socket",p=>{const m=n(()=>{if(l&&!u){const S=new Error("Premature close");S.code="ERR_STREAM_PREMATURE_CLOSE",o(S);}},"onSocketClose"),C=n(S=>{u=Buffer$1.compare(S.slice(-5),a)===0,!u&&d&&(u=Buffer$1.compare(d.slice(-3),a.slice(0,3))===0&&Buffer$1.compare(S.slice(-2),a.slice(3))===0),d=S;},"onData");p.prependListener("close",m),p.on("data",C),i.on("close",()=>{p.removeListener("close",m),p.removeListener("data",C);});});}n($s,"fixResponseChunkedTransferBadEnding");const ci=new WeakMap,An=new WeakMap;function B(i){const o=ci.get(i);return console.assert(o!=null,"'this' is expected an Event object, but got",i),o}n(B,"pd");function di(i){if(i.passiveListener!=null){typeof console<"u"&&typeof console.error=="function"&&console.error("Unable to preventDefault inside passive event listener invocation.",i.passiveListener);return}i.event.cancelable&&(i.canceled=!0,typeof i.event.preventDefault=="function"&&i.event.preventDefault());}n(di,"setCancelFlag");function ut(i,o){ci.set(this,{eventTarget:i,event:o,eventPhase:2,currentTarget:i,canceled:!1,stopped:!1,immediateStopped:!1,passiveListener:null,timeStamp:o.timeStamp||Date.now()}),Object.defineProperty(this,"isTrusted",{value:!1,enumerable:!0});const a=Object.keys(o);for(let l=0;l<a.length;++l){const u=a[l];u in this||Object.defineProperty(this,u,hi(u));}}n(ut,"Event"),ut.prototype={get type(){return B(this).event.type},get target(){return B(this).eventTarget},get currentTarget(){return B(this).currentTarget},composedPath(){const i=B(this).currentTarget;return i==null?[]:[i]},get NONE(){return 0},get CAPTURING_PHASE(){return 1},get AT_TARGET(){return 2},get BUBBLING_PHASE(){return 3},get eventPhase(){return B(this).eventPhase},stopPropagation(){const i=B(this);i.stopped=!0,typeof i.event.stopPropagation=="function"&&i.event.stopPropagation();},stopImmediatePropagation(){const i=B(this);i.stopped=!0,i.immediateStopped=!0,typeof i.event.stopImmediatePropagation=="function"&&i.event.stopImmediatePropagation();},get bubbles(){return !!B(this).event.bubbles},get cancelable(){return !!B(this).event.cancelable},preventDefault(){di(B(this));},get defaultPrevented(){return B(this).canceled},get composed(){return !!B(this).event.composed},get timeStamp(){return B(this).timeStamp},get srcElement(){return B(this).eventTarget},get cancelBubble(){return B(this).stopped},set cancelBubble(i){if(!i)return;const o=B(this);o.stopped=!0,typeof o.event.cancelBubble=="boolean"&&(o.event.cancelBubble=!0);},get returnValue(){return !B(this).canceled},set returnValue(i){i||di(B(this));},initEvent(){}},Object.defineProperty(ut.prototype,"constructor",{value:ut,configurable:!0,writable:!0});function hi(i){return {get(){return B(this).event[i]},set(o){B(this).event[i]=o;},configurable:!0,enumerable:!0}}n(hi,"defineRedirectDescriptor");function Ds(i){return {value(){const o=B(this).event;return o[i].apply(o,arguments)},configurable:!0,enumerable:!0}}n(Ds,"defineCallDescriptor");function Ms(i,o){const a=Object.keys(o);if(a.length===0)return i;function l(u,d){i.call(this,u,d);}n(l,"CustomEvent"),l.prototype=Object.create(i.prototype,{constructor:{value:l,configurable:!0,writable:!0}});for(let u=0;u<a.length;++u){const d=a[u];if(!(d in i.prototype)){const m=typeof Object.getOwnPropertyDescriptor(o,d).value=="function";Object.defineProperty(l.prototype,d,m?Ds(d):hi(d));}}return l}n(Ms,"defineWrapper");function pi(i){if(i==null||i===Object.prototype)return ut;let o=An.get(i);return o==null&&(o=Ms(pi(Object.getPrototypeOf(i)),i),An.set(i,o)),o}n(pi,"getWrapper");function Us(i,o){const a=pi(Object.getPrototypeOf(o));return new a(i,o)}n(Us,"wrapEvent");function Ns(i){return B(i).immediateStopped}n(Ns,"isStopped");function xs(i,o){B(i).eventPhase=o;}n(xs,"setEventPhase");function Hs(i,o){B(i).currentTarget=o;}n(Hs,"setCurrentTarget");function bi(i,o){B(i).passiveListener=o;}n(bi,"setPassiveListener");const mi=new WeakMap,yi=1,gi=2,gr=3;function _r(i){return i!==null&&typeof i=="object"}n(_r,"isObject");function Pt(i){const o=mi.get(i);if(o==null)throw new TypeError("'this' is expected an EventTarget object, but got another value.");return o}n(Pt,"getListeners");function Vs(i){return {get(){let a=Pt(this).get(i);for(;a!=null;){if(a.listenerType===gr)return a.listener;a=a.next;}return null},set(o){typeof o!="function"&&!_r(o)&&(o=null);const a=Pt(this);let l=null,u=a.get(i);for(;u!=null;)u.listenerType===gr?l!==null?l.next=u.next:u.next!==null?a.set(i,u.next):a.delete(i):l=u,u=u.next;if(o!==null){const d={listener:o,listenerType:gr,passive:!1,once:!1,next:null};l===null?a.set(i,d):l.next=d;}},configurable:!0,enumerable:!0}}n(Vs,"defineEventAttributeDescriptor");function _i(i,o){Object.defineProperty(i,`on${o}`,Vs(o));}n(_i,"defineEventAttribute");function Si(i){function o(){be.call(this);}n(o,"CustomEventTarget"),o.prototype=Object.create(be.prototype,{constructor:{value:o,configurable:!0,writable:!0}});for(let a=0;a<i.length;++a)_i(o.prototype,i[a]);return o}n(Si,"defineCustomEventTarget");function be(){if(this instanceof be){mi.set(this,new Map);return}if(arguments.length===1&&Array.isArray(arguments[0]))return Si(arguments[0]);if(arguments.length>0){const i=new Array(arguments.length);for(let o=0;o<arguments.length;++o)i[o]=arguments[o];return Si(i)}throw new TypeError("Cannot call a class as a function")}n(be,"EventTarget"),be.prototype={addEventListener(i,o,a){if(o==null)return;if(typeof o!="function"&&!_r(o))throw new TypeError("'listener' should be a function or an object.");const l=Pt(this),u=_r(a),p=(u?!!a.capture:!!a)?yi:gi,m={listener:o,listenerType:p,passive:u&&!!a.passive,once:u&&!!a.once,next:null};let C=l.get(i);if(C===void 0){l.set(i,m);return}let S=null;for(;C!=null;){if(C.listener===o&&C.listenerType===p)return;S=C,C=C.next;}S.next=m;},removeEventListener(i,o,a){if(o==null)return;const l=Pt(this),d=(_r(a)?!!a.capture:!!a)?yi:gi;let p=null,m=l.get(i);for(;m!=null;){if(m.listener===o&&m.listenerType===d){p!==null?p.next=m.next:m.next!==null?l.set(i,m.next):l.delete(i);return}p=m,m=m.next;}},dispatchEvent(i){if(i==null||typeof i.type!="string")throw new TypeError('"event.type" should be a string.');const o=Pt(this),a=i.type;let l=o.get(a);if(l==null)return !0;const u=Us(this,i);let d=null;for(;l!=null;){if(l.once?d!==null?d.next=l.next:l.next!==null?o.set(a,l.next):o.delete(a):d=l,bi(u,l.passive?l.listener:null),typeof l.listener=="function")try{l.listener.call(this,u);}catch(p){typeof console<"u"&&typeof console.error=="function"&&console.error(p);}else l.listenerType!==gr&&typeof l.listener.handleEvent=="function"&&l.listener.handleEvent(u);if(Ns(u))break;l=l.next;}return bi(u,null),xs(u,0),Hs(u,null),!u.defaultPrevented}},Object.defineProperty(be.prototype,"constructor",{value:be,configurable:!0,writable:!0});const zn=class zn extends be{constructor(){throw super(),new TypeError("AbortSignal cannot be constructed directly")}get aborted(){const o=Sr.get(this);if(typeof o!="boolean")throw new TypeError(`Expected 'this' to be an 'AbortSignal' object, but got ${this===null?"null":typeof this}`);return o}};n(zn,"AbortSignal");let ft=zn;_i(ft.prototype,"abort");function Qs(){const i=Object.create(ft.prototype);return be.call(i),Sr.set(i,!1),i}n(Qs,"createAbortSignal");function Ys(i){Sr.get(i)===!1&&(Sr.set(i,!0),i.dispatchEvent({type:"abort"}));}n(Ys,"abortSignal");const Sr=new WeakMap;Object.defineProperties(ft.prototype,{aborted:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(ft.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortSignal"});let Wn=(kt=class{constructor(){wi.set(this,Qs());}get signal(){return Ri(this)}abort(){Ys(Ri(this));}},n(kt,"AbortController"),kt);const wi=new WeakMap;function Ri(i){const o=wi.get(i);if(o==null)throw new TypeError(`Expected 'this' to be an 'AbortController' object, but got ${i===null?"null":typeof i}`);return o}n(Ri,"getSignal"),Object.defineProperties(Wn.prototype,{signal:{enumerable:!0},abort:{enumerable:!0}}),typeof Symbol=="function"&&typeof Symbol.toStringTag=="symbol"&&Object.defineProperty(Wn.prototype,Symbol.toStringTag,{configurable:!0,value:"AbortController"});var Gs=Object.defineProperty,Zs=n((i,o)=>Gs(i,"name",{value:o,configurable:!0}),"e");const Ti=fi;Ci();function Ci(){!globalThis.process?.versions?.node&&!globalThis.process?.env.DISABLE_NODE_FETCH_NATIVE_WARN&&console.warn("[node-fetch-native] Node.js compatible build of `node-fetch-native` is being used in a non-Node.js environment. Please make sure you are using proper export conditions or report this issue to https://github.com/unjs/node-fetch-native. You can set `process.env.DISABLE_NODE_FETCH_NATIVE_WARN` to disable this warning.");}n(Ci,"s"),Zs(Ci,"checkNodeEnvironment");
 
 var a=Object.defineProperty;var t=(e,r)=>a(e,"name",{value:r,configurable:!0});var f=Object.defineProperty,g=t((e,r)=>f(e,"name",{value:r,configurable:!0}),"e");const o=!!globalThis.process?.env?.FORCE_NODE_FETCH;function l(){return !o&&globalThis.fetch?globalThis.fetch:Ti}t(l,"p"),g(l,"_getFetch");const s=l(),d=!o&&globalThis.Headers||le,A=!o&&globalThis.AbortController||Wn;
 
@@ -2544,10 +2612,10 @@ function createFetch$1(globalOptions = {}) {
     }
     if (typeof context.request === "string") {
       if (context.options.baseURL) {
-        context.request = withBase(context.request, context.options.baseURL);
+        context.request = withBase$1(context.request, context.options.baseURL);
       }
       if (context.options.query || context.options.params) {
-        context.request = withQuery(context.request, {
+        context.request = withQuery$1(context.request, {
           ...context.options.params,
           ...context.options.query
         });
@@ -2940,16 +3008,16 @@ function isUppercase(char = "") {
   }
   return char.toUpperCase() === char;
 }
-function splitByCase(string_, separators) {
+function splitByCase(str, separators) {
   const splitters = separators ?? STR_SPLITTERS;
   const parts = [];
-  if (!string_ || typeof string_ !== "string") {
+  if (!str || typeof str !== "string") {
     return parts;
   }
   let buff = "";
   let previousUpper;
   let previousSplitter;
-  for (const char of string_) {
+  for (const char of str) {
     const isSplitter = splitters.includes(char);
     if (isSplitter === true) {
       parts.push(buff);
@@ -2966,7 +3034,7 @@ function splitByCase(string_, separators) {
         continue;
       }
       if (previousUpper === true && isUpper === false && buff.length > 1) {
-        const lastChar = buff[buff.length - 1];
+        const lastChar = buff.at(-1);
         parts.push(buff.slice(0, Math.max(0, buff.length - 1)));
         buff = lastChar + char;
         previousUpper = isUpper;
@@ -2980,11 +3048,11 @@ function splitByCase(string_, separators) {
   parts.push(buff);
   return parts;
 }
-function kebabCase(string_, joiner) {
-  return !string_ ? "" : (Array.isArray(string_) ? string_ : splitByCase(string_)).map((p) => p.toLowerCase()).join(joiner ?? "-");
+function kebabCase(str, joiner) {
+  return str ? (Array.isArray(str) ? str : splitByCase(str)).map((p) => p.toLowerCase()).join(joiner ?? "-") : "";
 }
-function snakeCase(string_) {
-  return kebabCase(string_, "_");
+function snakeCase(str) {
+  return kebabCase(str || "", "_");
 }
 
 function klona(x) {
@@ -3068,6 +3136,54 @@ function klona(x) {
 
 	return x;
 }
+
+function isObject(value) {
+  return value !== null && typeof value === "object";
+}
+function _defu(baseObject, defaults, namespace = ".", merger) {
+  if (!isObject(defaults)) {
+    return _defu(baseObject, {}, namespace, merger);
+  }
+  const object = Object.assign({}, defaults);
+  for (const key in baseObject) {
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = baseObject[key];
+    if (value === null || value === void 0) {
+      continue;
+    }
+    if (merger && merger(object, key, value, namespace)) {
+      continue;
+    }
+    if (Array.isArray(value) && Array.isArray(object[key])) {
+      object[key] = [...value, ...object[key]];
+    } else if (isObject(value) && isObject(object[key])) {
+      object[key] = _defu(
+        value,
+        object[key],
+        (namespace ? `${namespace}.` : "") + key.toString(),
+        merger
+      );
+    } else {
+      object[key] = value;
+    }
+  }
+  return object;
+}
+function createDefu(merger) {
+  return (...arguments_) => (
+    // eslint-disable-next-line unicorn/no-array-reduce
+    arguments_.reduce((p, c) => _defu(p, c, "", merger), {})
+  );
+}
+const defu = createDefu();
+const defuFn = createDefu((object, key, currentValue) => {
+  if (typeof object[key] !== "undefined" && typeof currentValue === "function") {
+    object[key] = currentValue(object[key]);
+    return true;
+  }
+});
 
 const inlineAppConfig = {
   "nuxt": {}
@@ -3826,6 +3942,114 @@ function hash(object, options = {}) {
   return sha256base64(hashed).slice(0, 10);
 }
 
+const storageKeyProperties = [
+  "hasItem",
+  "getItem",
+  "getItemRaw",
+  "setItem",
+  "setItemRaw",
+  "removeItem",
+  "getMeta",
+  "setMeta",
+  "removeMeta",
+  "getKeys",
+  "clear",
+  "mount",
+  "unmount"
+];
+function prefixStorage(storage, base) {
+  base = normalizeBaseKey$1(base);
+  if (!base) {
+    return storage;
+  }
+  const nsStorage = { ...storage };
+  for (const property of storageKeyProperties) {
+    nsStorage[property] = (key = "", ...args) => (
+      // @ts-ignore
+      storage[property](base + key, ...args)
+    );
+  }
+  nsStorage.getKeys = (key = "", ...arguments_) => storage.getKeys(base + key, ...arguments_).then((keys) => keys.map((key2) => key2.slice(base.length)));
+  return nsStorage;
+}
+function normalizeKey$2(key) {
+  if (!key) {
+    return "";
+  }
+  return key.split("?")[0].replace(/[/\\]/g, ":").replace(/:+/g, ":").replace(/^:|:$/g, "");
+}
+function normalizeBaseKey$1(base) {
+  base = normalizeKey$2(base);
+  return base ? base + ":" : "";
+}
+
+const suspectProtoRx = /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
+const suspectConstructorRx = /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
+const JsonSigRx = /^\s*["[{]|^\s*-?\d[\d.]{0,14}\s*$/;
+function jsonParseTransform(key, value) {
+  if (key === "__proto__" || key === "constructor" && value && typeof value === "object" && "prototype" in value) {
+    warnKeyDropped(key);
+    return;
+  }
+  return value;
+}
+function warnKeyDropped(key) {
+  console.warn(`[destr] Dropping "${key}" key to prevent prototype pollution.`);
+}
+function destr(value, options = {}) {
+  if (typeof value !== "string") {
+    return value;
+  }
+  const _value = value.trim();
+  if (value[0] === '"' && value[value.length - 1] === '"') {
+    return _value.slice(1, -1);
+  }
+  if (_value.length <= 9) {
+    const _lval = _value.toLowerCase();
+    if (_lval === "true") {
+      return true;
+    }
+    if (_lval === "false") {
+      return false;
+    }
+    if (_lval === "undefined") {
+      return void 0;
+    }
+    if (_lval === "null") {
+      return null;
+    }
+    if (_lval === "nan") {
+      return Number.NaN;
+    }
+    if (_lval === "infinity") {
+      return Number.POSITIVE_INFINITY;
+    }
+    if (_lval === "-infinity") {
+      return Number.NEGATIVE_INFINITY;
+    }
+  }
+  if (!JsonSigRx.test(value)) {
+    if (options.strict) {
+      throw new SyntaxError("[destr] Invalid JSON");
+    }
+    return value;
+  }
+  try {
+    if (suspectProtoRx.test(value) || suspectConstructorRx.test(value)) {
+      if (options.strict) {
+        throw new Error("[destr] Possible prototype pollution");
+      }
+      return JSON.parse(value, jsonParseTransform);
+    }
+    return JSON.parse(value);
+  } catch (error) {
+    if (options.strict) {
+      throw error;
+    }
+    return value;
+  }
+}
+
 function wrapToPromise(value) {
   if (!value || typeof value.then !== "function") {
     return Promise.resolve(value);
@@ -3882,37 +4106,6 @@ function deserializeRaw(value) {
   }
   checkBufferSupport();
   return Buffer.from(value.slice(BASE64_PREFIX.length), "base64");
-}
-
-const storageKeyProperties = [
-  "hasItem",
-  "getItem",
-  "getItemRaw",
-  "setItem",
-  "setItemRaw",
-  "removeItem",
-  "getMeta",
-  "setMeta",
-  "removeMeta",
-  "getKeys",
-  "clear",
-  "mount",
-  "unmount"
-];
-function prefixStorage(storage, base) {
-  base = normalizeBaseKey(base);
-  if (!base) {
-    return storage;
-  }
-  const nsStorage = { ...storage };
-  for (const property of storageKeyProperties) {
-    nsStorage[property] = (key = "", ...args) => (
-      // @ts-ignore
-      storage[property](base + key, ...args)
-    );
-  }
-  nsStorage.getKeys = (key = "", ...arguments_) => storage.getKeys(base + key, ...arguments_).then((keys) => keys.map((key2) => key2.slice(base.length)));
-  return nsStorage;
 }
 function normalizeKey$1(key) {
   if (!key) {
@@ -4075,7 +4268,7 @@ function createStorage(options = {}) {
       key = normalizeKey$1(key);
       const { relativeKey, driver } = getMount(key);
       return asyncCall(driver.getItem, relativeKey, opts).then(
-        (value) => destr$1(value)
+        (value) => destr(value)
       );
     },
     getItems(items, commonOptions) {
@@ -4091,7 +4284,7 @@ function createStorage(options = {}) {
           ).then(
             (r) => r.map((item) => ({
               key: joinKeys(batch.base, item.key),
-              value: destr$1(item.value)
+              value: destr(item.value)
             }))
           );
         }
@@ -4103,7 +4296,7 @@ function createStorage(options = {}) {
               item.options
             ).then((value) => ({
               key: item.key,
-              value: destr$1(value)
+              value: destr(value)
             }));
           })
         );
@@ -4211,7 +4404,7 @@ function createStorage(options = {}) {
           driver.getItem,
           relativeKey + "$",
           opts
-        ).then((value_) => destr$1(value_));
+        ).then((value_) => destr(value_));
         if (value && typeof value === "object") {
           if (typeof value.atime === "string") {
             value.atime = new Date(value.atime);
@@ -4525,7 +4718,7 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"/Users/kurou/template/fullstack-template/@app/website/.data/kv"}));
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"/Users/kurou/project/episode/fullstack-template/@app/website/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -4634,7 +4827,7 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
         return escapeKey(customKey);
       }
       const _path = event.node.req.originalUrl || event.node.req.url || event.path;
-      const _pathname = escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
+      const _pathname = escapeKey(decodeURI(parseURL$1(_path).pathname)).slice(0, 16) || "index";
       const _hashedPath = `${_pathname}.${hash(_path)}`;
       const _headers = variableHeaderNames.map((header) => [header, event.node.req.headers[header]]).map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
       return [_hashedPath, ..._headers].join(":");
@@ -4871,7 +5064,7 @@ const _routeRulesMatcher = toRouteMatcher(
   createRouter$1({ routes: config.nitro.routeRules })
 );
 function createRouteRulesHandler(ctx) {
-  return eventHandler((event) => {
+  return eventHandler$1((event) => {
     const routeRules = getRouteRules(event);
     if (routeRules.headers) {
       setHeaders(event, routeRules.headers);
@@ -4891,10 +5084,10 @@ function createRouteRulesHandler(ctx) {
         if (strpBase) {
           targetPath = withoutBase(targetPath, strpBase);
         }
-        target = joinURL(target.slice(0, -3), targetPath);
+        target = joinURL$1(target.slice(0, -3), targetPath);
       } else if (event.path.includes("?")) {
         const query = getQuery$1(event.path);
-        target = withQuery(target, query);
+        target = withQuery$1(target, query);
       }
       return proxyRequest(event, target, {
         fetch: ctx.localFetch,
@@ -4913,20 +5106,512 @@ function getRouteRules(event) {
   return event.context._nitro.routeRules;
 }
 function getRouteRulesForPath(path) {
-  return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
+  return defu$1({}, ..._routeRulesMatcher.matchAll(path).reverse());
 }
 
 const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,m=[\"dark\",\"light\"],c=window.localStorage.getItem(\"nuxt-color-mode\")||\"system\";let n=c===\"system\"?f():c;const l=e.getAttribute(\"data-color-mode-forced\");l&&(n=l),i(n),a[\"__NUXT_COLOR_MODE__\"]={preference:c,value:n,getColorScheme:f,addColorScheme:i,removeColorScheme:d};function i(o){const t=\"\"+o+\"-mode\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function d(o){const t=\"\"+o+\"-mode\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function r(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function f(){if(a.matchMedia&&r(\"\").media!==\"not all\"){for(const o of m)if(r(\":\"+o).matches)return o}return\"light\"}})();\n";
 
-const _l9ovGlXbLN = (function(nitro) {
+const _YybSm1N4iU = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _l9ovGlXbLN
+  _YybSm1N4iU
 ];
+
+const HASH_RE = /#/g;
+const AMPERSAND_RE = /&/g;
+const SLASH_RE = /\//g;
+const EQUAL_RE = /=/g;
+const IM_RE = /\?/g;
+const PLUS_RE = /\+/g;
+const ENC_CARET_RE = /%5e/gi;
+const ENC_BACKTICK_RE = /%60/gi;
+const ENC_PIPE_RE = /%7c/gi;
+const ENC_SPACE_RE = /%20/gi;
+const ENC_ENC_SLASH_RE = /%252f/gi;
+function encode(text) {
+  return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
+}
+function encodeQueryValue(input) {
+  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^");
+}
+function encodeQueryKey(text) {
+  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
+}
+function encodePath(text) {
+  return encode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F").replace(ENC_ENC_SLASH_RE, "%2F").replace(AMPERSAND_RE, "%26").replace(PLUS_RE, "%2B");
+}
+function encodeParam(text) {
+  return encodePath(text).replace(SLASH_RE, "%2F");
+}
+function decode(text = "") {
+  try {
+    return decodeURIComponent("" + text);
+  } catch {
+    return "" + text;
+  }
+}
+function decodeQueryKey(text) {
+  return decode(text.replace(PLUS_RE, " "));
+}
+function decodeQueryValue(text) {
+  return decode(text.replace(PLUS_RE, " "));
+}
+
+function parseQuery(parametersString = "") {
+  const object = {};
+  if (parametersString[0] === "?") {
+    parametersString = parametersString.slice(1);
+  }
+  for (const parameter of parametersString.split("&")) {
+    const s = parameter.match(/([^=]+)=?(.*)/) || [];
+    if (s.length < 2) {
+      continue;
+    }
+    const key = decodeQueryKey(s[1]);
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = decodeQueryValue(s[2] || "");
+    if (object[key] === void 0) {
+      object[key] = value;
+    } else if (Array.isArray(object[key])) {
+      object[key].push(value);
+    } else {
+      object[key] = [object[key], value];
+    }
+  }
+  return object;
+}
+function encodeQueryItem(key, value) {
+  if (typeof value === "number" || typeof value === "boolean") {
+    value = String(value);
+  }
+  if (!value) {
+    return encodeQueryKey(key);
+  }
+  if (Array.isArray(value)) {
+    return value.map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`).join("&");
+  }
+  return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
+}
+function stringifyQuery(query) {
+  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
+}
+const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
+const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
+const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
+function hasProtocol(inputString, opts = {}) {
+  if (typeof opts === "boolean") {
+    opts = { acceptRelative: opts };
+  }
+  if (opts.strict) {
+    return PROTOCOL_STRICT_REGEX.test(inputString);
+  }
+  return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
+}
+const PROTOCOL_SCRIPT_RE = /^[\s\0]*(blob|data|javascript|vbscript):$/i;
+function isScriptProtocol(protocol) {
+  return !!protocol && PROTOCOL_SCRIPT_RE.test(protocol);
+}
+const TRAILING_SLASH_RE = /\/$|\/\?/;
+function hasTrailingSlash(input = "", queryParameters = false) {
+  if (!queryParameters) {
+    return input.endsWith("/");
+  }
+  return TRAILING_SLASH_RE.test(input);
+}
+function withoutTrailingSlash(input = "", queryParameters = false) {
+  if (!queryParameters) {
+    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+  }
+  if (!hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "");
+}
+function withTrailingSlash(input = "", queryParameters = false) {
+  if (!queryParameters) {
+    return input.endsWith("/") ? input : input + "/";
+  }
+  if (hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "");
+}
+function hasLeadingSlash(input = "") {
+  return input.startsWith("/");
+}
+function withLeadingSlash(input = "") {
+  return hasLeadingSlash(input) ? input : "/" + input;
+}
+function withBase(input, base) {
+  if (isEmptyURL(base) || hasProtocol(input)) {
+    return input;
+  }
+  const _base = withoutTrailingSlash(base);
+  if (input.startsWith(_base)) {
+    return input;
+  }
+  return joinURL(_base, input);
+}
+function withQuery(input, query) {
+  const parsed = parseURL(input);
+  const mergedQuery = { ...parseQuery(parsed.search), ...query };
+  parsed.search = stringifyQuery(mergedQuery);
+  return stringifyParsedURL(parsed);
+}
+function isEmptyURL(url) {
+  return !url || url === "/";
+}
+function isNonEmptyURL(url) {
+  return url && url !== "/";
+}
+const JOIN_LEADING_SLASH_RE = /^\.?\//;
+function joinURL(base, ...input) {
+  let url = base || "";
+  for (const segment of input.filter((url2) => isNonEmptyURL(url2))) {
+    if (url) {
+      const _segment = segment.replace(JOIN_LEADING_SLASH_RE, "");
+      url = withTrailingSlash(url) + _segment;
+    } else {
+      url = segment;
+    }
+  }
+  return url;
+}
+function withHttps(input) {
+  return withProtocol(input, "https://");
+}
+function withProtocol(input, protocol) {
+  const match = input.match(PROTOCOL_REGEX);
+  if (!match) {
+    return protocol + input;
+  }
+  return protocol + input.slice(match[0].length);
+}
+function isEqual(a, b, options = {}) {
+  if (!options.trailingSlash) {
+    a = withTrailingSlash(a);
+    b = withTrailingSlash(b);
+  }
+  if (!options.leadingSlash) {
+    a = withLeadingSlash(a);
+    b = withLeadingSlash(b);
+  }
+  if (!options.encoding) {
+    a = decode(a);
+    b = decode(b);
+  }
+  return a === b;
+}
+
+function parseURL(input = "", defaultProto) {
+  const _specialProtoMatch = input.match(
+    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/
+  );
+  if (_specialProtoMatch) {
+    const [, _proto, _pathname = ""] = _specialProtoMatch;
+    return {
+      protocol: _proto,
+      pathname: _pathname,
+      href: _proto + _pathname,
+      auth: "",
+      host: "",
+      search: "",
+      hash: ""
+    };
+  }
+  if (!hasProtocol(input, { acceptRelative: true })) {
+    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
+  }
+  const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
+  const [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
+  const { pathname, search, hash } = parsePath(
+    path.replace(/\/(?=[A-Za-z]:)/, "")
+  );
+  return {
+    protocol,
+    auth: auth ? auth.slice(0, Math.max(0, auth.length - 1)) : "",
+    host,
+    pathname,
+    search,
+    hash
+  };
+}
+function parsePath(input = "") {
+  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
+  return {
+    pathname,
+    search,
+    hash
+  };
+}
+function stringifyParsedURL(parsed) {
+  const pathname = parsed.pathname || "";
+  const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
+  const hash = parsed.hash || "";
+  const auth = parsed.auth ? parsed.auth + "@" : "";
+  const host = parsed.host || "";
+  const proto = parsed.protocol ? parsed.protocol + "//" : "";
+  return proto + auth + host + pathname + search + hash;
+}
+
+function hasProp(obj, prop) {
+  try {
+    return prop in obj;
+  } catch {
+    return false;
+  }
+}
+
+var __defProp$1 = Object.defineProperty;
+var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField$1 = (obj, key, value) => {
+  __defNormalProp$1(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
+class H3Error extends Error {
+  constructor(message, opts = {}) {
+    super(message, opts);
+    __publicField$1(this, "statusCode", 500);
+    __publicField$1(this, "fatal", false);
+    __publicField$1(this, "unhandled", false);
+    __publicField$1(this, "statusMessage");
+    __publicField$1(this, "data");
+    __publicField$1(this, "cause");
+    if (opts.cause && !this.cause) {
+      this.cause = opts.cause;
+    }
+  }
+  toJSON() {
+    const obj = {
+      message: this.message,
+      statusCode: sanitizeStatusCode(this.statusCode, 500)
+    };
+    if (this.statusMessage) {
+      obj.statusMessage = sanitizeStatusMessage(this.statusMessage);
+    }
+    if (this.data !== void 0) {
+      obj.data = this.data;
+    }
+    return obj;
+  }
+}
+__publicField$1(H3Error, "__h3_error__", true);
+function createError(input) {
+  if (typeof input === "string") {
+    return new H3Error(input);
+  }
+  if (isError(input)) {
+    return input;
+  }
+  const err = new H3Error(input.message ?? input.statusMessage ?? "", {
+    cause: input.cause || input
+  });
+  if (hasProp(input, "stack")) {
+    try {
+      Object.defineProperty(err, "stack", {
+        get() {
+          return input.stack;
+        }
+      });
+    } catch {
+      try {
+        err.stack = input.stack;
+      } catch {
+      }
+    }
+  }
+  if (input.data) {
+    err.data = input.data;
+  }
+  if (input.statusCode) {
+    err.statusCode = sanitizeStatusCode(input.statusCode, err.statusCode);
+  } else if (input.status) {
+    err.statusCode = sanitizeStatusCode(input.status, err.statusCode);
+  }
+  if (input.statusMessage) {
+    err.statusMessage = input.statusMessage;
+  } else if (input.statusText) {
+    err.statusMessage = input.statusText;
+  }
+  if (err.statusMessage) {
+    const originalMessage = err.statusMessage;
+    const sanitizedMessage = sanitizeStatusMessage(err.statusMessage);
+    if (sanitizedMessage !== originalMessage) {
+      console.warn(
+        "[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default."
+      );
+    }
+  }
+  if (input.fatal !== void 0) {
+    err.fatal = input.fatal;
+  }
+  if (input.unhandled !== void 0) {
+    err.unhandled = input.unhandled;
+  }
+  return err;
+}
+function isError(input) {
+  return input?.constructor?.__h3_error__ === true;
+}
+
+function getQuery(event) {
+  return getQuery$1(event.path || "");
+}
+function getRequestHeaders(event) {
+  const _headers = {};
+  for (const key in event.node.req.headers) {
+    const val = event.node.req.headers[key];
+    _headers[key] = Array.isArray(val) ? val.filter(Boolean).join(", ") : val;
+  }
+  return _headers;
+}
+
+const DISALLOWED_STATUS_CHARS = /[^\u0009\u0020-\u007E]/g;
+function sanitizeStatusMessage(statusMessage = "") {
+  return statusMessage.replace(DISALLOWED_STATUS_CHARS, "");
+}
+function sanitizeStatusCode(statusCode, defaultStatusCode = 200) {
+  if (!statusCode) {
+    return defaultStatusCode;
+  }
+  if (typeof statusCode === "string") {
+    statusCode = Number.parseInt(statusCode, 10);
+  }
+  if (statusCode < 100 || statusCode > 999) {
+    return defaultStatusCode;
+  }
+  return statusCode;
+}
+
+const defer = typeof setImmediate === "undefined" ? (fn) => fn() : setImmediate;
+function send(event, data, type) {
+  if (type) {
+    defaultContentType(event, type);
+  }
+  return new Promise((resolve) => {
+    defer(() => {
+      if (!event.handled) {
+        event.node.res.end(data);
+      }
+      resolve();
+    });
+  });
+}
+function setResponseStatus(event, code, text) {
+  if (code) {
+    event.node.res.statusCode = sanitizeStatusCode(
+      code,
+      event.node.res.statusCode
+    );
+  }
+  if (text) {
+    event.node.res.statusMessage = sanitizeStatusMessage(text);
+  }
+}
+function getResponseStatus(event) {
+  return event.node.res.statusCode;
+}
+function getResponseStatusText(event) {
+  return event.node.res.statusMessage;
+}
+function defaultContentType(event, type) {
+  if (type && !event.node.res.getHeader("content-type")) {
+    event.node.res.setHeader("content-type", type);
+  }
+}
+function setResponseHeader(event, name, value) {
+  event.node.res.setHeader(name, value);
+}
+const setHeader = setResponseHeader;
+
+function defineEventHandler(handler) {
+  if (typeof handler === "function") {
+    return Object.assign(handler, { __is_handler__: true });
+  }
+  const _hooks = {
+    onRequest: _normalizeArray(handler.onRequest),
+    onBeforeResponse: _normalizeArray(handler.onBeforeResponse)
+  };
+  const _handler = (event) => {
+    return _callHandler(event, handler.handler, _hooks);
+  };
+  return Object.assign(_handler, { __is_handler__: true });
+}
+function _normalizeArray(input) {
+  return input ? Array.isArray(input) ? input : [input] : void 0;
+}
+async function _callHandler(event, handler, hooks) {
+  if (hooks.onRequest) {
+    for (const hook of hooks.onRequest) {
+      await hook(event);
+      if (event.handled) {
+        return;
+      }
+    }
+  }
+  const body = await handler(event);
+  const response = { body };
+  if (hooks.onBeforeResponse) {
+    for (const hook of hooks.onBeforeResponse) {
+      await hook(event, response);
+    }
+  }
+  return response.body;
+}
+const eventHandler = defineEventHandler;
+function isEventHandler(input) {
+  return hasProp(input, "__is_handler__");
+}
+function toEventHandler(input, _, _route) {
+  if (!isEventHandler(input)) {
+    console.warn(
+      "[h3] Implicit event handler conversion is deprecated. Use `eventHandler()` or `fromNodeMiddleware()` to define event handlers.",
+      _route && _route !== "/" ? `
+     Route: ${_route}` : "",
+      `
+     Handler: ${input}`
+    );
+  }
+  return input;
+}
+function defineLazyEventHandler(factory) {
+  let _promise;
+  let _resolved;
+  const resolveHandler = () => {
+    if (_resolved) {
+      return Promise.resolve(_resolved);
+    }
+    if (!_promise) {
+      _promise = Promise.resolve(factory()).then((r) => {
+        const handler = r.default || r;
+        if (typeof handler !== "function") {
+          throw new TypeError(
+            "Invalid lazy handler result. It should be a function:",
+            handler
+          );
+        }
+        _resolved = toEventHandler(r.default || r);
+        return _resolved;
+      });
+    }
+    return _promise;
+  };
+  return eventHandler((event) => {
+    if (_resolved) {
+      return _resolved(event);
+    }
+    return resolveHandler().then((handler) => handler(event));
+  });
+}
+const lazyEventHandler = defineLazyEventHandler;
 
 const errorHandler = (async function errorhandler(error, event) {
   const { stack, statusCode, statusMessage, message } = normalizeError(error);
@@ -4958,7 +5643,7 @@ const errorHandler = (async function errorhandler(error, event) {
   }
   const isErrorPage = event.path.startsWith("/__nuxt_error");
   const res = !isErrorPage ? await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig().app.baseURL, "/__nuxt_error"), errorObject), {
-    headers: getRequestHeaders$1(event),
+    headers: getRequestHeaders(event),
     redirect: "manual"
   }).catch(() => null) : null;
   if (!res) {
@@ -4981,1271 +5666,1299 @@ const errorHandler = (async function errorhandler(error, event) {
 });
 
 const assets = {
+  "/.DS_Store": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"1804-kLzMKBQVxMy0ZzHyIOJlpqcT6c0\"",
+    "mtime": "2023-12-14T12:24:43.281Z",
+    "size": 6148,
+    "path": "../public/.DS_Store"
+  },
   "/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"9a06-Ws3vtlXsYOdpDbIPqfk/eTw4XnY\"",
-    "mtime": "2023-11-24T12:19:15.898Z",
+    "etag": "\"9a06-qfONJfUwt51X/GMul3uR2bZtWcM\"",
+    "mtime": "2023-12-14T12:24:47.140Z",
     "size": 39430,
     "path": "../public/_payload.json"
   },
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"3aee-cgUzn9W7X5FavcIsHXdFf5nKssM\"",
-    "mtime": "2023-11-24T12:19:10.725Z",
+    "mtime": "2023-12-14T12:24:43.282Z",
     "size": 15086,
     "path": "../public/favicon.ico"
   },
   "/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"13490-hJqEyPA6ucvOMbBnDmfOQL8WdDo\"",
-    "mtime": "2023-11-24T12:19:15.792Z",
-    "size": 78992,
+    "etag": "\"133c6-bgR2fDiWzKXae8CLbVbQEN26O+s\"",
+    "mtime": "2023-12-14T12:24:47.041Z",
+    "size": 78790,
     "path": "../public/index.html"
   },
   "/logo.png": {
     "type": "image/png",
     "etag": "\"526a-yL9PwMn7iSRMudxNq8gJhgsty7g\"",
-    "mtime": "2023-11-24T12:19:10.725Z",
+    "mtime": "2023-12-14T12:24:43.282Z",
     "size": 21098,
     "path": "../public/logo.png"
   },
   "/_nuxt/ArrowLeft.53d1e1e5.svg": {
     "type": "image/svg+xml",
     "etag": "\"c6-OQZ0aalTJsARRV8jhRMOgj+Dktc\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.634Z",
     "size": 198,
     "path": "../public/_nuxt/ArrowLeft.53d1e1e5.svg"
   },
   "/_nuxt/Barlow-100-1.7dc3bbb0.woff2": {
     "type": "font/woff2",
     "etag": "\"19fc-fji0iLurS0iL08fpVk02ZN1iDYU\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 6652,
     "path": "../public/_nuxt/Barlow-100-1.7dc3bbb0.woff2"
   },
   "/_nuxt/Barlow-100-2.b3043e04.woff2": {
     "type": "font/woff2",
     "etag": "\"32e8-PjzZ0l9EiTCremK56/R9Mlw7WfM\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 13032,
     "path": "../public/_nuxt/Barlow-100-2.b3043e04.woff2"
   },
   "/_nuxt/Barlow-100-3.f91f44c1.woff2": {
     "type": "font/woff2",
     "etag": "\"4fc8-U1X6zeGX8S/CV4OBVm8ExLXzbL8\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 20424,
     "path": "../public/_nuxt/Barlow-100-3.f91f44c1.woff2"
   },
   "/_nuxt/Barlow-300-4.ba3ed9c9.woff2": {
     "type": "font/woff2",
     "etag": "\"1a44-5Nops30WMfPLxMTr6xFn5rcufpk\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.634Z",
     "size": 6724,
     "path": "../public/_nuxt/Barlow-300-4.ba3ed9c9.woff2"
   },
   "/_nuxt/Barlow-300-5.5ad49c15.woff2": {
     "type": "font/woff2",
     "etag": "\"3344-bgn8Q7p6SsxM7Geh67zHhyYDPLw\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 13124,
     "path": "../public/_nuxt/Barlow-300-5.5ad49c15.woff2"
   },
   "/_nuxt/Barlow-300-6.6563f086.woff2": {
     "type": "font/woff2",
     "etag": "\"5200-jcKXMh9LNE5uoWtUlzSxAJdZSGA\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 20992,
     "path": "../public/_nuxt/Barlow-300-6.6563f086.woff2"
   },
   "/_nuxt/Barlow-400-7.640b08f2.woff2": {
     "type": "font/woff2",
     "etag": "\"1a60-DFdYE0Scru7BX7zT/nv6VC88kJ4\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 6752,
     "path": "../public/_nuxt/Barlow-400-7.640b08f2.woff2"
   },
   "/_nuxt/Barlow-400-8.e117aea2.woff2": {
     "type": "font/woff2",
     "etag": "\"3404-1CxVEKXmnkyhUqEIH+sKr8Enecs\"",
-    "mtime": "2023-11-24T12:19:10.500Z",
+    "mtime": "2023-12-14T12:24:42.635Z",
     "size": 13316,
     "path": "../public/_nuxt/Barlow-400-8.e117aea2.woff2"
   },
   "/_nuxt/Barlow-400-9.7c9c80a6.woff2": {
     "type": "font/woff2",
     "etag": "\"5298-cj3zZYB4z+0DyF5H8V/EOetDMb4\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 21144,
     "path": "../public/_nuxt/Barlow-400-9.7c9c80a6.woff2"
   },
   "/_nuxt/Barlow-500-10.0dacb9e9.woff2": {
     "type": "font/woff2",
     "etag": "\"1ae8-eoKg78cAw+YEqba8ldI2nW6P0Mk\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 6888,
     "path": "../public/_nuxt/Barlow-500-10.0dacb9e9.woff2"
   },
   "/_nuxt/Barlow-500-11.c2112123.woff2": {
     "type": "font/woff2",
     "etag": "\"347c-iSZEjBduMLS+B/jMPfMyHADHhgI\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 13436,
     "path": "../public/_nuxt/Barlow-500-11.c2112123.woff2"
   },
   "/_nuxt/Barlow-500-12.7c0597b1.woff2": {
     "type": "font/woff2",
     "etag": "\"51e0-qpKF3WGDxpb8OewxwiFYHi1JWcE\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 20960,
     "path": "../public/_nuxt/Barlow-500-12.7c0597b1.woff2"
   },
   "/_nuxt/Barlow-700-13.9a81498f.woff2": {
     "type": "font/woff2",
     "etag": "\"1b74-WOK/jYDASLAb8T4NMdz2c50J9BM\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 7028,
     "path": "../public/_nuxt/Barlow-700-13.9a81498f.woff2"
   },
   "/_nuxt/Barlow-700-14.68548b45.woff2": {
     "type": "font/woff2",
     "etag": "\"35d8-XlKy0ugIFPN73pOj3NK8+PNJpEM\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 13784,
     "path": "../public/_nuxt/Barlow-700-14.68548b45.woff2"
   },
   "/_nuxt/Barlow-700-15.65a47caa.woff2": {
     "type": "font/woff2",
     "etag": "\"54dc-DBgjahg+liUzpPYb/zriWBMTVho\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 21724,
     "path": "../public/_nuxt/Barlow-700-15.65a47caa.woff2"
   },
   "/_nuxt/Barlow-900-16.7dde5f05.woff2": {
     "type": "font/woff2",
     "etag": "\"1bbc-uqDLD8g8i1NDSPGy8i4i6QW7FEc\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.636Z",
     "size": 7100,
     "path": "../public/_nuxt/Barlow-900-16.7dde5f05.woff2"
   },
   "/_nuxt/Barlow-900-17.8c34ccc5.woff2": {
     "type": "font/woff2",
     "etag": "\"36d4-yBwa9DIj6fWLleei2qw3WPYAvl8\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 14036,
     "path": "../public/_nuxt/Barlow-900-17.8c34ccc5.woff2"
   },
   "/_nuxt/Barlow-900-18.f9bfb04a.woff2": {
     "type": "font/woff2",
     "etag": "\"53a8-x5YQPmyjKN1qkr/s9yzajwoUMVg\"",
-    "mtime": "2023-11-24T12:19:10.501Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 21416,
     "path": "../public/_nuxt/Barlow-900-18.f9bfb04a.woff2"
   },
-  "/_nuxt/CTA.9a3543be.css": {
+  "/_nuxt/CTA.2aef5404.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"544-JakPpZJ902Fb7np2Rg7kONtNPwE\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
-    "size": 1348,
-    "path": "../public/_nuxt/CTA.9a3543be.css"
+    "etag": "\"502-dJPkmdCckOjS+yI+ibfYd87D6AE\"",
+    "mtime": "2023-12-14T12:24:42.637Z",
+    "size": 1282,
+    "path": "../public/_nuxt/CTA.2aef5404.css"
   },
-  "/_nuxt/CTA.bbf99076.js": {
+  "/_nuxt/CTA.54615d0d.js": {
     "type": "application/javascript",
-    "etag": "\"646-y6Ek+vq1HDe7TL1EstzGWyq9Q0o\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
-    "size": 1606,
-    "path": "../public/_nuxt/CTA.bbf99076.js"
+    "etag": "\"372-FP4RkvfYLyYHtmVEWUkBknRwLjs\"",
+    "mtime": "2023-12-14T12:24:42.637Z",
+    "size": 882,
+    "path": "../public/_nuxt/CTA.54615d0d.js"
   },
   "/_nuxt/Facebook.91aed1b3.svg": {
     "type": "image/svg+xml",
     "etag": "\"fb-+CiGCtTV/T4fKr4mhd03I+Y3iRc\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 251,
     "path": "../public/_nuxt/Facebook.91aed1b3.svg"
   },
   "/_nuxt/Linkedin.ea4dc413.svg": {
     "type": "image/svg+xml",
     "etag": "\"197-UmVWhHepjezbJXAMdMjZmfX0/EE\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 407,
     "path": "../public/_nuxt/Linkedin.ea4dc413.svg"
   },
   "/_nuxt/Play.f213423b.svg": {
     "type": "image/svg+xml",
     "etag": "\"1a0-H0A8jUL2zGxhLCPXMD49afzmkG8\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 416,
     "path": "../public/_nuxt/Play.f213423b.svg"
   },
   "/_nuxt/UilMoon.165b22fd.svg": {
     "type": "image/svg+xml",
     "etag": "\"190-Kp6pftQpgPXj1TBbMz+yIzhi5I4\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 400,
     "path": "../public/_nuxt/UilMoon.165b22fd.svg"
   },
   "/_nuxt/UilSun.a1a69c67.svg": {
     "type": "image/svg+xml",
     "etag": "\"2e9-LSpPeZLW5BNTYGy/TWbxl5+FdfY\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.637Z",
     "size": 745,
     "path": "../public/_nuxt/UilSun.a1a69c67.svg"
-  },
-  "/_nuxt/_plugin-vue_export-helper.c27b6911.js": {
-    "type": "application/javascript",
-    "etag": "\"5b-eFCz/UrraTh721pgAl0VxBNR1es\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
-    "size": 91,
-    "path": "../public/_nuxt/_plugin-vue_export-helper.c27b6911.js"
   },
   "/_nuxt/_slug_.8163d1ca.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"643-dIgOgOViZsTb2ut1+wRP7SgOgNY\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
+    "mtime": "2023-12-14T12:24:42.638Z",
     "size": 1603,
     "path": "../public/_nuxt/_slug_.8163d1ca.css"
   },
-  "/_nuxt/_slug_.d6ad080c.js": {
+  "/_nuxt/_slug_.f908ecb7.js": {
     "type": "application/javascript",
-    "etag": "\"b07-XPtmKxzyhFTpmHCyop2MNDPAd/M\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
-    "size": 2823,
-    "path": "../public/_nuxt/_slug_.d6ad080c.js"
+    "etag": "\"ad2-ocYXE5Q7iXe9/sgezY6WI1wGPJM\"",
+    "mtime": "2023-12-14T12:24:42.638Z",
+    "size": 2770,
+    "path": "../public/_nuxt/_slug_.f908ecb7.js"
   },
-  "/_nuxt/about.8b4e2592.js": {
+  "/_nuxt/about.628cd7b3.js": {
     "type": "application/javascript",
-    "etag": "\"e6c-KDAnrif/xhxMBj1Nta/6s8UAtUE\"",
-    "mtime": "2023-11-24T12:19:10.502Z",
-    "size": 3692,
-    "path": "../public/_nuxt/about.8b4e2592.js"
+    "etag": "\"da9-dSnIqcXcw7hSS1Gux3Doy6KkLxA\"",
+    "mtime": "2023-12-14T12:24:42.638Z",
+    "size": 3497,
+    "path": "../public/_nuxt/about.628cd7b3.js"
   },
-  "/_nuxt/about.95eb4a30.css": {
+  "/_nuxt/about.7cf906c4.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"de5-ORvytj6eVxJpUpYB5qDAbuvc8kI\"",
-    "mtime": "2023-11-24T12:19:10.503Z",
-    "size": 3557,
-    "path": "../public/_nuxt/about.95eb4a30.css"
+    "etag": "\"eec-hk4x+ZeD//J1MGfHHGwwCfGVfrs\"",
+    "mtime": "2023-12-14T12:24:42.638Z",
+    "size": 3820,
+    "path": "../public/_nuxt/about.7cf906c4.css"
   },
-  "/_nuxt/contact.951b66c1.css": {
+  "/_nuxt/contact.807123ce.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"1110-8CnRMqJ1xLBE3jId8LRAMV5zZn4\"",
-    "mtime": "2023-11-24T12:19:10.503Z",
-    "size": 4368,
-    "path": "../public/_nuxt/contact.951b66c1.css"
+    "etag": "\"10fb-YYUtUER1vuoikoWdkTK+spD8SNA\"",
+    "mtime": "2023-12-14T12:24:42.638Z",
+    "size": 4347,
+    "path": "../public/_nuxt/contact.807123ce.css"
   },
-  "/_nuxt/contact.d46c6843.js": {
+  "/_nuxt/contact.ff7fac49.js": {
     "type": "application/javascript",
-    "etag": "\"11a4-1kweJjHhNhYF2AVuwUEJk6qA3+c\"",
-    "mtime": "2023-11-24T12:19:10.503Z",
-    "size": 4516,
-    "path": "../public/_nuxt/contact.d46c6843.js"
+    "etag": "\"1133-lCYQWQRJviTcOch+LYH28gD6drE\"",
+    "mtime": "2023-12-14T12:24:42.638Z",
+    "size": 4403,
+    "path": "../public/_nuxt/contact.ff7fac49.js"
   },
   "/_nuxt/cover.35eccfa4.jpg": {
     "type": "image/jpeg",
     "etag": "\"87c25-+JyLgj6Hp3BRFJg6QEmKRQbzwgk\"",
-    "mtime": "2023-11-24T12:19:10.506Z",
+    "mtime": "2023-12-14T12:24:42.653Z",
     "size": 556069,
     "path": "../public/_nuxt/cover.35eccfa4.jpg"
   },
   "/_nuxt/cover.9e9c3183.png": {
     "type": "image/png",
     "etag": "\"3f285c-YgBJpNGjh8/4ywWma4bh/Van5CM\"",
-    "mtime": "2023-11-24T12:19:10.523Z",
+    "mtime": "2023-12-14T12:24:42.770Z",
     "size": 4139100,
     "path": "../public/_nuxt/cover.9e9c3183.png"
   },
   "/_nuxt/cover.d5a0fd12.png": {
     "type": "image/png",
     "etag": "\"18d789-WOSGAL/sjuqT/wV9ehDg4iLCnPg\"",
-    "mtime": "2023-11-24T12:19:10.512Z",
+    "mtime": "2023-12-14T12:24:42.677Z",
     "size": 1628041,
     "path": "../public/_nuxt/cover.d5a0fd12.png"
   },
   "/_nuxt/en-US.ebea1b68.js": {
     "type": "application/javascript",
     "etag": "\"15f-X8jQc8i6sWckSFMxoezhpHrmpec\"",
-    "mtime": "2023-11-24T12:19:10.506Z",
+    "mtime": "2023-12-14T12:24:42.638Z",
     "size": 351,
     "path": "../public/_nuxt/en-US.ebea1b68.js"
   },
-  "/_nuxt/entry.4ac5acac.css": {
+  "/_nuxt/entry.667258b1.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"b437-Iu19JjGPDczf3jRZJbfE0pIKr20\"",
-    "mtime": "2023-11-24T12:19:10.503Z",
-    "size": 46135,
-    "path": "../public/_nuxt/entry.4ac5acac.css"
+    "etag": "\"b48d-yst3Sy4LER92E36zImNyFPa2V2M\"",
+    "mtime": "2023-12-14T12:24:42.640Z",
+    "size": 46221,
+    "path": "../public/_nuxt/entry.667258b1.css"
   },
-  "/_nuxt/entry.d233748b.js": {
+  "/_nuxt/entry.dc4126ce.js": {
     "type": "application/javascript",
-    "etag": "\"f0f44-kdmBvwnkw4ydinEg7OZg9Yk5BcY\"",
-    "mtime": "2023-11-24T12:19:10.509Z",
-    "size": 986948,
-    "path": "../public/_nuxt/entry.d233748b.js"
+    "etag": "\"f2e30-zjN06sArOIEmbTucd9sCVNuS0A0\"",
+    "mtime": "2023-12-14T12:24:42.665Z",
+    "size": 994864,
+    "path": "../public/_nuxt/entry.dc4126ce.js"
   },
   "/_nuxt/error-404.17db6bbf.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e2e-UpgZWIoBjA/5saTrqWlejJMf69k\"",
-    "mtime": "2023-11-24T12:19:10.507Z",
+    "mtime": "2023-12-14T12:24:42.654Z",
     "size": 3630,
     "path": "../public/_nuxt/error-404.17db6bbf.css"
   },
-  "/_nuxt/error-404.3e9e937e.js": {
+  "/_nuxt/error-404.cf26a28e.js": {
     "type": "application/javascript",
-    "etag": "\"907-SFTKy7EjgP5UDXBU1Bk+HDjcrv4\"",
-    "mtime": "2023-11-24T12:19:10.507Z",
-    "size": 2311,
-    "path": "../public/_nuxt/error-404.3e9e937e.js"
+    "etag": "\"8d2-K639CL4yMM8ZEVvCKkciil0sEQs\"",
+    "mtime": "2023-12-14T12:24:42.655Z",
+    "size": 2258,
+    "path": "../public/_nuxt/error-404.cf26a28e.js"
   },
-  "/_nuxt/error-500.eb266785.js": {
+  "/_nuxt/error-500.f0eed82a.js": {
     "type": "application/javascript",
-    "etag": "\"78b-jjl5Alq0lkzmdEXyyGdfCkgYuM0\"",
-    "mtime": "2023-11-24T12:19:10.507Z",
-    "size": 1931,
-    "path": "../public/_nuxt/error-500.eb266785.js"
+    "etag": "\"756-zewbguWO47NY3Wjuh7qx0kKKJBg\"",
+    "mtime": "2023-12-14T12:24:42.655Z",
+    "size": 1878,
+    "path": "../public/_nuxt/error-500.f0eed82a.js"
   },
   "/_nuxt/error-500.ff959f66.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"79e-eM793vr4jKNBDmEatPRfJlu2Cco\"",
-    "mtime": "2023-11-24T12:19:10.508Z",
+    "mtime": "2023-12-14T12:24:42.655Z",
     "size": 1950,
     "path": "../public/_nuxt/error-500.ff959f66.css"
   },
-  "/_nuxt/film-assist.5f143dbc.css": {
+  "/_nuxt/index.2ffefbfd.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"ea9-g7yiNwUD+J6cpZODmrSBffG1Kgs\"",
-    "mtime": "2023-11-24T12:19:10.508Z",
-    "size": 3753,
-    "path": "../public/_nuxt/film-assist.5f143dbc.css"
+    "etag": "\"11e9-eNarysMj6awaZoBO6o2GRu9wxHQ\"",
+    "mtime": "2023-12-14T12:24:42.656Z",
+    "size": 4585,
+    "path": "../public/_nuxt/index.2ffefbfd.css"
   },
-  "/_nuxt/film-assist.8db05a90.js": {
+  "/_nuxt/index.349e949f.js": {
     "type": "application/javascript",
-    "etag": "\"ac9-TCiUb8kjrDyvqLmcKZxEELBzNps\"",
-    "mtime": "2023-11-24T12:19:10.508Z",
-    "size": 2761,
-    "path": "../public/_nuxt/film-assist.8db05a90.js"
-  },
-  "/_nuxt/index.30cb3cd4.js": {
-    "type": "application/javascript",
-    "etag": "\"81f-mP5FeiPt/M0JsULZjm2W+zdS+6Q\"",
-    "mtime": "2023-11-24T12:19:10.509Z",
-    "size": 2079,
-    "path": "../public/_nuxt/index.30cb3cd4.js"
-  },
-  "/_nuxt/index.cef16d50.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"1208-TNPKioUUtIcvz9tyy9QZBldGTls\"",
-    "mtime": "2023-11-24T12:19:10.510Z",
-    "size": 4616,
-    "path": "../public/_nuxt/index.cef16d50.css"
+    "etag": "\"7ea-e+j9pbZvPxzNl2q51QaHLU5DHAU\"",
+    "mtime": "2023-12-14T12:24:42.656Z",
+    "size": 2026,
+    "path": "../public/_nuxt/index.349e949f.js"
   },
   "/_nuxt/invoice_21789232.46f4ebd5.pdf": {
     "type": "application/pdf",
     "etag": "\"37629-YGTMG1X700c9iUcAasH3H63fc7k\"",
-    "mtime": "2023-11-24T12:19:10.510Z",
+    "mtime": "2023-12-14T12:24:42.662Z",
     "size": 226857,
     "path": "../public/_nuxt/invoice_21789232.46f4ebd5.pdf"
   },
-  "/_nuxt/nuxt-link.3246d133.js": {
+  "/_nuxt/nuxt-link.304f5191.js": {
     "type": "application/javascript",
-    "etag": "\"fdb-fCxTNcdQN3ZkyXv6xsnifbbOSpA\"",
-    "mtime": "2023-11-24T12:19:10.510Z",
-    "size": 4059,
-    "path": "../public/_nuxt/nuxt-link.3246d133.js"
+    "etag": "\"fdc-UWIFR8aDJ29ihJzACAUL2RQckGo\"",
+    "mtime": "2023-12-14T12:24:42.662Z",
+    "size": 4060,
+    "path": "../public/_nuxt/nuxt-link.304f5191.js"
   },
-  "/_nuxt/useHttp.abb70f0e.js": {
-    "type": "application/javascript",
-    "etag": "\"171a0-iT7Ws02J8lIgDIb6edRJkbY7DNg\"",
-    "mtime": "2023-11-24T12:19:10.511Z",
-    "size": 94624,
-    "path": "../public/_nuxt/useHttp.abb70f0e.js"
-  },
-  "/_nuxt/useHttp.faeb29c6.css": {
+  "/_nuxt/production-service.14c4c91f.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"26f4-swi7rUoCEl4Y2ts5qf0i5CSvdcw\"",
-    "mtime": "2023-11-24T12:19:10.511Z",
-    "size": 9972,
-    "path": "../public/_nuxt/useHttp.faeb29c6.css"
+    "etag": "\"8cc-WEgKG5q6ozZJKI3JD8CkNV3x7xM\"",
+    "mtime": "2023-12-14T12:24:42.663Z",
+    "size": 2252,
+    "path": "../public/_nuxt/production-service.14c4c91f.css"
+  },
+  "/_nuxt/production-service.fc6bcd30.js": {
+    "type": "application/javascript",
+    "etag": "\"a15-r20+LBS2iu7iJsx0UHl/LSgVDu0\"",
+    "mtime": "2023-12-14T12:24:42.663Z",
+    "size": 2581,
+    "path": "../public/_nuxt/production-service.fc6bcd30.js"
+  },
+  "/_nuxt/useHttp.36fdf639.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"278d-MTtiUZ4keX0zknTHdFrCCAhbwt8\"",
+    "mtime": "2023-12-14T12:24:42.663Z",
+    "size": 10125,
+    "path": "../public/_nuxt/useHttp.36fdf639.css"
+  },
+  "/_nuxt/useHttp.62807f6e.js": {
+    "type": "application/javascript",
+    "etag": "\"1734e-AhEYmnWAMJloYHr8CH+zpicyAHE\"",
+    "mtime": "2023-12-14T12:24:42.665Z",
+    "size": 95054,
+    "path": "../public/_nuxt/useHttp.62807f6e.js"
   },
   "/_nuxt/video.a149f1ff.mp4": {
     "type": "video/mp4",
     "etag": "\"103bd31-i5cduR/wDniec8OoXxeJIMdCHGk\"",
-    "mtime": "2023-11-24T12:19:10.579Z",
+    "mtime": "2023-12-14T12:24:43.014Z",
     "size": 17022257,
     "path": "../public/_nuxt/video.a149f1ff.mp4"
   },
   "/_nuxt/video.e2c6cb22.mp4": {
     "type": "video/mp4",
     "etag": "\"11008e7-T3QzKIk5Clm5s2YiMS+ynYEwefY\"",
-    "mtime": "2023-11-24T12:19:10.611Z",
+    "mtime": "2023-12-14T12:24:43.053Z",
     "size": 17828071,
     "path": "../public/_nuxt/video.e2c6cb22.mp4"
   },
   "/_nuxt/video.fd639595.mp4": {
     "type": "video/mp4",
     "etag": "\"2a5400a-H7nZwMFov6EuowZg4sH9OZijOHA\"",
-    "mtime": "2023-11-24T12:19:10.716Z",
+    "mtime": "2023-12-14T12:24:43.276Z",
     "size": 44384266,
     "path": "../public/_nuxt/video.fd639595.mp4"
   },
   "/_nuxt/zh-Hant.15b96309.js": {
     "type": "application/javascript",
     "etag": "\"13c-fpoR/bSbCtFOUD5bleCkEydATKI\"",
-    "mtime": "2023-11-24T12:19:10.513Z",
+    "mtime": "2023-12-14T12:24:42.773Z",
     "size": 316,
     "path": "../public/_nuxt/zh-Hant.15b96309.js"
   },
-  "/contact/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"511-EWc8STIvCKGV91AwyyIxafxxg9w\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
-    "size": 1297,
-    "path": "../public/contact/_payload.json"
-  },
-  "/contact/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"112d4-FvNmRQWwTmAW1vwa2+V/tGR1+n8\"",
-    "mtime": "2023-11-24T12:19:17.207Z",
-    "size": 70356,
-    "path": "../public/contact/index.html"
-  },
   "/about/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"170d-XLU7IhWwlrUlXdXTrMMM9gudq8M\"",
-    "mtime": "2023-11-24T12:19:17.557Z",
+    "etag": "\"170d-k8BA9j9LxQQd5CAEjXqhZ8zzFS8\"",
+    "mtime": "2023-12-14T12:24:49.127Z",
     "size": 5901,
     "path": "../public/about/_payload.json"
   },
   "/about/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"119ad-SUkErWmRlKr59F9aF8NK5U2OfFY\"",
-    "mtime": "2023-11-24T12:19:17.554Z",
-    "size": 72109,
+    "etag": "\"119a1-MlYIB4YnrLVryfgXU8t7rNPxibg\"",
+    "mtime": "2023-12-14T12:24:49.080Z",
+    "size": 72097,
     "path": "../public/about/index.html"
+  },
+  "/contact/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"511-F07yDe16ajfI4O4sUyaPXLs9Etg\"",
+    "mtime": "2023-12-14T12:24:48.783Z",
+    "size": 1297,
+    "path": "../public/contact/_payload.json"
+  },
+  "/contact/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"112d3-DkSuRfyjH6lORQ0dCJgIfHBkFu0\"",
+    "mtime": "2023-12-14T12:24:47.689Z",
+    "size": 70355,
+    "path": "../public/contact/index.html"
   },
   "/css/nuxt-google-fonts.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"1905-XM1LcQD2r7OcOy6M84DUffnSdFE\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.623Z",
     "size": 6405,
     "path": "../public/css/nuxt-google-fonts.css"
   },
   "/en/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"9a06-NSwZNV7POEZ2D1wpXAc4YZ0EbAc\"",
-    "mtime": "2023-11-24T12:19:17.322Z",
+    "etag": "\"9a06-ucBm4++doCMN7Pbw0kxk2CQte+c\"",
+    "mtime": "2023-12-14T12:24:47.621Z",
     "size": 39430,
     "path": "../public/en/_payload.json"
   },
   "/en/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"13542-wvtcGx+3COYQpbenjR2cGy30C2I\"",
-    "mtime": "2023-11-24T12:19:17.207Z",
-    "size": 79170,
+    "etag": "\"13491-P9BXYPEjyernIvnaDHHAGwluXMY\"",
+    "mtime": "2023-12-14T12:24:47.510Z",
+    "size": 78993,
     "path": "../public/en/index.html"
   },
-  "/film-assist/_payload.json": {
+  "/production-service/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"1397-yl36NLny5laxK/N+6hToGQ2gg5A\"",
-    "mtime": "2023-11-24T12:19:16.334Z",
-    "size": 5015,
-    "path": "../public/film-assist/_payload.json"
+    "etag": "\"139e-reoithUHY62LHVSVy+vWORBnUeI\"",
+    "mtime": "2023-12-14T12:24:48.783Z",
+    "size": 5022,
+    "path": "../public/production-service/_payload.json"
   },
-  "/film-assist/index.html": {
+  "/production-service/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1137f-sFjnYLyad6PkM16+e6lBhI8D7BA\"",
-    "mtime": "2023-11-24T12:19:16.325Z",
-    "size": 70527,
-    "path": "../public/film-assist/index.html"
+    "etag": "\"1097e-Iwol2ggaQ1wNBG73o+StL49Pdjk\"",
+    "mtime": "2023-12-14T12:24:47.515Z",
+    "size": 67966,
+    "path": "../public/production-service/index.html"
   },
   "/fonts/Barlow-100-1.woff2": {
     "type": "font/woff2",
     "etag": "\"19fc-fji0iLurS0iL08fpVk02ZN1iDYU\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.623Z",
     "size": 6652,
     "path": "../public/fonts/Barlow-100-1.woff2"
   },
   "/fonts/Barlow-100-2.woff2": {
     "type": "font/woff2",
     "etag": "\"32e8-PjzZ0l9EiTCremK56/R9Mlw7WfM\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 13032,
     "path": "../public/fonts/Barlow-100-2.woff2"
   },
   "/fonts/Barlow-100-3.woff2": {
     "type": "font/woff2",
     "etag": "\"4fc8-U1X6zeGX8S/CV4OBVm8ExLXzbL8\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 20424,
     "path": "../public/fonts/Barlow-100-3.woff2"
   },
   "/fonts/Barlow-300-4.woff2": {
     "type": "font/woff2",
     "etag": "\"1a44-5Nops30WMfPLxMTr6xFn5rcufpk\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 6724,
     "path": "../public/fonts/Barlow-300-4.woff2"
   },
   "/fonts/Barlow-300-5.woff2": {
     "type": "font/woff2",
     "etag": "\"3344-bgn8Q7p6SsxM7Geh67zHhyYDPLw\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 13124,
     "path": "../public/fonts/Barlow-300-5.woff2"
   },
   "/fonts/Barlow-300-6.woff2": {
     "type": "font/woff2",
     "etag": "\"5200-jcKXMh9LNE5uoWtUlzSxAJdZSGA\"",
-    "mtime": "2023-11-24T12:19:10.490Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 20992,
     "path": "../public/fonts/Barlow-300-6.woff2"
   },
   "/fonts/Barlow-400-7.woff2": {
     "type": "font/woff2",
     "etag": "\"1a60-DFdYE0Scru7BX7zT/nv6VC88kJ4\"",
-    "mtime": "2023-11-24T12:19:10.488Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 6752,
     "path": "../public/fonts/Barlow-400-7.woff2"
   },
   "/fonts/Barlow-400-8.woff2": {
     "type": "font/woff2",
     "etag": "\"3404-1CxVEKXmnkyhUqEIH+sKr8Enecs\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 13316,
     "path": "../public/fonts/Barlow-400-8.woff2"
   },
   "/fonts/Barlow-400-9.woff2": {
     "type": "font/woff2",
     "etag": "\"5298-cj3zZYB4z+0DyF5H8V/EOetDMb4\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.625Z",
     "size": 21144,
     "path": "../public/fonts/Barlow-400-9.woff2"
   },
   "/fonts/Barlow-500-10.woff2": {
     "type": "font/woff2",
     "etag": "\"1ae8-eoKg78cAw+YEqba8ldI2nW6P0Mk\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.624Z",
     "size": 6888,
     "path": "../public/fonts/Barlow-500-10.woff2"
   },
   "/fonts/Barlow-500-11.woff2": {
     "type": "font/woff2",
     "etag": "\"347c-iSZEjBduMLS+B/jMPfMyHADHhgI\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.625Z",
     "size": 13436,
     "path": "../public/fonts/Barlow-500-11.woff2"
   },
   "/fonts/Barlow-500-12.woff2": {
     "type": "font/woff2",
     "etag": "\"51e0-qpKF3WGDxpb8OewxwiFYHi1JWcE\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.625Z",
     "size": 20960,
     "path": "../public/fonts/Barlow-500-12.woff2"
   },
   "/fonts/Barlow-700-13.woff2": {
     "type": "font/woff2",
     "etag": "\"1b74-WOK/jYDASLAb8T4NMdz2c50J9BM\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.625Z",
     "size": 7028,
     "path": "../public/fonts/Barlow-700-13.woff2"
   },
   "/fonts/Barlow-700-14.woff2": {
     "type": "font/woff2",
     "etag": "\"35d8-XlKy0ugIFPN73pOj3NK8+PNJpEM\"",
-    "mtime": "2023-11-24T12:19:10.489Z",
+    "mtime": "2023-12-14T12:24:42.626Z",
     "size": 13784,
     "path": "../public/fonts/Barlow-700-14.woff2"
   },
   "/fonts/Barlow-700-15.woff2": {
     "type": "font/woff2",
     "etag": "\"54dc-DBgjahg+liUzpPYb/zriWBMTVho\"",
-    "mtime": "2023-11-24T12:19:10.490Z",
+    "mtime": "2023-12-14T12:24:42.626Z",
     "size": 21724,
     "path": "../public/fonts/Barlow-700-15.woff2"
   },
   "/fonts/Barlow-900-16.woff2": {
     "type": "font/woff2",
     "etag": "\"1bbc-uqDLD8g8i1NDSPGy8i4i6QW7FEc\"",
-    "mtime": "2023-11-24T12:19:10.490Z",
+    "mtime": "2023-12-14T12:24:42.626Z",
     "size": 7100,
     "path": "../public/fonts/Barlow-900-16.woff2"
   },
   "/fonts/Barlow-900-17.woff2": {
     "type": "font/woff2",
     "etag": "\"36d4-yBwa9DIj6fWLleei2qw3WPYAvl8\"",
-    "mtime": "2023-11-24T12:19:10.490Z",
+    "mtime": "2023-12-14T12:24:42.626Z",
     "size": 14036,
     "path": "../public/fonts/Barlow-900-17.woff2"
   },
   "/fonts/Barlow-900-18.woff2": {
     "type": "font/woff2",
     "etag": "\"53a8-x5YQPmyjKN1qkr/s9yzajwoUMVg\"",
-    "mtime": "2023-11-24T12:19:10.490Z",
+    "mtime": "2023-12-14T12:24:42.626Z",
     "size": 21416,
     "path": "../public/fonts/Barlow-900-18.woff2"
+  },
+  "/webgl/.DS_Store": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"1804-3y++sUAKzaCQmjLBz2v0kvESHgc\"",
+    "mtime": "2023-12-14T12:24:43.280Z",
+    "size": 6148,
+    "path": "../public/webgl/.DS_Store"
+  },
+  "/webgl/index.html": {
+    "type": "text/html; charset=utf-8",
+    "etag": "\"290-5uFSyhpa4maKuIog61AeeRcK6wY\"",
+    "mtime": "2023-12-14T12:24:43.280Z",
+    "size": 656,
+    "path": "../public/webgl/index.html"
+  },
+  "/webgl/script.js": {
+    "type": "application/javascript",
+    "etag": "\"1d86-r+oftxkBCCqxr/hZUIANeEah9yw\"",
+    "mtime": "2023-12-14T12:24:43.280Z",
+    "size": 7558,
+    "path": "../public/webgl/script.js"
+  },
+  "/webgl/style.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"32-zcZW1iLBddWFkozQeJoE1zqef7Y\"",
+    "mtime": "2023-12-14T12:24:43.280Z",
+    "size": 50,
+    "path": "../public/webgl/style.css"
   },
   "/_ipx/w_100/logo.png": {
     "type": "image/png",
     "etag": "\"b4f-+87LKXkVDg51XqBrPUfFri5Ry0w\"",
-    "mtime": "2023-11-24T12:19:15.986Z",
+    "mtime": "2023-12-14T12:24:47.254Z",
     "size": 2895,
     "path": "../public/_ipx/w_100/logo.png"
   },
-  "/en/about/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"170d-j2zjuCFNhP38e+nW7GBwt78JCUY\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
-    "size": 5901,
-    "path": "../public/en/about/_payload.json"
-  },
-  "/en/about/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"11998-mZ33zqaBFnYZhvdPn0/v9V+5y+Q\"",
-    "mtime": "2023-11-24T12:19:17.890Z",
-    "size": 72088,
-    "path": "../public/en/about/index.html"
-  },
   "/en/contact/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"511-CH72wY40f2U3ZU+mrsFIqYmFX4A\"",
-    "mtime": "2023-11-24T12:19:17.492Z",
+    "etag": "\"511-JIPg0Jy6Ko+7/DlEOdLeupPd4Zg\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 1297,
     "path": "../public/en/contact/_payload.json"
   },
   "/en/contact/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"11301-NZZFYhRLyY5NbzuJ2TUYDhO/8qI\"",
-    "mtime": "2023-11-24T12:19:17.488Z",
-    "size": 70401,
+    "etag": "\"112f7-k264q7eSQUaxeoeU+SgSWlx3VPM\"",
+    "mtime": "2023-12-14T12:24:48.752Z",
+    "size": 70391,
     "path": "../public/en/contact/index.html"
   },
-  "/en/film-assist/_payload.json": {
+  "/en/about/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"1397-gF1qpibqSkoVL/mZ/dltlW0oQwc\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
-    "size": 5015,
-    "path": "../public/en/film-assist/_payload.json"
+    "etag": "\"170d-2OaMxymrHviioYbiFOu38dfsK0E\"",
+    "mtime": "2023-12-14T12:24:49.147Z",
+    "size": 5901,
+    "path": "../public/en/about/_payload.json"
   },
-  "/en/film-assist/index.html": {
+  "/en/about/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"11850-4iMEjYT/2/ORxpTNTyfmtdNSANA\"",
-    "mtime": "2023-11-24T12:19:17.207Z",
-    "size": 71760,
-    "path": "../public/en/film-assist/index.html"
+    "etag": "\"1198e-5US72aXleUUBgUxf+HeIYNsHbaU\"",
+    "mtime": "2023-12-14T12:24:49.125Z",
+    "size": 72078,
+    "path": "../public/en/about/index.html"
   },
-  "/project/adidas-here-to-create/_payload.json": {
+  "/en/production-service/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"55c-qmZjZg4DlXqNNsZV6KLFJu5QvQI\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
-    "size": 1372,
-    "path": "../public/project/adidas-here-to-create/_payload.json"
+    "etag": "\"139e-sAdUZHDnipk+0CNnvCcH9aXpdw0\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
+    "size": 5022,
+    "path": "../public/en/production-service/_payload.json"
   },
-  "/project/adidas-here-to-create/index.html": {
+  "/en/production-service/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10672-UXqNYHWt4sPKEWYU9e7Y6ARW6NI\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67186,
-    "path": "../public/project/adidas-here-to-create/index.html"
-  },
-  "/project/chase-bank/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"8e9-Xgb369fPi3Yvaiqhidf7h/SvnD4\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
-    "size": 2281,
-    "path": "../public/project/chase-bank/_payload.json"
-  },
-  "/project/chase-bank/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"10780-J1BcXE0Xs01APYbUMrrjo/fHYj4\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67456,
-    "path": "../public/project/chase-bank/index.html"
+    "etag": "\"10d18-dK3j6lW9dYLEI/+NWvbxBFf2A6c\"",
+    "mtime": "2023-12-14T12:24:49.056Z",
+    "size": 68888,
+    "path": "../public/en/production-service/index.html"
   },
   "/project/absolut-its-in-our-spirit/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"4e4-FHx00LhFYgQCx4pY1zwoS1KwHgk\"",
-    "mtime": "2023-11-24T12:19:17.329Z",
+    "etag": "\"4e4-+YAX+uEMNt8P1YhXT6COHSMC044\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 1252,
     "path": "../public/project/absolut-its-in-our-spirit/_payload.json"
   },
   "/project/absolut-its-in-our-spirit/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"105d8-6UpPSC7nwGdFudQecDMMSubITz0\"",
-    "mtime": "2023-11-24T12:19:17.298Z",
-    "size": 67032,
+    "etag": "\"1052c-CLmUj4RiC2ao8/7lVgkJMoouk9I\"",
+    "mtime": "2023-12-14T12:24:48.758Z",
+    "size": 66860,
     "path": "../public/project/absolut-its-in-our-spirit/index.html"
+  },
+  "/project/adidas-here-to-create/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"55c-N4UtA/wwfMZPc+SD3izUm6aOsw8\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
+    "size": 1372,
+    "path": "../public/project/adidas-here-to-create/_payload.json"
+  },
+  "/project/adidas-here-to-create/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"105c6-s4ggCX0GBBl4TS2clkTcTgkzAW8\"",
+    "mtime": "2023-12-14T12:24:48.755Z",
+    "size": 67014,
+    "path": "../public/project/adidas-here-to-create/index.html"
+  },
+  "/project/chase-bank/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"8e9-+HSg51x9hKqWGqDv7+v0Fo65LO0\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
+    "size": 2281,
+    "path": "../public/project/chase-bank/_payload.json"
+  },
+  "/project/chase-bank/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"106d4-oM6+OesxigClnvpzEUq5KuATDec\"",
+    "mtime": "2023-12-14T12:24:48.758Z",
+    "size": 67284,
+    "path": "../public/project/chase-bank/index.html"
   },
   "/project/coca-cola-chun-yue/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"49b-pfl2MVdVoZlorxrJq2Hrur8uo+c\"",
-    "mtime": "2023-11-24T12:19:17.329Z",
+    "etag": "\"49b-2iATr04WpT+cleg6imAF1SHa0ds\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 1179,
     "path": "../public/project/coca-cola-chun-yue/_payload.json"
   },
   "/project/coca-cola-chun-yue/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"105fd-k/FkrFiaAzzIzSTcmmQ5HLLb8jM\"",
-    "mtime": "2023-11-24T12:19:17.298Z",
-    "size": 67069,
+    "etag": "\"10551-D/n/3xSVy9iDbD63UXdlY5S8Gxc\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 66897,
     "path": "../public/project/coca-cola-chun-yue/index.html"
-  },
-  "/project/edwin-jerserys-2014/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"88d-7uP6sWSR5orioeO8DVb3sjStuvc\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
-    "size": 2189,
-    "path": "../public/project/edwin-jerserys-2014/_payload.json"
-  },
-  "/project/edwin-jerserys-2014/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"1085f-D7OnQmrc4wDJiVImc8qXFFKFY9k\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67679,
-    "path": "../public/project/edwin-jerserys-2014/index.html"
   },
   "/project/edwin-denimverse/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"1084-+HPFxxCmBwDrIHNq/JxBoxyi5mI\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"1084-QyE0JTOOEVh7raCvHQ4sKy/r318\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 4228,
     "path": "../public/project/edwin-denimverse/_payload.json"
   },
   "/project/edwin-denimverse/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10ac7-DmcK0+YFX00wsSHWRJN8PGE5nCc\"",
-    "mtime": "2023-11-24T12:19:17.209Z",
-    "size": 68295,
+    "etag": "\"10a1b-+tRksEdXrUJhpqLM0J4uYYdPlD4\"",
+    "mtime": "2023-12-14T12:24:48.755Z",
+    "size": 68123,
     "path": "../public/project/edwin-denimverse/index.html"
+  },
+  "/project/edwin-jerserys-2014/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"88d-ImxAc52VGw0/Kh7plIPvCtDsB64\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
+    "size": 2189,
+    "path": "../public/project/edwin-jerserys-2014/_payload.json"
+  },
+  "/project/edwin-jerserys-2014/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"107b3-okMYXmn308fDdNpLJktayRPveVQ\"",
+    "mtime": "2023-12-14T12:24:48.757Z",
+    "size": 67507,
+    "path": "../public/project/edwin-jerserys-2014/index.html"
   },
   "/project/edwin-jerseys/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8e5-AXs2J0lJpaecMlsrIX5+uXHSC0o\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8e5-U7jRXA0A64zXhM62bDRVTPrEyWs\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 2277,
     "path": "../public/project/edwin-jerseys/_payload.json"
   },
   "/project/edwin-jerseys/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"107db-1sqt/DuIPA2BjsD3YiWQbV60B40\"",
-    "mtime": "2023-11-24T12:19:17.297Z",
-    "size": 67547,
+    "etag": "\"1072f-btnuiCvJfqJNRNTeuoPDi81PDhI\"",
+    "mtime": "2023-12-14T12:24:48.757Z",
+    "size": 67375,
     "path": "../public/project/edwin-jerseys/index.html"
   },
   "/project/gatorade-every-drop-counts/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"581-ecANVp/Vi0aeQz12iBNNHd38Izg\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"581-Dod7soLlbbu2Hn4L219ERzzphfM\"",
+    "mtime": "2023-12-14T12:24:48.798Z",
     "size": 1409,
     "path": "../public/project/gatorade-every-drop-counts/_payload.json"
   },
   "/project/gatorade-every-drop-counts/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10626-2g0/fnWwunnikIaCLl7rLJ2m+ig\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67110,
+    "etag": "\"1057a-ylEiQi6EksoQGMY0AZ9OuvTSuj8\"",
+    "mtime": "2023-12-14T12:24:48.759Z",
+    "size": 66938,
     "path": "../public/project/gatorade-every-drop-counts/index.html"
   },
   "/project/glenfiddich/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8bc-wdgqRsEGGg7Wi7VzWjXtOvgdwrE\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8bc-PLiZcLMiewqY2o+5p8dHFHSegdw\"",
+    "mtime": "2023-12-14T12:24:48.798Z",
     "size": 2236,
     "path": "../public/project/glenfiddich/_payload.json"
   },
   "/project/glenfiddich/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10710-Gafx+7+4mDkjxPoIApyYj1t1nQs\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67344,
+    "etag": "\"10664-v1foLlxHHHGyPJP7reyE6XqIoF0\"",
+    "mtime": "2023-12-14T12:24:48.759Z",
+    "size": 67172,
     "path": "../public/project/glenfiddich/index.html"
   },
   "/project/maybelline/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8de-1RMlRZcRNOusoalm1mF+9x3rvd4\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8de-97RetsRgLEb8NyA3YrN71Ps8924\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 2270,
     "path": "../public/project/maybelline/_payload.json"
   },
   "/project/maybelline/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"106d8-UGLweaOs7EfrsBZIncnL9Nh+Ji8\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67288,
+    "etag": "\"1062c-jnR88Lw3ib6B4nbT7QAwviBk6nk\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67116,
     "path": "../public/project/maybelline/index.html"
   },
   "/project/mengniu-dairy/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8f1-tsId075Vhej0geVuVjVlHttRPXo\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8f1-CdyWNBsirz59a0vcIhvfVOLXLkk\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 2289,
     "path": "../public/project/mengniu-dairy/_payload.json"
   },
   "/project/mengniu-dairy/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10795-wAs8LzAgWUdR82aEgObxOsDY0Gk\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67477,
+    "etag": "\"106e9-q8C94BVctJwhoRREQiY78GhWZcw\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67305,
     "path": "../public/project/mengniu-dairy/index.html"
-  },
-  "/project/microsoft-surface-3/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"8fc-mUY1eIMf99y5mUC4JBW9w52AHcw\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
-    "size": 2300,
-    "path": "../public/project/microsoft-surface-3/_payload.json"
-  },
-  "/project/microsoft-surface-3/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"10858-j3SbAGdRDfQLuOdW+bq/eg88qO4\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67672,
-    "path": "../public/project/microsoft-surface-3/index.html"
   },
   "/project/neutrogena-weather-chamber/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"496-1hdJ3CE3w8eSbEGpsXehphN5Wqg\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"496-pYdri8jMyd1sHaiO2rTBwtasxHo\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 1174,
     "path": "../public/project/neutrogena-weather-chamber/_payload.json"
   },
   "/project/neutrogena-weather-chamber/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10596-H0azG+PKaeLpHCBbXuPtAu21k7g\"",
-    "mtime": "2023-11-24T12:19:17.298Z",
-    "size": 66966,
+    "etag": "\"104ea-h8qTXYy3O0JkP9sB7PISWoq1B/s\"",
+    "mtime": "2023-12-14T12:24:48.757Z",
+    "size": 66794,
     "path": "../public/project/neutrogena-weather-chamber/index.html"
   },
   "/project/nike-wave/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"48a-mmUreK7OS2PvuRznI0KqKShwxuk\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"48a-1DwUdhLiMzszLAVgEdbEEnHgPSA\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 1162,
     "path": "../public/project/nike-wave/_payload.json"
   },
   "/project/nike-wave/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1052b-gUaJ9LcmPlrQ6HMFohniQArBF7M\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 66859,
+    "etag": "\"1047f-EaofM5bBcXAMdRQaSmEzNSmlOro\"",
+    "mtime": "2023-12-14T12:24:48.758Z",
+    "size": 66687,
     "path": "../public/project/nike-wave/index.html"
+  },
+  "/project/microsoft-surface-3/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"8fc-1tTWZ70+Ya/ScD34/uCWeTAnWy0\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
+    "size": 2300,
+    "path": "../public/project/microsoft-surface-3/_payload.json"
+  },
+  "/project/microsoft-surface-3/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"107ac-c43CyO1CwvHfb2IJlyuu2Z+h0oo\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67500,
+    "path": "../public/project/microsoft-surface-3/index.html"
   },
   "/project/parcafe/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"556-3lIhACgCqGH32d+yBHrRr+PC5+g\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"556-3oXu3DubC6DzPtGfxtGZchoUdHQ\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 1366,
     "path": "../public/project/parcafe/_payload.json"
   },
   "/project/parcafe/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10616-2GU251quMYc1EX1ziyZBvKN/FU0\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67094,
+    "etag": "\"1056a-DEi58wVGKQj7BMrMTBJwEPO5tFk\"",
+    "mtime": "2023-12-14T12:24:48.755Z",
+    "size": 66922,
     "path": "../public/project/parcafe/index.html"
   },
   "/project/philips-rice-cooker/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8e5-6XI3AkRdhIw4O5GFh8PdR8xrUiI\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8e5-m4n+8sXeL/t+8OhffxDlsGN1DhM\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 2277,
     "path": "../public/project/philips-rice-cooker/_payload.json"
   },
   "/project/philips-rice-cooker/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1078e-nUmujRVCbDwjNrab2Z2O5nHejh4\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67470,
+    "etag": "\"106e2-jbWrNI76z55b3d8sDYQRYSIThKs\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67298,
     "path": "../public/project/philips-rice-cooker/index.html"
   },
   "/project/philips-vacuum/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"7f3-hn5X5kisiFXFbBx/5eBxPfi/tE4\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"7f3-glAe45INsEIJ10V0tNJGTvrSyDo\"",
+    "mtime": "2023-12-14T12:24:48.794Z",
     "size": 2035,
     "path": "../public/project/philips-vacuum/_payload.json"
   },
   "/project/philips-vacuum/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"106c1-DOB8WZDaAehRmEGqg6bqc0OBas4\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67265,
+    "etag": "\"10615-P44/Ln8nwmrTwNVbB/UWWZjcy/o\"",
+    "mtime": "2023-12-14T12:24:48.758Z",
+    "size": 67093,
     "path": "../public/project/philips-vacuum/index.html"
   },
   "/project/sprite-hot-city/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"7b2-F12e3wTT4ixCHaJUVBLJV8wKj6A\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"7b2-Sw4uorPFG4DClZfU23KTQVALy/0\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 1970,
     "path": "../public/project/sprite-hot-city/_payload.json"
   },
   "/project/sprite-hot-city/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1071f-x/mrqQjs4Y17smTKynkO7f0KUro\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67359,
+    "etag": "\"10673-Y1iaDhQiyHjPCh21XQWmsv8RIxo\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67187,
     "path": "../public/project/sprite-hot-city/index.html"
   },
   "/project/sprite-surfing/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"91e-a2AHDWlKxMO4FdEeiyMM8VI+8Nw\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"91e-GBmfe3yG1378JZqeuKWKfEKXMT8\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 2334,
     "path": "../public/project/sprite-surfing/_payload.json"
   },
   "/project/sprite-surfing/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10793-XrB3hxVTUxKhLLy0gTw+LLNW6wY\"",
-    "mtime": "2023-11-24T12:19:17.297Z",
-    "size": 67475,
+    "etag": "\"106e7-NYGxcsvUBpGG98zlN7PHfhQLCqA\"",
+    "mtime": "2023-12-14T12:24:48.757Z",
+    "size": 67303,
     "path": "../public/project/sprite-surfing/index.html"
   },
   "/project/sprite-water-fight/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8be-3IFr0BClx1BNKwO625iZSRytfWA\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"8be-jgr1dY+QFtwMB7RfKwcIQkiMLhk\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 2238,
     "path": "../public/project/sprite-water-fight/_payload.json"
   },
   "/project/sprite-water-fight/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"107a7-t8zQc9h9VWEQEVFkItttGabLd1Q\"",
-    "mtime": "2023-11-24T12:19:17.296Z",
-    "size": 67495,
+    "etag": "\"106fb-Qx+YH+kht/quN7YtiO3RKoeSwDQ\"",
+    "mtime": "2023-12-14T12:24:48.756Z",
+    "size": 67323,
     "path": "../public/project/sprite-water-fight/index.html"
   },
   "/project/tudor-born-to-dare/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"4cc-E6ZbP+fyb5IKu77blv0J9pq05zY\"",
-    "mtime": "2023-11-24T12:19:17.324Z",
+    "etag": "\"4cc-WNLcdqzbsnHbUnLYAyosmUC3XhQ\"",
+    "mtime": "2023-12-14T12:24:48.792Z",
     "size": 1228,
     "path": "../public/project/tudor-born-to-dare/_payload.json"
   },
   "/project/tudor-born-to-dare/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10611-Ceqcdto6Yxo0p5rPujWbojajlAE\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67089,
+    "etag": "\"10565-q0mmWbyLotvmcQLjyD10I/HLS+g\"",
+    "mtime": "2023-12-14T12:24:48.755Z",
+    "size": 66917,
     "path": "../public/project/tudor-born-to-dare/index.html"
   },
   "/project/tuniu/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"516-72iR9E5amjrzSS+V0cOqEfgpRro\"",
-    "mtime": "2023-11-24T12:19:17.325Z",
+    "etag": "\"516-gl/geNkVhHoy9WMruJgC623uNQk\"",
+    "mtime": "2023-12-14T12:24:48.793Z",
     "size": 1302,
     "path": "../public/project/tuniu/_payload.json"
   },
   "/project/tuniu/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"105ed-cB0oTWGIKgu+ZH3TXWBK8ZxlaTM\"",
-    "mtime": "2023-11-24T12:19:17.295Z",
-    "size": 67053,
+    "etag": "\"10541-8x5TC/cuxQlcpZ7nNYpaHN3GSvY\"",
+    "mtime": "2023-12-14T12:24:48.753Z",
+    "size": 66881,
     "path": "../public/project/tuniu/index.html"
   },
   "/en/project/absolut-its-in-our-spirit/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"4e4-Nub4ONw/vVn0+ufzaCyn4O3JuFU\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"4e4-aEaAN/Gr3q57GqBUpmQP2tts0NU\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
     "size": 1252,
     "path": "../public/en/project/absolut-its-in-our-spirit/_payload.json"
   },
   "/en/project/absolut-its-in-our-spirit/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"108b9-SKaO7m4kkgNunUOL05aNsYol5k8\"",
-    "mtime": "2023-11-24T12:19:17.889Z",
-    "size": 67769,
+    "etag": "\"10826-sjzWgGwHHeP1im/Xk5QA/LksyNc\"",
+    "mtime": "2023-12-14T12:24:49.056Z",
+    "size": 67622,
     "path": "../public/en/project/absolut-its-in-our-spirit/index.html"
   },
   "/en/project/adidas-here-to-create/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"55c-2GtYONRHhoY4qH9og/HWYoX4B8M\"",
-    "mtime": "2023-11-24T12:19:17.923Z",
+    "etag": "\"55c-cwW4RUUVKuf78hveyIzyiodWXns\"",
+    "mtime": "2023-12-14T12:24:49.125Z",
     "size": 1372,
     "path": "../public/en/project/adidas-here-to-create/_payload.json"
   },
   "/en/project/adidas-here-to-create/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1085d-JuNcVnu/Ftt6LR5QCXvTVhqmvNU\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67677,
+    "etag": "\"107ca-LizMlS+nqzHKOLyUDqhxeUYBMpU\"",
+    "mtime": "2023-12-14T12:24:49.057Z",
+    "size": 67530,
     "path": "../public/en/project/adidas-here-to-create/index.html"
   },
   "/en/project/chase-bank/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8e9-TTW0LOSWpgoc3V9d1TpXVXiRCCE\"",
-    "mtime": "2023-11-24T12:19:17.923Z",
+    "etag": "\"8e9-GS7G0tTsYTOxjPzo58NWajVYu4c\"",
+    "mtime": "2023-12-14T12:24:49.106Z",
     "size": 2281,
     "path": "../public/en/project/chase-bank/_payload.json"
   },
   "/en/project/chase-bank/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10841-UQLPS+0jfd5dpIgSz7++T+VrN/o\"",
-    "mtime": "2023-11-24T12:19:17.888Z",
-    "size": 67649,
+    "etag": "\"107ae-SMRX3qVaG+jpmHzY7JSDRGnw53w\"",
+    "mtime": "2023-12-14T12:24:49.050Z",
+    "size": 67502,
     "path": "../public/en/project/chase-bank/index.html"
   },
   "/en/project/coca-cola-chun-yue/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"49b-L/nUkePFWqcx1yyJ88UVN0r4+G8\"",
-    "mtime": "2023-11-24T12:19:17.917Z",
+    "etag": "\"49b-o3rzXkbkvrCdZh9N7Qfvu35vDJY\"",
+    "mtime": "2023-12-14T12:24:48.801Z",
     "size": 1179,
     "path": "../public/en/project/coca-cola-chun-yue/_payload.json"
   },
   "/en/project/coca-cola-chun-yue/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"107a7-NiD2W2V7L4WrjQC0usNfBURJM74\"",
-    "mtime": "2023-11-24T12:19:17.861Z",
-    "size": 67495,
+    "etag": "\"10714-se9OsAJEIQVEmz3acJuQhfV/b+U\"",
+    "mtime": "2023-12-14T12:24:48.797Z",
+    "size": 67348,
     "path": "../public/en/project/coca-cola-chun-yue/index.html"
   },
   "/en/project/edwin-denimverse/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"1084-aQ8+FFhjewQXpsS1SYGzlzU7NLs\"",
-    "mtime": "2023-11-24T12:19:17.920Z",
+    "etag": "\"1084-iRlbuPlaeLHbIk2RwBjVpmcMwZE\"",
+    "mtime": "2023-12-14T12:24:49.066Z",
     "size": 4228,
     "path": "../public/en/project/edwin-denimverse/_payload.json"
   },
   "/en/project/edwin-denimverse/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10c86-SGGdPiTUMFknw8TLTAygtfs/X80\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 68742,
+    "etag": "\"10bf3-bCBUSAUZRp2M0MhnwFmsRpHkbes\"",
+    "mtime": "2023-12-14T12:24:48.939Z",
+    "size": 68595,
     "path": "../public/en/project/edwin-denimverse/index.html"
   },
   "/en/project/edwin-jerserys-2014/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"88d-6muHuM7vz9Sg10nFXgyvC/loG9g\"",
-    "mtime": "2023-11-24T12:19:17.922Z",
+    "etag": "\"88d-PgOngLCcTWZ6AW/VBsPdfZl+Al4\"",
+    "mtime": "2023-12-14T12:24:49.125Z",
     "size": 2189,
     "path": "../public/en/project/edwin-jerserys-2014/_payload.json"
   },
   "/en/project/edwin-jerserys-2014/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10924-UcGbZmvYT5sFpsepoM7O7ATwSUU\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67876,
+    "etag": "\"10891-joKdBNMOyN+8S2EtZB8Ja9JLvAs\"",
+    "mtime": "2023-12-14T12:24:49.058Z",
+    "size": 67729,
     "path": "../public/en/project/edwin-jerserys-2014/index.html"
   },
   "/en/project/edwin-jerseys/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8e5-jeIa5A9c8uiLUttZzdtsrQwEgxw\"",
-    "mtime": "2023-11-24T12:19:17.923Z",
+    "etag": "\"8e5-L3ay1wjqtrbpU6kYRnd4uJKKFKI\"",
+    "mtime": "2023-12-14T12:24:49.123Z",
     "size": 2277,
     "path": "../public/en/project/edwin-jerseys/_payload.json"
   },
   "/en/project/edwin-jerseys/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"108a0-ujHQ9mXquDlSo0N/MQ2RQQT4Buk\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67744,
+    "etag": "\"1080d-dbUbxmJbfYFtpQt/2RcGY5KCjtc\"",
+    "mtime": "2023-12-14T12:24:49.051Z",
+    "size": 67597,
     "path": "../public/en/project/edwin-jerseys/index.html"
   },
   "/en/project/gatorade-every-drop-counts/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"581-UnPuOBw+sTRb3vvqTYYX71ATlxo\"",
-    "mtime": "2023-11-24T12:19:17.926Z",
+    "etag": "\"581-IpzQ5b2rfMgQJicmMdTOvm3fDY4\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
     "size": 1409,
     "path": "../public/en/project/gatorade-every-drop-counts/_payload.json"
   },
   "/en/project/gatorade-every-drop-counts/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1096d-o/Q2GdDG3WZVl4rmf7Bdy/SGehQ\"",
-    "mtime": "2023-11-24T12:19:17.885Z",
-    "size": 67949,
+    "etag": "\"108da-gpf3XvA/tsoYQYKe85autmKmD8U\"",
+    "mtime": "2023-12-14T12:24:49.057Z",
+    "size": 67802,
     "path": "../public/en/project/gatorade-every-drop-counts/index.html"
   },
   "/en/project/glenfiddich/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8bc-iqQsspi2eq2d41x/JOw++e4j2OI\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"8bc-5zTbScT0pX0F0ZooTXKXMRd/A5E\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
     "size": 2236,
     "path": "../public/en/project/glenfiddich/_payload.json"
   },
   "/en/project/glenfiddich/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1085c-1QMepRQRtb/ByO45ENaCfJDwZg8\"",
-    "mtime": "2023-11-24T12:19:17.889Z",
-    "size": 67676,
+    "etag": "\"107c9-InqHW+rf3g3+2viqGe5vMTeHRwY\"",
+    "mtime": "2023-12-14T12:24:49.056Z",
+    "size": 67529,
     "path": "../public/en/project/glenfiddich/index.html"
   },
   "/en/project/maybelline/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8de-w24julEG1L+SFNm9z1aPf2niSZI\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"8de-K/9cpd87Bwj22Tj6XWkTj1/qySg\"",
+    "mtime": "2023-12-14T12:24:49.125Z",
     "size": 2270,
     "path": "../public/en/project/maybelline/_payload.json"
   },
   "/en/project/maybelline/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10853-SbOCfvbXM8SnpIablt8M0g1fCxU\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67667,
+    "etag": "\"107c0-KC2+MNg+eGgJ5lgvPaGOYF2uF4g\"",
+    "mtime": "2023-12-14T12:24:49.056Z",
+    "size": 67520,
     "path": "../public/en/project/maybelline/index.html"
   },
   "/en/project/mengniu-dairy/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8f1-aNmt/hbntqq/rrU0MI+JPTIvj5E\"",
-    "mtime": "2023-11-24T12:19:17.926Z",
+    "etag": "\"8f1-e7B0gmcYjhqS31ZhVHd9Q2dXrIA\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
     "size": 2289,
     "path": "../public/en/project/mengniu-dairy/_payload.json"
   },
   "/en/project/mengniu-dairy/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"108aa-YKT+aVE5YoBJ8Yr2kbUvhEFrLs0\"",
-    "mtime": "2023-11-24T12:19:17.889Z",
-    "size": 67754,
+    "etag": "\"10817-TuOl41qdki+tZV+ZA8fm9jddUV4\"",
+    "mtime": "2023-12-14T12:24:49.058Z",
+    "size": 67607,
     "path": "../public/en/project/mengniu-dairy/index.html"
   },
   "/en/project/microsoft-surface-3/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8fc-E0MaZ02WQag0uXtBSAO5KzxubTk\"",
-    "mtime": "2023-11-24T12:19:17.920Z",
+    "etag": "\"8fc-iOt3+3tnv0UcV2WAvy7szP5YJ8g\"",
+    "mtime": "2023-12-14T12:24:49.123Z",
     "size": 2300,
     "path": "../public/en/project/microsoft-surface-3/_payload.json"
   },
   "/en/project/microsoft-surface-3/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10972-Y3Mjh3/XyuH4aEPNGPNbUTsY6pM\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67954,
+    "etag": "\"108df-A0QNjedEWuUPMCV7MkpMQ/7Ku2U\"",
+    "mtime": "2023-12-14T12:24:49.051Z",
+    "size": 67807,
     "path": "../public/en/project/microsoft-surface-3/index.html"
-  },
-  "/en/project/neutrogena-weather-chamber/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"496-VAThY4u0WXFbIfQbPiUWAzQlRDw\"",
-    "mtime": "2023-11-24T12:19:17.920Z",
-    "size": 1174,
-    "path": "../public/en/project/neutrogena-weather-chamber/_payload.json"
-  },
-  "/en/project/neutrogena-weather-chamber/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"108bd-MD7mKuqSzoG/INUJc5xyEzu7fII\"",
-    "mtime": "2023-11-24T12:19:17.884Z",
-    "size": 67773,
-    "path": "../public/en/project/neutrogena-weather-chamber/index.html"
   },
   "/en/project/nike-wave/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"48a-//2MWQyXpkFT5XFHmJIt7vm5fPQ\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"48a-94PeJLsbr4vpvs6q6cMnU1KS6Ss\"",
+    "mtime": "2023-12-14T12:24:49.109Z",
     "size": 1162,
     "path": "../public/en/project/nike-wave/_payload.json"
   },
   "/en/project/nike-wave/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10673-iWf55Z8zB5nPILA6kYjII9Hql7I\"",
-    "mtime": "2023-11-24T12:19:17.889Z",
-    "size": 67187,
+    "etag": "\"105e0-13NFQKOLircDrOwGx5HGwuYNJRg\"",
+    "mtime": "2023-12-14T12:24:49.047Z",
+    "size": 67040,
     "path": "../public/en/project/nike-wave/index.html"
+  },
+  "/en/project/neutrogena-weather-chamber/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"496-RYbNxPoLFk2rX5dsznSBBI1TSo0\"",
+    "mtime": "2023-12-14T12:24:49.105Z",
+    "size": 1174,
+    "path": "../public/en/project/neutrogena-weather-chamber/_payload.json"
+  },
+  "/en/project/neutrogena-weather-chamber/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"1082a-xH8XJsmbHCQOlra3OPdUJuKg+sU\"",
+    "mtime": "2023-12-14T12:24:49.047Z",
+    "size": 67626,
+    "path": "../public/en/project/neutrogena-weather-chamber/index.html"
   },
   "/en/project/parcafe/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"556-pfIb6nd/xXkBMex1n5BtmuR5/QU\"",
-    "mtime": "2023-11-24T12:19:17.677Z",
+    "etag": "\"556-IhVHKzX2Oa8HLqVyUl9e/EK5K+0\"",
+    "mtime": "2023-12-14T12:24:49.064Z",
     "size": 1366,
     "path": "../public/en/project/parcafe/_payload.json"
   },
   "/en/project/parcafe/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"105eb-99bnWt5ooXPJb0gxs2xUkGkVVOA\"",
-    "mtime": "2023-11-24T12:19:17.673Z",
-    "size": 67051,
+    "etag": "\"10558-j/cZT4y3APLn2o87WdSVrmIwWgQ\"",
+    "mtime": "2023-12-14T12:24:48.939Z",
+    "size": 66904,
     "path": "../public/en/project/parcafe/index.html"
   },
   "/en/project/philips-rice-cooker/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"8e5-Ts78bw+BOj3lTq6scSfo2sm5IQI\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"8e5-DIyP7yqFDSj1EyMoFCpSaoAbKBw\"",
+    "mtime": "2023-12-14T12:24:49.124Z",
     "size": 2277,
     "path": "../public/en/project/philips-rice-cooker/_payload.json"
   },
   "/en/project/philips-rice-cooker/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10980-eWcA7wVI7Nb8AyaWvwUH3Mle/1Y\"",
-    "mtime": "2023-11-24T12:19:17.888Z",
-    "size": 67968,
+    "etag": "\"108ed-bvyffbjrXuJaxY3AVI1WwjXSuOo\"",
+    "mtime": "2023-12-14T12:24:49.058Z",
+    "size": 67821,
     "path": "../public/en/project/philips-rice-cooker/index.html"
-  },
-  "/en/project/sprite-hot-city/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"7b2-g/rMsCXdF+DVegnrw9cOVvXW7gI\"",
-    "mtime": "2023-11-24T12:19:17.923Z",
-    "size": 1970,
-    "path": "../public/en/project/sprite-hot-city/_payload.json"
-  },
-  "/en/project/sprite-hot-city/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"1084f-nKxQ7IiUvExzmQNMl+z05hOk5H0\"",
-    "mtime": "2023-11-24T12:19:17.888Z",
-    "size": 67663,
-    "path": "../public/en/project/sprite-hot-city/index.html"
   },
   "/en/project/philips-vacuum/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"7f3-m05VRILUHZGzmUPVnKj2UipWbRk\"",
-    "mtime": "2023-11-24T12:19:17.923Z",
+    "etag": "\"7f3-lv4ftEd1/oGuILDSwMFwc243NJ0\"",
+    "mtime": "2023-12-14T12:24:49.123Z",
     "size": 2035,
     "path": "../public/en/project/philips-vacuum/_payload.json"
   },
   "/en/project/philips-vacuum/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"108d1-BlHdHFbraz15I6+T8TyFJGsSMJs\"",
-    "mtime": "2023-11-24T12:19:17.887Z",
-    "size": 67793,
+    "etag": "\"1083e-VWIR9qvlQEte8/maHPp3wMrZpik\"",
+    "mtime": "2023-12-14T12:24:49.051Z",
+    "size": 67646,
     "path": "../public/en/project/philips-vacuum/index.html"
+  },
+  "/en/project/sprite-hot-city/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"7b2-MhGqsFUG1pA7FEFyGXs5Sf8uuPY\"",
+    "mtime": "2023-12-14T12:24:49.123Z",
+    "size": 1970,
+    "path": "../public/en/project/sprite-hot-city/_payload.json"
+  },
+  "/en/project/sprite-hot-city/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"107bc-XATJtSX9Pe5T9BkR4mHX80MaUq0\"",
+    "mtime": "2023-12-14T12:24:49.051Z",
+    "size": 67516,
+    "path": "../public/en/project/sprite-hot-city/index.html"
   },
   "/en/project/sprite-surfing/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"91e-30fd7jRTDL9RXPyv/wW6m/s2HH8\"",
-    "mtime": "2023-11-24T12:19:17.925Z",
+    "etag": "\"91e-X0TKCNX0MzLQV20/DoQuOH4qCjs\"",
+    "mtime": "2023-12-14T12:24:49.123Z",
     "size": 2334,
     "path": "../public/en/project/sprite-surfing/_payload.json"
   },
   "/en/project/sprite-surfing/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"1090e-u0Dy0JCTkmANScB95BSxZEg+Q9k\"",
-    "mtime": "2023-11-24T12:19:17.888Z",
-    "size": 67854,
+    "etag": "\"1087b-8V+7XWZo+34HPBN33yaKIGVBZ/Y\"",
+    "mtime": "2023-12-14T12:24:49.051Z",
+    "size": 67707,
     "path": "../public/en/project/sprite-surfing/index.html"
-  },
-  "/en/project/sprite-water-fight/_payload.json": {
-    "type": "application/json;charset=utf-8",
-    "etag": "\"8be-hcuaOlZmDZCpuy34pR42azkO4sI\"",
-    "mtime": "2023-11-24T12:19:17.924Z",
-    "size": 2238,
-    "path": "../public/en/project/sprite-water-fight/_payload.json"
-  },
-  "/en/project/sprite-water-fight/index.html": {
-    "type": "text/html;charset=utf-8",
-    "etag": "\"1093b-fP971ZWv0aSVrWcHzWcrMLZRFag\"",
-    "mtime": "2023-11-24T12:19:17.888Z",
-    "size": 67899,
-    "path": "../public/en/project/sprite-water-fight/index.html"
   },
   "/en/project/tudor-born-to-dare/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"4cc-h1t37e131JsgR6cVelqui1l3hWc\"",
-    "mtime": "2023-11-24T12:19:17.677Z",
+    "etag": "\"4cc-JcJqZ9brqnTSYZqa97TlnRx5RvM\"",
+    "mtime": "2023-12-14T12:24:49.080Z",
     "size": 1228,
     "path": "../public/en/project/tudor-born-to-dare/_payload.json"
   },
   "/en/project/tudor-born-to-dare/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"107a0-VZr+653XLvdN/n/p3mGkncf6ydE\"",
-    "mtime": "2023-11-24T12:19:17.673Z",
-    "size": 67488,
+    "etag": "\"1070d-rtRgRHtpgwKBvzhoDx/8CmMDp+g\"",
+    "mtime": "2023-12-14T12:24:48.939Z",
+    "size": 67341,
     "path": "../public/en/project/tudor-born-to-dare/index.html"
+  },
+  "/en/project/sprite-water-fight/_payload.json": {
+    "type": "application/json;charset=utf-8",
+    "etag": "\"8be-gBO/fGxfzR2kMrYhhK0Aozf+bRQ\"",
+    "mtime": "2023-12-14T12:24:49.106Z",
+    "size": 2238,
+    "path": "../public/en/project/sprite-water-fight/_payload.json"
+  },
+  "/en/project/sprite-water-fight/index.html": {
+    "type": "text/html;charset=utf-8",
+    "etag": "\"108a8-m9Gzu552E8RkjCNP8BymgGixhao\"",
+    "mtime": "2023-12-14T12:24:49.050Z",
+    "size": 67752,
+    "path": "../public/en/project/sprite-water-fight/index.html"
   },
   "/en/project/tuniu/_payload.json": {
     "type": "application/json;charset=utf-8",
-    "etag": "\"516-WI3P1GS1vohPfK4aemTiluru6gY\"",
-    "mtime": "2023-11-24T12:19:17.646Z",
+    "etag": "\"516-E+wSroaPAjToOZew1+SstYIZGEQ\"",
+    "mtime": "2023-12-14T12:24:49.097Z",
     "size": 1302,
     "path": "../public/en/project/tuniu/_payload.json"
   },
   "/en/project/tuniu/index.html": {
     "type": "text/html;charset=utf-8",
-    "etag": "\"10592-W6+Kb+dHLND5rKhMe5kqM8NCvFc\"",
-    "mtime": "2023-11-24T12:19:17.642Z",
-    "size": 66962,
+    "etag": "\"104ff-TwwwkctSJSuZJFl3ZRONS7FojSU\"",
+    "mtime": "2023-12-14T12:24:48.940Z",
+    "size": 66815,
     "path": "../public/en/project/tuniu/index.html"
   }
 };
@@ -6375,12 +7088,12 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _f4b49z = eventHandler((event) => {
+const _f4b49z = eventHandler$1((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
   let id = decodePath(
-    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname))
+    withLeadingSlash$1(withoutTrailingSlash$1(parseURL$1(event.path).pathname))
   );
   let asset;
   const encodingHeader = String(
@@ -6391,10 +7104,10 @@ const _f4b49z = eventHandler((event) => {
     ""
   ];
   if (encodings.length > 1) {
-    setResponseHeader(event, "Vary", "Accept-Encoding");
+    setResponseHeader$1(event, "Vary", "Accept-Encoding");
   }
   for (const encoding of encodings) {
-    for (const _id of [id + encoding, joinURL(id, "index.html" + encoding)]) {
+    for (const _id of [id + encoding, joinURL$1(id, "index.html" + encoding)]) {
       const _asset = getAsset(_id);
       if (_asset) {
         asset = _asset;
@@ -6415,29 +7128,29 @@ const _f4b49z = eventHandler((event) => {
   }
   const ifNotMatch = getRequestHeader(event, "if-none-match") === asset.etag;
   if (ifNotMatch) {
-    setResponseStatus(event, 304, "Not Modified");
+    setResponseStatus$1(event, 304, "Not Modified");
     return "";
   }
   const ifModifiedSinceH = getRequestHeader(event, "if-modified-since");
   const mtimeDate = new Date(asset.mtime);
   if (ifModifiedSinceH && asset.mtime && new Date(ifModifiedSinceH) >= mtimeDate) {
-    setResponseStatus(event, 304, "Not Modified");
+    setResponseStatus$1(event, 304, "Not Modified");
     return "";
   }
   if (asset.type && !getResponseHeader(event, "Content-Type")) {
-    setResponseHeader(event, "Content-Type", asset.type);
+    setResponseHeader$1(event, "Content-Type", asset.type);
   }
   if (asset.etag && !getResponseHeader(event, "ETag")) {
-    setResponseHeader(event, "ETag", asset.etag);
+    setResponseHeader$1(event, "ETag", asset.etag);
   }
   if (asset.mtime && !getResponseHeader(event, "Last-Modified")) {
-    setResponseHeader(event, "Last-Modified", mtimeDate.toUTCString());
+    setResponseHeader$1(event, "Last-Modified", mtimeDate.toUTCString());
   }
   if (asset.encoding && !getResponseHeader(event, "Content-Encoding")) {
-    setResponseHeader(event, "Content-Encoding", asset.encoding);
+    setResponseHeader$1(event, "Content-Encoding", asset.encoding);
   }
   if (asset.size > 0 && !getResponseHeader(event, "Content-Length")) {
-    setResponseHeader(event, "Content-Length", asset.size);
+    setResponseHeader$1(event, "Content-Length", asset.size);
   }
   return readAsset(id);
 });
@@ -6500,446 +7213,6 @@ function normalizeSiteConfig(config) {
   return newConfig;
 }
 
-function decode(text = "") {
-  try {
-    return decodeURIComponent("" + text);
-  } catch {
-    return "" + text;
-  }
-}
-
-const suspectProtoRx = /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
-const suspectConstructorRx = /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
-const JsonSigRx = /^\s*["[{]|^\s*-?\d{1,16}(\.\d{1,17})?([Ee][+-]?\d+)?\s*$/;
-function jsonParseTransform(key, value) {
-  if (key === "__proto__" || key === "constructor" && value && typeof value === "object" && "prototype" in value) {
-    warnKeyDropped(key);
-    return;
-  }
-  return value;
-}
-function warnKeyDropped(key) {
-  console.warn(`[destr] Dropping "${key}" key to prevent prototype pollution.`);
-}
-function destr(value, options = {}) {
-  if (typeof value !== "string") {
-    return value;
-  }
-  const _value = value.trim();
-  if (
-    // eslint-disable-next-line unicorn/prefer-at
-    value[0] === '"' && value.at(-1) === '"' && !value.includes("\\")
-  ) {
-    return _value.slice(1, -1);
-  }
-  if (_value.length <= 9) {
-    const _lval = _value.toLowerCase();
-    if (_lval === "true") {
-      return true;
-    }
-    if (_lval === "false") {
-      return false;
-    }
-    if (_lval === "undefined") {
-      return void 0;
-    }
-    if (_lval === "null") {
-      return null;
-    }
-    if (_lval === "nan") {
-      return Number.NaN;
-    }
-    if (_lval === "infinity") {
-      return Number.POSITIVE_INFINITY;
-    }
-    if (_lval === "-infinity") {
-      return Number.NEGATIVE_INFINITY;
-    }
-  }
-  if (!JsonSigRx.test(value)) {
-    if (options.strict) {
-      throw new SyntaxError("[destr] Invalid JSON");
-    }
-    return value;
-  }
-  try {
-    if (suspectProtoRx.test(value) || suspectConstructorRx.test(value)) {
-      if (options.strict) {
-        throw new Error("[destr] Possible prototype pollution");
-      }
-      return JSON.parse(value, jsonParseTransform);
-    }
-    return JSON.parse(value);
-  } catch (error) {
-    if (options.strict) {
-      throw error;
-    }
-    return value;
-  }
-}
-
-function hasProp(obj, prop) {
-  try {
-    return prop in obj;
-  } catch {
-    return false;
-  }
-}
-
-var __defProp$1 = Object.defineProperty;
-var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField$1 = (obj, key, value) => {
-  __defNormalProp$1(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
-class H3Error extends Error {
-  constructor(message, opts = {}) {
-    super(message, opts);
-    __publicField$1(this, "statusCode", 500);
-    __publicField$1(this, "fatal", false);
-    __publicField$1(this, "unhandled", false);
-    __publicField$1(this, "statusMessage");
-    __publicField$1(this, "data");
-    __publicField$1(this, "cause");
-    if (opts.cause && !this.cause) {
-      this.cause = opts.cause;
-    }
-  }
-  toJSON() {
-    const obj = {
-      message: this.message,
-      statusCode: sanitizeStatusCode(this.statusCode, 500)
-    };
-    if (this.statusMessage) {
-      obj.statusMessage = sanitizeStatusMessage(this.statusMessage);
-    }
-    if (this.data !== void 0) {
-      obj.data = this.data;
-    }
-    return obj;
-  }
-}
-__publicField$1(H3Error, "__h3_error__", true);
-function createError(input) {
-  if (typeof input === "string") {
-    return new H3Error(input);
-  }
-  if (isError(input)) {
-    return input;
-  }
-  const err = new H3Error(input.message ?? input.statusMessage ?? "", {
-    cause: input.cause || input
-  });
-  if (hasProp(input, "stack")) {
-    try {
-      Object.defineProperty(err, "stack", {
-        get() {
-          return input.stack;
-        }
-      });
-    } catch {
-      try {
-        err.stack = input.stack;
-      } catch {
-      }
-    }
-  }
-  if (input.data) {
-    err.data = input.data;
-  }
-  if (input.statusCode) {
-    err.statusCode = sanitizeStatusCode(input.statusCode, err.statusCode);
-  } else if (input.status) {
-    err.statusCode = sanitizeStatusCode(input.status, err.statusCode);
-  }
-  if (input.statusMessage) {
-    err.statusMessage = input.statusMessage;
-  } else if (input.statusText) {
-    err.statusMessage = input.statusText;
-  }
-  if (err.statusMessage) {
-    const originalMessage = err.statusMessage;
-    const sanitizedMessage = sanitizeStatusMessage(err.statusMessage);
-    if (sanitizedMessage !== originalMessage) {
-      console.warn(
-        "[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default."
-      );
-    }
-  }
-  if (input.fatal !== void 0) {
-    err.fatal = input.fatal;
-  }
-  if (input.unhandled !== void 0) {
-    err.unhandled = input.unhandled;
-  }
-  return err;
-}
-function isError(input) {
-  return input?.constructor?.__h3_error__ === true;
-}
-function getRouterParams(event, opts = {}) {
-  let params = event.context.params || {};
-  if (opts.decode) {
-    params = { ...params };
-    for (const key in params) {
-      params[key] = decode(params[key]);
-    }
-  }
-  return params;
-}
-function isMethod(event, expected, allowHead) {
-  if (allowHead && event.method === "HEAD") {
-    return true;
-  }
-  if (typeof expected === "string") {
-    if (event.method === expected) {
-      return true;
-    }
-  } else if (expected.includes(event.method)) {
-    return true;
-  }
-  return false;
-}
-function assertMethod(event, expected, allowHead) {
-  if (!isMethod(event, expected, allowHead)) {
-    throw createError({
-      statusCode: 405,
-      statusMessage: "HTTP method is not allowed."
-    });
-  }
-}
-function getRequestHeaders(event) {
-  const _headers = {};
-  for (const key in event.node.req.headers) {
-    const val = event.node.req.headers[key];
-    _headers[key] = Array.isArray(val) ? val.filter(Boolean).join(", ") : val;
-  }
-  return _headers;
-}
-function getRequestHost(event, opts = {}) {
-  if (opts.xForwardedHost) {
-    const xForwardedHost = event.node.req.headers["x-forwarded-host"];
-    if (xForwardedHost) {
-      return xForwardedHost;
-    }
-  }
-  return event.node.req.headers.host || "localhost";
-}
-function getRequestProtocol(event, opts = {}) {
-  if (opts.xForwardedProto !== false && event.node.req.headers["x-forwarded-proto"] === "https") {
-    return "https";
-  }
-  return event.node.req.connection?.encrypted ? "https" : "http";
-}
-
-const RawBodySymbol = Symbol.for("h3RawBody");
-const ParsedBodySymbol = Symbol.for("h3ParsedBody");
-const PayloadMethods$1 = ["PATCH", "POST", "PUT", "DELETE"];
-function readRawBody(event, encoding = "utf8") {
-  assertMethod(event, PayloadMethods$1);
-  const _rawBody = event._requestBody || event.web?.request?.body || event.node.req[RawBodySymbol] || event.node.req.body;
-  if (_rawBody) {
-    const promise2 = Promise.resolve(_rawBody).then((_resolved) => {
-      if (Buffer.isBuffer(_resolved)) {
-        return _resolved;
-      }
-      if (typeof _resolved.pipeTo === "function") {
-        return new Promise((resolve, reject) => {
-          const chunks = [];
-          _resolved.pipeTo(
-            new WritableStream({
-              write(chunk) {
-                chunks.push(chunk);
-              },
-              close() {
-                resolve(Buffer.concat(chunks));
-              },
-              abort(reason) {
-                reject(reason);
-              }
-            })
-          ).catch(reject);
-        });
-      } else if (typeof _resolved.pipe === "function") {
-        return new Promise((resolve, reject) => {
-          const chunks = [];
-          _resolved.on("data", (chunk) => {
-            chunks.push(chunk);
-          }).on("end", () => {
-            resolve(Buffer.concat(chunks));
-          }).on("error", reject);
-        });
-      }
-      if (_resolved.constructor === Object) {
-        return Buffer.from(JSON.stringify(_resolved));
-      }
-      return Buffer.from(_resolved);
-    });
-    return encoding ? promise2.then((buff) => buff.toString(encoding)) : promise2;
-  }
-  if (!Number.parseInt(event.node.req.headers["content-length"] || "")) {
-    return Promise.resolve(void 0);
-  }
-  const promise = event.node.req[RawBodySymbol] = new Promise(
-    (resolve, reject) => {
-      const bodyData = [];
-      event.node.req.on("error", (err) => {
-        reject(err);
-      }).on("data", (chunk) => {
-        bodyData.push(chunk);
-      }).on("end", () => {
-        resolve(Buffer.concat(bodyData));
-      });
-    }
-  );
-  const result = encoding ? promise.then((buff) => buff.toString(encoding)) : promise;
-  return result;
-}
-async function readBody(event, options = {}) {
-  const request = event.node.req;
-  if (hasProp(request, ParsedBodySymbol)) {
-    return request[ParsedBodySymbol];
-  }
-  const contentType = request.headers["content-type"] || "";
-  const body = await readRawBody(event);
-  let parsed;
-  if (contentType === "application/json") {
-    parsed = _parseJSON(body, options.strict ?? true);
-  } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
-    parsed = _parseURLEncodedBody(body);
-  } else if (contentType.startsWith("text/")) {
-    parsed = body;
-  } else {
-    parsed = _parseJSON(body, options.strict ?? false);
-  }
-  request[ParsedBodySymbol] = parsed;
-  return parsed;
-}
-function _parseJSON(body = "", strict) {
-  if (!body) {
-    return void 0;
-  }
-  try {
-    return destr(body, { strict });
-  } catch {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Bad Request",
-      message: "Invalid JSON body"
-    });
-  }
-}
-function _parseURLEncodedBody(body) {
-  const form = new URLSearchParams(body);
-  const parsedForm = /* @__PURE__ */ Object.create(null);
-  for (const [key, value] of form.entries()) {
-    if (hasProp(parsedForm, key)) {
-      if (!Array.isArray(parsedForm[key])) {
-        parsedForm[key] = [parsedForm[key]];
-      }
-      parsedForm[key].push(value);
-    } else {
-      parsedForm[key] = value;
-    }
-  }
-  return parsedForm;
-}
-
-const DISALLOWED_STATUS_CHARS = /[^\u0009\u0020-\u007E]/g;
-function sanitizeStatusMessage(statusMessage = "") {
-  return statusMessage.replace(DISALLOWED_STATUS_CHARS, "");
-}
-function sanitizeStatusCode(statusCode, defaultStatusCode = 200) {
-  if (!statusCode) {
-    return defaultStatusCode;
-  }
-  if (typeof statusCode === "string") {
-    statusCode = Number.parseInt(statusCode, 10);
-  }
-  if (statusCode < 100 || statusCode > 999) {
-    return defaultStatusCode;
-  }
-  return statusCode;
-}
-
-typeof setImmediate === "undefined" ? (fn) => fn() : setImmediate;
-function sendStream(event, stream) {
-  if (!stream || typeof stream !== "object") {
-    throw new Error("[h3] Invalid stream provided.");
-  }
-  event.node.res._data = stream;
-  if (!event.node.res.socket) {
-    event._handled = true;
-    return Promise.resolve();
-  }
-  if (hasProp(stream, "pipeTo") && typeof stream.pipeTo === "function") {
-    return stream.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          event.node.res.write(chunk);
-        }
-      })
-    ).then(() => {
-      event.node.res.end();
-    });
-  }
-  if (hasProp(stream, "pipe") && typeof stream.pipe === "function") {
-    return new Promise((resolve, reject) => {
-      stream.pipe(event.node.res);
-      if (stream.on) {
-        stream.on("end", () => {
-          event.node.res.end();
-          resolve();
-        });
-        stream.on("error", (error) => {
-          reject(error);
-        });
-      }
-      event.node.res.on("close", () => {
-        if (stream.abort) {
-          stream.abort();
-        }
-      });
-    });
-  }
-  throw new Error("[h3] Invalid or incompatible stream provided.");
-}
-
-function defineEventHandler(handler) {
-  if (typeof handler === "function") {
-    return Object.assign(handler, { __is_handler__: true });
-  }
-  const _hooks = {
-    onRequest: _normalizeArray(handler.onRequest),
-    onBeforeResponse: _normalizeArray(handler.onBeforeResponse)
-  };
-  const _handler = (event) => {
-    return _callHandler(event, handler.handler, _hooks);
-  };
-  return Object.assign(_handler, { __is_handler__: true });
-}
-function _normalizeArray(input) {
-  return input ? Array.isArray(input) ? input : [input] : void 0;
-}
-async function _callHandler(event, handler, hooks) {
-  if (hooks.onRequest) {
-    for (const hook of hooks.onRequest) {
-      await hook(event);
-      if (event.handled) {
-        return;
-      }
-    }
-  }
-  const body = await handler(event);
-  const response = { body };
-  if (hooks.onBeforeResponse) {
-    for (const hook of hooks.onBeforeResponse) {
-      await hook(event, response);
-    }
-  }
-  return response.body;
-}
-
 function useNitroOrigin(e) {
   const cert = process.env.NITRO_SSL_CERT;
   const key = process.env.NITRO_SSL_KEY;
@@ -6958,7 +7231,7 @@ function useNitroOrigin(e) {
   return `${protocol}://${host}${port}/`;
 }
 
-const _OsqJB6 = defineEventHandler((e) => {
+const _EwjMO8 = defineEventHandler$1((e) => {
   const config = useRuntimeConfig()["nuxt-site-config"];
   const siteConfig = e.context.siteConfig || createSiteConfigStack({
     // @ts-expect-error untyped
@@ -6997,7 +7270,7 @@ const robots = {
   "Disallow": ""
 };
 
-const _w9sQMg = defineEventHandler$1(async (event) => {
+const _NvU57q = defineEventHandler(async (event) => {
   setHeader(event, "Content-Type", "text/plain");
   return render(await getRules(robots, event.req));
 });
@@ -7069,7 +7342,7 @@ async function getRules(options, req) {
   return rules;
 }
 
-const _lexGqE = lazyEventHandler(() => {
+const _alPPwx = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx;
   const ipxOptions = {
     ...opts || {},
@@ -7084,25 +7357,25 @@ const _lexGqE = lazyEventHandler(() => {
   });
 });
 
-const _lazy_C6N16E = () => import('../info.post.mjs');
-const _lazy_y1xJq7 = () => import('../info.post2.mjs');
-const _lazy_jiQDkk = () => import('../info.post3.mjs');
-const _lazy_bZCjrb = () => import('../list.post.mjs');
-const _lazy_JjIOjG = () => import('../_file_.mjs');
-const _lazy_FzHKfc = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_orlIdt = () => import('../info.post.mjs');
+const _lazy_G3nUt8 = () => import('../info.post2.mjs');
+const _lazy_Yqencz = () => import('../info.post3.mjs');
+const _lazy_ZQKh0e = () => import('../list.post.mjs');
+const _lazy_EasYT4 = () => import('../_file_.mjs');
+const _lazy_7hC4gi = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
-  { route: '/api/member/info', handler: _lazy_C6N16E, lazy: true, middleware: false, method: "post" },
-  { route: '/api/page/info', handler: _lazy_y1xJq7, lazy: true, middleware: false, method: "post" },
-  { route: '/api/project/info', handler: _lazy_jiQDkk, lazy: true, middleware: false, method: "post" },
-  { route: '/api/project/list', handler: _lazy_bZCjrb, lazy: true, middleware: false, method: "post" },
-  { route: '/public/uploads/:date/:file', handler: _lazy_JjIOjG, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_FzHKfc, lazy: true, middleware: false, method: undefined },
-  { route: '', handler: _OsqJB6, lazy: false, middleware: true, method: undefined },
-  { route: '/robots.txt', handler: _w9sQMg, lazy: false, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _lexGqE, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_FzHKfc, lazy: true, middleware: false, method: undefined }
+  { route: '/api/member/info', handler: _lazy_orlIdt, lazy: true, middleware: false, method: "post" },
+  { route: '/api/page/info', handler: _lazy_G3nUt8, lazy: true, middleware: false, method: "post" },
+  { route: '/api/project/info', handler: _lazy_Yqencz, lazy: true, middleware: false, method: "post" },
+  { route: '/api/project/list', handler: _lazy_ZQKh0e, lazy: true, middleware: false, method: "post" },
+  { route: '/public/uploads/:date/:file', handler: _lazy_EasYT4, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_7hC4gi, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _EwjMO8, lazy: false, middleware: true, method: undefined },
+  { route: '/robots.txt', handler: _NvU57q, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _alPPwx, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_7hC4gi, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -7162,7 +7435,7 @@ function createNitroApp() {
   globalThis.$fetch = $fetch;
   h3App.use(createRouteRulesHandler({ localFetch }));
   h3App.use(
-    eventHandler((event) => {
+    eventHandler$1((event) => {
       event.context.nitro = event.context.nitro || { errors: [] };
       const envContext = event.node.req?.__unenv__;
       if (envContext) {
@@ -7187,7 +7460,7 @@ function createNitroApp() {
     })
   );
   for (const h of handlers) {
-    let handler = h.lazy ? lazyEventHandler(h.handler) : h.handler;
+    let handler = h.lazy ? lazyEventHandler$1(h.handler) : h.handler;
     if (h.middleware || !h.route) {
       const middlewareBase = (config.app.baseURL + (h.route || "/")).replace(
         /\/+/g,
@@ -7478,5 +7751,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { $fetch as $, defu as A, encodeParam as B, createHooks as C, encodePath as D, isEqual as E, getRequestHeaders as F, withHttps as G, hasTrailingSlash as H, withTrailingSlash as I, withoutTrailingSlash as J, withBase as K, hash as L, parseQuery as M, nodeServer as N, defineEventHandler as a, setResponseHeader as b, send as c, dr as d, eventHandler as e, getResponseStatus as f, getRouterParams as g, setResponseStatus as h, setResponseHeaders as i, useNitroApp as j, joinURL as k, getQuery as l, createError$2 as m, getRouteRules as n, getResponseStatusText as o, withQuery as p, hasProtocol as q, readBody as r, sendStream as s, parseURL as t, useRuntimeConfig as u, isScriptProtocol as v, wn as w, createError as x, sanitizeStatusCode as y, withLeadingSlash as z };
+export { $fetch as $, createError$2 as A, sanitizeStatusCode$1 as B, withLeadingSlash as C, defu as D, encodeParam as E, createHooks as F, encodePath as G, isEqual as H, getRequestHeaders$1 as I, withHttps as J, hasTrailingSlash as K, withTrailingSlash as L, withoutTrailingSlash as M, withBase as N, hash as O, parseQuery as P, nodeServer as Q, defineEventHandler$1 as a, setResponseHeader$1 as b, send$1 as c, dr$1 as d, eventHandler$1 as e, getResponseStatus$1 as f, getRouterParams as g, setResponseStatus$1 as h, setResponseHeaders as i, useNitroApp as j, joinURL as k, getQuery as l, createError as m, getRouteRules as n, getResponseStatus as o, getResponseStatusText as p, dr as q, readBody as r, sendStream as s, wn as t, useRuntimeConfig as u, withQuery as v, wn$1 as w, hasProtocol as x, parseURL as y, isScriptProtocol as z };
 //# sourceMappingURL=node-server.mjs.map
