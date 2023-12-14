@@ -95,31 +95,31 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a, _b, _c, _d, _e, _f, _g, _h;
       const _component_Header = __nuxt_component_0;
       const _component_Footer = __nuxt_component_3;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "contact" }, _attrs))} data-v-205fc697>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "contact" }, _attrs))} data-v-43a102aa>`);
       _push(ssrRenderComponent(_component_Header, { class: "header" }, null, _parent));
-      _push(`<main data-v-205fc697><div class="page-content" data-v-205fc697><div class="body" data-v-205fc697><div class="contact-form" data-v-205fc697><div class="subtitle" data-v-205fc697><!--[-->`);
+      _push(`<main data-v-43a102aa><div class="page-content" data-v-43a102aa><div class="body" data-v-43a102aa><div class="contact-form" data-v-43a102aa><div class="subtitle" data-v-43a102aa><!--[-->`);
       ssrRenderList("SAY HI TO OUR TEAM".split(" "), (s, index) => {
-        _push(`<span data-v-205fc697>${ssrInterpolate(s)}</span>`);
+        _push(`<span data-v-43a102aa>${ssrInterpolate(s)}</span>`);
       });
-      _push(`<!--]--></div><h1 class="title" data-v-205fc697><!--[-->`);
+      _push(`<!--]--></div><h1 class="title" data-v-43a102aa><!--[-->`);
       ssrRenderList("CONTACT US".split(""), (char, index) => {
-        _push(`<span data-v-205fc697>${ssrInterpolate(char)}</span>`);
+        _push(`<span data-v-43a102aa>${ssrInterpolate(char)}</span>`);
       });
-      _push(`<!--]--></h1><form data-v-205fc697><!--[-->`);
+      _push(`<!--]--></h1><form data-v-43a102aa><!--[-->`);
       ssrRenderList(unref(formGroups), (group, index) => {
-        _push(`<div class="${ssrRenderClass([{ active: unref(form)[group.key] }, "form-group"])}" data-v-205fc697>`);
+        _push(`<div class="${ssrRenderClass([{ active: unref(form)[group.key] }, "form-group"])}" data-v-43a102aa>`);
         if (group.type == "input") {
-          _push(`<input type="text"${ssrRenderAttr("id", group.key)}${ssrRenderAttr("value", unref(form)[group.key])} data-v-205fc697>`);
+          _push(`<input type="text"${ssrRenderAttr("id", group.key)}${ssrRenderAttr("value", unref(form)[group.key])} data-v-43a102aa>`);
         } else {
-          _push(`<textarea${ssrRenderAttr("id", group.key)} data-v-205fc697>${ssrInterpolate(unref(form)[group.key])}</textarea>`);
+          _push(`<textarea${ssrRenderAttr("id", group.key)} data-v-43a102aa>${ssrInterpolate(unref(form)[group.key])}</textarea>`);
         }
-        _push(`<label${ssrRenderAttr("for", group.key)} data-v-205fc697>${ssrInterpolate(unref(pageText).form[group.key][unref(locale)])}</label></div>`);
+        _push(`<label${ssrRenderAttr("for", group.key)} data-v-43a102aa>${ssrInterpolate(unref(pageText).form[group.key][unref(locale)])}</label></div>`);
       });
-      _push(`<!--]--><button type="submit" data-v-205fc697>${ssrInterpolate(unref(pageText).form.submit[unref(locale)])}</button></form><div class="social-links" data-v-205fc697><!--[-->`);
+      _push(`<!--]--><button type="submit" data-v-43a102aa>${ssrInterpolate(unref(pageText).form.submit[unref(locale)])}</button></form><div class="social-links" data-v-43a102aa><!--[-->`);
       ssrRenderList(unref(socialItems), (item, index) => {
-        _push(`<a${ssrRenderAttr("href", item.href)} target="_blank" data-v-205fc697><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))(item.icon))} data-v-205fc697></a>`);
+        _push(`<a${ssrRenderAttr("href", item.href)} target="_blank" data-v-43a102aa><img${ssrRenderAttr("src", ("useAssets" in _ctx ? _ctx.useAssets : unref(useAssets))(item.icon))} data-v-43a102aa></a>`);
       });
-      _push(`<!--]--></div></div><div class="contact-information" data-v-205fc697><div class="information-item" data-v-205fc697><div class="subtitle" data-v-205fc697>${ssrInterpolate(unref(pageText).text.getInTouch[unref(locale)])}</div><div class="content" data-v-205fc697>${(_b = (_a = unref(page)) == null ? void 0 : _a[unref(locale)]) == null ? void 0 : _b.metaData.email}</div></div><div class="information-item" data-v-205fc697><div class="subtitle" data-v-205fc697>${ssrInterpolate(unref(pageText).text.address[unref(locale)])}</div><div class="content" data-v-205fc697>${(_d = (_c = unref(page)) == null ? void 0 : _c[unref(locale)]) == null ? void 0 : _d.metaData.address}</div></div><div class="information-item" data-v-205fc697><div class="subtitle" data-v-205fc697>${ssrInterpolate(unref(pageText).text.phone[unref(locale)])}</div><div class="content" data-v-205fc697>${(_f = (_e = unref(page)) == null ? void 0 : _e[unref(locale)]) == null ? void 0 : _f.metaData.phone}</div></div><div class="information-item" data-v-205fc697><div class="subtitle" data-v-205fc697>${ssrInterpolate(unref(pageText).text.fax[unref(locale)])}</div><div class="content" data-v-205fc697>${(_h = (_g = unref(page)) == null ? void 0 : _g[unref(locale)]) == null ? void 0 : _h.metaData.fax}</div></div></div></div></div><div class="footer-container" data-v-205fc697>`);
+      _push(`<!--]--></div></div><div class="contact-information" data-v-43a102aa><div class="information-item" data-v-43a102aa><div class="subtitle" data-v-43a102aa>${ssrInterpolate(unref(pageText).text.getInTouch[unref(locale)])}</div><div class="content" data-v-43a102aa>${(_b = (_a = unref(page)) == null ? void 0 : _a[unref(locale)]) == null ? void 0 : _b.metaData.email}</div></div><div class="information-item" data-v-43a102aa><div class="subtitle" data-v-43a102aa>${ssrInterpolate(unref(pageText).text.address[unref(locale)])}</div><div class="content" data-v-43a102aa>${(_d = (_c = unref(page)) == null ? void 0 : _c[unref(locale)]) == null ? void 0 : _d.metaData.address}</div></div><div class="information-item" data-v-43a102aa><div class="subtitle" data-v-43a102aa>${ssrInterpolate(unref(pageText).text.phone[unref(locale)])}</div><div class="content" data-v-43a102aa>${(_f = (_e = unref(page)) == null ? void 0 : _e[unref(locale)]) == null ? void 0 : _f.metaData.phone}</div></div><div class="information-item" data-v-43a102aa><div class="subtitle" data-v-43a102aa>${ssrInterpolate(unref(pageText).text.fax[unref(locale)])}</div><div class="content" data-v-43a102aa>${(_h = (_g = unref(page)) == null ? void 0 : _g[unref(locale)]) == null ? void 0 : _h.metaData.fax}</div></div></div></div></div><div class="footer-container" data-v-43a102aa>`);
       _push(ssrRenderComponent(_component_Footer, { class: "footer" }, null, _parent));
       _push(`</div></main></div>`);
     };
@@ -131,7 +131,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/contact.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const contact = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-205fc697"]]);
+const contact = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-43a102aa"]]);
 
 export { contact as default };
-//# sourceMappingURL=contact-09cda1ce.mjs.map
+//# sourceMappingURL=contact-3707cca9.mjs.map
