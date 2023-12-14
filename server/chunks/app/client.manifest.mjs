@@ -342,14 +342,14 @@ const client_manifest = {
     "prefetch": true,
     "mimeType": "image/svg+xml",
     "file": "ArrowLeft.53d1e1e5.svg",
-    "src": "assets/icons/ArrowLeft.svg"
+    "src": "assets/icons/ArrowRight.svg"
   },
   "assets/icons/ArrowRight.svg": {
     "resourceType": "image",
     "prefetch": true,
     "mimeType": "image/svg+xml",
     "file": "ArrowLeft.53d1e1e5.svg",
-    "src": "assets/icons/ArrowLeft.svg"
+    "src": "assets/icons/ArrowRight.svg"
   },
   "assets/icons/Facebook.svg": {
     "resourceType": "image",
